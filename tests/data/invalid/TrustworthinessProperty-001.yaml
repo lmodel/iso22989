@@ -1,0 +1,16 @@
+# Counter-example: custom-type range violation.
+# `confidence_score` has range ConfidenceScore (float in [0.0, 1.0]); 1.5 exceeds the maximum.
+id: iso22989:tw-fraud-fairness
+name: Fairness Property for Fraud Classifier
+description: >-
+  Trustworthiness claim whose confidence_score exceeds the ConfidenceScore upper bound of 1.0.
+trustworthiness_property_type: fairness
+property_evidence:
+  - "Post-deployment monitoring report 2026-Q2: demographic-parity difference below 0.04."
+measurement_method: >-
+  Demographic parity and equal-opportunity-difference metrics measured monthly on production traffic.
+applicable_biases:
+  - data_bias
+  - cognitive_bias
+confidence_score: 1.5
+clause_reference: "5.15"

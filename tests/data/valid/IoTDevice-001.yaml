@@ -1,0 +1,9 @@
+# Exercises required device_role (enum) and multivalued capability slots.
+id: iso22989:iot-edge-camera-07
+name: Edge Inspection Camera 07
+description: Edge camera performing on-device defect detection.
+device_role: sensor
+sensing_capabilities:
+  - rgb_imaging
+  - infrared_imaging
+clause_reference: "5.14"

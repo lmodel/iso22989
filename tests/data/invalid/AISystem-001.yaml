@@ -1,0 +1,12 @@
+# Counter-example: invalid enum value.
+# `ai_system_type: super_intelligent_ai` is not a permissible value of the
+# AISystemType enum (allowed: narrow_ai, general_ai, weak_ai, strong_ai).
+id: iso22989:aisys-fraud-classifier
+name: Real-time Card Fraud Classifier
+description: >-
+  Production AI system whose ai_system_type lies outside the AISystemType enum.
+ai_system_type: super_intelligent_ai
+application_domain:
+  - fraud_detection
+lifecycle_stage: operation_and_monitoring
+clause_reference: "5.1"

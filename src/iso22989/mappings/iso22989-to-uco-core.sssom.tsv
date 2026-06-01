@@ -1,0 +1,18 @@
+# mapping_set_id: https://w3id.org/lmodel/iso22989/mappings/iso22989_to_uco_core
+# mapping_set_version: 0.1.0
+# mapping_set_title: ISO/IEC 22989:2022 to UCO Core Schema Mappings
+# mapping_set_description: Schema-level mappings between the ISO/IEC 22989:2022 (Artificial intelligence concepts and terminology) LinkML schema and the Unified Cyber Ontology (UCO) Core schema. Mappings anchor ISO/IEC 22989 entities to UCO Core foundational classes (UcoThing, UcoObject) to support cyber-incident and digital-forensics integration of AI-related artefacts.
+# license: https://creativecommons.org/licenses/by/4.0/
+# subject_source: https://w3id.org/lmodel/iso22989
+# object_source: https://w3id.org/lmodel/uco-core
+# mapping_date: 2026-06-01
+# curie_map:
+#   iso22989: https://w3id.org/lmodel/iso22989/
+#   uco_core: https://w3id.org/lmodel/uco-core/
+#   owl: http://www.w3.org/2002/07/owl#
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+subject_id	subject_label	subject_category	predicate_id	predicate_label	object_id	object_label	object_category	mapping_justification	comment
+iso22989:NamedEntity	NamedEntity	owl:Class	skos:closeMatch	close match	uco_core:UcoThing	UcoThing	owl:Class	semapv:LLMBasedMatching	Both serve as the identity / labelled-entity root for their respective schemas.
+iso22989:AISystem	AISystem	owl:Class	skos:relatedMatch	related match	uco_core:UcoObject	UcoObject	owl:Class	semapv:LLMBasedMatching	An AI system can be represented as a UCO object when modelled as an artefact in a cyber-incident graph.
+iso22989:Dataset	Dataset	owl:Class	skos:relatedMatch	related match	uco_core:UcoObject	UcoObject	owl:Class	semapv:LLMBasedMatching	Datasets used by AI systems can be represented as UCO objects in cyber-evidence contexts.

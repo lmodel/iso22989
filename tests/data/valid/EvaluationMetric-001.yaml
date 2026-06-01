@@ -1,0 +1,7 @@
+# Exercises a required attribute (metric_name) plus numeric attributes.
+id: iso22989:metric-fraud-auprc
+name: Fraud model AUPRC
+metric_name: area_under_precision_recall_curve
+metric_value: 0.91
+reference_dataset: iso22989:ds-fraud-test-2026
+clause_reference: "7.4.3"

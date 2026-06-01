@@ -1,0 +1,7 @@
+# Exercises an AISystem object reference (controlled_by, inlined: false).
+id: iso22989:robot-warehouse-agv-12
+name: Warehouse AGV 12
+description: Autonomous guided vehicle moving inventory in a warehouse.
+embodiment: "Four-wheeled differential-drive mobile base with lidar."
+controlled_by: iso22989:aisys-warehouse-navigation
+clause_reference: "5.3"

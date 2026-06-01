@@ -1,0 +1,9 @@
+# Exercises a stakeholder sub-role. stakeholder_role_type is inherited as required;
+# its ifabsent default is applied by the Python loader but not by jsonschema
+# validation, so it is supplied explicitly here.
+id: iso22989:provider-acme-ai
+name: ACME AI Platform Provider
+description: Provider making the fraud-detection AI service available to customers.
+stakeholder_role_type: ai_provider
+organization_name: ACME AI Ltd
+clause_reference: "5.19"

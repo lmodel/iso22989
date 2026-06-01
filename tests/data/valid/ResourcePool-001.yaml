@@ -1,0 +1,7 @@
+# Exercises required resource_type (slot_usage required: true).
+id: iso22989:pool-gpu-cluster-a
+name: Training GPU Cluster A
+description: Pool of accelerators reserved for model training workloads.
+resource_type: gpu
+capacity_units: "64 GPU-hours/day"
+clause_reference: "8.7"

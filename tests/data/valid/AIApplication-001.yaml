@@ -1,0 +1,10 @@
+id: iso22989:app-fraud-detection-suite
+name: Fraud Detection Application Suite
+description: >-
+  Deployed application bundle combining the fraud classifier, narrative NLP component and analyst review console.
+application_domain:
+  - fraud_detection
+intended_purpose: Reduce card-not-present fraud losses while enabling analyst review of marginal cases.
+societal_impacts:
+  - employment
+clause_reference: "5.5"

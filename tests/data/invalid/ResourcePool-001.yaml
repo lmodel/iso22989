@@ -1,0 +1,7 @@
+# Counter-example: missing required slot.
+# ResourcePool refines resource_type to required via slot_usage; it is omitted here.
+id: iso22989:pool-unspecified
+name: Unspecified Resource Pool
+description: Resource pool record that omits the required resource_type slot.
+capacity_units: "10 units"
+clause_reference: "8.7"

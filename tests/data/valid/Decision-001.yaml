@@ -1,0 +1,8 @@
+id: iso22989:dec-tx-99421
+name: Decision for Transaction 99421
+description: >-
+  Automated decision derived from the fraud prediction for transaction 99421.
+decision_outcome: "decline_and_alert_customer"
+decision_policy: >-
+  Decline when the calibrated fraud probability exceeds 0.9 and the merchant is not on the customer's allow-list.
+clause_reference: "5.8"

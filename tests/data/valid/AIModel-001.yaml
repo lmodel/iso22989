@@ -1,0 +1,23 @@
+id: iso22989:model-fraud-xgb-v3
+name: Fraud XGBoost Model v3
+description: >-
+  Gradient-boosted decision tree model used by the real-time fraud classifier.
+model_paradigm: supervised
+algorithm_family: decision_tree
+engineering_approach: knowledge_graph
+training_dataset: iso22989:ds-fraud-train-2026
+validation_dataset: iso22989:ds-fraud-val-2026
+test_dataset: iso22989:ds-fraud-test-2026
+hyperparameters:
+  - "learning_rate=0.05"
+  - "max_depth=8"
+  - "n_estimators=500"
+model_version: "3.2.0"
+trained_on: "2026-04-15"
+supports_continuous_learning: false
+catastrophic_forgetting_risk: 0.15
+parameter_count: 4200000
+training_duration: PT6H30M
+inference_latency_ms: 12.4
+model_compression_applied: false
+clause_reference: "5.10"

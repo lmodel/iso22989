@@ -1,0 +1,42 @@
+id: iso22989:aisys-fraud-classifier
+name: Real-time Card Fraud Classifier
+description: >-
+  Production AI system that classifies card-not-present transactions as fraudulent or legitimate in real time.
+ai_system_type: narrow_ai
+symbolic_approach: subsymbolic
+autonomy_level: level_2_partial_automation
+intended_purpose: Reduce fraud losses while keeping the false-positive rate below 0.5 percent.
+application_domain:
+  - fraud_detection
+ai_field:
+  - data_mining
+functional_components:
+  - data_and_information
+  - prediction
+lifecycle_stage: operation_and_monitoring
+societal_impacts:
+  - employment
+aliases:
+  - Fraud-RT
+clause_reference: "5.1"
+components:
+  - id: iso22989:comp-fraud-feature-store
+    name: Fraud Feature Store Component
+    component_function: data_and_information
+models:
+  - id: iso22989:model-fraud-xgb-v3
+    name: Fraud XGBoost Model v3
+    model_paradigm: supervised
+datasets:
+  - id: iso22989:ds-fraud-train-2026
+    name: Card Fraud Training Dataset 2026
+    dataset_role: training
+    contains_personal_data: true
+stakeholders:
+  - id: iso22989:role-fraud-product-owner
+    name: Fraud Detection Product Owner
+    stakeholder_role_type: ai_customer
+trustworthiness_properties:
+  - id: iso22989:tw-fraud-fairness
+    name: Fairness Property for Fraud Classifier
+    trustworthiness_property_type: fairness

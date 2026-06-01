@@ -1,0 +1,14 @@
+id: iso22989:ds-fraud-train-2026
+name: Card Fraud Training Dataset 2026
+description: >-
+  Labelled card-not-present transactions used to train the real-time fraud classifier.
+data_modality:
+  - structured
+dataset_role: training
+data_provenance: >-
+  Internal transaction warehouse with adjudicated fraud labels from the dispute-management system.
+record_count: 18500000
+data_quality_notes: >-
+  Class imbalance approximately 1 fraud per 800 transactions; SMOTE oversampling applied at training time.
+contains_personal_data: true
+clause_reference: "5.11"

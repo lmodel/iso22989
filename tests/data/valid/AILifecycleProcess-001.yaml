@@ -1,0 +1,19 @@
+id: iso22989:lcp-fraud-deployment-2026q2
+name: Fraud Model v3 Deployment Process
+description: >-
+  Lifecycle process covering the staged deployment of the v3 fraud model into production.
+process_stage: deployment
+process_inputs:
+  - iso22989:model-fraud-xgb-v3
+  - iso22989:doc-fraud-deployment-runbook
+process_outputs:
+  - iso22989:doc-fraud-deployment-record
+responsible_role: ai_producer
+start_date: "2026-05-01"
+end_date: "2026-05-21"
+risk_items:
+  - iso22989:risk-fraud-rollback
+approval_criteria:
+  - Stage 1 canary precision and recall within 5 percent of validation results.
+  - Successful rollback exercise completed before stage 2.
+clause_reference: "6.2"

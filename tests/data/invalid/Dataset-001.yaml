@@ -1,0 +1,12 @@
+# Counter-example: minimum_value violation.
+# `record_count` declares `minimum_value: 0`, so a negative count is invalid.
+id: iso22989:ds-fraud-train-2026
+name: Card Fraud Training Dataset 2026
+description: >-
+  Dataset whose record_count is negative, violating the minimum_value constraint.
+data_modality:
+  - structured
+dataset_role: training
+record_count: -18500000
+contains_personal_data: true
+clause_reference: "5.11"

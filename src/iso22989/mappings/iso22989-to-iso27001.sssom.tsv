@@ -1,0 +1,22 @@
+# mapping_set_id: https://w3id.org/lmodel/iso22989/mappings/iso22989_to_iso27001
+# mapping_set_version: 0.1.0
+# mapping_set_title: ISO/IEC 22989:2022 to ISO/IEC 27001:2022 Schema Mappings
+# mapping_set_description: Schema-level mappings between the ISO/IEC 22989:2022 (Artificial intelligence concepts and terminology) and ISO/IEC 27001:2022 (Information security management system) LinkML schemas. Mappings cover the harmonised Annex SL terms (Organization, InterestedParty) shared across all ISO management-system standards and the risk-related concepts (RiskItem ↔ Risk) carried into both AI and information-security risk programmes.
+# license: https://creativecommons.org/licenses/by/4.0/
+# subject_source: https://w3id.org/lmodel/iso22989
+# object_source: https://w3id.org/lmodel/iso27001
+# mapping_date: 2026-06-01
+# curie_map:
+#   iso22989: https://w3id.org/lmodel/iso22989/
+#   iso27001: https://w3id.org/lmodel/iso27001/
+#   owl: http://www.w3.org/2002/07/owl#
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+subject_id	subject_label	subject_category	predicate_id	predicate_label	object_id	object_label	object_category	mapping_justification	comment
+iso22989:Organization	Organization	owl:Class	skos:exactMatch	exact match	iso27001:Organization	Organization	owl:Class	semapv:LLMBasedMatching	Annex SL harmonised definition shared by ISO/IEC 22989 and ISO/IEC 27001.
+iso22989:InterestedParty	InterestedParty	owl:Class	skos:exactMatch	exact match	iso27001:InterestedParty	InterestedParty	owl:Class	semapv:LLMBasedMatching	Annex SL harmonised definition of an interested party (stakeholder) shared by both standards.
+iso22989:RiskItem	RiskItem	owl:Class	skos:closeMatch	close match	iso27001:Risk	Risk	owl:Class	semapv:LLMBasedMatching	Both model risk using source, event, consequence and likelihood. ISO/IEC 22989 risk is AI-specific; ISO/IEC 27001 risk is information-security specific.
+iso22989:AISystem	AISystem	owl:Class	skos:relatedMatch	related match	iso27001:Asset	Asset	owl:Class	semapv:LLMBasedMatching	An AI system is an asset to be protected under an ISMS; the relation is asset-management rather than equivalence.
+iso22989:Dataset	Dataset	owl:Class	skos:relatedMatch	related match	iso27001:Asset	Asset	owl:Class	semapv:LLMBasedMatching	A dataset used by an AI system is an information asset under ISO/IEC 27001.
+iso22989:TrustworthinessPropertyType#privacy	privacy	skos:Concept	skos:relatedMatch	related match	iso27001:SecurityControl	SecurityControl	owl:Class	semapv:LLMBasedMatching	Privacy as a trustworthiness property is supported by ISO/IEC 27001 Annex A controls (notably A.5.34 Privacy and protection of PII).
+iso22989:TrustworthinessPropertyType#security	security	skos:Concept	skos:relatedMatch	related match	iso27001:InformationSecurityManagementSystem	InformationSecurityManagementSystem	owl:Class	semapv:LLMBasedMatching	Security as an AI trustworthiness property is operationalised through an ISMS conformant to ISO/IEC 27001.

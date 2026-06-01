@@ -1,0 +1,12 @@
+# Exercises inlined-as-list containment of IoTDevice records.
+id: iso22989:iot-warehouse-fleet
+name: Warehouse Sensor Fleet
+description: IoT system aggregating edge cameras and environmental sensors.
+devices:
+  - id: iso22989:iot-edge-camera-07
+    name: Edge Inspection Camera 07
+    device_role: sensor
+  - id: iso22989:iot-temp-sensor-03
+    name: Cold-store Temperature Sensor 03
+    device_role: sensor
+clause_reference: "5.14"

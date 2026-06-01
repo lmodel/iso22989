@@ -1,0 +1,6 @@
+id: iso22989:cv-cheque-deposit
+name: Cheque Image Deposit Function
+description: >-
+  Computer-vision function that extracts payee, amount and routing fields from cheque images deposited via the mobile banking app.
+cv_task: optical_character_recognition
+clause_reference: "5.14"

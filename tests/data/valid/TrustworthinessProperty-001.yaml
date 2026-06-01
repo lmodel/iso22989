@@ -1,0 +1,14 @@
+id: iso22989:tw-fraud-fairness
+name: Fairness Property for Fraud Classifier
+description: >-
+  Assesses the fairness of the fraud classifier across protected merchant categories.
+trustworthiness_property_type: fairness
+property_evidence:
+  - "Post-deployment monitoring report 2026-Q2: demographic-parity difference below 0.04."
+measurement_method: >-
+  Demographic parity and equal-opportunity-difference metrics measured monthly on production traffic.
+applicable_biases:
+  - data_bias
+  - cognitive_bias
+confidence_score: 0.82
+clause_reference: "5.15"

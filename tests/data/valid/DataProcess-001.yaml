@@ -1,0 +1,8 @@
+# Exercises a required attribute (process_type) defined inline on the class.
+id: iso22989:dp-fraud-deidentify
+name: Fraud Data De-identification Process
+description: Removes PII from raw transactions before model training.
+process_type: de_identification
+parameters:
+  - "hash_algorithm=sha256"
+clause_reference: "5.10"

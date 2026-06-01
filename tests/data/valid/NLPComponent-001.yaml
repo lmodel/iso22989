@@ -1,0 +1,6 @@
+id: iso22989:nlpc-fraud-narrative
+name: Fraud Narrative NLP Component
+description: >-
+  Component that classifies free-text customer narratives accompanying disputed transactions.
+nlp_component_type: sentiment_analysis
+clause_reference: "5.14"

@@ -1,0 +1,6 @@
+id: iso22989:act-tx-99421-decline
+name: Decline Action for Transaction 99421
+description: Action taken in response to the fraud decision for transaction 99421.
+action_target: payment_authorisation_service
+execution_status: completed
+clause_reference: "5.8"

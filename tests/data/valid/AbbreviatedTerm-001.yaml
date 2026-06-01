@@ -1,0 +1,5 @@
+id: iso22989:abbrev-pii
+name: PII
+description: Personally identifiable information abbreviation used across Clause 4.
+expansion: Personally Identifiable Information
+clause_reference: "4"

@@ -1,0 +1,30 @@
+ai_systems:
+  - id: iso22989:aisys-fraud-classifier
+    name: Real-time Card Fraud Classifier
+    ai_system_type: narrow_ai
+    application_domain:
+      - fraud_detection
+    lifecycle_stage: operation_and_monitoring
+ai_models:
+  - id: iso22989:model-fraud-xgb-v3
+    name: Fraud XGBoost Model v3
+    model_paradigm: supervised
+ai_datasets:
+  - id: iso22989:ds-fraud-train-2026
+    name: Card Fraud Training Dataset 2026
+    dataset_role: training
+    data_modality:
+      - structured
+    contains_personal_data: true
+ai_lifecycle_processes:
+  - id: iso22989:lcp-fraud-deployment-2026q2
+    name: Fraud Model v3 Deployment Process
+    process_stage: deployment
+ai_stakeholder_roles:
+  - id: iso22989:role-fraud-product-owner
+    name: Fraud Detection Product Owner
+    stakeholder_role_type: ai_customer
+trustworthiness_records:
+  - id: iso22989:tw-fraud-fairness
+    name: Fairness Property for Fraud Classifier
+    trustworthiness_property_type: fairness

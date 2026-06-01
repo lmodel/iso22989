@@ -1,0 +1,12 @@
+id: iso22989:task-fraud-binary-classification
+name: Binary Fraud Classification Task
+description: >-
+  Binary classification of card-not-present transactions into legitimate or fraudulent classes.
+task_category: classification
+input_modalities:
+  - structured
+output_label_type: binary
+performance_metric:
+  - "area_under_precision_recall_curve"
+  - "false_positive_rate_at_operating_threshold"
+clause_reference: "5.7"

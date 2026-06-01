@@ -1,0 +1,5 @@
+id: iso22989:engine-fraud-online
+name: Fraud Real-time Inference Engine
+description: >-
+  Online inference engine executing the fraud XGBoost model against streaming transaction events.
+clause_reference: "5.9"

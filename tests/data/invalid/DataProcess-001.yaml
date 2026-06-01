@@ -1,0 +1,8 @@
+# Counter-example: missing required attribute.
+# process_type is a required inline attribute of DataProcess; it is omitted here.
+id: iso22989:dp-missing-type
+name: Data Process without a process_type
+description: DataProcess record missing its required process_type attribute.
+parameters:
+  - "k=1"
+clause_reference: "5.10"

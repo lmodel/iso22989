@@ -1,0 +1,9 @@
+# Exercises the VerificationValidationLevel enum and multivalued method attributes.
+id: iso22989:vvf-fraud-classifier
+name: V&V framework for the fraud classifier
+verification_validation_level: partially_verifiable_validatable
+verification_methods:
+  - static_rule_review
+validation_methods:
+  - shadow_mode_evaluation
+clause_reference: "5.16"

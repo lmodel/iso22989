@@ -1,0 +1,6 @@
+# Exercises required abbreviation_code (enum) + required expansion.
+id: iso22989:abbr-cnn
+name: CNN abbreviation entry
+abbreviation_code: CNN
+expansion: Convolutional neural network
+clause_reference: "4"

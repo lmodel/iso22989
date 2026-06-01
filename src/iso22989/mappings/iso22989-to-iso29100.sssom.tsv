@@ -1,0 +1,27 @@
+# mapping_set_id: https://w3id.org/lmodel/iso22989/mappings/iso22989_to_iso29100
+# mapping_set_version: 0.1.0
+# mapping_set_title: ISO/IEC 22989:2022 to ISO/IEC 29100:2011 Schema Mappings
+# mapping_set_description: Schema-level mappings between the ISO/IEC 22989:2022 (Artificial intelligence concepts and terminology) and ISO/IEC 29100:2011 (Privacy framework) LinkML schemas. Mappings link AI-side stakeholders and personal-data references to the ISO/IEC 29100 PII flow roles and information categories, plus the trustworthiness privacy property to the privacy-framework root.
+# license: https://creativecommons.org/licenses/by/4.0/
+# subject_source: https://w3id.org/lmodel/iso22989
+# object_source: https://w3id.org/lmodel/iso29100
+# mapping_date: 2026-06-01
+# curie_map:
+#   iso22989: https://w3id.org/lmodel/iso22989/
+#   iso29100: https://w3id.org/lmodel/iso29100/
+#   owl: http://www.w3.org/2002/07/owl#
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+subject_id	subject_label	subject_category	predicate_id	predicate_label	object_id	object_label	object_category	mapping_justification	comment
+iso22989:NamedEntity	NamedEntity	owl:Class	skos:exactMatch	exact match	iso29100:NamedEntity	NamedEntity	owl:Class	semapv:LLMBasedMatching	Shared identity / labelled-entity abstraction at the root of both schemas.
+iso22989:DataSubject	DataSubject	owl:Class	skos:exactMatch	exact match	iso29100:PIIPrincipal	PIIPrincipal	owl:Class	semapv:LLMBasedMatching	ISO/IEC 22989 data subject (an AI subject whose personal data is processed) corresponds to the ISO/IEC 29100 PII principal.
+iso22989:DataProvider	DataProvider	owl:Class	skos:closeMatch	close match	iso29100:PIIController	PIIController	owl:Class	semapv:LLMBasedMatching	A data provider supplying personal data acts as a PII controller when determining purposes and means of processing.
+iso22989:AIProducer	AIProducer	owl:Class	skos:closeMatch	close match	iso29100:PIIProcessor	PIIProcessor	owl:Class	semapv:LLMBasedMatching	AI producers processing personal data on behalf of a controller act as PII processors.
+iso22989:AIPartner	AIPartner	owl:Class	skos:closeMatch	close match	iso29100:ThirdParty	ThirdParty	owl:Class	semapv:LLMBasedMatching	AI partners other than the controller, processor or principal correspond to ISO/IEC 29100 third parties.
+iso22989:Dataset	Dataset	owl:Class	skos:relatedMatch	related match	iso29100:PersonallyIdentifiableInformation	PersonallyIdentifiableInformation	owl:Class	semapv:LLMBasedMatching	A dataset containing personal data is composed of PII as defined in ISO/IEC 29100.
+iso22989:AbbreviationCode#PII	PII	skos:Concept	skos:exactMatch	exact match	iso29100:PersonallyIdentifiableInformation	PersonallyIdentifiableInformation	owl:Class	semapv:LLMBasedMatching	The PII abbreviation in ISO/IEC 22989 references the same concept as ISO/IEC 29100 PII.
+iso22989:DataProcess	DataProcess	owl:Class	skos:relatedMatch	related match	iso29100:PIIProcessingActivity	PIIProcessingActivity	owl:Class	semapv:LLMBasedMatching	Data processes acting on personal data realise PII processing activities.
+iso22989:DataProcessType#de_identification	de_identification	skos:Concept	skos:closeMatch	close match	iso29100:PIIProcessingOperation	PIIProcessingOperation	skos:ConceptScheme	semapv:LLMBasedMatching	De-identification of PII is an ISO/IEC 29100 PII-processing operation.
+iso22989:TrustworthinessProperty	TrustworthinessProperty	owl:Class	skos:relatedMatch	related match	iso29100:PrivacyFramework	PrivacyFramework	owl:Class	semapv:LLMBasedMatching	Privacy as a trustworthiness property is operationalised through an ISO/IEC 29100-aligned privacy framework.
+iso22989:TrustworthinessPropertyType#privacy	privacy	skos:Concept	skos:closeMatch	close match	iso29100:PrivacyPrinciple	PrivacyPrinciple	skos:ConceptScheme	semapv:LLMBasedMatching	The privacy trustworthiness property aggregates the ISO/IEC 29100 privacy principles.
+iso22989:RiskItem	RiskItem	owl:Class	skos:closeMatch	close match	iso29100:PrivacyRisk	PrivacyRisk	owl:Class	semapv:LLMBasedMatching	Privacy risks affecting an AI system are a specialisation of AI risk items.

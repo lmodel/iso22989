@@ -1,0 +1,35 @@
+# mapping_set_id: https://w3id.org/lmodel/iso22989/mappings/iso22989_to_nist_ai_600_1
+# mapping_set_version: 0.1.0
+# mapping_set_title: ISO/IEC 22989:2022 to NIST AI 600-1 (Generative AI Profile) Schema Mappings
+# mapping_set_description: Schema-level mappings between the ISO/IEC 22989:2022 (Artificial intelligence concepts and terminology) and NIST AI 600-1 (Generative AI Profile, an AI RMF cross-sectoral profile) LinkML schemas. Mappings align lifecycle, actor and risk-category constructs, with several narrow matches reflecting NIST's generative-AI-specific risk taxonomy.
+# license: https://creativecommons.org/licenses/by/4.0/
+# subject_source: https://w3id.org/lmodel/iso22989
+# object_source: https://w3id.org/lmodel/nist-ai-600-1
+# mapping_date: 2026-06-01
+# curie_map:
+#   iso22989: https://w3id.org/lmodel/iso22989/
+#   nist_ai_600_1: https://w3id.org/lmodel/nist-ai-600-1/
+#   owl: http://www.w3.org/2002/07/owl#
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+subject_id	subject_label	subject_category	predicate_id	predicate_label	object_id	object_label	object_category	mapping_justification	comment
+iso22989:RiskItem	RiskItem	owl:Class	skos:closeMatch	close match	nist_ai_600_1:GaiRisk	GaiRisk	owl:Class	semapv:LLMBasedMatching	NIST GenAI risk is a specialisation of the ISO/IEC 22989 risk item targeted at generative AI.
+iso22989:AILifecycleStage	AILifecycleStage	skos:ConceptScheme	skos:closeMatch	close match	nist_ai_600_1:GaiLifecycleStageEnum	GaiLifecycleStageEnum	skos:ConceptScheme	semapv:LLMBasedMatching	Both enumerations partition the AI lifecycle into stages; NIST GenAI uses a coarser 5-stage scheme.
+iso22989:AILifecycleStage#inception	inception	skos:Concept	skos:closeMatch	close match	nist_ai_600_1:GaiLifecycleStageEnum#DESIGN	DESIGN	skos:Concept	semapv:LLMBasedMatching	Both refer to the early design phase of the AI lifecycle.
+iso22989:AILifecycleStage#design_and_development	design_and_development	skos:Concept	skos:closeMatch	close match	nist_ai_600_1:GaiLifecycleStageEnum#DEVELOPMENT	DEVELOPMENT	skos:Concept	semapv:LLMBasedMatching	Both refer to model development activities.
+iso22989:AILifecycleStage#deployment	deployment	skos:Concept	skos:exactMatch	exact match	nist_ai_600_1:GaiLifecycleStageEnum#DEPLOYMENT	DEPLOYMENT	skos:Concept	semapv:LLMBasedMatching	Same lifecycle stage.
+iso22989:AILifecycleStage#operation_and_monitoring	operation_and_monitoring	skos:Concept	skos:closeMatch	close match	nist_ai_600_1:GaiLifecycleStageEnum#OPERATION	OPERATION	skos:Concept	semapv:LLMBasedMatching	Same lifecycle stage; ISO/IEC 22989 label additionally calls out monitoring.
+iso22989:AILifecycleStage#retirement	retirement	skos:Concept	skos:exactMatch	exact match	nist_ai_600_1:GaiLifecycleStageEnum#DECOMMISSIONING	DECOMMISSIONING	skos:Concept	semapv:LLMBasedMatching	Same end-of-life lifecycle stage.
+iso22989:AIStakeholderRoleType	AIStakeholderRoleType	skos:ConceptScheme	skos:closeMatch	close match	nist_ai_600_1:GaiActorTaskEnum	GaiActorTaskEnum	skos:ConceptScheme	semapv:LLMBasedMatching	Both enumerate roles or tasks performed by actors involved in AI systems.
+iso22989:AIUser	AIUser	owl:Class	skos:exactMatch	exact match	nist_ai_600_1:GaiActorTaskEnum#END_USERS	END_USERS	skos:Concept	semapv:LLMBasedMatching	Both refer to end users of an AI system.
+iso22989:AISubject	AISubject	owl:Class	skos:closeMatch	close match	nist_ai_600_1:GaiActorTaskEnum#AFFECTED_INDIVIDUALS_AND_COMMUNITIES	AFFECTED_INDIVIDUALS_AND_COMMUNITIES	skos:Concept	semapv:LLMBasedMatching	ISO/IEC 22989 AI subject corresponds to NIST's affected-individuals-and-communities actor.
+iso22989:AIPartner	AIPartner	owl:Class	skos:closeMatch	close match	nist_ai_600_1:GaiActorTaskEnum#THIRD_PARTY_ENTITIES	THIRD_PARTY_ENTITIES	skos:Concept	semapv:LLMBasedMatching	ISO/IEC 22989 AI partner roles overlap with NIST third-party entities providing supporting services.
+iso22989:RelevantAuthority	RelevantAuthority	owl:Class	skos:closeMatch	close match	nist_ai_600_1:GaiActorTaskEnum#GOVERNANCE_AND_OVERSIGHT	GOVERNANCE_AND_OVERSIGHT	skos:Concept	semapv:LLMBasedMatching	ISO/IEC 22989 relevant authority aligns with NIST's governance-and-oversight actor role.
+iso22989:AIAuditor	AIAuditor	owl:Class	skos:closeMatch	close match	nist_ai_600_1:GaiActorTaskEnum#TEVV	TEVV	skos:Concept	semapv:LLMBasedMatching	ISO/IEC 22989 AI auditor performs test, evaluation, verification and validation similar to NIST's TEVV actor.
+iso22989:BiasType	BiasType	skos:ConceptScheme	skos:narrowMatch	narrow match	nist_ai_600_1:GaiRiskCategoryEnum#HARMFUL_BIAS_OR_HOMOGENIZATION	HARMFUL_BIAS_OR_HOMOGENIZATION	skos:Concept	semapv:LLMBasedMatching	ISO/IEC 22989 bias categories are subtypes of NIST's harmful-bias-or-homogenization GenAI risk.
+iso22989:TrustworthinessPropertyType#privacy	privacy	skos:Concept	skos:closeMatch	close match	nist_ai_600_1:GaiRiskCategoryEnum#DATA_PRIVACY	DATA_PRIVACY	skos:Concept	semapv:LLMBasedMatching	Privacy property addresses the data-privacy GenAI risk category.
+iso22989:TrustworthinessPropertyType#security	security	skos:Concept	skos:closeMatch	close match	nist_ai_600_1:GaiRiskCategoryEnum#INFORMATION_SECURITY	INFORMATION_SECURITY	skos:Concept	semapv:LLMBasedMatching	Security property addresses the information-security GenAI risk category.
+iso22989:TrustworthinessPropertyType#integrity	integrity	skos:Concept	skos:closeMatch	close match	nist_ai_600_1:GaiRiskCategoryEnum#INFORMATION_INTEGRITY	INFORMATION_INTEGRITY	skos:Concept	semapv:LLMBasedMatching	Integrity property addresses the information-integrity GenAI risk category.
+iso22989:SocietalImpactCategory	SocietalImpactCategory	skos:ConceptScheme	skos:closeMatch	close match	nist_ai_600_1:GaiRiskCategoryEnum	GaiRiskCategoryEnum	skos:ConceptScheme	semapv:LLMBasedMatching	Several GenAI risk categories (ecosystem, environmental, cultural) are realised as ISO/IEC 22989 societal-impact categories.
+iso22989:HumanMachineTeam	HumanMachineTeam	owl:Class	skos:closeMatch	close match	nist_ai_600_1:GaiRiskCategoryEnum#HUMAN_AI_CONFIGURATION	HUMAN_AI_CONFIGURATION	skos:Concept	semapv:LLMBasedMatching	Human-machine teaming structures address the human-AI-configuration GenAI risk category.
+iso22989:AILifecycleProcess	AILifecycleProcess	owl:Class	skos:relatedMatch	related match	nist_ai_600_1:SuggestedAction	SuggestedAction	owl:Class	semapv:LLMBasedMatching	NIST suggested actions populate AI lifecycle processes addressing GenAI risks.

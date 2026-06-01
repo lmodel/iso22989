@@ -1,0 +1,7 @@
+# Counter-example: wrong scalar type.
+# record_count has range integer; a non-numeric string is invalid.
+id: iso22989:ds-bad-count
+name: Dataset with non-integer record_count
+dataset_role: training
+record_count: "a-lot"
+clause_reference: "5.11"

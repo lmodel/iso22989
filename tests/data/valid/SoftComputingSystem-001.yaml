@@ -1,0 +1,8 @@
+# Exercises a required multivalued attribute (soft_computing_techniques).
+id: iso22989:scs-risk-fuzzy-engine
+name: Fuzzy Risk Scoring Engine
+description: Soft-computing system blending fuzzy logic with probabilistic reasoning.
+soft_computing_techniques:
+  - fuzzy_logic
+  - probabilistic_reasoning
+clause_reference: "5.7"

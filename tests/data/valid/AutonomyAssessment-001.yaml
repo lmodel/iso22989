@@ -1,0 +1,10 @@
+id: iso22989:aa-fraud-classifier-2026q2
+name: Autonomy Assessment for Fraud Classifier 2026-Q2
+description: >-
+  Quarterly assessment of the level of autonomy exercised by the fraud classifier in production.
+autonomy_level: level_2_partial_automation
+autonomy_criterion_scores:
+  - "external_supervision=0.8"
+  - "reactivity=0.6"
+  - "persistence=0.05"
+clause_reference: "5.6"

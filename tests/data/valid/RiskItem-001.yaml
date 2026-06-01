@@ -1,0 +1,5 @@
+id: iso22989:risk-fraud-model-drift
+name: Concept Drift in Fraud Model
+description: >-
+  Risk that changing fraudster behaviour causes the deployed model to silently degrade between scheduled retraining cycles.
+clause_reference: "5.16"

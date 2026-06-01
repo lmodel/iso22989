@@ -1,0 +1,6 @@
+# Exercises required ground_truth_value (slot_usage required: true).
+id: iso22989:gt-fraud-txn-998877
+name: Adjudicated label for transaction 998877
+ground_truth_value: "fraud"
+provenance_statement: "Confirmed by dispute-management adjudication 2026-03-02."
+clause_reference: "3.2.7"

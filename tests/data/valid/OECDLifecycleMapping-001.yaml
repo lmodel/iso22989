@@ -1,0 +1,7 @@
+# Exercises two required enum attributes (iso_stage, oecd_stage).
+id: iso22989:map-oecd-deploy
+name: ISO deployment to OECD deploy mapping
+iso_stage: deployment
+oecd_stage: deploy
+mapping_notes: "ISO/IEC 22989 deployment aligns with the OECD 'deploy' stage."
+clause_reference: "6.2"

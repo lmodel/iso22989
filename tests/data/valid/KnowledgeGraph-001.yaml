@@ -1,0 +1,10 @@
+# Exercises inherited symbolic_approach plus graph-size and minimum_value slots.
+id: iso22989:kg-fraud-entity-graph
+name: Fraud Entity Knowledge Graph
+description: Graph linking merchants, devices and accounts for fraud reasoning.
+symbolic_approach: symbolic
+node_count: 1200000
+edge_count: 7400000
+ontology_reference:
+  - iso22989:fraud-ontology
+clause_reference: "8.5"

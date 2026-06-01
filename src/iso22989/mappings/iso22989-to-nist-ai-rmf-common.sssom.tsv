@@ -1,0 +1,28 @@
+# mapping_set_id: https://w3id.org/lmodel/iso22989/mappings/iso22989_to_nist_ai_rmf_common
+# mapping_set_version: 0.1.0
+# mapping_set_title: ISO/IEC 22989:2022 to NIST AI RMF Common Schema Mappings
+# mapping_set_description: Schema-level mappings between the ISO/IEC 22989:2022 (Artificial intelligence concepts and terminology) and the NIST AI RMF common LinkML schema. The NIST AI RMF TrustworthinessCharacteristicEnum aligns closely with the ISO/IEC 22989 TrustworthinessPropertyType enum; rows below capture the seven characteristic-to-property correspondences plus the shared NamedThing/NamedEntity identity base.
+# license: https://creativecommons.org/licenses/by/4.0/
+# subject_source: https://w3id.org/lmodel/iso22989
+# object_source: https://w3id.org/lmodel/nist-ai-100-1/schema/nist_ai_rmf_common
+# mapping_date: 2026-06-01
+# curie_map:
+#   iso22989: https://w3id.org/lmodel/iso22989/
+#   nist_ai_rmf_common: https://w3id.org/lmodel/nist-ai-100-1/schema/nist_ai_rmf_common/
+#   owl: http://www.w3.org/2002/07/owl#
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+subject_id	subject_label	subject_category	predicate_id	predicate_label	object_id	object_label	object_category	mapping_justification	comment
+iso22989:NamedEntity	NamedEntity	owl:Class	skos:closeMatch	close match	nist_ai_rmf_common:NamedThing	NamedThing	owl:Class	semapv:LLMBasedMatching	Shared identity / labelled-entity abstraction used as the root of both schemas.
+iso22989:TrustworthinessProperty	TrustworthinessProperty	owl:Class	skos:closeMatch	close match	nist_ai_rmf_common:TrustworthinessCharacteristicEnum	TrustworthinessCharacteristicEnum	skos:ConceptScheme	semapv:LLMBasedMatching	ISO/IEC 22989 models trustworthiness as a first-class claim class; NIST AI RMF treats trustworthiness characteristics as an enumeration. Mapping is class-to-scheme.
+iso22989:TrustworthinessPropertyType	TrustworthinessPropertyType	skos:ConceptScheme	skos:closeMatch	close match	nist_ai_rmf_common:TrustworthinessCharacteristicEnum	TrustworthinessCharacteristicEnum	skos:ConceptScheme	semapv:LLMBasedMatching	Two enumerations cover the same conceptual space of trustworthiness characteristics, with different granularities.
+iso22989:TrustworthinessPropertyType#reliability	reliability	skos:Concept	skos:narrowMatch	narrow match	nist_ai_rmf_common:TrustworthinessCharacteristicEnum#VALID_AND_RELIABLE	VALID_AND_RELIABLE	skos:Concept	semapv:LLMBasedMatching	NIST bundles validity and reliability; ISO/IEC 22989 separates them.
+iso22989:TrustworthinessPropertyType#safety	safety	skos:Concept	skos:exactMatch	exact match	nist_ai_rmf_common:TrustworthinessCharacteristicEnum#SAFE	SAFE	skos:Concept	semapv:LLMBasedMatching	Both refer to absence of unacceptable risk of harm.
+iso22989:TrustworthinessPropertyType#security	security	skos:Concept	skos:narrowMatch	narrow match	nist_ai_rmf_common:TrustworthinessCharacteristicEnum#SECURE_AND_RESILIENT	SECURE_AND_RESILIENT	skos:Concept	semapv:LLMBasedMatching	NIST bundles security with resilience; ISO/IEC 22989 separates the two properties.
+iso22989:TrustworthinessPropertyType#resilience	resilience	skos:Concept	skos:narrowMatch	narrow match	nist_ai_rmf_common:TrustworthinessCharacteristicEnum#SECURE_AND_RESILIENT	SECURE_AND_RESILIENT	skos:Concept	semapv:LLMBasedMatching	NIST bundles resilience with security; ISO/IEC 22989 separates the two properties.
+iso22989:TrustworthinessPropertyType#accountability	accountability	skos:Concept	skos:narrowMatch	narrow match	nist_ai_rmf_common:TrustworthinessCharacteristicEnum#ACCOUNTABLE_AND_TRANSPARENT	ACCOUNTABLE_AND_TRANSPARENT	skos:Concept	semapv:LLMBasedMatching	NIST bundles accountability with transparency.
+iso22989:TrustworthinessPropertyType#transparency	transparency	skos:Concept	skos:narrowMatch	narrow match	nist_ai_rmf_common:TrustworthinessCharacteristicEnum#ACCOUNTABLE_AND_TRANSPARENT	ACCOUNTABLE_AND_TRANSPARENT	skos:Concept	semapv:LLMBasedMatching	NIST bundles transparency with accountability.
+iso22989:TrustworthinessPropertyType#explainability	explainability	skos:Concept	skos:narrowMatch	narrow match	nist_ai_rmf_common:TrustworthinessCharacteristicEnum#EXPLAINABLE_AND_INTERPRETABLE	EXPLAINABLE_AND_INTERPRETABLE	skos:Concept	semapv:LLMBasedMatching	NIST bundles explainability with interpretability.
+iso22989:TrustworthinessPropertyType#privacy	privacy	skos:Concept	skos:exactMatch	exact match	nist_ai_rmf_common:TrustworthinessCharacteristicEnum#PRIVACY_ENHANCED	PRIVACY_ENHANCED	skos:Concept	semapv:LLMBasedMatching	Both refer to respecting personal data and individual privacy expectations.
+iso22989:TrustworthinessPropertyType#fairness	fairness	skos:Concept	skos:narrowMatch	narrow match	nist_ai_rmf_common:TrustworthinessCharacteristicEnum#FAIR_WITH_HARMFUL_BIAS_MANAGED	FAIR_WITH_HARMFUL_BIAS_MANAGED	skos:Concept	semapv:LLMBasedMatching	NIST combines fairness with bias management; ISO/IEC 22989 also has a separate bias_mitigation property.
+iso22989:TrustworthinessPropertyType#bias_mitigation	bias_mitigation	skos:Concept	skos:narrowMatch	narrow match	nist_ai_rmf_common:TrustworthinessCharacteristicEnum#FAIR_WITH_HARMFUL_BIAS_MANAGED	FAIR_WITH_HARMFUL_BIAS_MANAGED	skos:Concept	semapv:LLMBasedMatching	NIST treats harmful-bias management as part of fairness; ISO/IEC 22989 models it as a distinct property.

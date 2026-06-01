@@ -1,0 +1,6 @@
+# Exercises required label_value plus the DataLabelType enum.
+id: iso22989:label-fraud-positive
+name: Fraud positive label
+label_value: "fraud"
+label_type: binary
+clause_reference: "3.2.10"

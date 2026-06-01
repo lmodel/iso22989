@@ -1,0 +1,14 @@
+# Counter-example: invalid enum value on a required slot.
+# `task_category: summarisation` is not a permissible value of TaskCategory
+# (use `generation` or `decision_support`; summarisation is an NLP component, not a TaskCategory).
+id: iso22989:task-fraud-binary-classification
+name: Binary Fraud Classification Task
+description: >-
+  Task whose task_category lies outside the TaskCategory enum.
+task_category: summarisation
+input_modalities:
+  - structured
+output_label_type: binary
+performance_metric:
+  - "area_under_precision_recall_curve"
+clause_reference: "5.7"

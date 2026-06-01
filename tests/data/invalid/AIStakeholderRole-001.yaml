@@ -1,0 +1,12 @@
+# Counter-example: missing required slot.
+# AIStakeholderRole declares `stakeholder_role_type` as required; it is omitted here.
+id: iso22989:role-fraud-product-owner
+name: Fraud Detection Product Owner
+description: >-
+  Stakeholder role record that omits the required stakeholder_role_type slot.
+organization_name: Example Bank PLC
+contact: fraud-product-owner@example.test
+responsibilities:
+  - Define the intended purpose and acceptance criteria for the AI system.
+  - Approve deployment and major model updates.
+clause_reference: "5.19"

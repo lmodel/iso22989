@@ -1,0 +1,12 @@
+# Counter-example: invalid enum value on a required slot.
+# `process_stage: maintenance` is not a permissible value of AILifecycleStage
+# (allowed values include deployment, operation_and_monitoring, retirement, ...).
+id: iso22989:lcp-fraud-deployment-2026q2
+name: Fraud Model v3 Deployment Process
+description: >-
+  Lifecycle process whose process_stage lies outside the AILifecycleStage enum.
+process_stage: maintenance
+responsible_role: ai_producer
+start_date: "2026-05-01"
+end_date: "2026-05-21"
+clause_reference: "6.2"

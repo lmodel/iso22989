@@ -1,0 +1,12 @@
+id: iso22989:role-fraud-product-owner
+name: Fraud Detection Product Owner
+description: >-
+  Internal role accountable for the fraud-detection AI system across its lifecycle.
+stakeholder_role_type: ai_customer
+organization_name: Example Bank PLC
+contact: fraud-product-owner@example.test
+responsibilities:
+  - Define the intended purpose and acceptance criteria for the AI system.
+  - Approve deployment and major model updates.
+  - Maintain alignment with regulatory expectations.
+clause_reference: "5.19"

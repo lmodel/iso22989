@@ -1,0 +1,6 @@
+id: iso22989:comp-fraud-feature-store
+name: Fraud Feature Store Component
+description: >-
+  Low-latency feature retrieval component supplying engineered features to the fraud model at inference time.
+component_function: data_and_information
+clause_reference: "5.12"

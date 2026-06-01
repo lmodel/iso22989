@@ -1,0 +1,7 @@
+id: iso22989:pred-tx-99421
+name: Prediction for Transaction 99421
+description: >-
+  Fraud prediction emitted for transaction 99421 at the operating threshold.
+predicted_value: "fraudulent"
+confidence: 0.93
+clause_reference: "5.8"

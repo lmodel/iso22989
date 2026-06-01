@@ -1,0 +1,30 @@
+# mapping_set_id: https://w3id.org/lmodel/iso22989/mappings/iso22989_to_merged_nist_ai_rmf
+# mapping_set_version: 0.1.0
+# mapping_set_title: ISO/IEC 22989:2022 to Merged NIST AI RMF Schema Mappings
+# mapping_set_description: Consolidated schema-level mappings from ISO/IEC 22989:2022 (Artificial intelligence concepts and terminology) to the NIST AI Risk Management Framework family of LinkML schemas (nist-ai-rmf umbrella plus its three modules nist-ai-100-1, nist-ai-600-1, and nist-ai-rmf-common). Use this file when a single rollup mapping is needed; per-module mappings live in iso22989-to-nist-ai-100-1.sssom.tsv, iso22989-to-nist-ai-600-1.sssom.tsv and iso22989-to-nist-ai-rmf-common.sssom.tsv.
+# license: https://creativecommons.org/licenses/by/4.0/
+# subject_source: https://w3id.org/lmodel/iso22989
+# object_source: https://w3id.org/lmodel/nist-ai-rmf
+# mapping_date: 2026-06-01
+# curie_map:
+#   iso22989: https://w3id.org/lmodel/iso22989/
+#   nist_ai_rmf: https://w3id.org/lmodel/nist-ai-rmf/
+#   nist_ai_100_1: https://w3id.org/lmodel/nist-ai-100-1/
+#   nist_ai_600_1: https://w3id.org/lmodel/nist-ai-600-1/
+#   nist_ai_rmf_common: https://w3id.org/lmodel/nist-ai-100-1/schema/nist_ai_rmf_common/
+#   owl: http://www.w3.org/2002/07/owl#
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+subject_id	subject_label	subject_category	predicate_id	predicate_label	object_id	object_label	object_category	mapping_justification	comment
+iso22989:NamedEntity	NamedEntity	owl:Class	skos:closeMatch	close match	nist_ai_rmf_common:NamedThing	NamedThing	owl:Class	semapv:LLMBasedMatching	Shared identity root across the NIST AI RMF family.
+iso22989:AISystem	AISystem	owl:Class	skos:exactMatch	exact match	nist_ai_100_1:AiSystem	AiSystem	owl:Class	semapv:LLMBasedMatching	NIST AI RMF reuses the ISO/IEC 22989 definition of an AI system.
+iso22989:AIStakeholderRole	AIStakeholderRole	owl:Class	skos:closeMatch	close match	nist_ai_100_1:AiActor	AiActor	owl:Class	semapv:LLMBasedMatching	ISO/IEC 22989 stakeholder role corresponds to NIST AI actor across all RMF modules.
+iso22989:AILifecycleProcess	AILifecycleProcess	owl:Class	skos:closeMatch	close match	nist_ai_100_1:AiLifecycleStage	AiLifecycleStage	owl:Class	semapv:LLMBasedMatching	Both partition the same AI lifecycle.
+iso22989:OECDLifecycleStage	OECDLifecycleStage	skos:ConceptScheme	skos:exactMatch	exact match	nist_ai_100_1:AiLifecycleStageEnum	AiLifecycleStageEnum	skos:ConceptScheme	semapv:LLMBasedMatching	NIST AI RMF lifecycle stages follow the OECD lifecycle enumerated in ISO/IEC 22989 Annex A.
+iso22989:RiskItem	RiskItem	owl:Class	skos:exactMatch	exact match	nist_ai_100_1:Risk	Risk	owl:Class	semapv:LLMBasedMatching	Same risk concept; nist-ai-600-1 GaiRisk is a generative-AI specialisation.
+iso22989:RiskItem	RiskItem	owl:Class	skos:closeMatch	close match	nist_ai_600_1:GaiRisk	GaiRisk	owl:Class	semapv:LLMBasedMatching	NIST GenAI risk is a specialisation of the ISO/IEC 22989 risk item.
+iso22989:SocietalImpactCategory	SocietalImpactCategory	skos:ConceptScheme	skos:closeMatch	close match	nist_ai_100_1:HarmCategoryEnum	HarmCategoryEnum	skos:ConceptScheme	semapv:LLMBasedMatching	ISO/IEC 22989 societal impact categories overlap with NIST harm categories.
+iso22989:BiasType	BiasType	skos:ConceptScheme	skos:closeMatch	close match	nist_ai_100_1:BiasCategoryEnum	BiasCategoryEnum	skos:ConceptScheme	semapv:LLMBasedMatching	Both enumerate bias categories relevant to AI systems; ISO/IEC 22989 follows ISO/IEC TR 24027.
+iso22989:TrustworthinessProperty	TrustworthinessProperty	owl:Class	skos:closeMatch	close match	nist_ai_rmf_common:TrustworthinessCharacteristicEnum	TrustworthinessCharacteristicEnum	skos:ConceptScheme	semapv:LLMBasedMatching	ISO/IEC 22989 first-class class versus NIST AI RMF enumeration; same conceptual space.
+iso22989:TrustworthinessPropertyType	TrustworthinessPropertyType	skos:ConceptScheme	skos:closeMatch	close match	nist_ai_rmf_common:TrustworthinessCharacteristicEnum	TrustworthinessCharacteristicEnum	skos:ConceptScheme	semapv:LLMBasedMatching	Two enumerations cover the same trustworthiness characteristics with different granularities; see iso22989-to-nist-ai-rmf-common.sssom.tsv for per-value mappings.
+iso22989:HumanMachineTeam	HumanMachineTeam	owl:Class	skos:closeMatch	close match	nist_ai_600_1:GaiRiskCategoryEnum#HUMAN_AI_CONFIGURATION	HUMAN_AI_CONFIGURATION	skos:Concept	semapv:LLMBasedMatching	Human-machine teaming addresses the GenAI human-AI-configuration risk category.

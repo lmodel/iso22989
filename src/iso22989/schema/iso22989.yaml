@@ -1,0 +1,3090 @@
+# ==============================================================================
+# ISO/IEC 22989:2022 aligned AI Concepts and Terminology Schema
+# ==============================================================================
+# This LinkML schema provides a machine-readable representation of the
+# artificial-intelligence concepts, terminology, life-cycle stages, stakeholder
+# roles, and ecosystem entities defined in ISO/IEC 22989:2022. It is designed
+# to be referenced by sibling lmodel schemas (notably iso42001 AIMS,
+# iso23894 AI risk, and iso27001 ISMS) without duplicating their vocabulary.
+#
+# Intended use cases:
+#   - Authoring AI system inventories aligned with ISO/IEC 22989 terminology
+#   - Cross-referencing AIMS controls (ISO/IEC 42001) to AI life-cycle stages
+#   - Publishing AI ecosystem and stakeholder role data as linked data
+#   - Anchoring SSSOM mappings between AI taxonomies (NIST AI RMF, OECD, EU AI
+#     Act risk categories)
+#
+# IMPORTANT: All descriptive text in this schema is original or paraphrased.
+# The ISO/IEC 22989:2022 standards text is copyright ISO/IEC and is NOT
+# reproduced verbatim. Verbatim normative content is delivered via a separate
+# `iso22989-overlay.yaml` sidecar (gitignored), per the project policy used in
+# the iso27001 and iso42001 sibling schemas.
+# ==============================================================================
+
+id: https://w3id.org/lmodel/iso22989
+name: iso22989
+title: "ISO/IEC 22989:2022: AI Concepts and Terminology — LinkML Schema"
+description: >-
+  A LinkML schema modelling the artificial-intelligence concepts, terminology,
+  life-cycle stages, stakeholder roles, ecosystem components and application
+  domains defined in ISO/IEC 22989:2022. The schema supplies the controlled
+  vocabulary referenced by sibling lmodel schemas (iso42001 AIMS, iso23894 AI
+  risk management) and supports SSSOM mappings to adjacent AI taxonomies.
+
+license: https://www.apache.org/licenses/LICENSE-2.0
+version: 0.1.0
+
+see_also:
+  - https://lmodel.github.io/iso22989
+  - https://www.iso.org/standard/74296.html
+
+# -----------------------
+# Schema-level Annotations
+# -----------------------
+annotations:
+  standard_reference: ISO/IEC 22989:2022(E)
+  standard_title: >-
+    Information technology — Artificial intelligence — Artificial intelligence
+    concepts and terminology
+  standard_edition: First edition
+  standard_date: 2022-07
+  developing_committee: ISO/IEC JTC 1/SC 42 (Artificial Intelligence)
+  related_standards: >-
+    ISO/IEC 42001 (AI management system);
+    ISO/IEC 23894 (AI risk management guidance);
+    ISO/IEC 38507 (Governance implications of AI);
+    ISO/IEC 5338 (AI system life cycle process);
+    ISO/IEC 5259 (Data quality for analytics and ML);
+    ISO/IEC TR 24028 (Overview of trustworthiness in AI);
+    ISO/IEC TR 24027 (Bias in AI systems and AI aided decision making);
+    OECD AI Principles;
+    NIST AI Risk Management Framework (AI RMF 1.0)
+  rights_notice: >-
+    This project is licensed under Apache-2.0 for original schema structure
+    and descriptions. ISO/IEC standards text is owned by ISO/IEC and is not
+    reproduced verbatim by this project. Verbatim term definitions, where
+    required by downstream consumers, must be supplied through a private
+    overlay file under their own ISO licence.
+  schema_status: draft
+
+# -----------------------
+# Prefix Declarations
+# -----------------------
+prefixes:
+  linkml: https://w3id.org/linkml/
+  iso22989: https://w3id.org/lmodel/iso22989/
+  iso42001: https://w3id.org/lmodel/iso42001/
+  iso23894: https://w3id.org/lmodel/iso23894/
+  iso27001: https://w3id.org/lmodel/iso27001/
+  iso29100: https://w3id.org/lmodel/iso29100/
+  schema: http://schema.org/
+  dcterms: http://purl.org/dc/terms/
+  skos: "http://www.w3.org/2004/02/skos/core#"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+  prov: "http://www.w3.org/ns/prov#"
+  semapv: https://w3id.org/semapv/vocab/
+  nist_ai_rmf: https://w3id.org/lmodel/nist-ai-100-1/
+  oecd_ai: https://oecd.ai/en/ai-principles#
+  eu_ai_act: https://w3id.org/lmodel/eu-ai-act/
+  nist_ai_100_1: https://w3id.org/lmodel/nist-ai-100-1/
+  nist_ai_600_1: https://w3id.org/lmodel/nist-ai-600-1/
+
+default_prefix: iso22989
+default_range: string
+
+# -----------------------
+# Imports
+# -----------------------
+imports:
+  - linkml:types
+
+# ----------------------
+# Types
+# ----------------------
+types:
+  ConfidenceScore:
+    typeof: float
+    base: float
+    uri: xsd:float
+    minimum_value: 0.0
+    maximum_value: 1.0
+    description: >-
+      Numeric confidence score expressed as a value in the closed interval
+      [0.0, 1.0]. Used for model prediction confidence, trust scores and
+      similar normalised quality indicators.
+
+  DurationType:
+    base: str
+    uri: xsd:duration
+    description: >-
+      ISO 8601 duration value such as P1Y, P30D or PT4H.
+
+# -----------------------
+# Subsets
+# -----------------------
+subsets:
+  terminology:
+    description: >-
+      Classes and enums representing terms and definitions in Clause 3 of
+      ISO/IEC 22989:2022 (Terms related to AI, data, machine learning, neural
+      networks, trustworthiness, natural-language processing and computer
+      vision).
+
+  ai_concepts:
+    description: >-
+      Conceptual elements introduced in Clause 5 (AI concepts), including
+      agent, knowledge, cognition, autonomy, IoT/CPS, trustworthiness,
+      jurisdictional and societal-impact concepts.
+
+  ai_lifecycle:
+    description: >-
+      Classes and enums representing the AI system life-cycle model and its
+      stages in Clause 6.
+
+  ai_functional_view:
+    description: >-
+      Classes representing the functional view of an AI system in Clause 7
+      (data and information, knowledge and learning, prediction/decision/
+      action chain).
+
+  ai_ecosystem:
+    description: >-
+      Ecosystem-level classes in Clause 8 (AI systems, AI functions, ML,
+      engineering approaches, data sources, cloud/edge computing and
+      resource pools).
+
+  ai_fields:
+    description: >-
+      Sub-fields of AI introduced in Clause 9 (computer vision, NLP, data
+      mining, planning).
+
+  ai_applications_domain:
+    description: >-
+      Application domains presented in Clause 10 (fraud detection, automated
+      vehicles, predictive maintenance and similar).
+
+  ai_stakeholders:
+    description: >-
+      AI stakeholder roles enumerated in Clause 5.19 (provider, producer,
+      customer, partner, subject, relevant authorities) together with the
+      sub-role refinements used by the standard.
+
+  trustworthiness:
+    description: >-
+      Trustworthiness properties of AI systems as listed in Clause 5.15
+      (robustness, reliability, resilience, controllability, explainability,
+      predictability, transparency, fairness, bias mitigation).
+
+# ==============================================================================
+# ENUMERATIONS
+# ==============================================================================
+
+enums:
+  AISystemType:
+    description: >-
+      High-level capability classification of an AI system, from narrow
+      (single-task) through general (broad cross-domain) systems and the
+      historical strong/weak AI distinction in Clause 5.2.
+    in_subset: [ai_concepts]
+    permissible_values:
+      narrow_ai:
+        description: AI system designed and deployed for a single, well-bounded task.
+      general_ai:
+        description: >-
+          Hypothetical AI system able to perform any cognitive task a human can perform.
+      weak_ai:
+        description: >-
+          Historical term largely overlapping with narrow AI; emphasises tool-like
+          behaviour.
+      strong_ai:
+        description: >-
+          Historical term largely overlapping with general AI; emphasises
+          human-equivalent cognition.
+
+  SymbolicApproach:
+    description: >-
+      The symbolic vs subsymbolic axis used in Clause 5.9 to classify AI
+      reasoning techniques.
+    in_subset: [ai_concepts]
+    permissible_values:
+      symbolic:
+        description: >-
+          Approaches that manipulate explicit symbolic representations (rules, logic,
+          knowledge graphs).
+      subsymbolic:
+        description: >-
+          Approaches that operate on distributed numeric representations (neural
+          networks, statistical models).
+      hybrid:
+        description: >-
+          Approaches that combine symbolic and subsymbolic techniques (neuro-symbolic
+          AI).
+
+  MachineLearningParadigm:
+    description: >-
+      Top-level machine-learning paradigms enumerated in Clause 5.11.
+    in_subset: [terminology]
+    permissible_values:
+      supervised:
+        description: Learning from labelled input-output examples.
+      unsupervised:
+        description: >-
+          Learning structure from unlabelled data (clustering, density estimation,
+          dimensionality reduction).
+      semi_supervised:
+        description: Learning from a mixture of labelled and unlabelled data.
+      reinforcement:
+        description: >-
+          Learning policies by interaction with an environment that issues rewards.
+      transfer:
+        description: >-
+          Reusing knowledge learned on one task to accelerate learning on a related
+          task.
+      self_supervised:
+        description: >-
+          Learning representations from data using auxiliary tasks derived from the data
+          itself.
+
+  MLAlgorithmFamily:
+    description: >-
+      Example machine-learning algorithm families enumerated in Clause 5.12.
+    in_subset: [terminology]
+    permissible_values:
+      neural_network:
+        description: >-
+          Networks of interconnected processing units (artificial neurons) trained by
+          gradient methods.
+      bayesian_network:
+        description: >-
+          Probabilistic graphical models encoding conditional dependencies between
+          variables.
+      decision_tree:
+        description: >-
+          Tree-structured models splitting the input space on feature thresholds.
+      support_vector_machine:
+        description: >-
+          Margin-maximising classifiers operating in (possibly kernelised) feature
+          spaces.
+      genetic_algorithm:
+        description: >-
+          Population-based optimisation inspired by biological evolution (Clause 5.8).
+
+  AutonomyLevel:
+    description: >-
+      Degree of system autonomy as discussed in Clause 5.13 (autonomy,
+      heteronomy and automation). Encodes both the qualitative axis
+      (autonomous / heteronomous / automated) and the six-level operational
+      autonomy gradient widely used by ISO/IEC JTC 1/SC 42 work products.
+    in_subset: [ai_concepts]
+    permissible_values:
+      automated:
+        description: >-
+          System executes a fixed predefined behaviour without runtime adaptation.
+      heteronomous:
+        description: System operates under external direction or supervision.
+      autonomous:
+        description: >-
+          System pursues goals using its own decision-making within a defined operating
+          envelope.
+      level_0_no_automation:
+        description: >-
+          Human performs all tasks; no autonomous functionality (Clause 5.13).
+      level_1_assistance:
+        description: System assists the operator with one or more specific tasks.
+      level_2_partial_automation:
+        description: >-
+          System performs some sub-functions; operator retains overall control.
+      level_3_conditional_automation:
+        description: >-
+          System handles defined tasks but expects the operator to intervene when
+          requested.
+      level_4_high_automation:
+        description: >-
+          System performs the mission within a defined operating envelope without
+          operator intervention.
+      level_5_full_automation:
+        description: >-
+          System performs the entire mission autonomously across all conditions.
+
+  TrustworthinessPropertyType:
+    description: >-
+      Properties contributing to AI trustworthiness, enumerated in
+      Clause 5.15 (robustness, reliability, resilience, controllability,
+      explainability, predictability, transparency, fairness and bias-related
+      properties).
+    in_subset: [trustworthiness]
+    permissible_values:
+      robustness:
+        description: >-
+          Ability to maintain performance under varied or adversarial conditions.
+      reliability:
+        description: Consistent intended behaviour over time under stated conditions.
+      resilience:
+        description: >-
+          Ability to recover acceptable behaviour after disruption or failure.
+      controllability:
+        description: >-
+          Property of allowing authorised humans to intervene in system behaviour.
+      explainability:
+        description: >-
+          Property of producing explanations of system behaviour that are intelligible
+          to relevant audiences.
+      predictability:
+        description: >-
+          Property of behaviour being anticipatable given known inputs and state.
+      transparency:
+        description: >-
+          Property of disclosing meaningful information about the system to interested
+          parties.
+      fairness:
+        description: >-
+          Property of avoiding inappropriate or harmful discrimination across groups.
+      bias_mitigation:
+        description: >-
+          Property of identifying and reducing unwanted bias in data, models or
+          outcomes.
+      accountability:
+        description: >-
+          Property of having identifiable parties answerable for system behaviour and
+          outcomes.
+      privacy:
+        description: >-
+          Property of respecting personal data and individual privacy expectations.
+      safety:
+        description: >-
+          Property of not causing unacceptable risk of harm to people, property or
+          environment.
+      availability:
+        description: >-
+          Property of being accessible and usable on demand by authorised entities
+          (Clause 5.15.3 context).
+      integrity:
+        description: >-
+          Property of safeguarding accuracy and completeness of data, models and outputs
+          (Clause 5.15 Note).
+      authenticity:
+        description: >-
+          Property of being able to verify the origin and identity of inputs, models and
+          outputs (Clause 5.15 Note).
+      security:
+        description: >-
+          Property of preserving confidentiality, integrity and availability of the AI
+          system and its data (Clause 5.15 context).
+      usability:
+        description: >-
+          Property of being effectively, efficiently and satisfactorily usable by the
+          intended users (Clause 5.15 Note).
+      quality:
+        description: >-
+          Aggregate property reflecting how well the AI system meets stated and implied
+          needs (Clause 5.15 Note).
+      fault_tolerance:
+        description: >-
+          Property of continuing to operate correctly in the presence of component
+          faults (Clause 5.15.4 context).
+
+  BiasType:
+    description: >-
+      Categories of bias relevant to AI systems as discussed in Clause 5.15.9
+      and ISO/IEC TR 24027.
+    in_subset: [trustworthiness]
+    permissible_values:
+      data_bias:
+        description: >-
+          Bias introduced through sampling, labelling or representation of training
+          data.
+      algorithmic_bias:
+        description: >-
+          Bias introduced through model or algorithm choice and parameterisation.
+      societal_bias:
+        description: >-
+          Bias reflecting structural inequalities in the data-generating environment.
+      cognitive_bias:
+        description: >-
+          Bias introduced through human cognition during design, labelling or
+          interpretation.
+      automation_bias:
+        description: Tendency of users to over-rely on automated outputs.
+
+  AILifecycleStage:
+    description: >-
+      AI system life-cycle stages identified in Clause 6.2.
+    in_subset: [ai_lifecycle]
+    permissible_values:
+      inception:
+        description: >-
+          Identification of need, opportunity and high-level objectives for the AI
+          system.
+      design_and_development:
+        description: >-
+          Architecture, model selection, data preparation, training and integration
+          activities.
+      verification_and_validation:
+        description: >-
+          Evidence-gathering activities establishing that the system meets specified
+          requirements.
+      deployment:
+        description: Release of the AI system into its operational environment.
+      operation_and_monitoring:
+        description: >-
+          Routine use of the AI system with ongoing observation of behaviour and
+          performance.
+      continuous_validation:
+        description: >-
+          Ongoing checks that the system continues to meet validation criteria during
+          operation.
+      re_evaluation:
+        description: >-
+          Periodic or event-triggered reassessment of the system, often leading to
+          retraining or redesign.
+      retirement:
+        description: >-
+          Decommissioning of the AI system and management of residual data and
+          artefacts.
+
+  AIFunctionalComponent:
+    description: >-
+      Functional building blocks of an AI system as introduced in Clause 7.
+    in_subset: [ai_functional_view]
+    permissible_values:
+      data_and_information:
+        description: Data acquisition, storage and information management functions.
+      knowledge_and_learning:
+        description: >-
+          Functions producing or maintaining knowledge representations and learned
+          models.
+      prediction:
+        description: >-
+          Functions producing predictions from inputs using a trained model or knowledge
+          base.
+      decision:
+        description: >-
+          Functions selecting a course of action based on predictions and constraints.
+      action:
+        description: >-
+          Functions enacting decisions on the environment or downstream systems.
+
+  AIStakeholderRoleType:
+    description: >-
+      AI stakeholder roles enumerated in Clause 5.19.
+    in_subset: [ai_stakeholders]
+    permissible_values:
+      ai_provider:
+        description: Party that makes an AI system available to AI customers.
+      ai_producer:
+        description: Party that designs, develops or assembles AI systems or components.
+      ai_customer:
+        description: Party that uses an AI system or a service backed by an AI system.
+      ai_partner:
+        description: >-
+          Party providing services that support the AI life cycle (data brokers,
+          integrators, evaluators).
+      ai_subject:
+        description: >-
+          Person or group whose data is used by, or who is otherwise affected by, the AI
+          system.
+      relevant_authority:
+        description: >-
+          Body with regulatory, supervisory or standards-setting responsibility for AI.
+
+  EngineeringApproach:
+    description: >-
+      Non-learning engineering approaches contributing to AI, from Clause 8.5.
+    in_subset: [ai_ecosystem]
+    permissible_values:
+      expert_system:
+        description: Rule-based system encoding domain expertise (Clause 8.5.2).
+      logic_programming:
+        description: Programming paradigm based on formal logic (Clause 8.5.3).
+      knowledge_graph:
+        description: >-
+          Graph-structured knowledge representation used for reasoning and retrieval.
+      constraint_satisfaction:
+        description: Solving problems by satisfying a set of declared constraints.
+
+  ComputingResourceType:
+    description: >-
+      Categories of computing resource used by AI systems, drawn from
+      Clauses 8.6 (cloud and edge computing) and 8.7 (resource pools).
+    in_subset: [ai_ecosystem]
+    permissible_values:
+      cloud:
+        description: >-
+          Centralised, elastically provisioned computing resources accessed over a
+          network.
+      edge:
+        description: Computing resources located close to data sources or end users.
+      on_premises:
+        description: >-
+          Computing resources owned and operated within the organisation's own
+          facilities.
+      cpu:
+        description: General-purpose central-processing-unit compute capacity.
+      gpu:
+        description: >-
+          Graphics-processing-unit compute capacity, commonly used for neural network
+          training and inference.
+      tpu:
+        description: >-
+          Tensor-processing-unit or similar accelerator specialised for ML workloads.
+      asic:
+        description: >-
+          Application-specific integrated circuit designed for a fixed AI workload
+          (Clause 8.7.2).
+      fpga:
+        description: >-
+          Field-programmable gate array offering reconfigurable hardware acceleration.
+      npu:
+        description: >-
+          Neural-network processing unit specialised for neural-network inference and
+          training.
+      dsp:
+        description: >-
+          Digital signal processor used to accelerate signal-processing workloads.
+
+  DataModality:
+    description: >-
+      Modalities of input data handled by AI systems, drawn from the data,
+      NLP and CV terminology sections (Clauses 3.2, 3.6, 3.7).
+    in_subset: [terminology]
+    permissible_values:
+      structured:
+        description: Tabular or relational data with an explicit schema.
+      semi_structured:
+        description: >-
+          Data with self-describing structure such as JSON, XML or graph formats.
+      unstructured:
+        description: Data without an explicit schema (free text, images, audio, video).
+      text:
+        description: Natural-language text data.
+      image:
+        description: Two-dimensional visual data.
+      video:
+        description: Temporal sequences of visual frames.
+      audio:
+        description: Acoustic signal data.
+      sensor:
+        description: Telemetry or measurement data from physical sensors.
+      time_series:
+        description: Ordered observations indexed by time.
+      graph:
+        description: Data represented as nodes and edges.
+
+  DatasetRole:
+    description: >-
+      Role a dataset plays in a machine-learning workflow, drawn from
+      Clauses 5.11.6–5.11.8.
+    in_subset: [terminology]
+    permissible_values:
+      training:
+        description: Dataset used to fit model parameters.
+      validation:
+        description: >-
+          Dataset used to tune hyperparameters and select among candidate models.
+      test:
+        description: Dataset used for a final unbiased estimate of model performance.
+      production:
+        description: Live data observed during operational deployment.
+      reference:
+        description: Curated dataset used as a benchmark across experiments.
+
+  NLPComponentType:
+    description: >-
+      Components of a natural-language-processing pipeline as enumerated in
+      Clauses 3.6 and 9.2.
+    in_subset: [terminology]
+    permissible_values:
+      tokenisation:
+        description: Segmenting text into tokens such as words or subwords.
+      lemmatisation:
+        description: Reducing tokens to their canonical dictionary form.
+      part_of_speech_tagging:
+        description: Assigning grammatical category labels to tokens.
+      syntactic_parsing:
+        description: Producing syntactic structure for sentences.
+      semantic_analysis:
+        description: Deriving meaning representations from text.
+      named_entity_recognition:
+        description: Identifying and classifying named entities in text.
+      sentiment_analysis:
+        description: Estimating subjective polarity or affect in text.
+      machine_translation:
+        description: Automatically translating text between natural languages.
+      speech_recognition:
+        description: Converting acoustic speech signals into text.
+      speech_synthesis:
+        description: Generating speech audio from text.
+      natural_language_understanding:
+        description: >-
+          Deriving structured meaning, intent or entities from natural-language input
+          (Clause 9.2).
+      natural_language_generation:
+        description: >-
+          Producing natural-language output from structured inputs (Clause 9.2).
+      automatic_summarization:
+        description: Producing condensed summaries of longer text (Clause 3.6.1).
+      dialogue_management:
+        description: Controlling multi-turn conversational interaction (Clause 9.2.2).
+      information_retrieval:
+        description: >-
+          Finding relevant documents or passages in a collection in response to a query.
+      question_answering:
+        description: Producing direct answers to natural-language questions.
+      relationship_extraction:
+        description: Identifying typed relationships between entities mentioned in text.
+      emotion_recognition:
+        description: Detecting affective or emotional state expressed in text or speech.
+      optical_character_recognition:
+        description: >-
+          Converting images of printed or handwritten text into machine-readable text
+          (Clause 3.6.12).
+      coreference_resolution:
+        description: Linking mentions in text that refer to the same entity.
+
+  ComputerVisionTask:
+    description: >-
+      Computer-vision tasks drawn from Clauses 3.7 and 9.1.
+    in_subset: [terminology]
+    permissible_values:
+      image_classification:
+        description: Assigning a class label to an image.
+      object_detection:
+        description: Localising and classifying objects within an image.
+      semantic_segmentation:
+        description: Assigning a class label to each pixel in an image.
+      instance_segmentation:
+        description: Assigning labels to pixels grouped by individual object instance.
+      image_recognition:
+        description: General recognition of image content, including faces and scenes.
+      pose_estimation:
+        description: Estimating the spatial pose of objects or persons.
+      optical_character_recognition:
+        description: >-
+          Extracting machine-readable text from images of printed or handwritten
+          content.
+      face_recognition:
+        description: Identifying or verifying persons from facial images (Clause 3.7.2).
+      scene_recognition:
+        description: Classifying the type of scene or environment depicted in an image.
+      motion_tracking:
+        description: >-
+          Following the position of objects across successive frames in video.
+      visual_anomaly_detection:
+        description: Identifying visual patterns that deviate from expected behaviour.
+      three_d_reconstruction:
+        description: Recovering three-dimensional structure from one or more images.
+      action_recognition:
+        description: Recognising discrete actions performed in video.
+      activity_recognition:
+        description: >-
+          Recognising higher-level activities composed of multiple actions in video.
+
+  AIField:
+    description: >-
+      Sub-fields of AI referenced in Clause 9.
+    in_subset: [ai_fields]
+    permissible_values:
+      computer_vision:
+        description: AI sub-field concerned with interpreting visual information.
+      natural_language_processing:
+        description: >-
+          AI sub-field concerned with processing and generating human language.
+      data_mining:
+        description: Extraction of patterns and knowledge from large data sets.
+      planning:
+        description: AI sub-field concerned with sequencing actions to achieve goals.
+      robotics:
+        description: AI sub-field concerned with embodied autonomous systems.
+      knowledge_representation_and_reasoning:
+        description: >-
+          AI sub-field concerned with explicit representation and inference over
+          knowledge.
+      speech_processing:
+        description: >-
+          AI sub-field concerned with processing and producing speech signals.
+      multi_agent_systems:
+        description: >-
+          AI sub-field concerned with coordination and interaction among multiple
+          agents.
+
+  AIApplicationDomain:
+    description: >-
+      Example AI application domains presented in Clause 10.
+    in_subset: [ai_applications_domain]
+    permissible_values:
+      fraud_detection:
+        description: >-
+          Identification of fraudulent transactions or behaviours (Clause 10.2).
+      automated_vehicles:
+        description: >-
+          AI capabilities used in self-driving or driver-assistance systems (Clause
+          10.3).
+      predictive_maintenance:
+        description: Anticipating equipment failures from sensor data (Clause 10.4).
+      recommendation:
+        description: Personalised recommendation of items or actions.
+      medical_diagnosis:
+        description: AI-assisted diagnostic decision support in healthcare.
+      content_generation:
+        description: AI-generated text, images, audio or other media.
+      agriculture:
+        description: >-
+          AI applications in farming, crop and livestock management (Clause 10.1).
+      automotive:
+        description: >-
+          AI applications in vehicle design, manufacture and in-vehicle services (Clause
+          10.1).
+      banking_and_finance:
+        description: >-
+          AI applications in banking, finance and capital markets (Clause 10.1).
+      defense_and_security:
+        description: AI applications in defence and physical security (Clause 10.1).
+      education:
+        description: AI applications in learning, teaching and assessment (Clause 10.1).
+      energy_and_utilities:
+        description: >-
+          AI applications in energy generation, distribution and consumption (Clause
+          10.1).
+      healthcare:
+        description: >-
+          AI applications in clinical care and health management (Clause 10.1).
+      legal_services:
+        description: >-
+          AI applications in legal research, contracting and compliance (Clause 10.1).
+      manufacturing:
+        description: AI applications in industrial production (Clause 10.1).
+      media_and_entertainment:
+        description: >-
+          AI applications in media production, distribution and recommendation (Clause
+          10.1).
+      mixed_reality:
+        description: >-
+          AI applications in virtual, augmented and mixed reality (Clause 10.1).
+      public_sector:
+        description: >-
+          AI applications in government and public administration (Clause 10.1).
+      retail:
+        description: AI applications in retail and e-commerce (Clause 10.1).
+      space:
+        description: AI applications in space exploration and operations (Clause 10.1).
+      telecommunications:
+        description: >-
+          AI applications in telecommunications networks and services (Clause 10.1).
+
+  OECDLifecycleStage:
+    description: >-
+      OECD AI system life-cycle stages used in the informative mapping of
+      Annex A.
+    in_subset: [ai_lifecycle]
+    permissible_values:
+      plan_and_design:
+        description: OECD stage covering planning and design activities.
+      collect_and_process_data:
+        description: OECD stage covering data collection and processing.
+      build_and_use_model:
+        description: OECD stage covering model building and inference.
+      verify_and_validate:
+        description: OECD stage covering verification and validation.
+      deploy:
+        description: OECD stage covering deployment of the AI system.
+      operate_and_monitor:
+        description: OECD stage covering operation and monitoring of the AI system.
+
+  JurisdictionalIssueType:
+    description: >-
+      Categories of jurisdictional issue surfaced in Clause 5.17.
+    in_subset: [ai_concepts]
+    permissible_values:
+      data_residency:
+        description: >-
+          Constraints on the geographical location of stored or processed data.
+      cross_border_transfer:
+        description: >-
+          Constraints on movement of data or AI outputs across legal jurisdictions.
+      liability:
+        description: >-
+          Allocation of legal responsibility for AI-system actions and outcomes.
+      regulatory_compliance:
+        description: >-
+          Conformity with applicable AI-specific or sector-specific regulations.
+      intellectual_property:
+        description: Ownership and licensing of training data, models and outputs.
+
+  SocietalImpactCategory:
+    description: >-
+      Categories of societal impact discussed in Clause 5.18.
+    in_subset: [ai_concepts]
+    permissible_values:
+      employment:
+        description: Effects on labour markets and the nature of work.
+      human_rights:
+        description: Effects on the exercise of fundamental human rights.
+      environment:
+        description: Environmental footprint of AI development and deployment.
+      democratic_processes:
+        description: Effects on political discourse, elections and civic participation.
+      digital_divide:
+        description: Differential access to and impact of AI systems across populations.
+
+  NeuralNetworkArchitecture:
+    description: >-
+      Architectural families of neural networks enumerated across Clause 3.4
+      and Clause 5.12.1.
+    in_subset: [terminology]
+    permissible_values:
+      feed_forward:
+        description: >-
+          Feed-forward neural network with unidirectional information flow (Clause
+          3.4.6).
+      recurrent:
+        description: Recurrent neural network with feedback connections (Clause 3.4.10).
+      long_short_term_memory:
+        description: >-
+          LSTM recurrent architecture mitigating short memory in plain RNNs (Clause
+          3.4.7).
+      gated_recurrent_unit:
+        description: GRU recurrent architecture, a simplified gating variant of LSTM.
+      convolutional:
+        description: >-
+          Convolutional neural network using local receptive fields (Clause 3.4.2).
+      transformer:
+        description: Attention-based architecture used for sequence modelling.
+      autoencoder:
+        description: >-
+          Encoder-decoder architecture trained to reconstruct inputs for representation
+          learning.
+      generative_adversarial:
+        description: Adversarial pairing of generator and discriminator networks.
+      deep:
+        description: >-
+          Neural network with many hidden layers (deep learning, Clause 3.4.4).
+
+  NeuralNetworkPhenomenon:
+    description: >-
+      Training-time phenomena that affect neural-network learning, drawn
+      from Clause 3.4.
+    in_subset: [terminology]
+    permissible_values:
+      vanishing_gradient:
+        description: >-
+          Gradient signal shrinks across layers during back-propagation, slowing
+          learning.
+      exploding_gradient:
+        description: >-
+          Gradient signal grows without bound across layers during back-propagation
+          (Clause 3.4.5).
+      catastrophic_forgetting:
+        description: >-
+          Previously learned knowledge is lost when the network is retrained on new
+          data.
+      overfitting:
+        description: Model fits training data idiosyncrasies and fails to generalise.
+      underfitting:
+        description: Model lacks capacity or training to capture the underlying signal.
+
+  ActivationFunctionType:
+    description: >-
+      Common activation functions used in neural networks (Clause 3.4.1).
+    in_subset: [terminology]
+    permissible_values:
+      sigmoid:
+        description: Logistic sigmoid activation.
+      tanh:
+        description: Hyperbolic tangent activation.
+      relu:
+        description: Rectified linear unit activation.
+      leaky_relu:
+        description: Rectified linear unit with non-zero gradient below zero.
+      softmax:
+        description: Softmax activation producing a probability distribution.
+      linear:
+        description: Identity / linear activation.
+      other:
+        description: Activation function not enumerated explicitly.
+
+  AgentArchitectureType:
+    description: >-
+      Agent architectures discussed in Clause 5.3 (agent paradigm).
+    in_subset: [ai_concepts]
+    permissible_values:
+      reflex_agent:
+        description: Agent that maps current percepts directly to actions.
+      model_based_agent:
+        description: >-
+          Agent that maintains an internal model of the environment to guide action.
+      goal_based_agent:
+        description: Agent that selects actions to achieve explicit goals.
+      utility_based_agent:
+        description: >-
+          Agent that selects actions to maximise an expected utility function.
+      learning_agent:
+        description: Agent that improves its behaviour through experience.
+      multi_agent:
+        description: Agent operating jointly with other agents in a shared environment.
+
+  KnowledgeType:
+    description: >-
+      Types of knowledge distinguished in Clause 3.1 and Clause 5.4
+      (declarative versus procedural knowledge, etc.).
+    in_subset: [ai_concepts]
+    permissible_values:
+      declarative:
+        description: Knowledge of facts and relationships (Clause 3.1.12).
+      procedural:
+        description: Knowledge of how to perform tasks (Clause 3.1.28).
+      tacit:
+        description: Implicit, experience-based knowledge that is hard to articulate.
+      common_sense:
+        description: Background knowledge expected to be shared by typical humans.
+      domain_specific:
+        description: Knowledge specific to a particular application domain.
+
+  DataProcessType:
+    description: >-
+      Data-handling processes enumerated in Clause 5.10 and Clause 3.2
+      (data acquisition, annotation, preparation, quality checking,
+      sampling, augmentation, drift and poisoning handling, etc.).
+    in_subset: [terminology]
+    permissible_values:
+      data_acquisition:
+        description: Collecting data from one or more sources.
+      exploratory_data_analysis:
+        description: >-
+          Initial profiling of a dataset to understand its characteristics (Clause
+          3.2.6).
+      data_annotation:
+        description: Adding labels or other metadata to data items (Clause 3.2.1).
+      data_labeling:
+        description: Assigning target labels to records for supervised learning.
+      data_preparation:
+        description: >-
+          Transforming raw data into a form suitable for analysis or training.
+      data_cleaning:
+        description: Detecting and correcting errors and inconsistencies in data.
+      filtering:
+        description: Removing data items that do not match selection criteria.
+      normalisation:
+        description: Rescaling features to a common range or distribution.
+      de_identification:
+        description: Removing or transforming personally identifiable information.
+      data_quality_checking:
+        description: >-
+          Assessing completeness, accuracy, representativeness and bias of data (Clause
+          3.2.2).
+      data_sampling:
+        description: >-
+          Selecting a subset of records from a larger population (Clause 3.2.4).
+      data_augmentation:
+        description: >-
+          Creating additional training examples via transformation of existing data
+          (Clause 3.2.3).
+      feature_engineering:
+        description: Constructing or selecting features used as model inputs.
+      imputation:
+        description: Replacing missing values with substituted estimates (Clause 3.2.8).
+      data_drift_detection:
+        description: >-
+          Detecting changes in the statistical distribution of operational data.
+      data_poisoning_detection:
+        description: Identifying adversarial contamination of training data.
+      concept_drift_handling:
+        description: >-
+          Detecting and responding to changes in the relationship between inputs and
+          target labels (Clause 5.11.9.1).
+      catastrophic_forgetting_mitigation:
+        description: >-
+          Strategies to prevent loss of previously learned knowledge during retraining
+          (Clause 5.11.9.1).
+      retraining:
+        description: >-
+          Updating an existing trained model on new or revised data (Clause 5.11.9).
+
+  DataLabelType:
+    description: >-
+      Categories of target label produced or consumed by ML workflows.
+    in_subset: [terminology]
+    permissible_values:
+      categorical:
+        description: Discrete unordered class labels.
+      binary:
+        description: Two-class label (typically positive / negative).
+      ordinal:
+        description: Discrete ordered labels.
+      numeric:
+        description: Continuous numeric target value.
+      structured:
+        description: Composite or graph-structured label.
+      sequence:
+        description: >-
+          Ordered sequence of label tokens (e.g. sequence labelling, structured
+          prediction).
+      graph:
+        description: >-
+          Graph-structured label such as a parse tree or relational structure.
+      none:
+        description: No explicit label (unsupervised or self-supervised setting).
+
+  TaskCategory:
+    description: >-
+      Categories of AI task addressed by AI systems, derived from the\n      machine-learning, NLP and computer-vision terminology in Clause 3.
+    in_subset: [ai_concepts]
+    permissible_values:
+      classification:
+        description: Assigning a class label to an input.
+      regression:
+        description: Predicting a continuous numeric value.
+      clustering:
+        description: Grouping items by similarity without supervision.
+      ranking:
+        description: Ordering items by relevance or preference.
+      recommendation:
+        description: Suggesting items to a user given context.
+      anomaly_detection:
+        description: Identifying inputs that deviate from expected behaviour.
+      dimensionality_reduction:
+        description: Producing a lower-dimensional representation of the data.
+      generation:
+        description: Producing new content (text, images, audio, etc.).
+      planning:
+        description: Producing a sequence of actions that achieve a goal.
+      control:
+        description: Selecting actions to influence a dynamical system.
+      decision_support:
+        description: >-
+          Producing recommendations or explanations to support human decisions.
+
+  AISystemCharacteristic:
+    description: >-
+      Distinguishing characteristics of AI systems summarised in Clause 5.1.
+    in_subset: [ai_concepts]
+    permissible_values:
+      interactive:
+        description: Engages in interaction with users or other systems.
+      contextual:
+        description: Adapts behaviour to its operational context.
+      adaptive:
+        description: Adjusts behaviour over time in response to new data or feedback.
+      oversight_enabled:
+        description: Provides mechanisms for human oversight and intervention.
+      data_dependent:
+        description: >-
+          Performance depends materially on the data used to build or operate the
+          system.
+
+  SoftComputingTechnique:
+    description: >-
+      Techniques grouped under soft computing in Clause 5.7.
+    in_subset: [ai_concepts]
+    permissible_values:
+      fuzzy_logic:
+        description: Reasoning with degrees of truth rather than crisp Boolean values.
+      evolutionary_computing:
+        description: >-
+          Optimisation inspired by biological evolution (including genetic algorithms).
+      swarm_intelligence:
+        description: >-
+          Optimisation inspired by collective behaviour of decentralised agents.
+      probabilistic_reasoning:
+        description: Reasoning under uncertainty using probability theory.
+      neural_computing:
+        description: Computation realised by networks of artificial neurons.
+
+  BigDataCharacteristic:
+    description: >-
+      Characteristics commonly used to describe big data sources in
+      Clause 8.6.1.
+    in_subset: [ai_ecosystem]
+    permissible_values:
+      volume:
+        description: Total amount of data managed.
+      velocity:
+        description: Rate at which data is generated or processed.
+      variety:
+        description: Range of data types and sources.
+      veracity:
+        description: Trustworthiness and accuracy of the data.
+      value:
+        description: Usefulness of the data for the intended purpose.
+      variability:
+        description: Degree to which data characteristics change over time.
+
+  IoTDeviceRole:
+    description: >-
+      Roles played by devices in IoT and cyber-physical systems (Clause 5.14).
+    in_subset: [ai_ecosystem]
+    permissible_values:
+      sensor:
+        description: Device that observes the physical environment.
+      actuator:
+        description: Device that effects changes in the physical environment.
+      gateway:
+        description: Device that connects local IoT subnets to wider networks.
+      edge_compute:
+        description: Device providing local computation at the network edge.
+      controller:
+        description: Device that supervises or coordinates other IoT devices.
+
+  AbbreviationCode:
+    description: >-
+      Acronyms and abbreviations listed in Clause 4.
+    in_subset: [terminology]
+    permissible_values:
+      AI:
+        description: Artificial intelligence.
+      API:
+        description: Application programming interface.
+      ASIC:
+        description: Application-specific integrated circuit.
+      CNN:
+        description: Convolutional neural network.
+      CPS:
+        description: Cyber-physical system.
+      CPU:
+        description: Central processing unit.
+      CRISP_DM:
+        description: Cross-industry standard process for data mining.
+      DNN:
+        description: Deep neural network.
+      DSP:
+        description: Digital signal processor.
+      FFNN:
+        description: Feed-forward neural network.
+      FPGA:
+        description: Field-programmable gate array.
+      GA:
+        description: Genetic algorithm.
+      GPU:
+        description: Graphics processing unit.
+      HMM:
+        description: Hidden Markov model.
+      IoT:
+        description: Internet of Things.
+      IR:
+        description: Information retrieval.
+      IT:
+        description: Information technology.
+      KDD:
+        description: Knowledge discovery in data.
+      LSTM:
+        description: Long short-term memory.
+      ML:
+        description: Machine learning.
+      MT:
+        description: Machine translation.
+      NER:
+        description: Named entity recognition.
+      NLG:
+        description: Natural language generation.
+      NLP:
+        description: Natural language processing.
+      NLU:
+        description: Natural language understanding.
+      NN:
+        description: Neural network.
+      NPU:
+        description: Neural-network processing unit.
+      OCR:
+        description: Optical character recognition.
+      OECD:
+        description: Organisation for Economic Co-operation and Development.
+      PII:
+        description: Personally identifiable information.
+      POS:
+        description: Part of speech.
+      RL:
+        description: Reinforcement learning.
+      RNN:
+        description: Recurrent neural network.
+      SVM:
+        description: Support vector machine.
+
+  ValidationStrategy:
+    description: >-
+      Strategies for partitioning data and assessing generalisation, drawn
+      from Clause 5.11.8 and Clause 5.16.
+    in_subset: [terminology]
+    permissible_values:
+      holdout:
+        description: Single train / validation / test split.
+      two_way_split:
+        description: >-
+          Two-way split (train / test) used when data is limited (Clause 5.11.8).
+      cross_validation:
+        description: K-fold cross-validation.
+      stratified_cross_validation:
+        description: Cross-validation that preserves class distribution in each fold.
+      bootstrap:
+        description: Resampling-with-replacement estimation of generalisation error.
+      time_series_split:
+        description: Forward-chaining split that respects temporal order.
+
+  VerificationValidationLevel:
+    description: >-
+      Levels of verifiability and validatability used to characterise an
+      AI system in Clause 5.16.
+    in_subset: [trustworthiness]
+    permissible_values:
+      completely_verifiable:
+        description: System behaviour is fully verifiable against specifications.
+      partially_verifiable_validatable:
+        description: >-
+          System is partially verifiable and validatable against specifications.
+      unverifiable_validatable:
+        description: >-
+          System is not verifiable but its behaviour can be validated empirically.
+      unverifiable_partially_validatable:
+        description: System is not verifiable and only partially validatable.
+      unverifiable_unvalidatable:
+        description: >-
+          System is neither verifiable nor validatable with available techniques.
+
+  DataSourceType:
+    description: >-
+      Classification of data sources discussed in Clause 8.6.1.
+    in_subset: [ai_ecosystem]
+    permissible_values:
+      first_party:
+        description: >-
+          Data collected directly by the organisation operating the AI system.
+      second_party:
+        description: Data shared by a partner organisation under agreement.
+      third_party:
+        description: Data acquired from an external data provider.
+      open_data:
+        description: Publicly available data released under an open licence.
+      synthetic:
+        description: Data generated by simulation, sampling or generative models.
+      queried_union:
+        description: Data assembled on demand from a union of underlying sources.
+
+  DataCollectionMethod:
+    description: >-
+      Methods of data collection enumerated in Clause 8.6.1.
+    in_subset: [ai_ecosystem]
+    permissible_values:
+      point_of_sale:
+        description: Captured at the point of a commercial transaction.
+      survey:
+        description: Collected through structured questionnaires.
+      research_study:
+        description: Collected as part of a designed research study.
+      sensor_capture:
+        description: Captured by a physical sensor.
+      image_capture:
+        description: Captured by an imaging device.
+      audio_capture:
+        description: Captured by an audio recording device.
+      document_extraction:
+        description: Extracted from text or document corpora.
+      web_scraping:
+        description: Harvested from publicly accessible web resources.
+      interaction_log:
+        description: Recorded from interactions with software or services.
+      transactional_log:
+        description: Recorded as a side effect of transactional systems.
+
+  AutonomyCriterion:
+    description: >-
+      Criteria contributing to the assessment of autonomy in Clause 5.13.\n      Each criterion is graded independently when assigning an\n      `AutonomyLevel`.
+    in_subset: [ai_concepts]
+    permissible_values:
+      external_supervision:
+        description: Degree to which an external operator supervises the system.
+      situated_understanding:
+        description: Degree to which the system understands its operational context.
+      reactivity:
+        description: Degree to which the system reacts to environmental changes.
+      persistence:
+        description: >-
+          Span over which the system continues operating without intervention.
+      adaptability:
+        description: Degree to which the system adapts behaviour to new conditions.
+      performance_evaluation:
+        description: Ability of the system to evaluate its own performance.
+      proactive_planning:
+        description: Ability of the system to plan future actions proactively.
+
+  NeuroSymbolicApproach:
+    description: >-
+      Sub-categorisation of hybrid neuro-symbolic approaches mentioned in\n      Clause 5.9.
+    in_subset: [ai_concepts]
+    permissible_values:
+      symbolic_in_neural:
+        description: >-
+          Symbolic reasoning embedded within a primarily subsymbolic architecture.
+      neural_in_symbolic:
+        description: >-
+          Subsymbolic components invoked inside a symbolic reasoning framework.
+      tightly_coupled:
+        description: >-
+          Symbolic and subsymbolic components share representations end-to-end.
+      loosely_coupled:
+        description: >-
+          Symbolic and subsymbolic components exchange information at well-defined
+          interfaces.
+
+  RecommendationOutcomeType:
+    description: >-
+      High-level categorisation of recommendations produced by an AI system\n      (Clauses 7.4, 10).
+    in_subset: [ai_functional_view]
+    permissible_values:
+      content_recommendation:
+        description: Suggestion of content items.
+      action_recommendation:
+        description: Suggestion of an action to take.
+      ranking_recommendation:
+        description: Recommendation expressed as a ranked list.
+      next_best_action:
+        description: Recommendation of the single most appropriate next action.
+
+  ExecutionStatus:
+    description: >-
+      Execution status values for actions and processes.
+    in_subset: [ai_functional_view]
+    permissible_values:
+      planned:
+        description: Execution has been planned but not yet started.
+      in_progress:
+        description: Execution is currently in progress.
+      completed:
+        description: Execution has completed successfully.
+      failed:
+        description: Execution has terminated unsuccessfully.
+      cancelled:
+        description: Execution was cancelled before completion.
+
+# ==============================================================================
+# SLOTS
+# ==============================================================================
+
+slots:
+  # ---- Identity / common slots ----
+  id:
+    identifier: true
+    range: uriorcurie
+    required: true
+    description: Unique CURIE or URI identifying the entity.
+    slot_uri: dcterms:identifier
+
+  name:
+    range: string
+    required: true
+    description: Human-readable label for the entity.
+    slot_uri: schema:name
+    exact_mappings: [dcterms:title, schema:name]
+
+  description:
+    range: string
+    description: >-
+      Free-text description of the entity (paraphrased; verbatim ISO text excluded).
+    slot_uri: dcterms:description
+
+  clause_reference:
+    range: string
+    description: >-
+      ISO/IEC 22989:2022 clause identifier (e.g. "5.11.4") the element corresponds to.
+    pattern: "^[0-9]+(\\.[0-9]+){0,3}$"
+
+  aliases:
+    multivalued: true
+    range: string
+    description: Alternative names or synonyms for the term.
+    slot_uri: skos:altLabel
+
+  preferred_label:
+    range: string
+    description: Preferred natural-language label.
+    slot_uri: skos:prefLabel
+
+  see_also_uri:
+    multivalued: true
+    range: uriorcurie
+    description: Pointers to related external resources or term records.
+    slot_uri: rdfs:seeAlso
+
+  # ---- AISystem slots ----
+  ai_system_type:
+    range: AISystemType
+    description: Capability classification of the AI system.
+
+  symbolic_approach:
+    range: SymbolicApproach
+    description: Predominant symbolic vs subsymbolic approach used by the system.
+
+  autonomy_level:
+    range: AutonomyLevel
+    description: Operational autonomy level of the AI system.
+
+  intended_purpose:
+    range: string
+    description: Stated intended purpose of the AI system.
+
+  application_domain:
+    multivalued: true
+    range: AIApplicationDomain
+    description: Application domain(s) the AI system targets.
+
+  ai_field:
+    multivalued: true
+    range: AIField
+    description: AI sub-field(s) the system draws on.
+
+  functional_components:
+    multivalued: true
+    range: AIFunctionalComponent
+    description: Functional components exhibited by the system (Clause 7).
+
+  lifecycle_stage:
+    range: AILifecycleStage
+    description: Current life-cycle stage of the AI system.
+
+  stakeholders:
+    multivalued: true
+    range: AIStakeholderRole
+    inlined: true
+    inlined_as_list: true
+    description: Stakeholder roles associated with the AI system.
+
+  components:
+    multivalued: true
+    range: AIComponent
+    inlined: true
+    inlined_as_list: true
+    description: Constituent components of the AI system.
+
+  models:
+    multivalued: true
+    range: AIModel
+    inlined: true
+    inlined_as_list: true
+    description: Trained or knowledge-based models embedded in the AI system.
+
+  datasets:
+    multivalued: true
+    range: Dataset
+    inlined: true
+    inlined_as_list: true
+    description: Datasets used by, or produced by, the AI system.
+
+  trustworthiness_properties:
+    multivalued: true
+    range: TrustworthinessProperty
+    inlined: true
+    inlined_as_list: true
+    description: Trustworthiness properties claimed for the AI system.
+
+  # ---- Model slots ----
+  model_paradigm:
+    range: MachineLearningParadigm
+    description: Machine-learning paradigm under which the model was trained.
+
+  algorithm_family:
+    range: MLAlgorithmFamily
+    description: Algorithm family the model belongs to.
+
+  engineering_approach:
+    range: EngineeringApproach
+    description: >-
+      Non-learning engineering approach used (for symbolic/knowledge-based models).
+
+  training_dataset:
+    range: Dataset
+    description: Dataset used to fit the model.
+
+  validation_dataset:
+    range: Dataset
+    description: Dataset used for hyperparameter tuning and model selection.
+
+  test_dataset:
+    range: Dataset
+    description: Dataset used to estimate generalisation performance.
+
+  hyperparameters:
+    multivalued: true
+    range: string
+    description: Free-form record of model hyperparameter settings.
+
+  model_version:
+    range: string
+    description: Version identifier of the trained model artefact.
+
+  trained_on:
+    range: string
+    description: Date or version reference for when the model was last trained.
+
+  # ---- Dataset slots ----
+  data_modality:
+    multivalued: true
+    range: DataModality
+    description: Modalities present in the dataset.
+
+  dataset_role:
+    range: DatasetRole
+    description: Role the dataset plays in the ML workflow.
+
+  data_provenance:
+    range: string
+    description: >-
+      Provenance statement for the dataset (origin, collection method, licensing).
+    slot_uri: prov:wasDerivedFrom
+
+  record_count:
+    range: integer
+    minimum_value: 0
+    description: Number of records or examples in the dataset.
+
+  data_quality_notes:
+    range: string
+    description: Notes on data quality, completeness or representativeness.
+
+  contains_personal_data:
+    range: boolean
+    description: >-
+      Whether the dataset contains personal or personally identifiable information.
+
+  # ---- Trustworthiness property slots ----
+  trustworthiness_property_type:
+    range: TrustworthinessPropertyType
+    required: true
+    description: Which trustworthiness property is being characterised.
+
+  property_evidence:
+    multivalued: true
+    range: string
+    description: References to evidence supporting the property claim.
+
+  measurement_method:
+    range: string
+    description: How the property was assessed or measured.
+
+  applicable_biases:
+    multivalued: true
+    range: BiasType
+    description: Bias categories considered relevant to this property assessment.
+
+  confidence_score:
+    range: ConfidenceScore
+    description: Normalised confidence in the property claim.
+
+  # ---- Lifecycle process slots ----
+  process_stage:
+    range: AILifecycleStage
+    required: true
+    description: Life-cycle stage the process belongs to.
+
+  process_inputs:
+    multivalued: true
+    range: string
+    description: Inputs consumed by the process.
+
+  process_outputs:
+    multivalued: true
+    range: string
+    description: Outputs produced by the process.
+
+  responsible_role:
+    range: AIStakeholderRoleType
+    description: Stakeholder role responsible for executing the process.
+
+  start_date:
+    range: date
+    description: Date the process started.
+
+  end_date:
+    range: date
+    description: Date the process completed.
+
+  # ---- Stakeholder slots ----
+  stakeholder_role_type:
+    range: AIStakeholderRoleType
+    required: true
+    description: Canonical stakeholder role type as defined in Clause 5.19.
+
+  organization_name:
+    range: string
+    description: Name of the organisation acting in the stakeholder role.
+
+  contact:
+    range: string
+    description: Contact identifier (e.g. email) for the stakeholder.
+
+  responsibilities:
+    multivalued: true
+    range: string
+    description: Free-text statements of responsibility.
+
+  # ---- Ecosystem slots ----
+  computing_resources:
+    multivalued: true
+    range: ComputingResourceType
+    description: Computing resource types relied upon.
+
+  data_sources:
+    multivalued: true
+    range: string
+    description: Identifiers or descriptions of data sources feeding the ecosystem.
+
+  ecosystem_components:
+    multivalued: true
+    range: string
+    description: Free-text or CURIE references to ecosystem components.
+
+  # ---- Application / impact slots ----
+  jurisdictional_issues:
+    multivalued: true
+    range: JurisdictionalIssueType
+    description: Jurisdictional issues considered in scope for the application.
+
+  societal_impacts:
+    multivalued: true
+    range: SocietalImpactCategory
+    description: Societal impact categories considered in scope.
+
+  # ---- Container slots ----
+  ai_systems:
+    multivalued: true
+    range: AISystem
+    inlined: true
+    inlined_as_list: true
+    description: AI systems documented in the collection.
+
+  ai_models:
+    multivalued: true
+    range: AIModel
+    inlined: true
+    inlined_as_list: true
+    description: Trained or knowledge-based models in the collection.
+
+  ai_datasets:
+    multivalued: true
+    range: Dataset
+    inlined: true
+    inlined_as_list: true
+    description: Datasets referenced by entities in the collection.
+
+  ai_lifecycle_processes:
+    multivalued: true
+    range: AILifecycleProcess
+    inlined: true
+    inlined_as_list: true
+    description: Life-cycle process records in the collection.
+
+  ai_stakeholder_roles:
+    multivalued: true
+    range: AIStakeholderRole
+    inlined: true
+    inlined_as_list: true
+    description: Stakeholder role records in the collection.
+
+  ai_applications:
+    multivalued: true
+    range: AIApplication
+    inlined: true
+    inlined_as_list: true
+    description: AI application records in the collection.
+
+  trustworthiness_records:
+    multivalued: true
+    range: TrustworthinessProperty
+    inlined: true
+    inlined_as_list: true
+    description: Trustworthiness property claims documented in the collection.
+
+  # ---- Promoted from inline attributes (reusable schema-level slots) ----
+
+  component_function:
+    range: AIFunctionalComponent
+    description: Functional view component implemented by an AI component (Clause 7).
+
+  parameter_count:
+    range: integer
+    minimum_value: 0
+    description: Approximate count of trainable model parameters.
+
+  supports_continuous_learning:
+    range: boolean
+    description: >-
+      Whether a model supports continuous or online learning (Clause 3.1.9, 5.11.9.2).
+
+  catastrophic_forgetting_risk:
+    range: ConfidenceScore
+    description: >-
+      Estimated risk of catastrophic forgetting on retraining (Clause 5.11.9.1).
+
+  training_duration:
+    range: DurationType
+    description: >-
+      Wall-clock duration of model training, expressed as an ISO 8601 duration.
+
+  inference_latency_ms:
+    range: float
+    minimum_value: 0.0
+    description: Typical end-to-end inference latency in milliseconds.
+
+  model_compression_applied:
+    range: boolean
+    description: >-
+      Whether the model has had compression or distillation applied for deployment
+      (Clause 8.6.2).
+
+  label_type:
+    range: DataLabelType
+    description: >-
+      Type of target label associated with a dataset, sample or annotation (Clause
+      3.2.10).
+
+  label_value:
+    range: string
+    description: Concrete label value.
+
+  ground_truth_available:
+    range: boolean
+    description: Whether trusted ground-truth labels are available (Clause 3.2.7).
+
+  ground_truth_value:
+    range: string
+    description: Trusted reference value (Clause 3.2.7).
+
+  feature_count:
+    range: integer
+    minimum_value: 0
+    description: Number of features per record in a dataset.
+
+  data_source_type:
+    range: DataSourceType
+    description: Classification of a data source (Clause 8.6.1).
+
+  data_collection_method:
+    range: DataCollectionMethod
+    description: Method used to collect data (Clause 8.6.1).
+
+  collection_date_range:
+    range: string
+    description: Free-text date range over which the data was collected.
+
+  data_version:
+    range: string
+    description: Version identifier of a dataset snapshot.
+
+  task_category:
+    range: TaskCategory
+    description: Category of AI task being addressed.
+
+  input_modalities:
+    multivalued: true
+    range: DataModality
+    description: Modalities of input accepted by a task or component.
+
+  output_label_type:
+    range: DataLabelType
+    description: Type of output label produced by a task, when applicable.
+
+  performance_metric:
+    multivalued: true
+    range: string
+    description: Metrics used to evaluate performance.
+
+  predicted_value:
+    range: string
+    description: Serialised representation of a predicted value (Clause 7.4.2).
+
+  decision_outcome:
+    range: string
+    description: Chosen course of action resulting from a decision (Clause 7.4.3).
+
+  decision_policy:
+    range: string
+    description: Policy or rule used to translate predictions into a decision.
+
+  action_target:
+    range: string
+    description: Entity or system on which an action is performed (Clause 7.4.4).
+
+  execution_status:
+    range: ExecutionStatus
+    description: Execution status of an action or process.
+
+  risk_items:
+    multivalued: true
+    range: string
+    description: Risks identified or addressed by a process or assessment.
+
+  approval_criteria:
+    multivalued: true
+    range: string
+    description: Criteria that must be met for an output or process to be approved.
+
+  node_count:
+    range: integer
+    minimum_value: 0
+    description: Approximate number of nodes in a graph-structured artefact.
+
+  edge_count:
+    range: integer
+    minimum_value: 0
+    description: Approximate number of edges in a graph-structured artefact.
+
+  ontology_reference:
+    multivalued: true
+    range: uriorcurie
+    description: Ontologies referenced by a knowledge artefact.
+
+  rule_count:
+    range: integer
+    minimum_value: 0
+    description: Approximate count of rules in a rule-based knowledge base.
+
+  resource_type:
+    range: ComputingResourceType
+    description: Category of computing resource (Clause 8.7).
+
+  nlp_component_type:
+    range: NLPComponentType
+    description: Type of NLP pipeline component (Clause 9.2.2).
+
+  cv_task:
+    range: ComputerVisionTask
+    description: Type of computer-vision task (Clause 9.1).
+
+  device_role:
+    range: IoTDeviceRole
+    description: >-
+      Role played by a device in an IoT or cyber-physical system (Clause 5.14.2).
+
+  abbreviation_code:
+    range: AbbreviationCode
+    description: Acronym or abbreviation code (Clause 4).
+
+  expansion:
+    range: string
+    description: Expanded form of an abbreviation (Clause 4).
+
+  validation_strategy:
+    range: ValidationStrategy
+    description: Strategy used to estimate generalisation (Clause 5.11.8).
+
+  verification_validation_level:
+    range: VerificationValidationLevel
+    description: Verifiability / validatability claim (Clause 5.16).
+
+  autonomy_criterion_scores:
+    multivalued: true
+    range: string
+    description: Free-form scores or judgements for autonomy criteria (Clause 5.13).
+
+  recommendation_outcome_type:
+    range: RecommendationOutcomeType
+    description: High-level outcome type of a recommendation (Clauses 7.4, 10).
+
+  confidence:
+    range: ConfidenceScore
+    description: Normalised confidence value associated with an output or claim.
+
+  provenance_statement:
+    range: string
+    description: Provenance description for an artefact.
+    slot_uri: prov:wasDerivedFrom
+
+# ==============================================================================
+# CLASSES
+# ==============================================================================
+
+classes:
+  # ---- Abstract bases ----
+
+  NamedEntity:
+    abstract: true
+    description: >-
+      Abstract base class for any addressable entity in the schema, carrying
+      identity, label and clause-reference metadata.
+    slots:
+      - id
+      - name
+      - description
+      - clause_reference
+      - aliases
+      - preferred_label
+      - see_also_uri
+    class_uri: schema:Thing
+
+  Term:
+    is_a: NamedEntity
+    abstract: true
+    description: >-
+      Abstract base class for a glossary term defined in Clause 3. Concrete
+      subclasses partition the terminology along Clauses 3.1–3.7.
+    in_subset: [terminology]
+    exact_mappings: [skos:Concept]
+
+  AITerm:
+    is_a: Term
+    description: Term defined in Clause 3.1 (terms related to AI).
+    annotations:
+      clause_section: "3.1"
+
+  DataTerm:
+    is_a: Term
+    description: Term defined in Clause 3.2 (terms related to data).
+    annotations:
+      clause_section: "3.2"
+
+  MachineLearningTerm:
+    is_a: Term
+    description: Term defined in Clause 3.3 (terms related to machine learning).
+    annotations:
+      clause_section: "3.3"
+
+  NeuralNetworkTerm:
+    is_a: Term
+    description: Term defined in Clause 3.4 (terms related to neural networks).
+    annotations:
+      clause_section: "3.4"
+
+  TrustworthinessTerm:
+    is_a: Term
+    description: Term defined in Clause 3.5 (terms related to trustworthiness).
+    annotations:
+      clause_section: "3.5"
+    in_subset: [terminology, trustworthiness]
+
+  NLPTerm:
+    is_a: Term
+    description: >-
+      Term defined in Clause 3.6 (terms related to natural-language processing).
+    annotations:
+      clause_section: "3.6"
+
+  ComputerVisionTerm:
+    is_a: Term
+    description: Term defined in Clause 3.7 (terms related to computer vision).
+    annotations:
+      clause_section: "3.7"
+
+  AbbreviatedTerm:
+    is_a: NamedEntity
+    description: >-
+      Abbreviation or acronym listed in Clause 4 with its expansion and
+      optional definition reference.
+    in_subset: [terminology]
+    slots:
+      - expansion
+    slot_usage:
+      expansion:
+        required: true
+        description: Expanded form of the abbreviation.
+
+  # ---- Core conceptual classes (Clauses 5–10) ----
+
+  AIConcept:
+    is_a: NamedEntity
+    abstract: true
+    description: >-
+      Abstract base for Clause 5 conceptual entities (agent, knowledge,
+      cognition, autonomy, etc.).
+    in_subset: [ai_concepts]
+
+  AIAgent:
+    is_a: AIConcept
+    description: >-
+      Entity that perceives its environment and acts upon it to achieve goals
+      (Clause 5.3).
+    slots:
+      - autonomy_level
+      - symbolic_approach
+    attributes:
+      agent_architecture:
+        range: AgentArchitectureType
+        description: Agent architecture realised by the entity (Clause 5.3).
+      goal_set:
+        multivalued: true
+        range: string
+        description: Goals the agent is configured to pursue.
+
+  KnowledgeRepresentation:
+    is_a: AIConcept
+    description: >-
+      Representation of knowledge usable by an AI system (Clause 5.4),
+      including knowledge graphs, ontologies and rule bases.
+    slots:
+      - symbolic_approach
+    attributes:
+      knowledge_type:
+        range: KnowledgeType
+        description: Type of knowledge captured (Clause 3.1.12, 3.1.28).
+      representation_form:
+        range: string
+        description: >-
+          Concrete form of representation (rules, frames, ontology, graph, vectors).
+
+  AISystem:
+    is_a: NamedEntity
+    description: >-
+      Engineered system that uses AI techniques to perform tasks delegated
+      to it. Aggregates lifecycle, functional, model and stakeholder data.
+    in_subset: [ai_concepts, ai_lifecycle, ai_functional_view]
+    slots:
+      - ai_system_type
+      - symbolic_approach
+      - autonomy_level
+      - intended_purpose
+      - application_domain
+      - ai_field
+      - functional_components
+      - lifecycle_stage
+      - stakeholders
+      - components
+      - models
+      - datasets
+      - trustworthiness_properties
+      - jurisdictional_issues
+      - societal_impacts
+    attributes:
+      system_characteristics:
+        multivalued: true
+        range: AISystemCharacteristic
+        description: Distinguishing characteristics from Clause 5.1.
+      task_categories:
+        multivalued: true
+        range: TaskCategory
+        description: Task categories the AI system addresses.
+      agent_architecture:
+        range: AgentArchitectureType
+        description: >-
+          Agent architecture, if the AI system is structured as an agent (Clause 5.3).
+      data_processes:
+        multivalued: true
+        range: DataProcess
+        inlined: true
+        inlined_as_list: true
+        description: Data-handling processes applied within the AI system (Clause 5.10).
+      iot_integration:
+        range: IoTSystem
+        inlined: false
+        description: >-
+          IoT/CPS system this AI system is integrated with, if any (Clause 5.14).
+    related_mappings:
+      - iso42001:AISystem
+      - nist_ai_rmf:AISystem
+
+  AIComponent:
+    is_a: NamedEntity
+    description: >-
+      Functional component of an AI system, such as a data pipeline,
+      preprocessor, model server, or post-processing module.
+    in_subset: [ai_functional_view]
+    slots:
+      - component_function
+    attributes:
+      depends_on:
+        multivalued: true
+        range: AIComponent
+        inlined: false
+        description: Other components this component depends on at runtime.
+
+  AIModel:
+    is_a: NamedEntity
+    description: >-
+      Trained or rule-based model embedded in an AI system. Carries paradigm,
+      algorithm family, dataset references and version metadata.
+    in_subset: [terminology, ai_concepts]
+    slots:
+      - model_paradigm
+      - algorithm_family
+      - engineering_approach
+      - training_dataset
+      - validation_dataset
+      - test_dataset
+      - hyperparameters
+      - model_version
+      - trained_on
+      - supports_continuous_learning
+      - catastrophic_forgetting_risk
+      - parameter_count
+      - training_duration
+      - inference_latency_ms
+      - model_compression_applied
+    attributes:
+      neural_network_architecture:
+        range: NeuralNetworkArchitecture
+        description: >-
+          Neural-network architecture, when algorithm_family is neural_network (Clauses
+          3.4, 5.12.1).
+      activation_function:
+        range: ActivationFunctionType
+        description: Predominant activation function used in the network (Clause 3.4.1).
+      training_phenomena:
+        multivalued: true
+        range: NeuralNetworkPhenomenon
+        description: Training-time phenomena observed for the model (Clause 3.4).
+    related_mappings:
+      - nist_ai_rmf:Model
+
+  NeuralNetworkModel:
+    is_a: AIModel
+    description: >-
+      AIModel realised as a neural network (Clause 5.12.1, Clause 3.4 terms).
+    in_subset: [terminology]
+    slot_usage:
+      algorithm_family:
+        ifabsent: "MLAlgorithmFamily(neural_network)"
+    attributes:
+      number_of_layers:
+        range: integer
+        minimum_value: 1
+        description: Number of layers in the network.
+      number_of_parameters:
+        range: integer
+        minimum_value: 0
+        description: Approximate number of trainable parameters.
+
+  Dataset:
+    is_a: NamedEntity
+    description: >-
+      Collection of data items used by an AI system in a training,
+      validation, test, reference or production role.
+    in_subset: [terminology]
+    slots:
+      - data_modality
+      - dataset_role
+      - data_provenance
+      - record_count
+      - data_quality_notes
+      - contains_personal_data
+    attributes:
+      label_type:
+        range: DataLabelType
+        description: Type of target label associated with the dataset (Clause 3.2.10).
+      ground_truth_available:
+        range: boolean
+        description: Whether trusted ground-truth labels are available (Clause 3.2.7).
+      feature_count:
+        range: integer
+        minimum_value: 0
+        description: Number of features per record.
+      data_processes_applied:
+        multivalued: true
+        range: DataProcess
+        inlined: true
+        inlined_as_list: true
+        description: Data-handling processes applied to the dataset (Clause 5.10).
+    related_mappings:
+      - schema:Dataset
+
+  TrustworthinessProperty:
+    is_a: NamedEntity
+    description: >-
+      Claim about a trustworthiness property of an AI system or model,
+      with evidence and measurement metadata.
+    in_subset: [trustworthiness]
+    slots:
+      - trustworthiness_property_type
+      - property_evidence
+      - measurement_method
+      - applicable_biases
+      - confidence_score
+    related_mappings:
+      - nist_ai_rmf:TrustworthinessCharacteristic
+
+  AILifecycleProcess:
+    is_a: NamedEntity
+    description: >-
+      Process or activity associated with a stage of the AI system life
+      cycle (Clause 6).
+    in_subset: [ai_lifecycle]
+    slots:
+      - process_stage
+      - process_inputs
+      - process_outputs
+      - responsible_role
+      - start_date
+      - end_date
+      - risk_items
+      - approval_criteria
+    attributes:
+      process_sub_type:
+        range: string
+        description: >-
+          Free-text refinement of the process within its life-cycle stage (e.g.
+          "objectives", "requirements").
+
+  AIStakeholderRole:
+    is_a: NamedEntity
+    description: >-
+      Stakeholder role enacted by an organisation or individual in relation
+      to an AI system (Clause 5.19).
+    in_subset: [ai_stakeholders]
+    slots:
+      - stakeholder_role_type
+      - organization_name
+      - contact
+      - responsibilities
+
+  AIProvider:
+    is_a: AIStakeholderRole
+    description: Stakeholder making an AI system available to customers (Clause 5.19.2).
+    slot_usage:
+      stakeholder_role_type:
+        ifabsent: "AIStakeholderRoleType(ai_provider)"
+
+  AIProducer:
+    is_a: AIStakeholderRole
+    description: >-
+      Stakeholder designing, developing or assembling AI systems (Clause 5.19.3).
+    slot_usage:
+      stakeholder_role_type:
+        ifabsent: "AIStakeholderRoleType(ai_producer)"
+
+  AICustomer:
+    is_a: AIStakeholderRole
+    description: Stakeholder using an AI system or AI-backed service (Clause 5.19.4).
+    slot_usage:
+      stakeholder_role_type:
+        ifabsent: "AIStakeholderRoleType(ai_customer)"
+
+  AIPartner:
+    is_a: AIStakeholderRole
+    description: >-
+      Stakeholder providing supporting services across the AI life cycle (Clause
+      5.19.5).
+    slot_usage:
+      stakeholder_role_type:
+        ifabsent: "AIStakeholderRoleType(ai_partner)"
+
+  AISubject:
+    is_a: AIStakeholderRole
+    description: Person or group affected by an AI system (Clause 5.19.6).
+    slot_usage:
+      stakeholder_role_type:
+        ifabsent: "AIStakeholderRoleType(ai_subject)"
+
+  RelevantAuthority:
+    is_a: AIStakeholderRole
+    description: >-
+      Regulator or standards-setting body with oversight responsibilities (Clause
+      5.19.7).
+    slot_usage:
+      stakeholder_role_type:
+        ifabsent: "AIStakeholderRoleType(relevant_authority)"
+
+  AIEcosystem:
+    is_a: NamedEntity
+    description: >-
+      Aggregation of the AI systems, data sources, computing resources and
+      stakeholder roles that surround a deployment context (Clause 8).
+    in_subset: [ai_ecosystem]
+    slots:
+      - computing_resources
+      - data_sources
+      - ecosystem_components
+      - ai_systems
+      - ai_stakeholder_roles
+    attributes:
+      big_data_characteristics:
+        multivalued: true
+        range: BigDataCharacteristic
+        description: >-
+          Big-data characteristics that the ecosystem exhibits (Clause 8.6.1).
+
+  ResourcePool:
+    is_a: NamedEntity
+    description: >-
+      Pool of computing resources (CPU/GPU/TPU/ASIC/FPGA) available to AI
+      workloads (Clause 8.7).
+    in_subset: [ai_ecosystem]
+    slots:
+      - resource_type
+    slot_usage:
+      resource_type:
+        required: true
+    attributes:
+      capacity_units:
+        range: string
+        description: Capacity expressed in units appropriate to the resource type.
+
+  NLPComponent:
+    is_a: NamedEntity
+    description: >-
+      Component of a natural-language-processing pipeline (Clause 9.2).
+    in_subset: [ai_fields]
+    slots:
+      - nlp_component_type
+    slot_usage:
+      nlp_component_type:
+        required: true
+
+  ComputerVisionFunction:
+    is_a: NamedEntity
+    description: >-
+      Computer-vision capability provided by an AI system (Clause 9.1).
+    in_subset: [ai_fields]
+    slots:
+      - cv_task
+    slot_usage:
+      cv_task:
+        required: true
+
+  AIApplication:
+    is_a: NamedEntity
+    description: >-
+      Description of an AI application instance situated in a domain
+      (Clause 10).
+    in_subset: [ai_applications_domain]
+    slots:
+      - application_domain
+      - intended_purpose
+      - jurisdictional_issues
+      - societal_impacts
+    attributes:
+      hosting_system:
+        range: AISystem
+        inlined: false
+        description: AI system that provides the application.
+
+  # ---- Tasks and functional outputs (Clauses 5.3, 7) ----
+
+  Task:
+    is_a: NamedEntity
+    description: >-
+      AI task addressed by a model or system (e.g. classification, regression,
+      planning). Provides a first-class entity for the task categories
+      enumerated across Clause 3 terminology.
+    in_subset: [ai_functional_view]
+    slots:
+      - task_category
+      - input_modalities
+      - output_label_type
+      - performance_metric
+    slot_usage:
+      task_category:
+        required: true
+
+  Prediction:
+    is_a: NamedEntity
+    description: >-
+      Prediction produced by an AI model (Clause 7.4.2).
+    in_subset: [ai_functional_view]
+    slots:
+      - predicted_value
+      - confidence
+    attributes:
+      produced_by:
+        range: AIModel
+        inlined: false
+        description: Model that produced the prediction.
+
+  Decision:
+    is_a: NamedEntity
+    description: >-
+      Decision produced by an AI system on the basis of one or more
+      predictions (Clause 7.4.3).
+    in_subset: [ai_functional_view]
+    slots:
+      - decision_outcome
+      - decision_policy
+    attributes:
+      based_on_predictions:
+        multivalued: true
+        range: Prediction
+        inlined: false
+        description: Predictions that supported the decision.
+
+  Action:
+    is_a: NamedEntity
+    description: >-
+      Action carried out as a result of an AI-system decision (Clause 7.4.4).
+    in_subset: [ai_functional_view]
+    slots:
+      - action_target
+      - execution_status
+    attributes:
+      triggered_by:
+        range: Decision
+        inlined: false
+        description: Decision that triggered the action.
+
+  InferenceEngine:
+    is_a: NamedEntity
+    description: >-
+      Component performing inference over a model or knowledge base
+      (Clause 3.1.17).
+    in_subset: [ai_functional_view]
+    attributes:
+      inference_strategy:
+        range: string
+        description: >-
+          Inference strategy used (e.g. forward_chaining, backward_chaining,
+          probabilistic).
+      uses_model:
+        range: AIModel
+        inlined: false
+        description: Model the inference engine evaluates.
+
+  # ---- Knowledge and engineering (Clauses 5.4-5.7, 8.5) ----
+
+  KnowledgeGraph:
+    is_a: KnowledgeRepresentation
+    description: >-
+      Graph-structured knowledge representation, often used for reasoning
+      and retrieval (Clause 8.5).
+    in_subset: [ai_ecosystem]
+    slots:
+      - node_count
+      - edge_count
+      - ontology_reference
+
+  ExpertSystem:
+    is_a: NamedEntity
+    description: >-
+      Rule-based system encoding domain expertise (Clause 8.5.2).
+    in_subset: [ai_ecosystem]
+    slots:
+      - rule_count
+    attributes:
+      inference_engine:
+        range: InferenceEngine
+        inlined: true
+        inlined_as_list: false
+        description: Inference engine used by the expert system.
+
+  CognitiveComputingSystem:
+    is_a: AIConcept
+    description: >-
+      System combining AI techniques to emulate human cognitive functions
+      (Clause 5.5).
+    attributes:
+      cognitive_capabilities:
+        multivalued: true
+        range: string
+        description: >-
+          Cognitive capabilities the system provides (e.g. perception, reasoning,
+          learning).
+
+  SemanticComputingSystem:
+    is_a: AIConcept
+    description: >-
+      System whose behaviour is driven by the explicit semantics of its
+      inputs and knowledge sources (Clause 5.6).
+    attributes:
+      semantic_model:
+        range: string
+        description: Reference to the semantic model or ontology used.
+
+  SoftComputingSystem:
+    is_a: AIConcept
+    description: >-
+      System employing soft computing techniques tolerant of imprecision and
+      uncertainty (Clause 5.7).
+    attributes:
+      soft_computing_techniques:
+        multivalued: true
+        range: SoftComputingTechnique
+        required: true
+        description: Soft-computing techniques the system employs.
+
+  # ---- Data pipeline (Clause 5.10) ----
+
+  DataProcess:
+    is_a: NamedEntity
+    description: >-
+      Discrete data-handling process applied to a dataset during AI system
+      development or operation (Clause 5.10).
+    in_subset: [ai_functional_view]
+    attributes:
+      process_type:
+        range: DataProcessType
+        required: true
+        description: Type of data-handling process performed.
+      input_dataset:
+        range: Dataset
+        inlined: false
+        description: Dataset consumed by the process.
+      output_dataset:
+        range: Dataset
+        inlined: false
+        description: Dataset produced by the process.
+      parameters:
+        multivalued: true
+        range: string
+        description: Free-form parameters configuring the process.
+      executed_by:
+        range: AIStakeholderRole
+        inlined: false
+        description: Stakeholder role that executed the process.
+
+  DataSample:
+    is_a: NamedEntity
+    description: >-
+      Individual data record within a dataset (Clause 3.2.13).
+    in_subset: [terminology]
+    attributes:
+      sample_payload:
+        range: string
+        description: Serialised representation of the sample contents.
+      sample_label:
+        range: string
+        description: Label or target value associated with the sample.
+
+  DataLabel:
+    is_a: NamedEntity
+    description: >-
+      Label or annotation attached to one or more data samples (Clause 3.2.10).
+    in_subset: [terminology]
+    slots:
+      - label_value
+      - label_type
+    slot_usage:
+      label_value:
+        required: true
+    attributes:
+      annotator:
+        range: AIStakeholderRole
+        inlined: false
+        description: Role of the party that produced the label.
+
+  GroundTruthRecord:
+    is_a: NamedEntity
+    description: >-
+      Trusted reference record used to evaluate or train an AI model
+      (Clause 3.2.7).
+    in_subset: [terminology]
+    slots:
+      - ground_truth_value
+      - provenance_statement
+    slot_usage:
+      ground_truth_value:
+        required: true
+
+  # ---- Robotics, IoT and CPS (Clauses 5.3, 5.14) ----
+
+  Robot:
+    is_a: NamedEntity
+    description: >-
+      Embodied agent able to perceive its environment and act in the
+      physical world (Clause 5.3 / Clause 9.5 robotics field).
+    in_subset: [ai_concepts]
+    attributes:
+      embodiment:
+        range: string
+        description: Free-text description of the physical embodiment.
+      controlled_by:
+        range: AISystem
+        inlined: false
+        description: AI system that controls the robot.
+
+  IoTDevice:
+    is_a: NamedEntity
+    description: >-
+      Device participating in an Internet-of-Things deployment (Clause 5.14.2).
+    in_subset: [ai_ecosystem]
+    slots:
+      - device_role
+    slot_usage:
+      device_role:
+        required: true
+    attributes:
+      sensing_capabilities:
+        multivalued: true
+        range: string
+        description: Sensing capabilities of the device.
+      actuating_capabilities:
+        multivalued: true
+        range: string
+        description: Actuating capabilities of the device.
+
+  IoTSystem:
+    is_a: NamedEntity
+    description: >-
+      Networked system composed of IoT devices, possibly enhanced with AI
+      capabilities (Clause 5.14.2).
+    in_subset: [ai_ecosystem]
+    attributes:
+      devices:
+        multivalued: true
+        range: IoTDevice
+        inlined: true
+        inlined_as_list: true
+        description: Devices that make up the IoT system.
+      ai_components:
+        multivalued: true
+        range: AIComponent
+        inlined: false
+        description: AI components that operate within the IoT system.
+
+  CyberPhysicalSystem:
+    is_a: NamedEntity
+    description: >-
+      System that tightly integrates computational and physical components,
+      typically with feedback loops between sensing and actuation
+      (Clause 5.14.3).
+    in_subset: [ai_ecosystem]
+    attributes:
+      physical_processes:
+        multivalued: true
+        range: string
+        description: Physical processes the system monitors or controls.
+      cyber_components:
+        multivalued: true
+        range: AIComponent
+        inlined: false
+        description: Computational components participating in the system.
+      iot_subsystem:
+        range: IoTSystem
+        inlined: false
+        description: IoT subsystem the CPS relies on, if any.
+
+  # ---- Abbreviation record (Clause 4) ----
+
+  AbbreviationEntry:
+    is_a: NamedEntity
+    description: >-
+      Record of a single abbreviation listed in Clause 4 of the standard.
+    in_subset: [terminology]
+    slots:
+      - abbreviation_code
+      - expansion
+    slot_usage:
+      abbreviation_code:
+        required: true
+      expansion:
+        required: true
+
+  # ---- Top-level container ----
+
+  AIConceptsCollection:
+    tree_root: true
+    description: >-
+      Top-level container aggregating AI systems, models, datasets,
+      lifecycle processes, stakeholder roles, applications and
+      trustworthiness records for serialisation as a single artefact.
+    slots:
+      - ai_systems
+      - ai_models
+      - ai_datasets
+      - ai_lifecycle_processes
+      - ai_stakeholder_roles
+      - ai_applications
+      - trustworthiness_records
+    attributes:
+      tasks:
+        multivalued: true
+        range: Task
+        inlined: true
+        inlined_as_list: true
+        description: Task records in the collection.
+      data_processes:
+        multivalued: true
+        range: DataProcess
+        inlined: true
+        inlined_as_list: true
+        description: Data-handling process records in the collection.
+      iot_systems:
+        multivalued: true
+        range: IoTSystem
+        inlined: true
+        inlined_as_list: true
+        description: IoT system records in the collection.
+      cyber_physical_systems:
+        multivalued: true
+        range: CyberPhysicalSystem
+        inlined: true
+        inlined_as_list: true
+        description: Cyber-physical system records in the collection.
+      knowledge_graphs:
+        multivalued: true
+        range: KnowledgeGraph
+        inlined: true
+        inlined_as_list: true
+        description: Knowledge-graph records in the collection.
+      expert_systems:
+        multivalued: true
+        range: ExpertSystem
+        inlined: true
+        inlined_as_list: true
+        description: Expert-system records in the collection.
+      abbreviations:
+        multivalued: true
+        range: AbbreviationEntry
+        inlined: true
+        inlined_as_list: true
+        description: Clause 4 abbreviation records.
+
+  # ==============================================================================
+  # Additional concrete stakeholder sub-roles (Clauses 5.19.2 - 5.19.7)
+  # ==============================================================================
+
+  AIPlatformProvider:
+    is_a: AIProvider
+    description: >-
+      Provider of platform infrastructure on which AI services are operated (Clause
+      5.19.2).
+
+  AIServiceProductProvider:
+    is_a: AIProvider
+    description: >-
+      Provider of an AI-enabled service or product to customers (Clause 5.19.2).
+
+  ModelDesigner:
+    is_a: AIProducer
+    description: Producer role responsible for designing AI models (Clause 5.19.3).
+
+  ModelImplementer:
+    is_a: AIProducer
+    description: >-
+      Producer role responsible for implementing AI models in code (Clause 5.19.3).
+
+  ComputationVerifier:
+    is_a: AIProducer
+    description: >-
+      Producer role verifying the computational behaviour of an AI system (Clause
+      5.19.3).
+
+  ModelVerifier:
+    is_a: AIProducer
+    description: >-
+      Producer role verifying that models meet specified requirements (Clause 5.19.3).
+
+  AIUser:
+    is_a: AICustomer
+    description: End user of an AI system or AI-backed service (Clause 5.19.4).
+
+  AISystemIntegrator:
+    is_a: AIPartner
+    description: Partner integrating AI components into a wider system (Clause 5.19.5).
+
+  DataProvider:
+    is_a: AIPartner
+    description: Partner supplying datasets used by AI systems (Clause 5.19.5).
+
+  AIAuditor:
+    is_a: AIPartner
+    description: Partner performing independent audits of AI systems (Clause 5.19.5).
+
+  AIEvaluator:
+    is_a: AIPartner
+    description: >-
+      Partner performing evaluations of AI system performance and trustworthiness
+      (Clause 5.19.5).
+
+  DataSubject:
+    is_a: AISubject
+    description: >-
+      Individual whose personal data is processed by an AI system (Clause 5.19.6).
+
+  PolicyMaker:
+    is_a: RelevantAuthority
+    description: Authority defining policy applicable to AI systems (Clause 5.19.7).
+
+  Regulator:
+    is_a: RelevantAuthority
+    description: >-
+      Authority responsible for regulatory oversight of AI systems (Clause 5.19.7).
+
+  # ==============================================================================
+  # Autonomy assessment, V&V, recommendation, evaluation (Clauses 5.13, 5.16, 7.4)
+  # ==============================================================================
+
+  AutonomyAssessment:
+    is_a: NamedEntity
+    description: >-
+      Structured assessment of the autonomy level of an AI system using the
+      criteria listed in Clause 5.13.
+    in_subset: [ai_concepts]
+    slots:
+      - autonomy_level
+      - autonomy_criterion_scores
+      - clause_reference
+
+  VerificationValidationFramework:
+    is_a: NamedEntity
+    description: >-
+      Verifiability and validatability claim for an AI system characterised
+      according to the levels in Clause 5.16.
+    in_subset: [trustworthiness]
+    slots:
+      - verification_validation_level
+      - clause_reference
+    attributes:
+      verification_methods:
+        multivalued: true
+        range: string
+        description: Verification methods applied or applicable to the system.
+      validation_methods:
+        multivalued: true
+        range: string
+        description: Validation methods applied or applicable to the system.
+
+  HumanMachineTeam:
+    is_a: AIConcept
+    description: >-
+      Collaboration arrangement combining one or more humans with one or more
+      AI systems to pursue shared goals (Clauses 3.3.3, 5.13).
+    attributes:
+      human_roles:
+        multivalued: true
+        range: string
+        description: Roles played by humans in the team.
+      ai_systems_involved:
+        multivalued: true
+        range: AISystem
+        inlined: false
+        description: AI systems participating in the team.
+      task_allocation:
+        range: string
+        description: >-
+          Free-text description of how tasks are allocated between humans and AI.
+
+  IntelligenceAugmentation:
+    is_a: AIConcept
+    description: >-
+      Use of AI to enhance the cognitive capabilities of humans rather than
+      replace them (Clause 5.13 context).
+    attributes:
+      augmented_capability:
+        multivalued: true
+        range: string
+        description: Cognitive capabilities being augmented.
+
+  Recommendation:
+    is_a: NamedEntity
+    description: >-
+      Recommendation produced by an AI system (Clauses 7.4, 10).
+    in_subset: [ai_functional_view]
+    slots:
+      - recommendation_outcome_type
+      - confidence
+    attributes:
+      recommended_items:
+        multivalued: true
+        range: string
+        description: Items recommended by the system, serialised as strings.
+      based_on_predictions:
+        multivalued: true
+        range: Prediction
+        inlined: false
+        description: Predictions supporting the recommendation.
+
+  EvaluationMetric:
+    is_a: NamedEntity
+    description: >-
+      Metric used to evaluate AI system or model performance (Clause 7.4.3).
+    in_subset: [trustworthiness]
+    attributes:
+      metric_name:
+        range: string
+        required: true
+        description: Name of the metric (e.g. accuracy, F1, MAE).
+      metric_value:
+        range: float
+        description: Observed numeric value of the metric.
+      metric_unit:
+        range: string
+        description: Unit of the metric, when applicable.
+      reference_dataset:
+        range: Dataset
+        inlined: false
+        description: Dataset against which the metric was computed.
+
+  Threshold:
+    is_a: NamedEntity
+    description: >-
+      Decision threshold applied to a metric, prediction or score (Clause 7.4.3).
+    in_subset: [ai_functional_view]
+    attributes:
+      threshold_value:
+        range: float
+        required: true
+        description: Numeric threshold value.
+      applies_to_metric:
+        range: string
+        description: Name of the metric or score the threshold applies to.
+      threshold_policy:
+        range: string
+        description: Policy describing how the threshold is interpreted.
+
+  Neuron:
+    is_a: AIConcept
+    description: >-
+      Computational unit in a neural network combining weighted inputs with
+      a bias and an activation function (Clause 3.4.9).
+    attributes:
+      activation_function:
+        range: ActivationFunctionType
+        description: Activation function applied at the neuron output.
+      input_arity:
+        range: integer
+        minimum_value: 0
+        description: Number of inputs combined by the neuron.
+
+  ConvolutionOperation:
+    is_a: AIConcept
+    description: >-
+      Convolution operation as used in convolutional neural networks
+      (Clause 3.4.3).
+    attributes:
+      kernel_size:
+        multivalued: true
+        range: integer
+        description: Spatial dimensions of the convolution kernel.
+      stride:
+        range: integer
+        minimum_value: 1
+        description: Stride applied when sliding the kernel over the input.
+      padding:
+        range: string
+        description: Padding mode (e.g. valid, same).
+
+  DataDrift:
+    is_a: NamedEntity
+    description: >-
+      Observed change in the statistical distribution of operational data
+      relative to training data (Clause 5.11.9.1).
+    in_subset: [terminology]
+    attributes:
+      drift_type:
+        range: string
+        description: Type of drift (covariate, label, concept).
+      detected_at:
+        range: string
+        description: Timestamp or interval at which drift was detected.
+      affected_dataset:
+        range: Dataset
+        inlined: false
+        description: Dataset in which drift was observed.
+
+  CatastrophicForgetting:
+    is_a: NamedEntity
+    description: >-
+      Phenomenon by which a continually-trained model loses previously
+      acquired competence (Clause 5.11.9.1).
+    in_subset: [terminology]
+    attributes:
+      affected_model:
+        range: AIModel
+        inlined: false
+        description: Model in which the phenomenon was observed.
+      mitigation_strategy:
+        range: string
+        description: Strategy applied to mitigate the phenomenon.
+
+  FaultToleranceMechanism:
+    is_a: NamedEntity
+    description: >-
+      Mechanism enabling an AI system to continue operating correctly in the
+      presence of component faults (Clause 5.15.4 context).
+    in_subset: [trustworthiness]
+    attributes:
+      mechanism_type:
+        range: string
+        description: >-
+          Type of mechanism (redundancy, graceful degradation, failover, etc.).
+      coverage_scope:
+        range: string
+        description: Scope of failure modes the mechanism covers.
+
+  NaturalLanguage:
+    is_a: AIConcept
+    description: >-
+      Natural language treated as an object of processing or generation by an
+      AI system (Clause 9.2).
+    in_subset: [ai_fields]
+    attributes:
+      language_code:
+        range: string
+        description: BCP-47 language tag.
+      script:
+        range: string
+        description: ISO 15924 script code, when relevant.
+
+  RiskItem:
+    is_a: NamedEntity
+    description: >-
+      Risk associated with an AI system, capturing source, potential event,
+      consequence and treatment metadata (Clause 3.5.11; aligned with
+      ISO/IEC 23894 risk concepts).
+    in_subset: [trustworthiness, ai_lifecycle]
+    attributes:
+      risk_source:
+        range: string
+        description: Source from which the risk originates.
+      potential_event:
+        range: string
+        description: Potential event whose occurrence would realise the risk.
+      consequence:
+        range: string
+        description: Consequence to one or more stakeholders if the event occurs.
+      likelihood:
+        range: ConfidenceScore
+        description: Estimated likelihood of the event (0.0–1.0).
+      severity:
+        range: string
+        description: Qualitative severity assessment of the consequence.
+      mitigation_strategy:
+        multivalued: true
+        range: string
+        description: Strategies to reduce likelihood or severity.
+      affected_stakeholders:
+        multivalued: true
+        range: AIStakeholderRole
+        inlined: false
+        description: Stakeholder roles affected by the risk.
+
+  InputData:
+    is_a: NamedEntity
+    description: >-
+      Data presented to an AI system at inference time or during training
+      (Clause 3.2.9).
+    in_subset: [terminology]
+    slots:
+      - data_source_type
+      - data_collection_method
+    attributes:
+      modality:
+        range: DataModality
+        description: Modality of the input data.
+      consumed_by:
+        range: AISystem
+        inlined: false
+        description: AI system that consumes the input.
+
+  Inference:
+    is_a: NamedEntity
+    description: >-
+      Act of deriving conclusions, predictions or recommendations from a
+      model or knowledge base (Clause 3.1.17).
+    in_subset: [ai_functional_view]
+    attributes:
+      inference_strategy:
+        range: string
+        description: >-
+          Strategy used (forward-chaining, backward-chaining, probabilistic, neural
+          forward pass).
+      performed_by:
+        range: InferenceEngine
+        inlined: false
+        description: Engine that performed the inference.
+      over_model:
+        range: AIModel
+        inlined: false
+        description: Model over which the inference was performed.
+      produced_output:
+        range: string
+        description: Serialised representation of the inference output.
+
+  OECDLifecycleMapping:
+    is_a: NamedEntity
+    description: >-
+      Informative mapping between an ISO/IEC 22989 life-cycle stage and an
+      OECD life-cycle stage (Annex A).
+    in_subset: [ai_lifecycle]
+    attributes:
+      iso_stage:
+        range: AILifecycleStage
+        required: true
+        description: ISO/IEC 22989 life-cycle stage.
+      oecd_stage:
+        range: OECDLifecycleStage
+        required: true
+        description: Corresponding OECD life-cycle stage.
+      mapping_notes:
+        range: string
+        description: Free-text notes on the mapping relationship.

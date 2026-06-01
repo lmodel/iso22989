@@ -1,0 +1,7 @@
+# Exercises a required numeric attribute (threshold_value).
+id: iso22989:thr-fraud-operating-point
+name: Fraud operating-point threshold
+threshold_value: 0.73
+applies_to_metric: fraud_probability
+threshold_policy: "Flag transaction when score >= threshold."
+clause_reference: "7.4.3"

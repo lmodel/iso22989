@@ -1,0 +1,6 @@
+# Counter-example: clause_reference pattern violation.
+# Pattern is ^[0-9]+(\.[0-9]+){0,3}$ ; "Clause-4" does not match.
+id: iso22989:abbr-term-cnn
+name: CNN
+expansion: Convolutional neural network
+clause_reference: "Clause-4"

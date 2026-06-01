@@ -1,0 +1,18 @@
+# mapping_set_id: https://w3id.org/lmodel/iso22989/mappings/iso22989_to_iso42001
+# mapping_set_version: 0.1.0
+# mapping_set_title: ISO/IEC 22989:2022 to ISO/IEC 42001:2023 Schema Mappings
+# mapping_set_description: Schema-level mappings between the ISO/IEC 22989:2022 (Artificial intelligence concepts and terminology) and ISO/IEC 42001:2023 (AI Management System) LinkML schemas. ISO/IEC 22989 is the normative terminology reference for ISO/IEC 42001 (see clause 3 of ISO/IEC 42001:2023), so mappings are exact for shared core concepts. This is the inverse of iso42001-to-iso22989.
+# license: https://creativecommons.org/licenses/by/4.0/
+# subject_source: https://w3id.org/lmodel/iso22989
+# object_source: https://w3id.org/lmodel/iso42001
+# mapping_date: 2026-06-01
+# curie_map:
+#   iso22989: https://w3id.org/lmodel/iso22989/
+#   iso42001: https://w3id.org/lmodel/iso42001/
+#   owl: http://www.w3.org/2002/07/owl#
+#   semapv: https://w3id.org/semapv/vocab/
+#   skos: http://www.w3.org/2004/02/skos/core#
+subject_id	subject_label	subject_category	predicate_id	predicate_label	object_id	object_label	object_category	mapping_justification	comment
+iso22989:organization	organization	owl:Class	skos:exactMatch	exact match	iso42001:Organization	Organization	owl:Class	semapv:LLMBasedMatching	Both standards model the organization establishing and operating the management system using the harmonised Annex SL definition.
+iso22989:interested_party	interested party	owl:Class	skos:exactMatch	exact match	iso42001:InterestedParty	InterestedParty	owl:Class	semapv:LLMBasedMatching	Both standards use the harmonised Annex SL definition of an interested party (stakeholder).
+iso22989:ai_system	AI system	owl:Class	skos:exactMatch	exact match	iso42001:AISystem	AISystem	owl:Class	semapv:LLMBasedMatching	ISO/IEC 22989 is the normative source of the AI system definition used throughout ISO/IEC 42001.
