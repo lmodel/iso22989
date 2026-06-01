@@ -1,0 +1,25 @@
+{
+   "dcterms": "http://purl.org/dc/terms/",
+   "eu_ai_act": "https://w3id.org/lmodel/eu-ai-act/",
+   "gist_linkml": "https://w3id.org/lmodel/gist/",
+   "iso22989": "https://w3id.org/lmodel/iso22989/",
+   "iso23894": "https://w3id.org/lmodel/iso23894/",
+   "iso27001": "https://w3id.org/lmodel/iso27001/",
+   "iso29100": "https://w3id.org/lmodel/iso29100/",
+   "iso42001": "https://w3id.org/lmodel/iso42001/",
+   "linkml": "https://w3id.org/linkml/",
+   "nist_ai_100_1": "https://w3id.org/lmodel/nist-ai-100-1/",
+   "nist_ai_600_1": "https://w3id.org/lmodel/nist-ai-600-1/",
+   "nist_ai_rmf": "https://w3id.org/lmodel/nist-ai-100-1/",
+   "nist_ai_rmf_common": "https://w3id.org/lmodel/nist-ai-100-1/schema/nist_ai_rmf_common/",
+   "oecd_ai": "https://oecd.ai/en/ai-principles#",
+   "prov": "http://www.w3.org/ns/prov#",
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+   "schema": "http://schema.org/",
+   "semapv": "https://w3id.org/semapv/vocab/",
+   "skos": "http://www.w3.org/2004/02/skos/core#",
+   "uco_core": "https://w3id.org/lmodel/uco-core/",
+   "NamedEntity": {
+      "@id": "schema:Thing"
+   }
+}

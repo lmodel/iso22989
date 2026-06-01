@@ -1,0 +1,1403 @@
+# metamodel_version: 1.11.0
+# version: 0.1.0
+BASE <https://w3id.org/lmodel/iso22989/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX linkml: <https://w3id.org/linkml/>
+PREFIX iso29100: <https://w3id.org/lmodel/iso29100/>
+PREFIX schema1: <http://schema.org/>
+
+
+<ConfidenceScore> xsd:float
+
+<DurationType> xsd:duration
+
+linkml:String xsd:string
+
+linkml:Integer xsd:integer
+
+linkml:Boolean xsd:boolean
+
+linkml:Float xsd:float
+
+linkml:Double xsd:double
+
+linkml:Decimal xsd:decimal
+
+linkml:Time xsd:time
+
+linkml:Date xsd:date
+
+linkml:Datetime xsd:dateTime
+
+linkml:DateOrDatetime linkml:DateOrDatetime
+
+linkml:Uriorcurie IRI
+
+linkml:Curie xsd:string
+
+linkml:Uri IRI
+
+linkml:Ncname xsd:string
+
+linkml:Objectidentifier IRI
+
+linkml:Nodeidentifier NONLITERAL
+
+linkml:Jsonpointer xsd:string
+
+linkml:Jsonpath xsd:string
+
+linkml:Sparqlpath xsd:string
+
+<AbbreviatedTerm> CLOSED {
+    (  $<AbbreviatedTerm_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <expansion> @linkml:String
+       ) ;
+       rdf:type [ <AbbreviatedTerm> ]
+    )
+}
+
+<AbbreviationEntry> CLOSED {
+    (  $<AbbreviationEntry_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <abbreviation_code> [ <https://w3id.org/lmodel/iso22989/AbbreviationCode#AI>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#API> <https://w3id.org/lmodel/iso22989/AbbreviationCode#ASIC>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#CNN> <https://w3id.org/lmodel/iso22989/AbbreviationCode#CPS>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#CPU> <https://w3id.org/lmodel/iso22989/AbbreviationCode#CRISP_DM>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#DNN> <https://w3id.org/lmodel/iso22989/AbbreviationCode#DSP>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#FFNN> <https://w3id.org/lmodel/iso22989/AbbreviationCode#FPGA>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#GA> <https://w3id.org/lmodel/iso22989/AbbreviationCode#GPU>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#HMM> <https://w3id.org/lmodel/iso22989/AbbreviationCode#IoT>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#IR> <https://w3id.org/lmodel/iso22989/AbbreviationCode#IT>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#KDD> <https://w3id.org/lmodel/iso22989/AbbreviationCode#LSTM>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#ML> <https://w3id.org/lmodel/iso22989/AbbreviationCode#MT>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#NER> <https://w3id.org/lmodel/iso22989/AbbreviationCode#NLG>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#NLP> <https://w3id.org/lmodel/iso22989/AbbreviationCode#NLU>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#NN> <https://w3id.org/lmodel/iso22989/AbbreviationCode#NPU>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#OCR> <https://w3id.org/lmodel/iso22989/AbbreviationCode#OECD>
+             iso29100:PersonallyIdentifiableInformation <https://w3id.org/lmodel/iso22989/AbbreviationCode#POS>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#RL> <https://w3id.org/lmodel/iso22989/AbbreviationCode#RNN>
+             <https://w3id.org/lmodel/iso22989/AbbreviationCode#SVM> ] ;
+          <expansion> @linkml:String
+       ) ;
+       rdf:type [ <AbbreviationEntry> ]
+    )
+}
+
+<Action> CLOSED {
+    (  $<Action_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <action_target> @linkml:String ? ;
+          <execution_status> [ <https://w3id.org/lmodel/iso22989/ExecutionStatus#planned>
+             <https://w3id.org/lmodel/iso22989/ExecutionStatus#in_progress>
+             <https://w3id.org/lmodel/iso22989/ExecutionStatus#completed> <https://w3id.org/lmodel/iso22989/ExecutionStatus#failed>
+             <https://w3id.org/lmodel/iso22989/ExecutionStatus#cancelled> ] ? ;
+          <triggered_by> @<Decision> ?
+       ) ;
+       rdf:type [ <Action> ]
+    )
+}
+
+<AIAgent> CLOSED {
+    (  $<AIAgent_tes> (  &<AIConcept_tes> ;
+          rdf:type [ <AIConcept> ] ? ;
+          <autonomy_level> [ <https://w3id.org/lmodel/iso22989/AutonomyLevel#automated>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#heteronomous>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#autonomous>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_0_no_automation>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_1_assistance>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_2_partial_automation>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_3_conditional_automation>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_4_high_automation>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_5_full_automation> ] ? ;
+          <symbolic_approach> [ <https://w3id.org/lmodel/iso22989/SymbolicApproach#symbolic>
+             <https://w3id.org/lmodel/iso22989/SymbolicApproach#subsymbolic>
+             <https://w3id.org/lmodel/iso22989/SymbolicApproach#hybrid> ] ? ;
+          <agent_architecture> [ <https://w3id.org/lmodel/iso22989/AgentArchitectureType#reflex_agent>
+             <https://w3id.org/lmodel/iso22989/AgentArchitectureType#model_based_agent>
+             <https://w3id.org/lmodel/iso22989/AgentArchitectureType#goal_based_agent>
+             <https://w3id.org/lmodel/iso22989/AgentArchitectureType#utility_based_agent>
+             <https://w3id.org/lmodel/iso22989/AgentArchitectureType#learning_agent>
+             <https://w3id.org/lmodel/iso22989/AgentArchitectureType#multi_agent> ] ? ;
+          <goal_set> @linkml:String *
+       ) ;
+       rdf:type [ <AIAgent> ]
+    )
+}
+
+<AIApplication> CLOSED {
+    (  $<AIApplication_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <application_domain> [ <https://w3id.org/lmodel/iso22989/AIApplicationDomain#fraud_detection>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#automated_vehicles>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#predictive_maintenance>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#recommendation>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#medical_diagnosis>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#content_generation>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#agriculture>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#automotive>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#banking_and_finance>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#defense_and_security>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#education>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#energy_and_utilities>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#healthcare>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#legal_services>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#manufacturing>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#media_and_entertainment>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#mixed_reality>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#public_sector>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#retail>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#space>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#telecommunications> ] * ;
+          <intended_purpose> @linkml:String ? ;
+          <jurisdictional_issues> [ <https://w3id.org/lmodel/iso22989/JurisdictionalIssueType#data_residency>
+             <https://w3id.org/lmodel/iso22989/JurisdictionalIssueType#cross_border_transfer>
+             <https://w3id.org/lmodel/iso22989/JurisdictionalIssueType#liability>
+             <https://w3id.org/lmodel/iso22989/JurisdictionalIssueType#regulatory_compliance>
+             <https://w3id.org/lmodel/iso22989/JurisdictionalIssueType#intellectual_property> ] * ;
+          <societal_impacts> [ <https://w3id.org/lmodel/iso22989/SocietalImpactCategory#employment>
+             <https://w3id.org/lmodel/iso22989/SocietalImpactCategory#human_rights>
+             <https://w3id.org/lmodel/iso22989/SocietalImpactCategory#environment>
+             <https://w3id.org/lmodel/iso22989/SocietalImpactCategory#democratic_processes>
+             <https://w3id.org/lmodel/iso22989/SocietalImpactCategory#digital_divide> ] * ;
+          <hosting_system> @<AISystem> ?
+       ) ;
+       rdf:type [ <AIApplication> ]
+    )
+}
+
+<AIAuditor> CLOSED {
+    (  $<AIAuditor_tes> (  &<AIPartner_tes> ;
+          rdf:type [ <AIPartner> ] ?
+       ) ;
+       rdf:type [ <AIAuditor> ]
+    )
+}
+
+<AIComponent> CLOSED {
+    (  $<AIComponent_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <component_function> [ <https://w3id.org/lmodel/iso22989/AIFunctionalComponent#data_and_information>
+             <https://w3id.org/lmodel/iso22989/AIFunctionalComponent#knowledge_and_learning>
+             <https://w3id.org/lmodel/iso22989/AIFunctionalComponent#prediction>
+             <https://w3id.org/lmodel/iso22989/AIFunctionalComponent#decision>
+             <https://w3id.org/lmodel/iso22989/AIFunctionalComponent#action> ] ? ;
+          <depends_on> @<AIComponent> *
+       ) ;
+       rdf:type [ <AIComponent> ]
+    )
+}
+
+<AIConcept>  (
+    @<AIAgent> OR @<CognitiveComputingSystem> OR @<ConvolutionOperation> OR @<HumanMachineTeam> OR @<IntelligenceAugmentation> OR
+    @<KnowledgeRepresentation> OR @<NaturalLanguage> OR @<Neuron> OR @<SemanticComputingSystem> OR @<SoftComputingSystem>
+)
+
+<AIConcept_struct> {
+    (  $<AIConcept_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ?
+       ) ;
+       rdf:type [ <AIConcept> ]
+    )
+}
+
+<AIConceptsCollection> CLOSED {
+    (  $<AIConceptsCollection_tes> (  <ai_systems> @<AISystem> * ;
+          <ai_models> @<AIModel> * ;
+          <ai_datasets> @<Dataset> * ;
+          <ai_lifecycle_processes> @<AILifecycleProcess> * ;
+          <ai_stakeholder_roles> @<AIStakeholderRole> * ;
+          <ai_applications> @<AIApplication> * ;
+          <trustworthiness_records> @<TrustworthinessProperty> * ;
+          <tasks> @<Task> * ;
+          <data_processes> @<DataProcess> * ;
+          <iot_systems> @<IoTSystem> * ;
+          <cyber_physical_systems> @<CyberPhysicalSystem> * ;
+          <knowledge_graphs> @<KnowledgeGraph> * ;
+          <expert_systems> @<ExpertSystem> * ;
+          <abbreviations> @<AbbreviationEntry> *
+       ) ;
+       rdf:type [ <AIConceptsCollection> ] ?
+    )
+}
+
+<AICustomer>  (
+    CLOSED {
+       (  $<AICustomer_tes> (  &<AIStakeholderRole_tes> ;
+             rdf:type [ <AIStakeholderRole> ] ? ;
+             <stakeholder_role_type> [ <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_provider>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_producer>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_customer>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_partner>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_subject>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#relevant_authority> ]
+          ) ;
+          rdf:type [ <AICustomer> ]
+       )
+    } OR @<AIUser>
+)
+
+<AIEcosystem> CLOSED {
+    (  $<AIEcosystem_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <computing_resources> [ <https://w3id.org/lmodel/iso22989/ComputingResourceType#cloud>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#edge>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#on_premises>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#cpu>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#gpu>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#tpu>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#asic>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#fpga>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#npu>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#dsp> ] * ;
+          <data_sources> @linkml:String * ;
+          <ecosystem_components> @linkml:String * ;
+          <ai_systems> @<AISystem> * ;
+          <ai_stakeholder_roles> @<AIStakeholderRole> * ;
+          <big_data_characteristics> [ <https://w3id.org/lmodel/iso22989/BigDataCharacteristic#volume>
+             <https://w3id.org/lmodel/iso22989/BigDataCharacteristic#velocity>
+             <https://w3id.org/lmodel/iso22989/BigDataCharacteristic#variety>
+             <https://w3id.org/lmodel/iso22989/BigDataCharacteristic#veracity>
+             <https://w3id.org/lmodel/iso22989/BigDataCharacteristic#value>
+             <https://w3id.org/lmodel/iso22989/BigDataCharacteristic#variability> ] *
+       ) ;
+       rdf:type [ <AIEcosystem> ]
+    )
+}
+
+<AIEvaluator> CLOSED {
+    (  $<AIEvaluator_tes> (  &<AIPartner_tes> ;
+          rdf:type [ <AIPartner> ] ?
+       ) ;
+       rdf:type [ <AIEvaluator> ]
+    )
+}
+
+<AILifecycleProcess> CLOSED {
+    (  $<AILifecycleProcess_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <process_stage> [ <https://w3id.org/lmodel/iso22989/AILifecycleStage#inception>
+             <https://w3id.org/lmodel/iso22989/AILifecycleStage#design_and_development>
+             <https://w3id.org/lmodel/iso22989/AILifecycleStage#verification_and_validation>
+             <https://w3id.org/lmodel/nist-ai-600-1/GaiLifecycleStageEnum#DEPLOYMENT>
+             <https://w3id.org/lmodel/iso22989/AILifecycleStage#operation_and_monitoring>
+             <https://w3id.org/lmodel/iso22989/AILifecycleStage#continuous_validation>
+             <https://w3id.org/lmodel/iso22989/AILifecycleStage#re_evaluation>
+             <https://w3id.org/lmodel/nist-ai-600-1/GaiLifecycleStageEnum#DECOMMISSIONING> ] ;
+          <process_inputs> @linkml:String * ;
+          <process_outputs> @linkml:String * ;
+          <responsible_role> [ <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_provider>
+             <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_producer>
+             <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_customer>
+             <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_partner>
+             <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_subject>
+             <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#relevant_authority> ] ? ;
+          <start_date> @linkml:Date ? ;
+          <end_date> @linkml:Date ? ;
+          <risk_items> @linkml:String * ;
+          <approval_criteria> @linkml:String * ;
+          <process_sub_type> @linkml:String ?
+       ) ;
+       rdf:type [ <AILifecycleProcess> ]
+    )
+}
+
+<AIModel>  (
+    CLOSED {
+       (  $<AIModel_tes> (  &<NamedEntity_tes> ;
+             rdf:type [ schema1:Thing ] ? ;
+             <model_paradigm> [ <https://w3id.org/lmodel/iso22989/MachineLearningParadigm#supervised>
+                <https://w3id.org/lmodel/iso22989/MachineLearningParadigm#unsupervised>
+                <https://w3id.org/lmodel/iso22989/MachineLearningParadigm#semi_supervised>
+                <https://w3id.org/lmodel/iso22989/MachineLearningParadigm#reinforcement>
+                <https://w3id.org/lmodel/iso22989/MachineLearningParadigm#transfer>
+                <https://w3id.org/lmodel/iso22989/MachineLearningParadigm#self_supervised> ] ? ;
+             <algorithm_family> [ <https://w3id.org/lmodel/iso22989/MLAlgorithmFamily#neural_network>
+                <https://w3id.org/lmodel/iso22989/MLAlgorithmFamily#bayesian_network>
+                <https://w3id.org/lmodel/iso22989/MLAlgorithmFamily#decision_tree>
+                <https://w3id.org/lmodel/iso22989/MLAlgorithmFamily#support_vector_machine>
+                <https://w3id.org/lmodel/iso22989/MLAlgorithmFamily#genetic_algorithm> ] ? ;
+             <engineering_approach> [ <https://w3id.org/lmodel/iso22989/EngineeringApproach#expert_system>
+                <https://w3id.org/lmodel/iso22989/EngineeringApproach#logic_programming>
+                <https://w3id.org/lmodel/iso22989/EngineeringApproach#knowledge_graph>
+                <https://w3id.org/lmodel/iso22989/EngineeringApproach#constraint_satisfaction> ] ? ;
+             <training_dataset> @<Dataset> ? ;
+             <validation_dataset> @<Dataset> ? ;
+             <test_dataset> @<Dataset> ? ;
+             <hyperparameters> @linkml:String * ;
+             <model_version> @linkml:String ? ;
+             <trained_on> @linkml:String ? ;
+             <supports_continuous_learning> @linkml:Boolean ? ;
+             <catastrophic_forgetting_risk> @<ConfidenceScore> ? ;
+             <parameter_count> @linkml:Integer ? ;
+             <training_duration> @<DurationType> ? ;
+             <inference_latency_ms> @linkml:Float ? ;
+             <model_compression_applied> @linkml:Boolean ? ;
+             <neural_network_architecture> [ <https://w3id.org/lmodel/iso22989/NeuralNetworkArchitecture#feed_forward>
+                <https://w3id.org/lmodel/iso22989/NeuralNetworkArchitecture#recurrent>
+                <https://w3id.org/lmodel/iso22989/NeuralNetworkArchitecture#long_short_term_memory>
+                <https://w3id.org/lmodel/iso22989/NeuralNetworkArchitecture#gated_recurrent_unit>
+                <https://w3id.org/lmodel/iso22989/NeuralNetworkArchitecture#convolutional>
+                <https://w3id.org/lmodel/iso22989/NeuralNetworkArchitecture#transformer>
+                <https://w3id.org/lmodel/iso22989/NeuralNetworkArchitecture#autoencoder>
+                <https://w3id.org/lmodel/iso22989/NeuralNetworkArchitecture#generative_adversarial>
+                <https://w3id.org/lmodel/iso22989/NeuralNetworkArchitecture#deep> ] ? ;
+             <activation_function> [ <https://w3id.org/lmodel/iso22989/ActivationFunctionType#sigmoid>
+                <https://w3id.org/lmodel/iso22989/ActivationFunctionType#tanh>
+                <https://w3id.org/lmodel/iso22989/ActivationFunctionType#relu>
+                <https://w3id.org/lmodel/iso22989/ActivationFunctionType#leaky_relu>
+                <https://w3id.org/lmodel/iso22989/ActivationFunctionType#softmax>
+                <https://w3id.org/lmodel/iso22989/ActivationFunctionType#linear>
+                <https://w3id.org/lmodel/iso22989/ActivationFunctionType#other> ] ? ;
+             <training_phenomena> [ <https://w3id.org/lmodel/iso22989/NeuralNetworkPhenomenon#vanishing_gradient>
+                <https://w3id.org/lmodel/iso22989/NeuralNetworkPhenomenon#exploding_gradient>
+                <https://w3id.org/lmodel/iso22989/NeuralNetworkPhenomenon#catastrophic_forgetting>
+                <https://w3id.org/lmodel/iso22989/NeuralNetworkPhenomenon#overfitting>
+                <https://w3id.org/lmodel/iso22989/NeuralNetworkPhenomenon#underfitting> ] *
+          ) ;
+          rdf:type [ <AIModel> ]
+       )
+    } OR @<NeuralNetworkModel>
+)
+
+<AIPartner>  (
+    CLOSED {
+       (  $<AIPartner_tes> (  &<AIStakeholderRole_tes> ;
+             rdf:type [ <AIStakeholderRole> ] ? ;
+             <stakeholder_role_type> [ <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_provider>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_producer>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_customer>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_partner>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_subject>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#relevant_authority> ]
+          ) ;
+          rdf:type [ <AIPartner> ]
+       )
+    } OR @<AIAuditor> OR @<AIEvaluator> OR @<AISystemIntegrator> OR @<DataProvider>
+)
+
+<AIPlatformProvider> CLOSED {
+    (  $<AIPlatformProvider_tes> (  &<AIProvider_tes> ;
+          rdf:type [ <AIProvider> ] ?
+       ) ;
+       rdf:type [ <AIPlatformProvider> ]
+    )
+}
+
+<AIProducer>  (
+    CLOSED {
+       (  $<AIProducer_tes> (  &<AIStakeholderRole_tes> ;
+             rdf:type [ <AIStakeholderRole> ] ? ;
+             <stakeholder_role_type> [ <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_provider>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_producer>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_customer>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_partner>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_subject>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#relevant_authority> ]
+          ) ;
+          rdf:type [ <AIProducer> ]
+       )
+    } OR @<ComputationVerifier> OR @<ModelDesigner> OR @<ModelImplementer> OR @<ModelVerifier>
+)
+
+<AIProvider>  (
+    CLOSED {
+       (  $<AIProvider_tes> (  &<AIStakeholderRole_tes> ;
+             rdf:type [ <AIStakeholderRole> ] ? ;
+             <stakeholder_role_type> [ <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_provider>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_producer>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_customer>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_partner>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_subject>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#relevant_authority> ]
+          ) ;
+          rdf:type [ <AIProvider> ]
+       )
+    } OR @<AIPlatformProvider> OR @<AIServiceProductProvider>
+)
+
+<AIServiceProductProvider> CLOSED {
+    (  $<AIServiceProductProvider_tes> (  &<AIProvider_tes> ;
+          rdf:type [ <AIProvider> ] ?
+       ) ;
+       rdf:type [ <AIServiceProductProvider> ]
+    )
+}
+
+<AIStakeholderRole>  (
+    CLOSED {
+       (  $<AIStakeholderRole_tes> (  &<NamedEntity_tes> ;
+             rdf:type [ schema1:Thing ] ? ;
+             <stakeholder_role_type> [ <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_provider>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_producer>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_customer>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_partner>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_subject>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#relevant_authority> ] ;
+             <organization_name> @linkml:String ? ;
+             <contact> @linkml:String ? ;
+             <responsibilities> @linkml:String *
+          ) ;
+          rdf:type [ <AIStakeholderRole> ]
+       )
+    } OR @<AICustomer> OR @<AIPartner> OR @<AIProducer> OR @<AIProvider> OR @<AISubject> OR @<RelevantAuthority>
+)
+
+<AISubject>  (
+    CLOSED {
+       (  $<AISubject_tes> (  &<AIStakeholderRole_tes> ;
+             rdf:type [ <AIStakeholderRole> ] ? ;
+             <stakeholder_role_type> [ <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_provider>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_producer>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_customer>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_partner>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_subject>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#relevant_authority> ]
+          ) ;
+          rdf:type [ <AISubject> ]
+       )
+    } OR @<DataSubject>
+)
+
+<AISystem> CLOSED {
+    (  $<AISystem_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <ai_system_type> [ <https://w3id.org/lmodel/iso22989/AISystemType#narrow_ai>
+             <https://w3id.org/lmodel/iso22989/AISystemType#general_ai> <https://w3id.org/lmodel/iso22989/AISystemType#weak_ai>
+             <https://w3id.org/lmodel/iso22989/AISystemType#strong_ai> ] ? ;
+          <symbolic_approach> [ <https://w3id.org/lmodel/iso22989/SymbolicApproach#symbolic>
+             <https://w3id.org/lmodel/iso22989/SymbolicApproach#subsymbolic>
+             <https://w3id.org/lmodel/iso22989/SymbolicApproach#hybrid> ] ? ;
+          <autonomy_level> [ <https://w3id.org/lmodel/iso22989/AutonomyLevel#automated>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#heteronomous>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#autonomous>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_0_no_automation>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_1_assistance>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_2_partial_automation>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_3_conditional_automation>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_4_high_automation>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_5_full_automation> ] ? ;
+          <intended_purpose> @linkml:String ? ;
+          <application_domain> [ <https://w3id.org/lmodel/iso22989/AIApplicationDomain#fraud_detection>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#automated_vehicles>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#predictive_maintenance>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#recommendation>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#medical_diagnosis>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#content_generation>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#agriculture>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#automotive>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#banking_and_finance>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#defense_and_security>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#education>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#energy_and_utilities>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#healthcare>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#legal_services>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#manufacturing>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#media_and_entertainment>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#mixed_reality>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#public_sector>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#retail>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#space>
+             <https://w3id.org/lmodel/iso22989/AIApplicationDomain#telecommunications> ] * ;
+          <ai_field> [ <https://w3id.org/lmodel/iso22989/AIField#computer_vision>
+             <https://w3id.org/lmodel/iso22989/AIField#natural_language_processing>
+             <https://w3id.org/lmodel/iso22989/AIField#data_mining> <https://w3id.org/lmodel/iso22989/AIField#planning>
+             <https://w3id.org/lmodel/iso22989/AIField#robotics>
+             <https://w3id.org/lmodel/iso22989/AIField#knowledge_representation_and_reasoning>
+             <https://w3id.org/lmodel/iso22989/AIField#speech_processing>
+             <https://w3id.org/lmodel/iso22989/AIField#multi_agent_systems> ] * ;
+          <functional_components> [ <https://w3id.org/lmodel/iso22989/AIFunctionalComponent#data_and_information>
+             <https://w3id.org/lmodel/iso22989/AIFunctionalComponent#knowledge_and_learning>
+             <https://w3id.org/lmodel/iso22989/AIFunctionalComponent#prediction>
+             <https://w3id.org/lmodel/iso22989/AIFunctionalComponent#decision>
+             <https://w3id.org/lmodel/iso22989/AIFunctionalComponent#action> ] * ;
+          <lifecycle_stage> [ <https://w3id.org/lmodel/iso22989/AILifecycleStage#inception>
+             <https://w3id.org/lmodel/iso22989/AILifecycleStage#design_and_development>
+             <https://w3id.org/lmodel/iso22989/AILifecycleStage#verification_and_validation>
+             <https://w3id.org/lmodel/nist-ai-600-1/GaiLifecycleStageEnum#DEPLOYMENT>
+             <https://w3id.org/lmodel/iso22989/AILifecycleStage#operation_and_monitoring>
+             <https://w3id.org/lmodel/iso22989/AILifecycleStage#continuous_validation>
+             <https://w3id.org/lmodel/iso22989/AILifecycleStage#re_evaluation>
+             <https://w3id.org/lmodel/nist-ai-600-1/GaiLifecycleStageEnum#DECOMMISSIONING> ] ? ;
+          <stakeholders> @<AIStakeholderRole> * ;
+          <components> @<AIComponent> * ;
+          <models> @<AIModel> * ;
+          <datasets> @<Dataset> * ;
+          <trustworthiness_properties> @<TrustworthinessProperty> * ;
+          <jurisdictional_issues> [ <https://w3id.org/lmodel/iso22989/JurisdictionalIssueType#data_residency>
+             <https://w3id.org/lmodel/iso22989/JurisdictionalIssueType#cross_border_transfer>
+             <https://w3id.org/lmodel/iso22989/JurisdictionalIssueType#liability>
+             <https://w3id.org/lmodel/iso22989/JurisdictionalIssueType#regulatory_compliance>
+             <https://w3id.org/lmodel/iso22989/JurisdictionalIssueType#intellectual_property> ] * ;
+          <societal_impacts> [ <https://w3id.org/lmodel/iso22989/SocietalImpactCategory#employment>
+             <https://w3id.org/lmodel/iso22989/SocietalImpactCategory#human_rights>
+             <https://w3id.org/lmodel/iso22989/SocietalImpactCategory#environment>
+             <https://w3id.org/lmodel/iso22989/SocietalImpactCategory#democratic_processes>
+             <https://w3id.org/lmodel/iso22989/SocietalImpactCategory#digital_divide> ] * ;
+          <system_characteristics> [ <https://w3id.org/lmodel/iso22989/AISystemCharacteristic#interactive>
+             <https://w3id.org/lmodel/iso22989/AISystemCharacteristic#contextual>
+             <https://w3id.org/lmodel/iso22989/AISystemCharacteristic#adaptive>
+             <https://w3id.org/lmodel/iso22989/AISystemCharacteristic#oversight_enabled>
+             <https://w3id.org/lmodel/iso22989/AISystemCharacteristic#data_dependent> ] * ;
+          <task_categories> [ <https://w3id.org/lmodel/iso22989/TaskCategory#classification>
+             <https://w3id.org/lmodel/iso22989/TaskCategory#regression> <https://w3id.org/lmodel/iso22989/TaskCategory#clustering>
+             <https://w3id.org/lmodel/iso22989/TaskCategory#ranking> <https://w3id.org/lmodel/iso22989/TaskCategory#recommendation>
+             <https://w3id.org/lmodel/iso22989/TaskCategory#anomaly_detection>
+             <https://w3id.org/lmodel/iso22989/TaskCategory#dimensionality_reduction>
+             <https://w3id.org/lmodel/iso22989/TaskCategory#generation> <https://w3id.org/lmodel/iso22989/TaskCategory#planning>
+             <https://w3id.org/lmodel/iso22989/TaskCategory#control>
+             <https://w3id.org/lmodel/iso22989/TaskCategory#decision_support> ] * ;
+          <agent_architecture> [ <https://w3id.org/lmodel/iso22989/AgentArchitectureType#reflex_agent>
+             <https://w3id.org/lmodel/iso22989/AgentArchitectureType#model_based_agent>
+             <https://w3id.org/lmodel/iso22989/AgentArchitectureType#goal_based_agent>
+             <https://w3id.org/lmodel/iso22989/AgentArchitectureType#utility_based_agent>
+             <https://w3id.org/lmodel/iso22989/AgentArchitectureType#learning_agent>
+             <https://w3id.org/lmodel/iso22989/AgentArchitectureType#multi_agent> ] ? ;
+          <data_processes> @<DataProcess> * ;
+          <iot_integration> @<IoTSystem> ?
+       ) ;
+       rdf:type [ <AISystem> ]
+    )
+}
+
+<AISystemIntegrator> CLOSED {
+    (  $<AISystemIntegrator_tes> (  &<AIPartner_tes> ;
+          rdf:type [ <AIPartner> ] ?
+       ) ;
+       rdf:type [ <AISystemIntegrator> ]
+    )
+}
+
+<AITerm> CLOSED {
+    (  $<AITerm_tes> (  &<Term_tes> ;
+          rdf:type [ <Term> ] ?
+       ) ;
+       rdf:type [ <AITerm> ]
+    )
+}
+
+<AIUser> CLOSED {
+    (  $<AIUser_tes> (  &<AICustomer_tes> ;
+          rdf:type [ <AICustomer> ] ?
+       ) ;
+       rdf:type [ <AIUser> ]
+    )
+}
+
+<AutonomyAssessment> CLOSED {
+    (  $<AutonomyAssessment_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <autonomy_level> [ <https://w3id.org/lmodel/iso22989/AutonomyLevel#automated>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#heteronomous>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#autonomous>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_0_no_automation>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_1_assistance>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_2_partial_automation>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_3_conditional_automation>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_4_high_automation>
+             <https://w3id.org/lmodel/iso22989/AutonomyLevel#level_5_full_automation> ] ? ;
+          <autonomy_criterion_scores> @linkml:String *
+       ) ;
+       rdf:type [ <AutonomyAssessment> ]
+    )
+}
+
+<CatastrophicForgetting> CLOSED {
+    (  $<CatastrophicForgetting_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <affected_model> @<AIModel> ? ;
+          <mitigation_strategy> @linkml:String ?
+       ) ;
+       rdf:type [ <CatastrophicForgetting> ]
+    )
+}
+
+<CognitiveComputingSystem> CLOSED {
+    (  $<CognitiveComputingSystem_tes> (  &<AIConcept_tes> ;
+          rdf:type [ <AIConcept> ] ? ;
+          <cognitive_capabilities> @linkml:String *
+       ) ;
+       rdf:type [ <CognitiveComputingSystem> ]
+    )
+}
+
+<ComputationVerifier> CLOSED {
+    (  $<ComputationVerifier_tes> (  &<AIProducer_tes> ;
+          rdf:type [ <AIProducer> ] ?
+       ) ;
+       rdf:type [ <ComputationVerifier> ]
+    )
+}
+
+<ComputerVisionFunction> CLOSED {
+    (  $<ComputerVisionFunction_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <cv_task> [ <https://w3id.org/lmodel/iso22989/ComputerVisionTask#image_classification>
+             <https://w3id.org/lmodel/iso22989/ComputerVisionTask#object_detection>
+             <https://w3id.org/lmodel/iso22989/ComputerVisionTask#semantic_segmentation>
+             <https://w3id.org/lmodel/iso22989/ComputerVisionTask#instance_segmentation>
+             <https://w3id.org/lmodel/iso22989/ComputerVisionTask#image_recognition>
+             <https://w3id.org/lmodel/iso22989/ComputerVisionTask#pose_estimation>
+             <https://w3id.org/lmodel/iso22989/ComputerVisionTask#optical_character_recognition>
+             <https://w3id.org/lmodel/iso22989/ComputerVisionTask#face_recognition>
+             <https://w3id.org/lmodel/iso22989/ComputerVisionTask#scene_recognition>
+             <https://w3id.org/lmodel/iso22989/ComputerVisionTask#motion_tracking>
+             <https://w3id.org/lmodel/iso22989/ComputerVisionTask#visual_anomaly_detection>
+             <https://w3id.org/lmodel/iso22989/ComputerVisionTask#three_d_reconstruction>
+             <https://w3id.org/lmodel/iso22989/ComputerVisionTask#action_recognition>
+             <https://w3id.org/lmodel/iso22989/ComputerVisionTask#activity_recognition> ]
+       ) ;
+       rdf:type [ <ComputerVisionFunction> ]
+    )
+}
+
+<ComputerVisionTerm> CLOSED {
+    (  $<ComputerVisionTerm_tes> (  &<Term_tes> ;
+          rdf:type [ <Term> ] ?
+       ) ;
+       rdf:type [ <ComputerVisionTerm> ]
+    )
+}
+
+<ConvolutionOperation> CLOSED {
+    (  $<ConvolutionOperation_tes> (  &<AIConcept_tes> ;
+          rdf:type [ <AIConcept> ] ? ;
+          <kernel_size> @linkml:Integer * ;
+          <stride> @linkml:Integer ? ;
+          <padding> @linkml:String ?
+       ) ;
+       rdf:type [ <ConvolutionOperation> ]
+    )
+}
+
+<CyberPhysicalSystem> CLOSED {
+    (  $<CyberPhysicalSystem_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <physical_processes> @linkml:String * ;
+          <cyber_components> @<AIComponent> * ;
+          <iot_subsystem> @<IoTSystem> ?
+       ) ;
+       rdf:type [ <CyberPhysicalSystem> ]
+    )
+}
+
+<DataDrift> CLOSED {
+    (  $<DataDrift_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <drift_type> @linkml:String ? ;
+          <detected_at> @linkml:String ? ;
+          <affected_dataset> @<Dataset> ?
+       ) ;
+       rdf:type [ <DataDrift> ]
+    )
+}
+
+<DataLabel> CLOSED {
+    (  $<DataLabel_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <label_value> @linkml:String ;
+          <label_type> [ <https://w3id.org/lmodel/iso22989/DataLabelType#categorical>
+             <https://w3id.org/lmodel/iso22989/DataLabelType#binary> <https://w3id.org/lmodel/iso22989/DataLabelType#ordinal>
+             <https://w3id.org/lmodel/iso22989/DataLabelType#numeric> <https://w3id.org/lmodel/iso22989/DataLabelType#structured>
+             <https://w3id.org/lmodel/iso22989/DataLabelType#sequence> <https://w3id.org/lmodel/iso22989/DataLabelType#graph>
+             <https://w3id.org/lmodel/iso22989/DataLabelType#none> ] ? ;
+          <annotator> @<AIStakeholderRole> ?
+       ) ;
+       rdf:type [ <DataLabel> ]
+    )
+}
+
+<DataProcess> CLOSED {
+    (  $<DataProcess_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <process_type> [ <https://w3id.org/lmodel/iso22989/DataProcessType#data_acquisition>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#exploratory_data_analysis>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#data_annotation>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#data_labeling>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#data_preparation>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#data_cleaning>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#filtering>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#normalisation>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#de_identification>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#data_quality_checking>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#data_sampling>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#data_augmentation>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#feature_engineering>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#imputation>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#data_drift_detection>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#data_poisoning_detection>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#concept_drift_handling>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#catastrophic_forgetting_mitigation>
+             <https://w3id.org/lmodel/iso22989/DataProcessType#retraining> ] ;
+          <input_dataset> @<Dataset> ? ;
+          <output_dataset> @<Dataset> ? ;
+          <parameters> @linkml:String * ;
+          <executed_by> @<AIStakeholderRole> ?
+       ) ;
+       rdf:type [ <DataProcess> ]
+    )
+}
+
+<DataProvider> CLOSED {
+    (  $<DataProvider_tes> (  &<AIPartner_tes> ;
+          rdf:type [ <AIPartner> ] ?
+       ) ;
+       rdf:type [ <DataProvider> ]
+    )
+}
+
+<DataSample> CLOSED {
+    (  $<DataSample_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <sample_payload> @linkml:String ? ;
+          <sample_label> @linkml:String ?
+       ) ;
+       rdf:type [ <DataSample> ]
+    )
+}
+
+<Dataset> CLOSED {
+    (  $<Dataset_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <data_modality> [ <https://w3id.org/lmodel/iso22989/DataModality#structured>
+             <https://w3id.org/lmodel/iso22989/DataModality#semi_structured>
+             <https://w3id.org/lmodel/iso22989/DataModality#unstructured> <https://w3id.org/lmodel/iso22989/DataModality#text>
+             <https://w3id.org/lmodel/iso22989/DataModality#image> <https://w3id.org/lmodel/iso22989/DataModality#video>
+             <https://w3id.org/lmodel/iso22989/DataModality#audio> <https://w3id.org/lmodel/iso22989/DataModality#sensor>
+             <https://w3id.org/lmodel/iso22989/DataModality#time_series> <https://w3id.org/lmodel/iso22989/DataModality#graph> ] *
+          ;
+          <dataset_role> [ <https://w3id.org/lmodel/iso22989/DatasetRole#training>
+             <https://w3id.org/lmodel/iso22989/DatasetRole#validation> <https://w3id.org/lmodel/iso22989/DatasetRole#test>
+             <https://w3id.org/lmodel/iso22989/DatasetRole#production> <https://w3id.org/lmodel/iso22989/DatasetRole#reference> ] ?
+          ;
+          prov:wasDerivedFrom @linkml:String ? ;
+          <record_count> @linkml:Integer ? ;
+          <data_quality_notes> @linkml:String ? ;
+          <contains_personal_data> @linkml:Boolean ? ;
+          <label_type> [ <https://w3id.org/lmodel/iso22989/DataLabelType#categorical>
+             <https://w3id.org/lmodel/iso22989/DataLabelType#binary> <https://w3id.org/lmodel/iso22989/DataLabelType#ordinal>
+             <https://w3id.org/lmodel/iso22989/DataLabelType#numeric> <https://w3id.org/lmodel/iso22989/DataLabelType#structured>
+             <https://w3id.org/lmodel/iso22989/DataLabelType#sequence> <https://w3id.org/lmodel/iso22989/DataLabelType#graph>
+             <https://w3id.org/lmodel/iso22989/DataLabelType#none> ] ? ;
+          <ground_truth_available> @linkml:Boolean ? ;
+          <feature_count> @linkml:Integer ? ;
+          <data_processes_applied> @<DataProcess> *
+       ) ;
+       rdf:type [ <Dataset> ]
+    )
+}
+
+<DataSubject> CLOSED {
+    (  $<DataSubject_tes> (  &<AISubject_tes> ;
+          rdf:type [ <AISubject> ] ?
+       ) ;
+       rdf:type [ <DataSubject> ]
+    )
+}
+
+<DataTerm> CLOSED {
+    (  $<DataTerm_tes> (  &<Term_tes> ;
+          rdf:type [ <Term> ] ?
+       ) ;
+       rdf:type [ <DataTerm> ]
+    )
+}
+
+<Decision> CLOSED {
+    (  $<Decision_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <decision_outcome> @linkml:String ? ;
+          <decision_policy> @linkml:String ? ;
+          <based_on_predictions> @<Prediction> *
+       ) ;
+       rdf:type [ <Decision> ]
+    )
+}
+
+<EvaluationMetric> CLOSED {
+    (  $<EvaluationMetric_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <metric_name> @linkml:String ;
+          <metric_value> @linkml:Float ? ;
+          <metric_unit> @linkml:String ? ;
+          <reference_dataset> @<Dataset> ?
+       ) ;
+       rdf:type [ <EvaluationMetric> ]
+    )
+}
+
+<ExpertSystem> CLOSED {
+    (  $<ExpertSystem_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <rule_count> @linkml:Integer ? ;
+          <inference_engine> @<InferenceEngine> ?
+       ) ;
+       rdf:type [ <ExpertSystem> ]
+    )
+}
+
+<FaultToleranceMechanism> CLOSED {
+    (  $<FaultToleranceMechanism_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <mechanism_type> @linkml:String ? ;
+          <coverage_scope> @linkml:String ?
+       ) ;
+       rdf:type [ <FaultToleranceMechanism> ]
+    )
+}
+
+<GroundTruthRecord> CLOSED {
+    (  $<GroundTruthRecord_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <ground_truth_value> @linkml:String ;
+          prov:wasDerivedFrom @linkml:String ?
+       ) ;
+       rdf:type [ <GroundTruthRecord> ]
+    )
+}
+
+<HumanMachineTeam> CLOSED {
+    (  $<HumanMachineTeam_tes> (  &<AIConcept_tes> ;
+          rdf:type [ <AIConcept> ] ? ;
+          <human_roles> @linkml:String * ;
+          <ai_systems_involved> @<AISystem> * ;
+          <task_allocation> @linkml:String ?
+       ) ;
+       rdf:type [ <HumanMachineTeam> ]
+    )
+}
+
+<Inference> CLOSED {
+    (  $<Inference_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <inference_strategy> @linkml:String ? ;
+          <performed_by> @<InferenceEngine> ? ;
+          <over_model> @<AIModel> ? ;
+          <produced_output> @linkml:String ?
+       ) ;
+       rdf:type [ <Inference> ]
+    )
+}
+
+<InferenceEngine> CLOSED {
+    (  $<InferenceEngine_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <inference_strategy> @linkml:String ? ;
+          <uses_model> @<AIModel> ?
+       ) ;
+       rdf:type [ <InferenceEngine> ]
+    )
+}
+
+<InputData> CLOSED {
+    (  $<InputData_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <data_source_type> [ <https://w3id.org/lmodel/iso22989/DataSourceType#first_party>
+             <https://w3id.org/lmodel/iso22989/DataSourceType#second_party>
+             <https://w3id.org/lmodel/iso22989/DataSourceType#third_party>
+             <https://w3id.org/lmodel/iso22989/DataSourceType#open_data>
+             <https://w3id.org/lmodel/iso22989/DataSourceType#synthetic>
+             <https://w3id.org/lmodel/iso22989/DataSourceType#queried_union> ] ? ;
+          <data_collection_method> [ <https://w3id.org/lmodel/iso22989/DataCollectionMethod#point_of_sale>
+             <https://w3id.org/lmodel/iso22989/DataCollectionMethod#survey>
+             <https://w3id.org/lmodel/iso22989/DataCollectionMethod#research_study>
+             <https://w3id.org/lmodel/iso22989/DataCollectionMethod#sensor_capture>
+             <https://w3id.org/lmodel/iso22989/DataCollectionMethod#image_capture>
+             <https://w3id.org/lmodel/iso22989/DataCollectionMethod#audio_capture>
+             <https://w3id.org/lmodel/iso22989/DataCollectionMethod#document_extraction>
+             <https://w3id.org/lmodel/iso22989/DataCollectionMethod#web_scraping>
+             <https://w3id.org/lmodel/iso22989/DataCollectionMethod#interaction_log>
+             <https://w3id.org/lmodel/iso22989/DataCollectionMethod#transactional_log> ] ? ;
+          <modality> [ <https://w3id.org/lmodel/iso22989/DataModality#structured>
+             <https://w3id.org/lmodel/iso22989/DataModality#semi_structured>
+             <https://w3id.org/lmodel/iso22989/DataModality#unstructured> <https://w3id.org/lmodel/iso22989/DataModality#text>
+             <https://w3id.org/lmodel/iso22989/DataModality#image> <https://w3id.org/lmodel/iso22989/DataModality#video>
+             <https://w3id.org/lmodel/iso22989/DataModality#audio> <https://w3id.org/lmodel/iso22989/DataModality#sensor>
+             <https://w3id.org/lmodel/iso22989/DataModality#time_series> <https://w3id.org/lmodel/iso22989/DataModality#graph> ] ?
+          ;
+          <consumed_by> @<AISystem> ?
+       ) ;
+       rdf:type [ <InputData> ]
+    )
+}
+
+<IntelligenceAugmentation> CLOSED {
+    (  $<IntelligenceAugmentation_tes> (  &<AIConcept_tes> ;
+          rdf:type [ <AIConcept> ] ? ;
+          <augmented_capability> @linkml:String *
+       ) ;
+       rdf:type [ <IntelligenceAugmentation> ]
+    )
+}
+
+<InterestedParty> CLOSED {
+    (  $<InterestedParty_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ?
+       ) ;
+       rdf:type [ <InterestedParty> ]
+    )
+}
+
+<IoTDevice> CLOSED {
+    (  $<IoTDevice_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <device_role> [ <https://w3id.org/lmodel/iso22989/IoTDeviceRole#sensor>
+             <https://w3id.org/lmodel/iso22989/IoTDeviceRole#actuator> <https://w3id.org/lmodel/iso22989/IoTDeviceRole#gateway>
+             <https://w3id.org/lmodel/iso22989/IoTDeviceRole#edge_compute>
+             <https://w3id.org/lmodel/iso22989/IoTDeviceRole#controller> ] ;
+          <sensing_capabilities> @linkml:String * ;
+          <actuating_capabilities> @linkml:String *
+       ) ;
+       rdf:type [ <IoTDevice> ]
+    )
+}
+
+<IoTSystem> CLOSED {
+    (  $<IoTSystem_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <devices> @<IoTDevice> * ;
+          <ai_components> @<AIComponent> *
+       ) ;
+       rdf:type [ <IoTSystem> ]
+    )
+}
+
+<KnowledgeGraph> CLOSED {
+    (  $<KnowledgeGraph_tes> (  &<KnowledgeRepresentation_tes> ;
+          rdf:type [ <KnowledgeRepresentation> ] ? ;
+          <node_count> @linkml:Integer ? ;
+          <edge_count> @linkml:Integer ? ;
+          <ontology_reference> @linkml:Uriorcurie *
+       ) ;
+       rdf:type [ <KnowledgeGraph> ]
+    )
+}
+
+<KnowledgeRepresentation>  (
+    CLOSED {
+       (  $<KnowledgeRepresentation_tes> (  &<AIConcept_tes> ;
+             rdf:type [ <AIConcept> ] ? ;
+             <symbolic_approach> [ <https://w3id.org/lmodel/iso22989/SymbolicApproach#symbolic>
+                <https://w3id.org/lmodel/iso22989/SymbolicApproach#subsymbolic>
+                <https://w3id.org/lmodel/iso22989/SymbolicApproach#hybrid> ] ? ;
+             <knowledge_type> [ <https://w3id.org/lmodel/iso22989/KnowledgeType#declarative>
+                <https://w3id.org/lmodel/iso22989/KnowledgeType#procedural> <https://w3id.org/lmodel/iso22989/KnowledgeType#tacit>
+                <https://w3id.org/lmodel/iso22989/KnowledgeType#common_sense>
+                <https://w3id.org/lmodel/iso22989/KnowledgeType#domain_specific> ] ? ;
+             <representation_form> @linkml:String ?
+          ) ;
+          rdf:type [ <KnowledgeRepresentation> ]
+       )
+    } OR @<KnowledgeGraph>
+)
+
+<MachineLearningTerm> CLOSED {
+    (  $<MachineLearningTerm_tes> (  &<Term_tes> ;
+          rdf:type [ <Term> ] ?
+       ) ;
+       rdf:type [ <MachineLearningTerm> ]
+    )
+}
+
+<ModelDesigner> CLOSED {
+    (  $<ModelDesigner_tes> (  &<AIProducer_tes> ;
+          rdf:type [ <AIProducer> ] ?
+       ) ;
+       rdf:type [ <ModelDesigner> ]
+    )
+}
+
+<ModelImplementer> CLOSED {
+    (  $<ModelImplementer_tes> (  &<AIProducer_tes> ;
+          rdf:type [ <AIProducer> ] ?
+       ) ;
+       rdf:type [ <ModelImplementer> ]
+    )
+}
+
+<ModelVerifier> CLOSED {
+    (  $<ModelVerifier_tes> (  &<AIProducer_tes> ;
+          rdf:type [ <AIProducer> ] ?
+       ) ;
+       rdf:type [ <ModelVerifier> ]
+    )
+}
+
+<NamedEntity>  (
+    @<AIApplication> OR @<AIComponent> OR @<AIConcept> OR @<AIEcosystem> OR @<AILifecycleProcess> OR @<AIModel> OR
+    @<AIStakeholderRole> OR @<AISystem> OR @<AbbreviatedTerm> OR @<AbbreviationEntry> OR @<Action> OR @<AutonomyAssessment> OR
+    @<CatastrophicForgetting> OR @<ComputerVisionFunction> OR @<CyberPhysicalSystem> OR @<DataDrift> OR @<DataLabel> OR
+    @<DataProcess> OR @<DataSample> OR @<Dataset> OR @<Decision> OR @<EvaluationMetric> OR @<ExpertSystem> OR
+    @<FaultToleranceMechanism> OR @<GroundTruthRecord> OR @<Inference> OR @<InferenceEngine> OR @<InputData> OR @<InterestedParty>
+    OR @<IoTDevice> OR @<IoTSystem> OR @<NLPComponent> OR @<OECDLifecycleMapping> OR @<Organization> OR @<Prediction> OR
+    @<Recommendation> OR @<ResourcePool> OR @<RiskItem> OR @<Robot> OR @<Task> OR @<Term> OR @<Threshold> OR
+    @<TrustworthinessProperty> OR @<VerificationValidationFramework>
+)
+
+<NamedEntity_struct> {
+    (  $<NamedEntity_tes> (  schema1:name @linkml:String ;
+          dcterms:description @linkml:String ? ;
+          <clause_reference> @linkml:String ? ;
+          skos:altLabel @linkml:String * ;
+          skos:prefLabel @linkml:String ? ;
+          rdfs:seeAlso @linkml:Uriorcurie *
+       ) ;
+       rdf:type [ schema1:Thing ]
+    )
+}
+
+<NaturalLanguage> CLOSED {
+    (  $<NaturalLanguage_tes> (  &<AIConcept_tes> ;
+          rdf:type [ <AIConcept> ] ? ;
+          <language_code> @linkml:String ? ;
+          <script> @linkml:String ?
+       ) ;
+       rdf:type [ <NaturalLanguage> ]
+    )
+}
+
+<NeuralNetworkModel> CLOSED {
+    (  $<NeuralNetworkModel_tes> (  &<AIModel_tes> ;
+          rdf:type [ <AIModel> ] ? ;
+          <number_of_layers> @linkml:Integer ? ;
+          <number_of_parameters> @linkml:Integer ? ;
+          <algorithm_family> [ <https://w3id.org/lmodel/iso22989/MLAlgorithmFamily#neural_network>
+             <https://w3id.org/lmodel/iso22989/MLAlgorithmFamily#bayesian_network>
+             <https://w3id.org/lmodel/iso22989/MLAlgorithmFamily#decision_tree>
+             <https://w3id.org/lmodel/iso22989/MLAlgorithmFamily#support_vector_machine>
+             <https://w3id.org/lmodel/iso22989/MLAlgorithmFamily#genetic_algorithm> ] ?
+       ) ;
+       rdf:type [ <NeuralNetworkModel> ]
+    )
+}
+
+<NeuralNetworkTerm> CLOSED {
+    (  $<NeuralNetworkTerm_tes> (  &<Term_tes> ;
+          rdf:type [ <Term> ] ?
+       ) ;
+       rdf:type [ <NeuralNetworkTerm> ]
+    )
+}
+
+<Neuron> CLOSED {
+    (  $<Neuron_tes> (  &<AIConcept_tes> ;
+          rdf:type [ <AIConcept> ] ? ;
+          <activation_function> [ <https://w3id.org/lmodel/iso22989/ActivationFunctionType#sigmoid>
+             <https://w3id.org/lmodel/iso22989/ActivationFunctionType#tanh>
+             <https://w3id.org/lmodel/iso22989/ActivationFunctionType#relu>
+             <https://w3id.org/lmodel/iso22989/ActivationFunctionType#leaky_relu>
+             <https://w3id.org/lmodel/iso22989/ActivationFunctionType#softmax>
+             <https://w3id.org/lmodel/iso22989/ActivationFunctionType#linear>
+             <https://w3id.org/lmodel/iso22989/ActivationFunctionType#other> ] ? ;
+          <input_arity> @linkml:Integer ?
+       ) ;
+       rdf:type [ <Neuron> ]
+    )
+}
+
+<NLPComponent> CLOSED {
+    (  $<NLPComponent_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <nlp_component_type> [ <https://w3id.org/lmodel/iso22989/NLPComponentType#tokenisation>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#lemmatisation>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#part_of_speech_tagging>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#syntactic_parsing>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#semantic_analysis>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#named_entity_recognition>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#sentiment_analysis>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#machine_translation>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#speech_recognition>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#speech_synthesis>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#natural_language_understanding>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#natural_language_generation>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#automatic_summarization>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#dialogue_management>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#information_retrieval>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#question_answering>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#relationship_extraction>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#emotion_recognition>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#optical_character_recognition>
+             <https://w3id.org/lmodel/iso22989/NLPComponentType#coreference_resolution> ]
+       ) ;
+       rdf:type [ <NLPComponent> ]
+    )
+}
+
+<NLPTerm> CLOSED {
+    (  $<NLPTerm_tes> (  &<Term_tes> ;
+          rdf:type [ <Term> ] ?
+       ) ;
+       rdf:type [ <NLPTerm> ]
+    )
+}
+
+<OECDLifecycleMapping> CLOSED {
+    (  $<OECDLifecycleMapping_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <iso_stage> [ <https://w3id.org/lmodel/iso22989/AILifecycleStage#inception>
+             <https://w3id.org/lmodel/iso22989/AILifecycleStage#design_and_development>
+             <https://w3id.org/lmodel/iso22989/AILifecycleStage#verification_and_validation>
+             <https://w3id.org/lmodel/nist-ai-600-1/GaiLifecycleStageEnum#DEPLOYMENT>
+             <https://w3id.org/lmodel/iso22989/AILifecycleStage#operation_and_monitoring>
+             <https://w3id.org/lmodel/iso22989/AILifecycleStage#continuous_validation>
+             <https://w3id.org/lmodel/iso22989/AILifecycleStage#re_evaluation>
+             <https://w3id.org/lmodel/nist-ai-600-1/GaiLifecycleStageEnum#DECOMMISSIONING> ] ;
+          <oecd_stage> [ <https://w3id.org/lmodel/nist-ai-100-1/AiLifecycleStageEnum#PLAN_AND_DESIGN>
+             <https://w3id.org/lmodel/nist-ai-100-1/AiLifecycleStageEnum#COLLECT_AND_PROCESS_DATA>
+             <https://w3id.org/lmodel/nist-ai-100-1/AiLifecycleStageEnum#BUILD_AND_USE_MODEL>
+             <https://w3id.org/lmodel/nist-ai-100-1/AiLifecycleStageEnum#VERIFY_AND_VALIDATE>
+             <https://w3id.org/lmodel/iso22989/OECDLifecycleStage#deploy>
+             <https://w3id.org/lmodel/nist-ai-100-1/AiLifecycleStageEnum#OPERATE_AND_MONITOR> ] ;
+          <mapping_notes> @linkml:String ?
+       ) ;
+       rdf:type [ <OECDLifecycleMapping> ]
+    )
+}
+
+<Organization> CLOSED {
+    (  $<Organization_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ?
+       ) ;
+       rdf:type [ <Organization> ]
+    )
+}
+
+<PolicyMaker> CLOSED {
+    (  $<PolicyMaker_tes> (  &<RelevantAuthority_tes> ;
+          rdf:type [ <RelevantAuthority> ] ?
+       ) ;
+       rdf:type [ <PolicyMaker> ]
+    )
+}
+
+<Prediction> CLOSED {
+    (  $<Prediction_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <predicted_value> @linkml:String ? ;
+          <confidence> @<ConfidenceScore> ? ;
+          <produced_by> @<AIModel> ?
+       ) ;
+       rdf:type [ <Prediction> ]
+    )
+}
+
+<Recommendation> CLOSED {
+    (  $<Recommendation_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <recommendation_outcome_type> [ <https://w3id.org/lmodel/iso22989/RecommendationOutcomeType#content_recommendation>
+             <https://w3id.org/lmodel/iso22989/RecommendationOutcomeType#action_recommendation>
+             <https://w3id.org/lmodel/iso22989/RecommendationOutcomeType#ranking_recommendation>
+             <https://w3id.org/lmodel/iso22989/RecommendationOutcomeType#next_best_action> ] ? ;
+          <confidence> @<ConfidenceScore> ? ;
+          <recommended_items> @linkml:String * ;
+          <based_on_predictions> @<Prediction> *
+       ) ;
+       rdf:type [ <Recommendation> ]
+    )
+}
+
+<Regulator> CLOSED {
+    (  $<Regulator_tes> (  &<RelevantAuthority_tes> ;
+          rdf:type [ <RelevantAuthority> ] ?
+       ) ;
+       rdf:type [ <Regulator> ]
+    )
+}
+
+<RelevantAuthority>  (
+    CLOSED {
+       (  $<RelevantAuthority_tes> (  &<AIStakeholderRole_tes> ;
+             rdf:type [ <AIStakeholderRole> ] ? ;
+             <stakeholder_role_type> [ <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_provider>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_producer>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_customer>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_partner>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#ai_subject>
+                <https://w3id.org/lmodel/iso22989/AIStakeholderRoleType#relevant_authority> ]
+          ) ;
+          rdf:type [ <RelevantAuthority> ]
+       )
+    } OR @<PolicyMaker> OR @<Regulator>
+)
+
+<ResourcePool> CLOSED {
+    (  $<ResourcePool_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <resource_type> [ <https://w3id.org/lmodel/iso22989/ComputingResourceType#cloud>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#edge>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#on_premises>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#cpu>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#gpu>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#tpu>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#asic>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#fpga>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#npu>
+             <https://w3id.org/lmodel/iso22989/ComputingResourceType#dsp> ] ;
+          <capacity_units> @linkml:String ?
+       ) ;
+       rdf:type [ <ResourcePool> ]
+    )
+}
+
+<RiskItem> CLOSED {
+    (  $<RiskItem_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <risk_source> @linkml:String ? ;
+          <potential_event> @linkml:String ? ;
+          <consequence> @linkml:String ? ;
+          <likelihood> @<ConfidenceScore> ? ;
+          <severity> @linkml:String ? ;
+          <mitigation_strategy> @linkml:String * ;
+          <affected_stakeholders> @<AIStakeholderRole> *
+       ) ;
+       rdf:type [ <RiskItem> ]
+    )
+}
+
+<Robot> CLOSED {
+    (  $<Robot_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <embodiment> @linkml:String ? ;
+          <controlled_by> @<AISystem> ?
+       ) ;
+       rdf:type [ <Robot> ]
+    )
+}
+
+<SemanticComputingSystem> CLOSED {
+    (  $<SemanticComputingSystem_tes> (  &<AIConcept_tes> ;
+          rdf:type [ <AIConcept> ] ? ;
+          <semantic_model> @linkml:String ?
+       ) ;
+       rdf:type [ <SemanticComputingSystem> ]
+    )
+}
+
+<SoftComputingSystem> CLOSED {
+    (  $<SoftComputingSystem_tes> (  &<AIConcept_tes> ;
+          rdf:type [ <AIConcept> ] ? ;
+          <soft_computing_techniques> [ <https://w3id.org/lmodel/iso22989/SoftComputingTechnique#fuzzy_logic>
+             <https://w3id.org/lmodel/iso22989/SoftComputingTechnique#evolutionary_computing>
+             <https://w3id.org/lmodel/iso22989/SoftComputingTechnique#swarm_intelligence>
+             <https://w3id.org/lmodel/iso22989/SoftComputingTechnique#probabilistic_reasoning>
+             <https://w3id.org/lmodel/iso22989/SoftComputingTechnique#neural_computing> ] +
+       ) ;
+       rdf:type [ <SoftComputingSystem> ]
+    )
+}
+
+<Task> CLOSED {
+    (  $<Task_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <task_category> [ <https://w3id.org/lmodel/iso22989/TaskCategory#classification>
+             <https://w3id.org/lmodel/iso22989/TaskCategory#regression> <https://w3id.org/lmodel/iso22989/TaskCategory#clustering>
+             <https://w3id.org/lmodel/iso22989/TaskCategory#ranking> <https://w3id.org/lmodel/iso22989/TaskCategory#recommendation>
+             <https://w3id.org/lmodel/iso22989/TaskCategory#anomaly_detection>
+             <https://w3id.org/lmodel/iso22989/TaskCategory#dimensionality_reduction>
+             <https://w3id.org/lmodel/iso22989/TaskCategory#generation> <https://w3id.org/lmodel/iso22989/TaskCategory#planning>
+             <https://w3id.org/lmodel/iso22989/TaskCategory#control>
+             <https://w3id.org/lmodel/iso22989/TaskCategory#decision_support> ] ;
+          <input_modalities> [ <https://w3id.org/lmodel/iso22989/DataModality#structured>
+             <https://w3id.org/lmodel/iso22989/DataModality#semi_structured>
+             <https://w3id.org/lmodel/iso22989/DataModality#unstructured> <https://w3id.org/lmodel/iso22989/DataModality#text>
+             <https://w3id.org/lmodel/iso22989/DataModality#image> <https://w3id.org/lmodel/iso22989/DataModality#video>
+             <https://w3id.org/lmodel/iso22989/DataModality#audio> <https://w3id.org/lmodel/iso22989/DataModality#sensor>
+             <https://w3id.org/lmodel/iso22989/DataModality#time_series> <https://w3id.org/lmodel/iso22989/DataModality#graph> ] *
+          ;
+          <output_label_type> [ <https://w3id.org/lmodel/iso22989/DataLabelType#categorical>
+             <https://w3id.org/lmodel/iso22989/DataLabelType#binary> <https://w3id.org/lmodel/iso22989/DataLabelType#ordinal>
+             <https://w3id.org/lmodel/iso22989/DataLabelType#numeric> <https://w3id.org/lmodel/iso22989/DataLabelType#structured>
+             <https://w3id.org/lmodel/iso22989/DataLabelType#sequence> <https://w3id.org/lmodel/iso22989/DataLabelType#graph>
+             <https://w3id.org/lmodel/iso22989/DataLabelType#none> ] ? ;
+          <performance_metric> @linkml:String *
+       ) ;
+       rdf:type [ <Task> ]
+    )
+}
+
+<Term>  (
+    @<AITerm> OR @<ComputerVisionTerm> OR @<DataTerm> OR @<MachineLearningTerm> OR @<NLPTerm> OR @<NeuralNetworkTerm> OR
+    @<TrustworthinessTerm>
+)
+
+<Term_struct> {
+    (  $<Term_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ?
+       ) ;
+       rdf:type [ <Term> ]
+    )
+}
+
+<Threshold> CLOSED {
+    (  $<Threshold_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <threshold_value> @linkml:Float ;
+          <applies_to_metric> @linkml:String ? ;
+          <threshold_policy> @linkml:String ?
+       ) ;
+       rdf:type [ <Threshold> ]
+    )
+}
+
+<TrustworthinessProperty> CLOSED {
+    (  $<TrustworthinessProperty_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <trustworthiness_property_type> [ <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#robustness>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#reliability>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#resilience>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#controllability>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#explainability>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#predictability>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#transparency>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#fairness>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#bias_mitigation>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#accountability>
+             <https://w3id.org/lmodel/nist-ai-100-1/schema/nist_ai_rmf_common/TrustworthinessCharacteristicEnum#PRIVACY_ENHANCED>
+             <https://w3id.org/lmodel/nist-ai-100-1/schema/nist_ai_rmf_common/TrustworthinessCharacteristicEnum#SAFE>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#availability>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#integrity>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#authenticity>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#security>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#usability>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#quality>
+             <https://w3id.org/lmodel/iso22989/TrustworthinessPropertyType#fault_tolerance> ] ;
+          <property_evidence> @linkml:String * ;
+          <measurement_method> @linkml:String ? ;
+          <applicable_biases> [ <https://w3id.org/lmodel/iso22989/BiasType#data_bias>
+             <https://w3id.org/lmodel/iso22989/BiasType#algorithmic_bias> <https://w3id.org/lmodel/iso22989/BiasType#societal_bias>
+             <https://w3id.org/lmodel/iso22989/BiasType#cognitive_bias> <https://w3id.org/lmodel/iso22989/BiasType#automation_bias>
+             ] * ;
+          <confidence_score> @<ConfidenceScore> ?
+       ) ;
+       rdf:type [ <TrustworthinessProperty> ]
+    )
+}
+
+<TrustworthinessTerm> CLOSED {
+    (  $<TrustworthinessTerm_tes> (  &<Term_tes> ;
+          rdf:type [ <Term> ] ?
+       ) ;
+       rdf:type [ <TrustworthinessTerm> ]
+    )
+}
+
+<VerificationValidationFramework> CLOSED {
+    (  $<VerificationValidationFramework_tes> (  &<NamedEntity_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <verification_validation_level> [ <https://w3id.org/lmodel/iso22989/VerificationValidationLevel#completely_verifiable>
+             <https://w3id.org/lmodel/iso22989/VerificationValidationLevel#partially_verifiable_validatable>
+             <https://w3id.org/lmodel/iso22989/VerificationValidationLevel#unverifiable_validatable>
+             <https://w3id.org/lmodel/iso22989/VerificationValidationLevel#unverifiable_partially_validatable>
+             <https://w3id.org/lmodel/iso22989/VerificationValidationLevel#unverifiable_unvalidatable> ] ? ;
+          <verification_methods> @linkml:String * ;
+          <validation_methods> @linkml:String *
+       ) ;
+       rdf:type [ <VerificationValidationFramework> ]
+    )
+}

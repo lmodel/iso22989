@@ -1,0 +1,1206 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// version: 0.1.0
+// Abbreviation or acronym listed in Clause 4 with its expansion and optional definition reference.
+message AbbreviatedTerm
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string expansion = 0
+ }
+// Record of a single abbreviation listed in Clause 4 of the standard.
+message AbbreviationEntry
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  abbreviationCode abbreviationCode = 0
+  string expansion = 0
+ }
+// Action carried out as a result of an AI-system decision (Clause 7.4.4).
+message Action
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string actionTarget = 0
+  executionStatus executionStatus = 0
+  decision triggeredBy = 0
+ }
+// Entity that perceives its environment and acts upon it to achieve goals (Clause 5.3).
+message AIAgent
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  autonomyLevel autonomyLevel = 0
+  symbolicApproach symbolicApproach = 0
+  agentArchitectureType agentArchitecture = 0
+ repeated  string goalSet = 0
+ }
+// Description of an AI application instance situated in a domain (Clause 10).
+message AIApplication
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ repeated  aIApplicationDomain applicationDomain = 0
+  string intendedPurpose = 0
+ repeated  jurisdictionalIssueType jurisdictionalIssues = 0
+ repeated  societalImpactCategory societalImpacts = 0
+  aISystem hostingSystem = 0
+ }
+// Partner performing independent audits of AI systems (Clause 5.19.5).
+message AIAuditor
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Functional component of an AI system, such as a data pipeline, preprocessor, model server, or post-processing module.
+message AIComponent
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  aIFunctionalComponent componentFunction = 0
+ repeated  aIComponent dependsOn = 0
+ }
+// Top-level container aggregating AI systems, models, datasets, lifecycle processes, stakeholder roles, applications and trustworthiness records for serialisation as a single artefact.
+message AIConceptsCollection
+ {
+ repeated  aISystem aiSystems = 0
+ repeated  aIModel aiModels = 0
+ repeated  dataset aiDatasets = 0
+ repeated  aILifecycleProcess aiLifecycleProcesses = 0
+ repeated  aIStakeholderRole aiStakeholderRoles = 0
+ repeated  aIApplication aiApplications = 0
+ repeated  trustworthinessProperty trustworthinessRecords = 0
+ repeated  task tasks = 0
+ repeated  dataProcess dataProcesses = 0
+ repeated  ioTSystem iotSystems = 0
+ repeated  cyberPhysicalSystem cyberPhysicalSystems = 0
+ repeated  knowledgeGraph knowledgeGraphs = 0
+ repeated  expertSystem expertSystems = 0
+ repeated  abbreviationEntry abbreviations = 0
+ }
+// Stakeholder using an AI system or AI-backed service (Clause 5.19.4).
+message AICustomer
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Aggregation of the AI systems, data sources, computing resources and stakeholder roles that surround a deployment context (Clause 8).
+message AIEcosystem
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ repeated  computingResourceType computingResources = 0
+ repeated  string dataSources = 0
+ repeated  string ecosystemComponents = 0
+ repeated  aISystem aiSystems = 0
+ repeated  aIStakeholderRole aiStakeholderRoles = 0
+ repeated  bigDataCharacteristic bigDataCharacteristics = 0
+ }
+// Partner performing evaluations of AI system performance and trustworthiness (Clause 5.19.5).
+message AIEvaluator
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Process or activity associated with a stage of the AI system life cycle (Clause 6).
+message AILifecycleProcess
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  aILifecycleStage processStage = 0
+ repeated  string processInputs = 0
+ repeated  string processOutputs = 0
+  aIStakeholderRoleType responsibleRole = 0
+  date startDate = 0
+  date endDate = 0
+ repeated  string riskItems = 0
+ repeated  string approvalCriteria = 0
+  string processSubType = 0
+ }
+// Trained or rule-based model embedded in an AI system. Carries paradigm, algorithm family, dataset references and version metadata.
+message AIModel
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  machineLearningParadigm modelParadigm = 0
+  mLAlgorithmFamily algorithmFamily = 0
+  engineeringApproach engineeringApproach = 0
+  dataset trainingDataset = 0
+  dataset validationDataset = 0
+  dataset testDataset = 0
+ repeated  string hyperparameters = 0
+  string modelVersion = 0
+  string trainedOn = 0
+  boolean supportsContinuousLearning = 0
+  confidenceScore catastrophicForgettingRisk = 0
+  integer parameterCount = 0
+  durationType trainingDuration = 0
+  float inferenceLatencyMs = 0
+  boolean modelCompressionApplied = 0
+  neuralNetworkArchitecture neuralNetworkArchitecture = 0
+  activationFunctionType activationFunction = 0
+ repeated  neuralNetworkPhenomenon trainingPhenomena = 0
+ }
+// Stakeholder providing supporting services across the AI life cycle (Clause 5.19.5).
+message AIPartner
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Provider of platform infrastructure on which AI services are operated (Clause 5.19.2).
+message AIPlatformProvider
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Stakeholder designing, developing or assembling AI systems (Clause 5.19.3).
+message AIProducer
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Stakeholder making an AI system available to customers (Clause 5.19.2).
+message AIProvider
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Provider of an AI-enabled service or product to customers (Clause 5.19.2).
+message AIServiceProductProvider
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Stakeholder role enacted by an organisation or individual in relation to an AI system (Clause 5.19).
+message AIStakeholderRole
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+ }
+// Person or group affected by an AI system (Clause 5.19.6).
+message AISubject
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Engineered system that uses AI techniques to perform tasks delegated to it. Aggregates lifecycle, functional, model and stakeholder data.
+message AISystem
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  aISystemType aiSystemType = 0
+  symbolicApproach symbolicApproach = 0
+  autonomyLevel autonomyLevel = 0
+  string intendedPurpose = 0
+ repeated  aIApplicationDomain applicationDomain = 0
+ repeated  aIField aiField = 0
+ repeated  aIFunctionalComponent functionalComponents = 0
+  aILifecycleStage lifecycleStage = 0
+ repeated  aIStakeholderRole stakeholders = 0
+ repeated  aIComponent components = 0
+ repeated  aIModel models = 0
+ repeated  dataset datasets = 0
+ repeated  trustworthinessProperty trustworthinessProperties = 0
+ repeated  jurisdictionalIssueType jurisdictionalIssues = 0
+ repeated  societalImpactCategory societalImpacts = 0
+ repeated  aISystemCharacteristic systemCharacteristics = 0
+ repeated  taskCategory taskCategories = 0
+  agentArchitectureType agentArchitecture = 0
+ repeated  dataProcess dataProcesses = 0
+  ioTSystem iotIntegration = 0
+ }
+// Partner integrating AI components into a wider system (Clause 5.19.5).
+message AISystemIntegrator
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Term defined in Clause 3.1 (terms related to AI).
+message AITerm
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ }
+// End user of an AI system or AI-backed service (Clause 5.19.4).
+message AIUser
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Structured assessment of the autonomy level of an AI system using the criteria listed in Clause 5.13.
+message AutonomyAssessment
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  autonomyLevel autonomyLevel = 0
+ repeated  string autonomyCriterionScores = 0
+  string clauseReference = 0
+ }
+// Phenomenon by which a continually-trained model loses previously acquired competence (Clause 5.11.9.1).
+message CatastrophicForgetting
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  aIModel affectedModel = 0
+  string mitigationStrategy = 0
+ }
+// System combining AI techniques to emulate human cognitive functions (Clause 5.5).
+message CognitiveComputingSystem
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ repeated  string cognitiveCapabilities = 0
+ }
+// Producer role verifying the computational behaviour of an AI system (Clause 5.19.3).
+message ComputationVerifier
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Computer-vision capability provided by an AI system (Clause 9.1).
+message ComputerVisionFunction
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  computerVisionTask cvTask = 0
+ }
+// Term defined in Clause 3.7 (terms related to computer vision).
+message ComputerVisionTerm
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ }
+// Convolution operation as used in convolutional neural networks (Clause 3.4.3).
+message ConvolutionOperation
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ repeated  integer kernelSize = 0
+  integer stride = 0
+  string padding = 0
+ }
+// System that tightly integrates computational and physical components, typically with feedback loops between sensing and actuation (Clause 5.14.3).
+message CyberPhysicalSystem
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ repeated  string physicalProcesses = 0
+ repeated  aIComponent cyberComponents = 0
+  ioTSystem iotSubsystem = 0
+ }
+// Observed change in the statistical distribution of operational data relative to training data (Clause 5.11.9.1).
+message DataDrift
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string driftType = 0
+  string detectedAt = 0
+  dataset affectedDataset = 0
+ }
+// Label or annotation attached to one or more data samples (Clause 3.2.10).
+message DataLabel
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string labelValue = 0
+  dataLabelType labelType = 0
+  aIStakeholderRole annotator = 0
+ }
+// Discrete data-handling process applied to a dataset during AI system development or operation (Clause 5.10).
+message DataProcess
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  dataProcessType processType = 0
+  dataset inputDataset = 0
+  dataset outputDataset = 0
+ repeated  string parameters = 0
+  aIStakeholderRole executedBy = 0
+ }
+// Partner supplying datasets used by AI systems (Clause 5.19.5).
+message DataProvider
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Individual data record within a dataset (Clause 3.2.13).
+message DataSample
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string samplePayload = 0
+  string sampleLabel = 0
+ }
+// Collection of data items used by an AI system in a training, validation, test, reference or production role.
+message Dataset
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ repeated  dataModality dataModality = 0
+  datasetRole datasetRole = 0
+  string dataProvenance = 0
+  integer recordCount = 0
+  string dataQualityNotes = 0
+  boolean containsPersonalData = 0
+  dataLabelType labelType = 0
+  boolean groundTruthAvailable = 0
+  integer featureCount = 0
+ repeated  dataProcess dataProcessesApplied = 0
+ }
+// Individual whose personal data is processed by an AI system (Clause 5.19.6).
+message DataSubject
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Term defined in Clause 3.2 (terms related to data).
+message DataTerm
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ }
+// Decision produced by an AI system on the basis of one or more predictions (Clause 7.4.3).
+message Decision
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string decisionOutcome = 0
+  string decisionPolicy = 0
+ repeated  prediction basedOnPredictions = 0
+ }
+// Metric used to evaluate AI system or model performance (Clause 7.4.3).
+message EvaluationMetric
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string metricName = 0
+  float metricValue = 0
+  string metricUnit = 0
+  dataset referenceDataset = 0
+ }
+// Rule-based system encoding domain expertise (Clause 8.5.2).
+message ExpertSystem
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  integer ruleCount = 0
+  inferenceEngine inferenceEngine = 0
+ }
+// Mechanism enabling an AI system to continue operating correctly in the presence of component faults (Clause 5.15.4 context).
+message FaultToleranceMechanism
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string mechanismType = 0
+  string coverageScope = 0
+ }
+// Trusted reference record used to evaluate or train an AI model (Clause 3.2.7).
+message GroundTruthRecord
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string groundTruthValue = 0
+  string provenanceStatement = 0
+ }
+// Collaboration arrangement combining one or more humans with one or more AI systems to pursue shared goals (Clauses 3.3.3, 5.13).
+message HumanMachineTeam
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ repeated  string humanRoles = 0
+ repeated  aISystem aiSystemsInvolved = 0
+  string taskAllocation = 0
+ }
+// Act of deriving conclusions, predictions or recommendations from a model or knowledge base (Clause 3.1.17).
+message Inference
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string inferenceStrategy = 0
+  inferenceEngine performedBy = 0
+  aIModel overModel = 0
+  string producedOutput = 0
+ }
+// Component performing inference over a model or knowledge base (Clause 3.1.17).
+message InferenceEngine
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string inferenceStrategy = 0
+  aIModel usesModel = 0
+ }
+// Data presented to an AI system at inference time or during training (Clause 3.2.9).
+message InputData
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  dataSourceType dataSourceType = 0
+  dataCollectionMethod dataCollectionMethod = 0
+  dataModality modality = 0
+  aISystem consumedBy = 0
+ }
+// Use of AI to enhance the cognitive capabilities of humans rather than replace them (Clause 5.13 context).
+message IntelligenceAugmentation
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ repeated  string augmentedCapability = 0
+ }
+// Person or organisation that can affect, be affected by, or perceive itself to be affected by a decision or activity; Annex SL harmonised stakeholder anchor shared across ISO management-system standards.
+message InterestedParty
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ }
+// Device participating in an Internet-of-Things deployment (Clause 5.14.2).
+message IoTDevice
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  ioTDeviceRole deviceRole = 0
+ repeated  string sensingCapabilities = 0
+ repeated  string actuatingCapabilities = 0
+ }
+// Networked system composed of IoT devices, possibly enhanced with AI capabilities (Clause 5.14.2).
+message IoTSystem
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ repeated  ioTDevice devices = 0
+ repeated  aIComponent aiComponents = 0
+ }
+// Graph-structured knowledge representation, often used for reasoning and retrieval (Clause 8.5).
+message KnowledgeGraph
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  symbolicApproach symbolicApproach = 0
+  knowledgeType knowledgeType = 0
+  string representationForm = 0
+  integer nodeCount = 0
+  integer edgeCount = 0
+ repeated  uriorcurie ontologyReference = 0
+ }
+// Representation of knowledge usable by an AI system (Clause 5.4), including knowledge graphs, ontologies and rule bases.
+message KnowledgeRepresentation
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  symbolicApproach symbolicApproach = 0
+  knowledgeType knowledgeType = 0
+  string representationForm = 0
+ }
+// Term defined in Clause 3.3 (terms related to machine learning).
+message MachineLearningTerm
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ }
+// Producer role responsible for designing AI models (Clause 5.19.3).
+message ModelDesigner
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Producer role responsible for implementing AI models in code (Clause 5.19.3).
+message ModelImplementer
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Producer role verifying that models meet specified requirements (Clause 5.19.3).
+message ModelVerifier
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Natural language treated as an object of processing or generation by an AI system (Clause 9.2).
+message NaturalLanguage
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string languageCode = 0
+  string script = 0
+ }
+// AIModel realised as a neural network (Clause 5.12.1, Clause 3.4 terms).
+message NeuralNetworkModel
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  machineLearningParadigm modelParadigm = 0
+  engineeringApproach engineeringApproach = 0
+  dataset trainingDataset = 0
+  dataset validationDataset = 0
+  dataset testDataset = 0
+ repeated  string hyperparameters = 0
+  string modelVersion = 0
+  string trainedOn = 0
+  boolean supportsContinuousLearning = 0
+  confidenceScore catastrophicForgettingRisk = 0
+  integer parameterCount = 0
+  durationType trainingDuration = 0
+  float inferenceLatencyMs = 0
+  boolean modelCompressionApplied = 0
+  neuralNetworkArchitecture neuralNetworkArchitecture = 0
+  activationFunctionType activationFunction = 0
+ repeated  neuralNetworkPhenomenon trainingPhenomena = 0
+  integer numberOfLayers = 0
+  integer numberOfParameters = 0
+  mLAlgorithmFamily algorithmFamily = 0
+ }
+// Term defined in Clause 3.4 (terms related to neural networks).
+message NeuralNetworkTerm
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ }
+// Computational unit in a neural network combining weighted inputs with a bias and an activation function (Clause 3.4.9).
+message Neuron
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  activationFunctionType activationFunction = 0
+  integer inputArity = 0
+ }
+// Component of a natural-language-processing pipeline (Clause 9.2).
+message NLPComponent
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  nLPComponentType nlpComponentType = 0
+ }
+// Term defined in Clause 3.6 (terms related to natural-language processing).
+message NLPTerm
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ }
+// Informative mapping between an ISO/IEC 22989 life-cycle stage and an OECD life-cycle stage (Annex A).
+message OECDLifecycleMapping
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  aILifecycleStage isoStage = 0
+  oECDLifecycleStage oecdStage = 0
+  string mappingNotes = 0
+ }
+// Organisation that establishes and operates an AI management system; Annex SL harmonised anchor shared across ISO management-system standards (ISO/IEC 42001, ISO/IEC 27001).
+message Organization
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ }
+// Authority defining policy applicable to AI systems (Clause 5.19.7).
+message PolicyMaker
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Prediction produced by an AI model (Clause 7.4.2).
+message Prediction
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string predictedValue = 0
+  confidenceScore confidence = 0
+  aIModel producedBy = 0
+ }
+// Recommendation produced by an AI system (Clauses 7.4, 10).
+message Recommendation
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  recommendationOutcomeType recommendationOutcomeType = 0
+  confidenceScore confidence = 0
+ repeated  string recommendedItems = 0
+ repeated  prediction basedOnPredictions = 0
+ }
+// Authority responsible for regulatory oversight of AI systems (Clause 5.19.7).
+message Regulator
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Regulator or standards-setting body with oversight responsibilities (Clause 5.19.7).
+message RelevantAuthority
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string organizationName = 0
+  string contact = 0
+ repeated  string responsibilities = 0
+  aIStakeholderRoleType stakeholderRoleType = 0
+ }
+// Pool of computing resources (CPU/GPU/TPU/ASIC/FPGA) available to AI workloads (Clause 8.7).
+message ResourcePool
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  computingResourceType resourceType = 0
+  string capacityUnits = 0
+ }
+// Risk associated with an AI system, capturing source, potential event, consequence and treatment metadata (Clause 3.5.11; aligned with ISO/IEC 23894 risk concepts).
+message RiskItem
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string riskSource = 0
+  string potentialEvent = 0
+  string consequence = 0
+  confidenceScore likelihood = 0
+  string severity = 0
+ repeated  string mitigationStrategy = 0
+ repeated  aIStakeholderRole affectedStakeholders = 0
+ }
+// Embodied agent able to perceive its environment and act in the physical world (Clause 5.3 / Clause 9.5 robotics field).
+message Robot
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string embodiment = 0
+  aISystem controlledBy = 0
+ }
+// System whose behaviour is driven by the explicit semantics of its inputs and knowledge sources (Clause 5.6).
+message SemanticComputingSystem
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  string semanticModel = 0
+ }
+// System employing soft computing techniques tolerant of imprecision and uncertainty (Clause 5.7).
+message SoftComputingSystem
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ repeated  softComputingTechnique softComputingTechniques = 0
+ }
+// AI task addressed by a model or system (e.g. classification, regression, planning). Provides a first-class entity for the task categories enumerated across Clause 3 terminology.
+message Task
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  taskCategory taskCategory = 0
+ repeated  dataModality inputModalities = 0
+  dataLabelType outputLabelType = 0
+ repeated  string performanceMetric = 0
+ }
+// Decision threshold applied to a metric, prediction or score (Clause 7.4.3).
+message Threshold
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  float thresholdValue = 0
+  string appliesToMetric = 0
+  string thresholdPolicy = 0
+ }
+// Claim about a trustworthiness property of an AI system or model, with evidence and measurement metadata.
+message TrustworthinessProperty
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  trustworthinessPropertyType trustworthinessPropertyType = 0
+ repeated  string propertyEvidence = 0
+  string measurementMethod = 0
+ repeated  biasType applicableBiases = 0
+  confidenceScore confidenceScore = 0
+ }
+// Term defined in Clause 3.5 (terms related to trustworthiness).
+message TrustworthinessTerm
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string clauseReference = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+ }
+// Verifiability and validatability claim for an AI system characterised according to the levels in Clause 5.16.
+message VerificationValidationFramework
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+ repeated  string aliases = 0
+  string preferredLabel = 0
+ repeated  uriorcurie seeAlsoUri = 0
+  verificationValidationLevel verificationValidationLevel = 0
+  string clauseReference = 0
+ repeated  string verificationMethods = 0
+ repeated  string validationMethods = 0
+ }

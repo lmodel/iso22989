@@ -1,0 +1,1190 @@
+{
+   "@context": {
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "dcterms": "http://purl.org/dc/terms/",
+      "eu_ai_act": "https://w3id.org/lmodel/eu-ai-act/",
+      "gist_linkml": "https://w3id.org/lmodel/gist/",
+      "iso22989": "https://w3id.org/lmodel/iso22989/",
+      "iso23894": "https://w3id.org/lmodel/iso23894/",
+      "iso27001": "https://w3id.org/lmodel/iso27001/",
+      "iso29100": "https://w3id.org/lmodel/iso29100/",
+      "iso42001": "https://w3id.org/lmodel/iso42001/",
+      "linkml": "https://w3id.org/linkml/",
+      "nist_ai_100_1": "https://w3id.org/lmodel/nist-ai-100-1/",
+      "nist_ai_600_1": "https://w3id.org/lmodel/nist-ai-600-1/",
+      "nist_ai_rmf": "https://w3id.org/lmodel/nist-ai-100-1/",
+      "nist_ai_rmf_common": "https://w3id.org/lmodel/nist-ai-100-1/schema/nist_ai_rmf_common/",
+      "oecd_ai": "https://oecd.ai/en/ai-principles#",
+      "prov": "http://www.w3.org/ns/prov#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "http://schema.org/",
+      "semapv": "https://w3id.org/semapv/vocab/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "uco_core": "https://w3id.org/lmodel/uco-core/",
+      "@vocab": "https://w3id.org/lmodel/iso22989/",
+      "abbreviation_code": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "abbreviation_code"
+      },
+      "triggered_by": {
+         "@type": "@id",
+         "@id": "triggered_by"
+      },
+      "action_target": {
+         "@id": "action_target"
+      },
+      "ai_applications": {
+         "@type": "@id",
+         "@id": "ai_applications"
+      },
+      "ai_datasets": {
+         "@type": "@id",
+         "@id": "ai_datasets"
+      },
+      "ai_field": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "ai_field"
+      },
+      "ai_lifecycle_processes": {
+         "@type": "@id",
+         "@id": "ai_lifecycle_processes"
+      },
+      "ai_models": {
+         "@type": "@id",
+         "@id": "ai_models"
+      },
+      "ai_stakeholder_roles": {
+         "@type": "@id",
+         "@id": "ai_stakeholder_roles"
+      },
+      "ai_system_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "ai_system_type"
+      },
+      "ai_systems": {
+         "@type": "@id",
+         "@id": "ai_systems"
+      },
+      "agent_architecture": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "agent_architecture"
+      },
+      "goal_set": {
+         "@id": "goal_set"
+      },
+      "hosting_system": {
+         "@type": "@id",
+         "@id": "hosting_system"
+      },
+      "depends_on": {
+         "@type": "@id",
+         "@id": "depends_on"
+      },
+      "abbreviations": {
+         "@type": "@id",
+         "@id": "abbreviations"
+      },
+      "cyber_physical_systems": {
+         "@type": "@id",
+         "@id": "cyber_physical_systems"
+      },
+      "data_processes": {
+         "@type": "@id",
+         "@id": "data_processes"
+      },
+      "expert_systems": {
+         "@type": "@id",
+         "@id": "expert_systems"
+      },
+      "iot_systems": {
+         "@type": "@id",
+         "@id": "iot_systems"
+      },
+      "knowledge_graphs": {
+         "@type": "@id",
+         "@id": "knowledge_graphs"
+      },
+      "tasks": {
+         "@type": "@id",
+         "@id": "tasks"
+      },
+      "big_data_characteristics": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "big_data_characteristics"
+      },
+      "process_sub_type": {
+         "@id": "process_sub_type"
+      },
+      "activation_function": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "activation_function"
+      },
+      "neural_network_architecture": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "neural_network_architecture"
+      },
+      "training_phenomena": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "training_phenomena"
+      },
+      "iot_integration": {
+         "@type": "@id",
+         "@id": "iot_integration"
+      },
+      "system_characteristics": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "system_characteristics"
+      },
+      "task_categories": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "task_categories"
+      },
+      "algorithm_family": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "algorithm_family"
+      },
+      "aliases": {
+         "@id": "skos:altLabel"
+      },
+      "applicable_biases": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "applicable_biases"
+      },
+      "application_domain": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "application_domain"
+      },
+      "approval_criteria": {
+         "@id": "approval_criteria"
+      },
+      "autonomy_criterion_scores": {
+         "@id": "autonomy_criterion_scores"
+      },
+      "autonomy_level": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "autonomy_level"
+      },
+      "catastrophic_forgetting_risk": {
+         "@type": "xsd:float",
+         "@id": "catastrophic_forgetting_risk"
+      },
+      "affected_model": {
+         "@type": "@id",
+         "@id": "affected_model"
+      },
+      "mitigation_strategy": {
+         "@id": "mitigation_strategy"
+      },
+      "clause_reference": {
+         "@id": "clause_reference"
+      },
+      "cognitive_capabilities": {
+         "@id": "cognitive_capabilities"
+      },
+      "collection_date_range": {
+         "@id": "collection_date_range"
+      },
+      "component_function": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "component_function"
+      },
+      "components": {
+         "@type": "@id",
+         "@id": "components"
+      },
+      "computing_resources": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "computing_resources"
+      },
+      "confidence": {
+         "@type": "xsd:float",
+         "@id": "confidence"
+      },
+      "confidence_score": {
+         "@type": "xsd:float",
+         "@id": "confidence_score"
+      },
+      "contact": {
+         "@id": "contact"
+      },
+      "contains_personal_data": {
+         "@type": "xsd:boolean",
+         "@id": "contains_personal_data"
+      },
+      "kernel_size": {
+         "@type": "xsd:integer",
+         "@id": "kernel_size"
+      },
+      "padding": {
+         "@id": "padding"
+      },
+      "stride": {
+         "@type": "xsd:integer",
+         "@id": "stride"
+      },
+      "cv_task": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "cv_task"
+      },
+      "cyber_components": {
+         "@type": "@id",
+         "@id": "cyber_components"
+      },
+      "iot_subsystem": {
+         "@type": "@id",
+         "@id": "iot_subsystem"
+      },
+      "physical_processes": {
+         "@id": "physical_processes"
+      },
+      "data_collection_method": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "data_collection_method"
+      },
+      "data_modality": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "data_modality"
+      },
+      "data_provenance": {
+         "@id": "prov:wasDerivedFrom"
+      },
+      "data_quality_notes": {
+         "@id": "data_quality_notes"
+      },
+      "data_source_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "data_source_type"
+      },
+      "data_sources": {
+         "@id": "data_sources"
+      },
+      "data_version": {
+         "@id": "data_version"
+      },
+      "affected_dataset": {
+         "@type": "@id",
+         "@id": "affected_dataset"
+      },
+      "detected_at": {
+         "@id": "detected_at"
+      },
+      "drift_type": {
+         "@id": "drift_type"
+      },
+      "annotator": {
+         "@type": "@id",
+         "@id": "annotator"
+      },
+      "executed_by": {
+         "@type": "@id",
+         "@id": "executed_by"
+      },
+      "input_dataset": {
+         "@type": "@id",
+         "@id": "input_dataset"
+      },
+      "output_dataset": {
+         "@type": "@id",
+         "@id": "output_dataset"
+      },
+      "parameters": {
+         "@id": "parameters"
+      },
+      "process_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "process_type"
+      },
+      "sample_label": {
+         "@id": "sample_label"
+      },
+      "sample_payload": {
+         "@id": "sample_payload"
+      },
+      "data_processes_applied": {
+         "@type": "@id",
+         "@id": "data_processes_applied"
+      },
+      "feature_count": {
+         "@type": "xsd:integer",
+         "@id": "feature_count"
+      },
+      "ground_truth_available": {
+         "@type": "xsd:boolean",
+         "@id": "ground_truth_available"
+      },
+      "label_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "label_type"
+      },
+      "dataset_role": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "dataset_role"
+      },
+      "datasets": {
+         "@type": "@id",
+         "@id": "datasets"
+      },
+      "based_on_predictions": {
+         "@type": "@id",
+         "@id": "based_on_predictions"
+      },
+      "decision_outcome": {
+         "@id": "decision_outcome"
+      },
+      "decision_policy": {
+         "@id": "decision_policy"
+      },
+      "description": {
+         "@id": "dcterms:description"
+      },
+      "device_role": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "device_role"
+      },
+      "ecosystem_components": {
+         "@id": "ecosystem_components"
+      },
+      "edge_count": {
+         "@type": "xsd:integer",
+         "@id": "edge_count"
+      },
+      "end_date": {
+         "@type": "xsd:date",
+         "@id": "end_date"
+      },
+      "engineering_approach": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "engineering_approach"
+      },
+      "metric_name": {
+         "@id": "metric_name"
+      },
+      "metric_unit": {
+         "@id": "metric_unit"
+      },
+      "metric_value": {
+         "@type": "xsd:float",
+         "@id": "metric_value"
+      },
+      "reference_dataset": {
+         "@type": "@id",
+         "@id": "reference_dataset"
+      },
+      "execution_status": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "execution_status"
+      },
+      "expansion": {
+         "@id": "expansion"
+      },
+      "inference_engine": {
+         "@type": "@id",
+         "@id": "inference_engine"
+      },
+      "coverage_scope": {
+         "@id": "coverage_scope"
+      },
+      "mechanism_type": {
+         "@id": "mechanism_type"
+      },
+      "functional_components": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "functional_components"
+      },
+      "ground_truth_value": {
+         "@id": "ground_truth_value"
+      },
+      "ai_systems_involved": {
+         "@type": "@id",
+         "@id": "ai_systems_involved"
+      },
+      "human_roles": {
+         "@id": "human_roles"
+      },
+      "task_allocation": {
+         "@id": "task_allocation"
+      },
+      "hyperparameters": {
+         "@id": "hyperparameters"
+      },
+      "id": "@id",
+      "inference_strategy": {
+         "@id": "inference_strategy"
+      },
+      "over_model": {
+         "@type": "@id",
+         "@id": "over_model"
+      },
+      "performed_by": {
+         "@type": "@id",
+         "@id": "performed_by"
+      },
+      "produced_output": {
+         "@id": "produced_output"
+      },
+      "inference_latency_ms": {
+         "@type": "xsd:float",
+         "@id": "inference_latency_ms"
+      },
+      "uses_model": {
+         "@type": "@id",
+         "@id": "uses_model"
+      },
+      "input_modalities": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "input_modalities"
+      },
+      "consumed_by": {
+         "@type": "@id",
+         "@id": "consumed_by"
+      },
+      "modality": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "modality"
+      },
+      "augmented_capability": {
+         "@id": "augmented_capability"
+      },
+      "intended_purpose": {
+         "@id": "intended_purpose"
+      },
+      "actuating_capabilities": {
+         "@id": "actuating_capabilities"
+      },
+      "sensing_capabilities": {
+         "@id": "sensing_capabilities"
+      },
+      "ai_components": {
+         "@type": "@id",
+         "@id": "ai_components"
+      },
+      "devices": {
+         "@type": "@id",
+         "@id": "devices"
+      },
+      "jurisdictional_issues": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "jurisdictional_issues"
+      },
+      "knowledge_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "knowledge_type"
+      },
+      "representation_form": {
+         "@id": "representation_form"
+      },
+      "label_value": {
+         "@id": "label_value"
+      },
+      "lifecycle_stage": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "lifecycle_stage"
+      },
+      "measurement_method": {
+         "@id": "measurement_method"
+      },
+      "model_compression_applied": {
+         "@type": "xsd:boolean",
+         "@id": "model_compression_applied"
+      },
+      "model_paradigm": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "model_paradigm"
+      },
+      "model_version": {
+         "@id": "model_version"
+      },
+      "models": {
+         "@type": "@id",
+         "@id": "models"
+      },
+      "name": {
+         "@id": "schema:name"
+      },
+      "language_code": {
+         "@id": "language_code"
+      },
+      "script": {
+         "@id": "script"
+      },
+      "number_of_layers": {
+         "@type": "xsd:integer",
+         "@id": "number_of_layers"
+      },
+      "number_of_parameters": {
+         "@type": "xsd:integer",
+         "@id": "number_of_parameters"
+      },
+      "input_arity": {
+         "@type": "xsd:integer",
+         "@id": "input_arity"
+      },
+      "nlp_component_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "nlp_component_type"
+      },
+      "node_count": {
+         "@type": "xsd:integer",
+         "@id": "node_count"
+      },
+      "iso_stage": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "iso_stage"
+      },
+      "mapping_notes": {
+         "@id": "mapping_notes"
+      },
+      "oecd_stage": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "oecd_stage"
+      },
+      "ontology_reference": {
+         "@type": "xsd:anyURI",
+         "@id": "ontology_reference"
+      },
+      "organization_name": {
+         "@id": "organization_name"
+      },
+      "output_label_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "output_label_type"
+      },
+      "parameter_count": {
+         "@type": "xsd:integer",
+         "@id": "parameter_count"
+      },
+      "performance_metric": {
+         "@id": "performance_metric"
+      },
+      "predicted_value": {
+         "@id": "predicted_value"
+      },
+      "produced_by": {
+         "@type": "@id",
+         "@id": "produced_by"
+      },
+      "preferred_label": {
+         "@id": "skos:prefLabel"
+      },
+      "process_inputs": {
+         "@id": "process_inputs"
+      },
+      "process_outputs": {
+         "@id": "process_outputs"
+      },
+      "process_stage": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "process_stage"
+      },
+      "property_evidence": {
+         "@id": "property_evidence"
+      },
+      "provenance_statement": {
+         "@id": "prov:wasDerivedFrom"
+      },
+      "recommended_items": {
+         "@id": "recommended_items"
+      },
+      "recommendation_outcome_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "recommendation_outcome_type"
+      },
+      "record_count": {
+         "@type": "xsd:integer",
+         "@id": "record_count"
+      },
+      "resource_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "resource_type"
+      },
+      "capacity_units": {
+         "@id": "capacity_units"
+      },
+      "responsibilities": {
+         "@id": "responsibilities"
+      },
+      "responsible_role": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "responsible_role"
+      },
+      "risk_items": {
+         "@id": "risk_items"
+      },
+      "affected_stakeholders": {
+         "@type": "@id",
+         "@id": "affected_stakeholders"
+      },
+      "consequence": {
+         "@id": "consequence"
+      },
+      "likelihood": {
+         "@type": "xsd:float",
+         "@id": "likelihood"
+      },
+      "potential_event": {
+         "@id": "potential_event"
+      },
+      "risk_source": {
+         "@id": "risk_source"
+      },
+      "severity": {
+         "@id": "severity"
+      },
+      "controlled_by": {
+         "@type": "@id",
+         "@id": "controlled_by"
+      },
+      "embodiment": {
+         "@id": "embodiment"
+      },
+      "rule_count": {
+         "@type": "xsd:integer",
+         "@id": "rule_count"
+      },
+      "see_also_uri": {
+         "@type": "xsd:anyURI",
+         "@id": "rdfs:seeAlso"
+      },
+      "semantic_model": {
+         "@id": "semantic_model"
+      },
+      "societal_impacts": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "societal_impacts"
+      },
+      "soft_computing_techniques": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "soft_computing_techniques"
+      },
+      "stakeholder_role_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "stakeholder_role_type"
+      },
+      "stakeholders": {
+         "@type": "@id",
+         "@id": "stakeholders"
+      },
+      "start_date": {
+         "@type": "xsd:date",
+         "@id": "start_date"
+      },
+      "supports_continuous_learning": {
+         "@type": "xsd:boolean",
+         "@id": "supports_continuous_learning"
+      },
+      "symbolic_approach": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "symbolic_approach"
+      },
+      "task_category": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "task_category"
+      },
+      "test_dataset": {
+         "@type": "@id",
+         "@id": "test_dataset"
+      },
+      "applies_to_metric": {
+         "@id": "applies_to_metric"
+      },
+      "threshold_policy": {
+         "@id": "threshold_policy"
+      },
+      "threshold_value": {
+         "@type": "xsd:float",
+         "@id": "threshold_value"
+      },
+      "trained_on": {
+         "@id": "trained_on"
+      },
+      "training_dataset": {
+         "@type": "@id",
+         "@id": "training_dataset"
+      },
+      "training_duration": {
+         "@type": "xsd:duration",
+         "@id": "training_duration"
+      },
+      "trustworthiness_properties": {
+         "@type": "@id",
+         "@id": "trustworthiness_properties"
+      },
+      "trustworthiness_property_type": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "trustworthiness_property_type"
+      },
+      "trustworthiness_records": {
+         "@type": "@id",
+         "@id": "trustworthiness_records"
+      },
+      "validation_dataset": {
+         "@type": "@id",
+         "@id": "validation_dataset"
+      },
+      "validation_strategy": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "validation_strategy"
+      },
+      "verification_validation_level": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "verification_validation_level"
+      },
+      "validation_methods": {
+         "@id": "validation_methods"
+      },
+      "verification_methods": {
+         "@id": "verification_methods"
+      },
+      "AbbreviatedTerm": {
+         "@id": "AbbreviatedTerm"
+      },
+      "AbbreviationEntry": {
+         "@id": "AbbreviationEntry"
+      },
+      "Action": {
+         "@id": "Action"
+      },
+      "AIAgent": {
+         "@id": "AIAgent"
+      },
+      "AIApplication": {
+         "@id": "AIApplication"
+      },
+      "AIAuditor": {
+         "@id": "AIAuditor"
+      },
+      "AIComponent": {
+         "@id": "AIComponent"
+      },
+      "AIConcept": {
+         "@id": "AIConcept"
+      },
+      "AIConceptsCollection": {
+         "@id": "AIConceptsCollection"
+      },
+      "AICustomer": {
+         "@id": "AICustomer"
+      },
+      "AIEcosystem": {
+         "@id": "AIEcosystem"
+      },
+      "AIEvaluator": {
+         "@id": "AIEvaluator"
+      },
+      "AILifecycleProcess": {
+         "@id": "AILifecycleProcess"
+      },
+      "AIModel": {
+         "@id": "AIModel"
+      },
+      "AIPartner": {
+         "@id": "AIPartner"
+      },
+      "AIPlatformProvider": {
+         "@id": "AIPlatformProvider"
+      },
+      "AIProducer": {
+         "@id": "AIProducer"
+      },
+      "AIProvider": {
+         "@id": "AIProvider"
+      },
+      "AIServiceProductProvider": {
+         "@id": "AIServiceProductProvider"
+      },
+      "AIStakeholderRole": {
+         "@id": "AIStakeholderRole"
+      },
+      "AISubject": {
+         "@id": "AISubject"
+      },
+      "AISystem": {
+         "@id": "AISystem"
+      },
+      "AISystemIntegrator": {
+         "@id": "AISystemIntegrator"
+      },
+      "AITerm": {
+         "@id": "AITerm"
+      },
+      "AIUser": {
+         "@id": "AIUser"
+      },
+      "AutonomyAssessment": {
+         "@id": "AutonomyAssessment"
+      },
+      "CatastrophicForgetting": {
+         "@id": "CatastrophicForgetting"
+      },
+      "CognitiveComputingSystem": {
+         "@id": "CognitiveComputingSystem"
+      },
+      "ComputationVerifier": {
+         "@id": "ComputationVerifier"
+      },
+      "ComputerVisionFunction": {
+         "@id": "ComputerVisionFunction"
+      },
+      "ComputerVisionTerm": {
+         "@id": "ComputerVisionTerm"
+      },
+      "ConvolutionOperation": {
+         "@id": "ConvolutionOperation"
+      },
+      "CyberPhysicalSystem": {
+         "@id": "CyberPhysicalSystem"
+      },
+      "DataDrift": {
+         "@id": "DataDrift"
+      },
+      "DataLabel": {
+         "@id": "DataLabel"
+      },
+      "DataProcess": {
+         "@id": "DataProcess"
+      },
+      "DataProvider": {
+         "@id": "DataProvider"
+      },
+      "DataSample": {
+         "@id": "DataSample"
+      },
+      "Dataset": {
+         "@id": "Dataset"
+      },
+      "DataSubject": {
+         "@id": "DataSubject"
+      },
+      "DataTerm": {
+         "@id": "DataTerm"
+      },
+      "Decision": {
+         "@id": "Decision"
+      },
+      "EvaluationMetric": {
+         "@id": "EvaluationMetric"
+      },
+      "ExpertSystem": {
+         "@id": "ExpertSystem"
+      },
+      "FaultToleranceMechanism": {
+         "@id": "FaultToleranceMechanism"
+      },
+      "GroundTruthRecord": {
+         "@id": "GroundTruthRecord"
+      },
+      "HumanMachineTeam": {
+         "@id": "HumanMachineTeam"
+      },
+      "Inference": {
+         "@id": "Inference"
+      },
+      "InferenceEngine": {
+         "@id": "InferenceEngine"
+      },
+      "InputData": {
+         "@id": "InputData"
+      },
+      "IntelligenceAugmentation": {
+         "@id": "IntelligenceAugmentation"
+      },
+      "InterestedParty": {
+         "@id": "InterestedParty"
+      },
+      "IoTDevice": {
+         "@id": "IoTDevice"
+      },
+      "IoTSystem": {
+         "@id": "IoTSystem"
+      },
+      "KnowledgeGraph": {
+         "@id": "KnowledgeGraph"
+      },
+      "KnowledgeRepresentation": {
+         "@id": "KnowledgeRepresentation"
+      },
+      "MachineLearningTerm": {
+         "@id": "MachineLearningTerm"
+      },
+      "ModelDesigner": {
+         "@id": "ModelDesigner"
+      },
+      "ModelImplementer": {
+         "@id": "ModelImplementer"
+      },
+      "ModelVerifier": {
+         "@id": "ModelVerifier"
+      },
+      "NamedEntity": {
+         "@id": "schema:Thing"
+      },
+      "NaturalLanguage": {
+         "@id": "NaturalLanguage"
+      },
+      "NeuralNetworkModel": {
+         "@id": "NeuralNetworkModel"
+      },
+      "NeuralNetworkTerm": {
+         "@id": "NeuralNetworkTerm"
+      },
+      "Neuron": {
+         "@id": "Neuron"
+      },
+      "NLPComponent": {
+         "@id": "NLPComponent"
+      },
+      "NLPTerm": {
+         "@id": "NLPTerm"
+      },
+      "OECDLifecycleMapping": {
+         "@id": "OECDLifecycleMapping"
+      },
+      "Organization": {
+         "@id": "Organization"
+      },
+      "PolicyMaker": {
+         "@id": "PolicyMaker"
+      },
+      "Prediction": {
+         "@id": "Prediction"
+      },
+      "Recommendation": {
+         "@id": "Recommendation"
+      },
+      "Regulator": {
+         "@id": "Regulator"
+      },
+      "RelevantAuthority": {
+         "@id": "RelevantAuthority"
+      },
+      "ResourcePool": {
+         "@id": "ResourcePool"
+      },
+      "RiskItem": {
+         "@id": "RiskItem"
+      },
+      "Robot": {
+         "@id": "Robot"
+      },
+      "SemanticComputingSystem": {
+         "@id": "SemanticComputingSystem"
+      },
+      "SoftComputingSystem": {
+         "@id": "SoftComputingSystem"
+      },
+      "Task": {
+         "@id": "Task"
+      },
+      "Term": {
+         "@id": "Term"
+      },
+      "Threshold": {
+         "@id": "Threshold"
+      },
+      "TrustworthinessProperty": {
+         "@id": "TrustworthinessProperty"
+      },
+      "TrustworthinessTerm": {
+         "@id": "TrustworthinessTerm"
+      },
+      "VerificationValidationFramework": {
+         "@id": "VerificationValidationFramework"
+      }
+   }
+}

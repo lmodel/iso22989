@@ -89,6 +89,9 @@ prefixes:
   nist_ai_100_1: https://w3id.org/lmodel/nist-ai-100-1/
   nist_ai_600_1: https://w3id.org/lmodel/nist-ai-600-1/
 
+  gist_linkml: https://w3id.org/lmodel/gist/
+  nist_ai_rmf_common: https://w3id.org/lmodel/nist-ai-100-1/schema/nist_ai_rmf_common/
+  uco_core: https://w3id.org/lmodel/uco-core/
 default_prefix: iso22989
 default_range: string
 
@@ -319,9 +322,13 @@ enums:
           Ability to maintain performance under varied or adversarial conditions.
       reliability:
         description: Consistent intended behaviour over time under stated conditions.
+        narrow_mappings:
+          - nist_ai_rmf_common:TrustworthinessCharacteristicEnum#VALID_AND_RELIABLE
       resilience:
         description: >-
           Ability to recover acceptable behaviour after disruption or failure.
+        narrow_mappings:
+          - nist_ai_rmf_common:TrustworthinessCharacteristicEnum#SECURE_AND_RESILIENT
       controllability:
         description: >-
           Property of allowing authorised humans to intervene in system behaviour.
@@ -329,6 +336,8 @@ enums:
         description: >-
           Property of producing explanations of system behaviour that are intelligible
           to relevant audiences.
+        narrow_mappings:
+          - nist_ai_rmf_common:TrustworthinessCharacteristicEnum#EXPLAINABLE_AND_INTERPRETABLE
       predictability:
         description: >-
           Property of behaviour being anticipatable given known inputs and state.
@@ -336,24 +345,39 @@ enums:
         description: >-
           Property of disclosing meaningful information about the system to interested
           parties.
+        narrow_mappings:
+          - nist_ai_rmf_common:TrustworthinessCharacteristicEnum#ACCOUNTABLE_AND_TRANSPARENT
       fairness:
         description: >-
           Property of avoiding inappropriate or harmful discrimination across groups.
+        narrow_mappings:
+          - nist_ai_rmf_common:TrustworthinessCharacteristicEnum#FAIR_WITH_HARMFUL_BIAS_MANAGED
       bias_mitigation:
         description: >-
           Property of identifying and reducing unwanted bias in data, models or
           outcomes.
+        narrow_mappings:
+          - nist_ai_rmf_common:TrustworthinessCharacteristicEnum#FAIR_WITH_HARMFUL_BIAS_MANAGED
       accountability:
         description: >-
           Property of having identifiable parties answerable for system behaviour and
           outcomes.
+        narrow_mappings:
+          - nist_ai_rmf_common:TrustworthinessCharacteristicEnum#ACCOUNTABLE_AND_TRANSPARENT
       privacy:
         description: >-
           Property of respecting personal data and individual privacy expectations.
+        meaning: nist_ai_rmf_common:TrustworthinessCharacteristicEnum#PRIVACY_ENHANCED
+        related_mappings:
+          - iso27001:SecurityControl
+        close_mappings:
+          - iso29100:PrivacyPrinciple
+          - nist_ai_600_1:GaiRiskCategoryEnum#DATA_PRIVACY
       safety:
         description: >-
           Property of not causing unacceptable risk of harm to people, property or
           environment.
+        meaning: nist_ai_rmf_common:TrustworthinessCharacteristicEnum#SAFE
       availability:
         description: >-
           Property of being accessible and usable on demand by authorised entities
@@ -362,6 +386,8 @@ enums:
         description: >-
           Property of safeguarding accuracy and completeness of data, models and outputs
           (Clause 5.15 Note).
+        close_mappings:
+          - nist_ai_600_1:GaiRiskCategoryEnum#INFORMATION_INTEGRITY
       authenticity:
         description: >-
           Property of being able to verify the origin and identity of inputs, models and
@@ -370,6 +396,12 @@ enums:
         description: >-
           Property of preserving confidentiality, integrity and availability of the AI
           system and its data (Clause 5.15 context).
+        related_mappings:
+          - iso27001:InformationSecurityManagementSystem
+        close_mappings:
+          - nist_ai_600_1:GaiRiskCategoryEnum#INFORMATION_SECURITY
+        narrow_mappings:
+          - nist_ai_rmf_common:TrustworthinessCharacteristicEnum#SECURE_AND_RESILIENT
       usability:
         description: >-
           Property of being effectively, efficiently and satisfactorily usable by the
@@ -382,6 +414,8 @@ enums:
         description: >-
           Property of continuing to operate correctly in the presence of component
           faults (Clause 5.15.4 context).
+    close_mappings:
+      - nist_ai_rmf_common:TrustworthinessCharacteristicEnum
 
   BiasType:
     description: >-
@@ -405,6 +439,10 @@ enums:
           interpretation.
       automation_bias:
         description: Tendency of users to over-rely on automated outputs.
+    close_mappings:
+      - nist_ai_100_1:BiasCategoryEnum
+    narrow_mappings:
+      - nist_ai_600_1:GaiRiskCategoryEnum#HARMFUL_BIAS_OR_HOMOGENIZATION
 
   AILifecycleStage:
     description: >-
@@ -415,20 +453,27 @@ enums:
         description: >-
           Identification of need, opportunity and high-level objectives for the AI
           system.
+        close_mappings:
+          - nist_ai_600_1:GaiLifecycleStageEnum#DESIGN
       design_and_development:
         description: >-
           Architecture, model selection, data preparation, training and integration
           activities.
+        close_mappings:
+          - nist_ai_600_1:GaiLifecycleStageEnum#DEVELOPMENT
       verification_and_validation:
         description: >-
           Evidence-gathering activities establishing that the system meets specified
           requirements.
       deployment:
         description: Release of the AI system into its operational environment.
+        meaning: nist_ai_600_1:GaiLifecycleStageEnum#DEPLOYMENT
       operation_and_monitoring:
         description: >-
           Routine use of the AI system with ongoing observation of behaviour and
           performance.
+        close_mappings:
+          - nist_ai_600_1:GaiLifecycleStageEnum#OPERATION
       continuous_validation:
         description: >-
           Ongoing checks that the system continues to meet validation criteria during
@@ -441,6 +486,10 @@ enums:
         description: >-
           Decommissioning of the AI system and management of residual data and
           artefacts.
+        meaning: nist_ai_600_1:GaiLifecycleStageEnum#DECOMMISSIONING
+    close_mappings:
+      - nist_ai_100_1:AiLifecycleStageEnum
+      - nist_ai_600_1:GaiLifecycleStageEnum
 
   AIFunctionalComponent:
     description: >-
@@ -486,6 +535,9 @@ enums:
       relevant_authority:
         description: >-
           Body with regulatory, supervisory or standards-setting responsibility for AI.
+    close_mappings:
+      - nist_ai_100_1:AiActorTaskEnum
+      - nist_ai_600_1:GaiActorTaskEnum
 
   EngineeringApproach:
     description: >-
@@ -779,16 +831,25 @@ enums:
     permissible_values:
       plan_and_design:
         description: OECD stage covering planning and design activities.
+        meaning: nist_ai_100_1:AiLifecycleStageEnum#PLAN_AND_DESIGN
       collect_and_process_data:
         description: OECD stage covering data collection and processing.
+        meaning: nist_ai_100_1:AiLifecycleStageEnum#COLLECT_AND_PROCESS_DATA
       build_and_use_model:
         description: OECD stage covering model building and inference.
+        meaning: nist_ai_100_1:AiLifecycleStageEnum#BUILD_AND_USE_MODEL
       verify_and_validate:
         description: OECD stage covering verification and validation.
+        meaning: nist_ai_100_1:AiLifecycleStageEnum#VERIFY_AND_VALIDATE
       deploy:
         description: OECD stage covering deployment of the AI system.
+        close_mappings:
+          - nist_ai_100_1:AiLifecycleStageEnum#DEPLOY_AND_USE
       operate_and_monitor:
         description: OECD stage covering operation and monitoring of the AI system.
+        meaning: nist_ai_100_1:AiLifecycleStageEnum#OPERATE_AND_MONITOR
+    exact_mappings:
+      - nist_ai_100_1:AiLifecycleStageEnum
 
   JurisdictionalIssueType:
     description: >-
@@ -825,6 +886,9 @@ enums:
         description: Effects on political discourse, elections and civic participation.
       digital_divide:
         description: Differential access to and impact of AI systems across populations.
+    close_mappings:
+      - nist_ai_100_1:HarmCategoryEnum
+      - nist_ai_600_1:GaiRiskCategoryEnum
 
   NeuralNetworkArchitecture:
     description: >-
@@ -967,6 +1031,8 @@ enums:
         description: Rescaling features to a common range or distribution.
       de_identification:
         description: Removing or transforming personally identifiable information.
+        close_mappings:
+          - iso29100:PIIProcessingOperation
       data_quality_checking:
         description: >-
           Assessing completeness, accuracy, representativeness and bias of data (Clause
@@ -1189,6 +1255,7 @@ enums:
         description: Organisation for Economic Co-operation and Development.
       PII:
         description: Personally identifiable information.
+        meaning: iso29100:PersonallyIdentifiableInformation
       POS:
         description: Part of speech.
       RL:
@@ -1906,6 +1973,11 @@ classes:
       - preferred_label
       - see_also_uri
     class_uri: schema:Thing
+    exact_mappings:
+      - iso29100:NamedEntity
+    close_mappings:
+      - nist_ai_rmf_common:NamedThing
+      - uco_core:UcoThing
 
   Term:
     is_a: NamedEntity
@@ -2063,8 +2135,12 @@ classes:
         description: >-
           IoT/CPS system this AI system is integrated with, if any (Clause 5.14).
     related_mappings:
-      - iso42001:AISystem
       - nist_ai_rmf:AISystem
+      - iso27001:Asset
+      - uco_core:UcoObject
+    exact_mappings:
+      - iso42001:AISystem
+      - nist_ai_100_1:AiSystem
 
   AIComponent:
     is_a: NamedEntity
@@ -2118,6 +2194,8 @@ classes:
         description: Training-time phenomena observed for the model (Clause 3.4).
     related_mappings:
       - nist_ai_rmf:Model
+    close_mappings:
+      - nist_ai_100_1:AiSystemDimensionEnum#AI_MODEL
 
   NeuralNetworkModel:
     is_a: AIModel
@@ -2169,6 +2247,9 @@ classes:
         description: Data-handling processes applied to the dataset (Clause 5.10).
     related_mappings:
       - schema:Dataset
+      - iso27001:Asset
+      - iso29100:PersonallyIdentifiableInformation
+      - uco_core:UcoObject
 
   TrustworthinessProperty:
     is_a: NamedEntity
@@ -2184,6 +2265,9 @@ classes:
       - confidence_score
     related_mappings:
       - nist_ai_rmf:TrustworthinessCharacteristic
+      - iso29100:PrivacyFramework
+    close_mappings:
+      - nist_ai_rmf_common:TrustworthinessCharacteristicEnum
 
   AILifecycleProcess:
     is_a: NamedEntity
@@ -2206,6 +2290,12 @@ classes:
         description: >-
           Free-text refinement of the process within its life-cycle stage (e.g.
           "objectives", "requirements").
+    broad_mappings:
+      - gist_linkml:Event
+    close_mappings:
+      - nist_ai_100_1:AiLifecycleStage
+    related_mappings:
+      - nist_ai_600_1:SuggestedAction
 
   AIStakeholderRole:
     is_a: NamedEntity
@@ -2218,6 +2308,8 @@ classes:
       - organization_name
       - contact
       - responsibilities
+    close_mappings:
+      - nist_ai_100_1:AiActor
 
   AIProvider:
     is_a: AIStakeholderRole
@@ -2233,6 +2325,8 @@ classes:
     slot_usage:
       stakeholder_role_type:
         ifabsent: "AIStakeholderRoleType(ai_producer)"
+    close_mappings:
+      - iso29100:PIIProcessor
 
   AICustomer:
     is_a: AIStakeholderRole
@@ -2249,6 +2343,10 @@ classes:
     slot_usage:
       stakeholder_role_type:
         ifabsent: "AIStakeholderRoleType(ai_partner)"
+    close_mappings:
+      - iso29100:ThirdParty
+      - nist_ai_100_1:AiActorTaskEnum#THIRD_PARTY_ENTITIES
+      - nist_ai_600_1:GaiActorTaskEnum#THIRD_PARTY_ENTITIES
 
   AISubject:
     is_a: AIStakeholderRole
@@ -2256,6 +2354,9 @@ classes:
     slot_usage:
       stakeholder_role_type:
         ifabsent: "AIStakeholderRoleType(ai_subject)"
+    close_mappings:
+      - nist_ai_100_1:AiActorTaskEnum#AFFECTED_INDIVIDUALS_OR_COMMUNITIES
+      - nist_ai_600_1:GaiActorTaskEnum#AFFECTED_INDIVIDUALS_AND_COMMUNITIES
 
   RelevantAuthority:
     is_a: AIStakeholderRole
@@ -2265,6 +2366,9 @@ classes:
     slot_usage:
       stakeholder_role_type:
         ifabsent: "AIStakeholderRoleType(relevant_authority)"
+    close_mappings:
+      - nist_ai_100_1:AiActorTaskEnum#GOVERNANCE_AND_OVERSIGHT
+      - nist_ai_600_1:GaiActorTaskEnum#GOVERNANCE_AND_OVERSIGHT
 
   AIEcosystem:
     is_a: NamedEntity
@@ -2357,6 +2461,9 @@ classes:
     slot_usage:
       task_category:
         required: true
+    close_mappings:
+      - gist_linkml:Task
+      - nist_ai_100_1:AiSystemDimensionEnum#TASK_AND_OUTPUT
 
   Prediction:
     is_a: NamedEntity
@@ -2387,6 +2494,8 @@ classes:
         range: Prediction
         inlined: false
         description: Predictions that supported the decision.
+    close_mappings:
+      - gist_linkml:Determination
 
   Action:
     is_a: NamedEntity
@@ -2401,6 +2510,8 @@ classes:
         range: Decision
         inlined: false
         description: Decision that triggered the action.
+    close_mappings:
+      - gist_linkml:Event
 
   InferenceEngine:
     is_a: NamedEntity
@@ -2431,6 +2542,8 @@ classes:
       - node_count
       - edge_count
       - ontology_reference
+    related_mappings:
+      - gist_linkml:KnowledgeConcept
 
   ExpertSystem:
     is_a: NamedEntity
@@ -2510,6 +2623,12 @@ classes:
         range: AIStakeholderRole
         inlined: false
         description: Stakeholder role that executed the process.
+    broad_mappings:
+      - gist_linkml:Event
+    related_mappings:
+      - iso29100:PIIProcessingActivity
+    close_mappings:
+      - nist_ai_100_1:AiSystemDimensionEnum#DATA_AND_INPUT
 
   DataSample:
     is_a: NamedEntity
@@ -2746,6 +2865,11 @@ classes:
   AIUser:
     is_a: AICustomer
     description: End user of an AI system or AI-backed service (Clause 5.19.4).
+    close_mappings:
+      - gist_linkml:Person
+    exact_mappings:
+      - nist_ai_100_1:AiActorTaskEnum#END_USERS
+      - nist_ai_600_1:GaiActorTaskEnum#END_USERS
 
   AISystemIntegrator:
     is_a: AIPartner
@@ -2754,10 +2878,15 @@ classes:
   DataProvider:
     is_a: AIPartner
     description: Partner supplying datasets used by AI systems (Clause 5.19.5).
+    close_mappings:
+      - iso29100:PIIController
 
   AIAuditor:
     is_a: AIPartner
     description: Partner performing independent audits of AI systems (Clause 5.19.5).
+    close_mappings:
+      - nist_ai_100_1:AiActorTaskEnum#TEVV
+      - nist_ai_600_1:GaiActorTaskEnum#TEVV
 
   AIEvaluator:
     is_a: AIPartner
@@ -2769,6 +2898,10 @@ classes:
     is_a: AISubject
     description: >-
       Individual whose personal data is processed by an AI system (Clause 5.19.6).
+    close_mappings:
+      - gist_linkml:Person
+    exact_mappings:
+      - iso29100:PIIPrincipal
 
   PolicyMaker:
     is_a: RelevantAuthority
@@ -2832,6 +2965,8 @@ classes:
         range: string
         description: >-
           Free-text description of how tasks are allocated between humans and AI.
+    close_mappings:
+      - nist_ai_600_1:GaiRiskCategoryEnum#HUMAN_AI_CONFIGURATION
 
   IntelligenceAugmentation:
     is_a: AIConcept
@@ -3027,6 +3162,12 @@ classes:
         range: AIStakeholderRole
         inlined: false
         description: Stakeholder roles affected by the risk.
+    close_mappings:
+      - iso27001:Risk
+      - iso29100:PrivacyRisk
+      - nist_ai_600_1:GaiRisk
+    exact_mappings:
+      - nist_ai_100_1:Risk
 
   InputData:
     is_a: NamedEntity
@@ -3088,3 +3229,17 @@ classes:
       mapping_notes:
         range: string
         description: Free-text notes on the mapping relationship.
+  Organization:
+    is_a: NamedEntity
+    description: Organisation that establishes and operates an AI management system; Annex SL harmonised anchor shared across ISO management-system standards (ISO/IEC 42001, ISO/IEC 27001).
+    exact_mappings:
+      - gist_linkml:Organization
+      - iso27001:Organization
+      - iso42001:Organization
+
+  InterestedParty:
+    is_a: NamedEntity
+    description: Person or organisation that can affect, be affected by, or perceive itself to be affected by a decision or activity; Annex SL harmonised stakeholder anchor shared across ISO management-system standards.
+    exact_mappings:
+      - iso27001:InterestedParty
+      - iso42001:InterestedParty

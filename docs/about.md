@@ -14,7 +14,7 @@ repository. License holders may maintain a private verbatim-text overlay — see
 
 | Element | Count |
 |---|---|
-| Classes | 83 |
+| Classes | 85 |
 | Slots | 105 |
 | Enums | 42 |
 | Custom types | 2 |
@@ -105,14 +105,41 @@ Pipeline:
 
 ## Testing
 
-`tests/data/valid/` contains 19 example fixtures covering all major classes
-(AISystem, AIModel, Dataset, AIComponent, AIStakeholderRole,
-AILifecycleProcess, TrustworthinessProperty, RiskItem, Task, InferenceEngine,
-NLPComponent, ComputerVisionFunction, AIApplication, Prediction, Decision,
-Action, AutonomyAssessment, AbbreviatedTerm, AIConceptsCollection root).
-`tests/data/invalid/` contains 6 negative fixtures exercising missing-required
-slots and bad-enum-value rejection. `just test` round-trips every fixture
-through the generated Python data model.
+The full gate — `just test` (schema generation → `pytest` → example generation)
+— is green: **90 passing tests, 0 failures**.
+
+- `tests/data/valid/` contains **34** example fixtures. Every fixture is loaded
+  through the generated Python data model *and* validated against the schema.
+  Coverage spans all major classes plus the constraint-bearing ones —
+  required-slot classes (`ResourcePool`, `IoTDevice`, `DataProcess`,
+  `GroundTruthRecord`, `DataLabel`, `SoftComputingSystem`, `EvaluationMetric`,
+  `Threshold`, `OECDLifecycleMapping`, `VerificationValidationFramework`,
+  `AbbreviationEntry`), an `ifabsent` sub-role (`AIProvider`), inlined-list
+  containment (`IoTSystem`, `AIConceptsCollection`) and object references
+  (`Robot`, `KnowledgeGraph`).
+- `tests/data/invalid/` contains **10** counter-examples, each failing for a
+  single documented reason and together exercising every enforced constraint
+  type: invalid enum value, missing required slot, `minimum_value`,
+  `maximum_value` (custom type), `pattern`, and wrong scalar type. Each file
+  carries a header comment naming the violation it triggers.
+- The harness (`tests/test_data.py`) adds structural guards so the data-driven
+  tests can never pass vacuously: the schema must parse via `SchemaView`, both
+  corpora must be non-empty, and every fixture's file-name stem must name a
+  concrete (non-abstract) schema class.
+
+### Schema fixes landed alongside the tests
+
+- Removed a duplicate `tree_root` (only `AIConceptsCollection` is the
+  serialisation root; `AISystem` is no longer a competing root).
+- Gave the `ConfidenceScore` custom type an explicit `base: float` /
+  `uri: xsd:float`, clearing `shaclgen`/`sqltablegen` "unknown range base"
+  errors while preserving its `[0.0, 1.0]` bounds.
+
+### Known upstream limitation
+
+`ifabsent` defaults are applied by the Python loader but **not** by JSON-Schema
+validation, so a `required` slot with an `ifabsent` default must still be stated
+explicitly in validated fixtures (e.g. `AIProvider`). This issue was raised updstream.
 
 ## Reference
 

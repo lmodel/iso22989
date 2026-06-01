@@ -8,17 +8,17 @@
 # mapping_date: 2026-06-01
 # curie_map:
 #   iso22989: https://w3id.org/lmodel/iso22989/
-#   gist: https://w3id.org/lmodel/gist/
+#   gist_linkml: https://w3id.org/lmodel/gist/
 #   owl: http://www.w3.org/2002/07/owl#
 #   semapv: https://w3id.org/semapv/vocab/
 #   skos: http://www.w3.org/2004/02/skos/core#
 subject_id	subject_label	subject_category	predicate_id	predicate_label	object_id	object_label	object_category	mapping_justification	comment
-iso22989:Organization	Organization	owl:Class	skos:exactMatch	exact match	gist:Organization	Organization	owl:Class	semapv:LLMBasedMatching	Same organisational entity concept.
-iso22989:AIUser	AIUser	owl:Class	skos:closeMatch	close match	gist:Person	Person	owl:Class	semapv:LLMBasedMatching	Individual human users of AI systems are persons in gist.
-iso22989:DataSubject	DataSubject	owl:Class	skos:closeMatch	close match	gist:Person	Person	owl:Class	semapv:LLMBasedMatching	Data subjects are individuals (persons) whose data is processed by AI.
-iso22989:AILifecycleProcess	AILifecycleProcess	owl:Class	skos:broadMatch	broad match	gist:Event	Event	owl:Class	semapv:LLMBasedMatching	AI lifecycle processes are happenings situated in time and are subtypes of gist event.
-iso22989:Task	Task	owl:Class	skos:closeMatch	close match	gist:Task	Task	owl:Class	semapv:LLMBasedMatching	Both denote tasks performed (by AI agents or otherwise).
-iso22989:DataProcess	DataProcess	owl:Class	skos:broadMatch	broad match	gist:Event	Event	owl:Class	semapv:LLMBasedMatching	Data processes are events transforming or moving data.
-iso22989:Action	Action	owl:Class	skos:closeMatch	close match	gist:Event	Event	owl:Class	semapv:LLMBasedMatching	An ISO/IEC 22989 action is an executed event in the gist sense.
-iso22989:Decision	Decision	owl:Class	skos:closeMatch	close match	gist:Determination	Determination	owl:Class	semapv:LLMBasedMatching	A decision is a determination among alternatives.
-iso22989:KnowledgeGraph	KnowledgeGraph	owl:Class	skos:relatedMatch	related match	gist:KnowledgeConcept	KnowledgeConcept	owl:Class	semapv:LLMBasedMatching	A knowledge graph is composed of knowledge concepts and their relations.
+iso22989:Organization	Organization	owl:Class	skos:exactMatch	exact match	gist_linkml:Organization	Organization	owl:Class	semapv:LLMBasedMatching	Same organisational entity concept.
+iso22989:AIUser	AIUser	owl:Class	skos:closeMatch	close match	gist_linkml:Person	Person	owl:Class	semapv:LLMBasedMatching	Individual human users of AI systems are persons in gist.
+iso22989:DataSubject	DataSubject	owl:Class	skos:closeMatch	close match	gist_linkml:Person	Person	owl:Class	semapv:LLMBasedMatching	Data subjects are individuals (persons) whose data is processed by AI.
+iso22989:AILifecycleProcess	AILifecycleProcess	owl:Class	skos:broadMatch	broad match	gist_linkml:Event	Event	owl:Class	semapv:LLMBasedMatching	AI lifecycle processes are happenings situated in time and are subtypes of gist event.
+iso22989:Task	Task	owl:Class	skos:closeMatch	close match	gist_linkml:Task	Task	owl:Class	semapv:LLMBasedMatching	Both denote tasks performed (by AI agents or otherwise).
+iso22989:DataProcess	DataProcess	owl:Class	skos:broadMatch	broad match	gist_linkml:Event	Event	owl:Class	semapv:LLMBasedMatching	Data processes are events transforming or moving data.
+iso22989:Action	Action	owl:Class	skos:closeMatch	close match	gist_linkml:Event	Event	owl:Class	semapv:LLMBasedMatching	An ISO/IEC 22989 action is an executed event in the gist sense.
+iso22989:Decision	Decision	owl:Class	skos:closeMatch	close match	gist_linkml:Determination	Determination	owl:Class	semapv:LLMBasedMatching	A decision is a determination among alternatives.
+iso22989:KnowledgeGraph	KnowledgeGraph	owl:Class	skos:relatedMatch	related match	gist_linkml:KnowledgeConcept	KnowledgeConcept	owl:Class	semapv:LLMBasedMatching	A knowledge graph is composed of knowledge concepts and their relations.
