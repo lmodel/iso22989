@@ -54,6 +54,12 @@ NEIGHBOURS = {
     "capec.yaml": "613164c0520384919de7d353ff87debb4e82938cec861158d151b41edd506d46",
     # lmodel/gist v0.7.1, schema-v0.7.1-gist.yaml
     "gist.yaml": "f7283f1c1df4aa6b6e2803e0645c2b1cb2eab37815642a6616d8034feb26d94d",
+    # lmodel/d3fend v0.1.0, schema-v0.1.0-d3fend.yaml
+    "d3fend.yaml": "517a5c8a35b916c1efe4e288151d241d2f350fef38aaec218c4ba7ebea986d08",
+    # lmodel/nist-ai-100-1 v0.1.0, schema-v0.1.0-nist-ai-100-1.yaml
+    "nist-ai-100-1.yaml": "a9498259b8ff781fa3c24e668f5258146fe1fc4cd6e08c2aac394cb63b76a3c9",
+    # lmodel/nist-ai-600-1 v0.1.0, schema-v0.1.0-nist-ai-600-1.yaml
+    "nist-ai-600-1.yaml": "4fffc03c0db437256b45ffa6814c54053ffeae06a933b4d4550f94c9ff0494f4",
 }
 NEIGHBOUR_DIR = ROOT / "tests" / "neighbours"
 ELEMENT_KINDS = ("classes", "enums", "types", "subsets")
