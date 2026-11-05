@@ -35,9 +35,9 @@ A [LOKF](https://lokf.nolan-nichols.com) knowledge base for iso22989. Every Mark
 # Playbooks
 
 * [Release](playbooks/release.md) - How a release happens: `semantic-release.yml` reads Conventional Commits on `main`, promotes the `## [Unreleased]` section, tags and publishes. The first release needs the `v0.0.0` baseline tag on `main`, and PyPI publishing stays off.
-* [Regenerate and test](playbooks/regenerate-and-test.md) - How to change the schema: edit `src/iso22989/schema/iso22989.yaml`, run `just lint`, `just gen-project`, `just gen-doc`, `just lokf-adapt`, `just create-empty-overlay` and `just test`, and commit what they write.
+* [Regenerate and test](playbooks/regenerate-and-test.md) - How to change the schema: edit `src/iso22989/schema/iso22989.yaml`, run `just lint`, `just gen-project`, `just gen-doc`, `just lokf-adapt` and `just test`, and commit what they write.
 * [Move to another edition or amendment](playbooks/update-upstream-pins.md) - What to do when the watch reports a change: read the record, decide what the schema changes, replace the extract from one day's dataset, and move the watch's pins and the schema header together.
-* [Check the wording against a copy of the standard](playbooks/check-against-a-copy.md) - How a person who holds a copy of ISO/IEC 22989 tests that the repository shares no run of four or more words with it, using `scripts/check_overlap.py`, with the copy kept outside the repository.
+* [Check the wording against a copy of the standard](playbooks/check-against-a-copy.md) - How a person who holds a copy of ISO/IEC 22989 tests that the repository shares no run of four or more words with it and cites only numbers that start a line of it, using `scripts/check_overlap.py`, with the copy kept outside the repository.
 * [Knowledge sources map](playbooks/knowledge-sources.md) - The librarian's scrape map: every repository location this bundle derives concepts from, how to re-check each, and the tracked paths left out with their reasons.
 
 # Glossary
@@ -50,11 +50,10 @@ A [LOKF](https://lokf.nolan-nichols.com) knowledge base for iso22989. Every Mark
 * [The iso22989 LinkML schema](datasets/iso22989-linkml-schema.md) - `src/iso22989/schema/iso22989.yaml`: the vocabulary for describing an AI system in ISO/IEC 22989's terms, with the `Aic` class prefix, the `aic_` slot prefix and `AicEcosystem` as its root.
 * [The term and clause numbers](datasets/term-numbers.md) - `tests/iso22989_numbers.yaml`: every clause number of the standard's table of contents, and each term of Clause 3 with the element that renders it or why none does. It holds numbers and element names only.
 * [ISO Open Data's records](datasets/iso-open-data-records.md) - `src/iso22989/schema/iso-open-data/`: ISO's records of the edition and its two pending amendments as of 2026-11-05, under ODC-By v1.0, each without its scope and pinned by hash.
-* [The overlay scaffold](datasets/overlay.md) - `src/iso22989/schema/iso22989-overlay.template.yaml`: an empty scaffold of every element, which a licence holder copies and fills privately, and merges into a private schema under `tmp/`.
 * [The generated artefacts](datasets/generated-artefacts.md) - What `just gen-project` and `just gen-doc` generate from the schema: the projections in `project/`, the Python models in `src/iso22989/datamodel/`, and the merged schema in `docs/schema/`. None is edited by hand.
 * [The example data](datasets/example-data.md) - `tests/data/`: a valid example per class and a counter-example per constraint, each counter-example naming on its first line where it must fail. `AicEcosystem-card-payments` is one whole ecosystem.
 * [A bank as AI producer](datasets/example-stakeholder.md) - An example written as a concept of type `AicStakeholder` in the adapt copy's keys. It shows that the domain schema admits a party as a concept, with its role and sub-role.
-* [The neighbours' adapt copies](datasets/neighbour-copies.md) - The adapt copies of 19 released lmodel repositories in `tests/neighbours/`, each pinned by its SHA-256, which tests hold this schema's names and mappings to.
+* [The neighbours' adapt copies](datasets/neighbour-copies.md) - The adapt copies of 22 released lmodel repositories in `tests/neighbours/`, each pinned by its SHA-256, which tests hold this schema's names and mappings to.
 
 # References
 
@@ -70,4 +69,4 @@ A [LOKF](https://lokf.nolan-nichols.com) knowledge base for iso22989. Every Mark
 
 * [Modelling choices](explanations/modelling-choices.md) - Why the schema has these shapes: a vocabulary a host can describe an AI system with, records that refer by identifier, hierarchies with a designator rather than kind fields, and no class without a clause or term behind it.
 * [Mappings and the SSSOM sets](explanations/mappings.md) - Where the schema crosses to other vocabularies: inline mappings to released gist, SPDX and UCO classes, each tested. The nine SSSOM sets are gone, since a matching tool wrote them and most targets no longer exist.
-* [Scope](explanations/scope.md) - What the schema leaves out: the standard's text, its abbreviations and its pending amendments. Its OECD pairings are this project's reading of Annex A, not checked against its text.
+* [Scope](explanations/scope.md) - What the schema leaves out: the standard's text, its abbreviations and its pending amendments. Its OECD phases are read from the OECD's text; their pairing with the standard's stages is not checked against Annex A.

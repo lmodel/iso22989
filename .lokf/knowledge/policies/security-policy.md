@@ -10,7 +10,7 @@ sources:
     resource: SECURITY.md
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T09:56:50Z"
+  at: "2026-11-05T10:58:18Z"
 status: draft
 references:
   - https://w3id.org/lmodel/iso22989/knowledge/datasets/iso22989-linkml-schema
@@ -20,6 +20,6 @@ references:
 
 Report through GitHub's private vulnerability reporting. Only the latest release receives fixes.[^security.md]
 
-The watch and the two by-hand scripts send no token, and the overlay's merge writes only under `tmp/`.[^security.md] The surface table in the file says what holds each workflow.[^security.md]
+The watch sends no token, follows a redirect only over https to a host it reads from, and caps what it reads; the overlap check runs by hand and refuses a copy inside the repository.[^security.md] The surface table in the file says what holds each workflow.[^security.md]
 
 [^security.md]: SECURITY.md
