@@ -2,6 +2,7 @@
 
 ## 2026-11-05
 
+* **Changed**: Security policy names the schema it covers.
 * **Added**: Knowledge librarian (knowledge-librarian.yaml).
 * **Added**: Knowledge registrar (knowledge-registrar.yaml).
 * **Added**: Knowledge release (knowledge-release.yaml).

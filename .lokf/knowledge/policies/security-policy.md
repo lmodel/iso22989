@@ -10,8 +10,10 @@ sources:
     resource: SECURITY.md
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T09:56:09Z"
+  at: "2026-11-05T09:56:50Z"
 status: draft
+references:
+  - https://w3id.org/lmodel/iso22989/knowledge/datasets/iso22989-linkml-schema
 ---
 
 # Security policy
