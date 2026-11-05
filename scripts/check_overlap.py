@@ -38,7 +38,6 @@ PROSE = (
     "docs/about.md",
     "docs/index.md",
     "src/iso22989/schema/README.md",
-    "src/iso22989/schema/OVERLAY.md",
 )
 TEXT_KEYS = ("description", "title", "comments", "notes")
 # The annotations that cite the standard by number, as "3.1.4" or "6.2, 6.2.1".
