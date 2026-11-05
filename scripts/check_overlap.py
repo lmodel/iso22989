@@ -5,7 +5,8 @@ ISO/IEC 22989 is copyright ISO and IEC, and this repository holds none of its
 text. A person who holds a copy can test that claim: this script takes the
 copy's plain text and fails on any run of four or more consecutive words that
 also appears in the schema's descriptions, titles and comments, or in the
-Markdown under docs/, the README or the schema's folder.
+Markdown under docs/, the README or the schema's folder. It also fails when the
+schema cites a term or clause whose number starts no line of the copy.
 
 Run it by hand. It stays out of CI, since CI has no copy of the standard, and
 the copy must stay outside the repository.
@@ -40,6 +41,8 @@ PROSE = (
     "src/iso22989/schema/OVERLAY.md",
 )
 TEXT_KEYS = ("description", "title", "comments", "notes")
+# The annotations that cite the standard by number, as "3.1.4" or "6.2, 6.2.1".
+NUMBER_KEYS = ("iso22989_term", "iso22989_clause")
 WORD = re.compile(r"[a-z0-9]+(?:['’-][a-z0-9]+)*")
 
 
@@ -70,6 +73,30 @@ def schema_texts(node, path: str = "schema"):
     elif isinstance(node, list):
         for item in node:
             yield from schema_texts(item, path)
+
+
+def schema_numbers(node):
+    """Each term or clause number the schema cites in an annotation."""
+    if isinstance(node, dict):
+        for key, value in node.items():
+            if key in NUMBER_KEYS and isinstance(value, str):
+                yield from (n.strip() for n in value.split(",") if n.strip())
+            else:
+                yield from schema_numbers(value)
+    elif isinstance(node, list):
+        for item in node:
+            yield from schema_numbers(item)
+
+
+def missing_numbers(numbers, source: str) -> list[str]:
+    """Each cited number that starts no line of the source. A term or clause
+    heading starts its line in the standard, so a number that does not is
+    cited wrongly or belongs to another edition."""
+    return sorted(
+        number
+        for number in set(numbers)
+        if not re.search(rf"^\s*{re.escape(number)}(?!\S)", source, flags=re.M)
+    )
 
 
 def repository_texts(root: Path = ROOT):
@@ -114,15 +141,19 @@ def main(argv: list[str] | None = None) -> int:
     source = args.source.resolve()
     if source.is_relative_to(ROOT):
         parser.error("keep the copy of the standard outside the repository")
-    found = overlaps(
-        source.read_text(encoding="utf-8", errors="replace"),
-        repository_texts(),
-        allowed_runs(),
-    )
+    text = source.read_text(encoding="utf-8", errors="replace")
+    found = overlaps(text, repository_texts(), allowed_runs())
     for where, run in found:
         print(f"{where}: {run}")
-    print(f"{len(found)} shared run(s) of {RUN} or more words.")
-    return 1 if found else 0
+    schema = yaml.safe_load(SCHEMA.read_text(encoding="utf-8"))
+    missing = missing_numbers(schema_numbers(schema), text)
+    for number in missing:
+        print(f"schema cites {number}, which starts no line of the copy")
+    print(
+        f"{len(found)} shared run(s) of {RUN} or more words, "
+        f"{len(missing)} cited number(s) not found."
+    )
+    return 1 if found or missing else 0
 
 
 if __name__ == "__main__":

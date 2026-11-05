@@ -6,8 +6,10 @@ import importlib.util
 from pathlib import Path
 
 import pytest
+import yaml
 
 ROOT = Path(__file__).parent.parent
+SCHEMA = ROOT / "src" / "iso22989" / "schema" / "iso22989.yaml"
 
 
 @pytest.fixture
@@ -72,8 +74,38 @@ def test_a_copy_inside_the_repository_is_refused(overlap, tmp_path, capsys):
     assert "outside the repository" in capsys.readouterr().err
 
 
+def test_the_script_reads_every_cited_number(overlap):
+    """Its numbers cover a class's term, an attribute's term and a value's clause."""
+    schema = yaml.safe_load(SCHEMA.read_text(encoding="utf-8"))
+    numbers = set(overlap.schema_numbers(schema))
+    assert {"3.1.4", "3.3.4", "6.2.2", "Annex A"} <= numbers
+    assert all(n == n.strip() and "," not in n for n in numbers)
+
+
+def test_a_cited_number_that_starts_no_line_is_reported(overlap):
+    """A number found only inside a line, or not at all, is reported; one at
+    the start of a line, with any indent, is not."""
+    source = "  3.1.4\nsome text about 5.2 here\n6.2.2 heading\n3.1.40 other\n"
+    assert overlap.missing_numbers(["3.1.4", "5.2", "6.2.2", "3.1.4"], source) == [
+        "5.2"
+    ]
+    assert overlap.missing_numbers(["3.1.4", "3.1.41"], source) == ["3.1.41"]
+
+
 def test_a_clean_run_exits_zero(overlap, tmp_path):
-    """A source that shares nothing passes."""
+    """A source that shares no words and starts a line with every cited number
+    passes. The numbers come from the schema, so the source holds no text."""
+    schema = yaml.safe_load(SCHEMA.read_text(encoding="utf-8"))
+    lines = [f"{n} zzz" for n in sorted(set(overlap.schema_numbers(schema)))]
     source = tmp_path / "source.txt"
-    source.write_text("zzz yyy xxx www vvv uuu", encoding="utf-8")
+    source.write_text("\n".join(lines) + "\nyyy xxx www vvv uuu\n", encoding="utf-8")
     assert overlap.main(["--source", str(source)]) == 0
+
+
+def test_a_missing_number_fails_the_run(overlap, tmp_path, capsys):
+    """A source that starts no line with a cited number fails, and the output
+    names the number."""
+    source = tmp_path / "source.txt"
+    source.write_text("zzz yyy xxx www vvv uuu\n", encoding="utf-8")
+    assert overlap.main(["--source", str(source)]) == 1
+    assert "schema cites 3.1.4, which starts no line of the copy" in capsys.readouterr().out

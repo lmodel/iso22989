@@ -10,7 +10,7 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 
 - **`iso22989_term` and `iso22989_clause` annotations**, with `tests/iso22989_numbers.yaml`, which accounts for every term of Clause 3 by number.
 - **`src/iso22989/schema/iso-open-data/`**, ISO Open Data's records of the edition and its two amendments in progress, with a weekly watch that reports a change.
-- **`scripts/check_overlap.py`**, which lets a person who holds a copy of the standard find words the repository shares with it.
+- **`scripts/check_overlap.py`**, which lets a person who holds a copy of the standard find words the repository shares with it, and any cited number that starts no line of the copy.
 - **Tests** that hold the numbers, the header and each mapping, and an example per class and a counter-example per constraint, each naming where it fails.
 - **`.lokf/iso22989.yaml`, the schema's `lokf adapt` copy.** The knowledge release attaches it as `schema-<tag>-iso22989.yaml`.
 - **The repository's Knowledge Trust Ladder (KTL) knowledge bundle and its sidecar automation**, from the KTL v0.61.0 templates with the lokf floor at 0.9.0, and a knowledge website that replaces the mkdocs site.
