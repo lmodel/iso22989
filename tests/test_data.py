@@ -109,9 +109,7 @@ DESIGNATORS = {
 }
 ROLE_OF = {
     name: value.annotations["role"].value
-    for name, value in VIEW.get_enum(
-        "AicStakeholderSubRole"
-    ).permissible_values.items()
+    for name, value in VIEW.get_enum("AicStakeholderSubRole").permissible_values.items()
 }
 
 
@@ -226,7 +224,10 @@ def test_every_sub_role_sits_under_the_records_role(filepath):
 def test_the_sub_role_check_finds_a_fault():
     """A regulator cannot be a kind of AI provider."""
     assert misplaced_sub_roles(
-        {"aic_stakeholder_role": "ai_provider", "aic_stakeholder_sub_roles": ["regulator"]}
+        {
+            "aic_stakeholder_role": "ai_provider",
+            "aic_stakeholder_sub_roles": ["regulator"],
+        }
     ) == ["regulator"]
 
 

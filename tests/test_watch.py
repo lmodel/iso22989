@@ -217,7 +217,10 @@ def test_a_dropped_record(watch, tmp_path):
     _stub(watch, records)
     code, text = _run(watch, tmp_path)
     assert code == 1
-    assert "**ISO/IEC 22989:2022/CD Amd 2 (record 93144) is no longer in the dataset.**" in text
+    assert (
+        "**ISO/IEC 22989:2022/CD Amd 2 (record 93144) is no longer in the dataset.**"
+        in text
+    )
 
 
 def test_a_changed_licence(watch, tmp_path):
