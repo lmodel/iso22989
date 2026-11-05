@@ -34,9 +34,10 @@ The dataset is about 80 MB. The script streams it line by line and parses
 only the lines that name a pinned record or the pinned edition, so it never
 holds the file in memory. It reads the dataset's licence from ISO's open data
 page, through the Internet Archive's latest capture when iso.org refuses a
-script, as it usually does. It sends no token anywhere. It prints a Markdown
-report and exits 1 when any of the above is found or a check could not
-finish.
+script, as it usually does. It follows a redirect only over https to a host
+below, caps what it reads from each answer, and sends no token anywhere. It
+prints a Markdown report and exits 1 when any of the above is found or a check
+could not finish.
 
 Usage::
 
@@ -54,6 +55,7 @@ import json
 import re
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -107,17 +109,44 @@ PINNED_LICENCE_URL = "https://opendatacommons.org/licenses/by/1-0/"
 # a supplement at this one, are reported.
 PUBLISHED = 6060
 
+# The hosts the script may reach, and the most it reads from each answer. The
+# dataset is about 80 MB, and the licence page far smaller.
+ALLOWED_HOSTS = {
+    "isopublicstorageprod.blob.core.windows.net",
+    "web.archive.org",
+    "www.iso.org",
+}
+MAX_DATASET_BYTES = 300 * 1024 * 1024
+MAX_PAGE_BYTES = 20 * 1024 * 1024
+
+
+class _HttpsOnly(urllib.request.HTTPRedirectHandler):
+    """Follow a redirect only over https, and only to a host the script reads from."""
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        parts = urllib.parse.urlsplit(newurl)
+        if parts.scheme != "https" or parts.hostname not in ALLOWED_HOSTS:
+            raise urllib.error.URLError(f"refused a redirect to {newurl}")
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
 
 def _open(url: str):
+    """A public address, held to the same rule as a redirect. It carries no token."""
+    parts = urllib.parse.urlsplit(url)
+    if parts.scheme != "https" or parts.hostname not in ALLOWED_HOSTS:
+        raise urllib.error.URLError(f"refused to read {url}")
+    opener = urllib.request.build_opener(_HttpsOnly)
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    return urllib.request.urlopen(req, timeout=120)
+    return opener.open(req, timeout=120)
 
 
 def _get(url: str) -> tuple[str, bytes]:
     """The address a request ended at and the body, gunzipped if need be."""
     with _open(url) as resp:
-        body = resp.read()
+        body = resp.read(MAX_PAGE_BYTES + 1)
         final = resp.geturl()
+    if len(body) > MAX_PAGE_BYTES:
+        raise ValueError(f"{url} answered with more than {MAX_PAGE_BYTES} bytes")
     if body[:2] == b"\x1f\x8b":
         body = gzip.decompress(body)
     return final, body
@@ -125,8 +154,14 @@ def _get(url: str) -> tuple[str, bytes]:
 
 def _lines(url: str):
     """The dataset's lines, read one at a time from the response."""
+    read = 0
     with _open(url) as resp:
         for raw in resp:
+            read += len(raw)
+            if read > MAX_DATASET_BYTES:
+                raise ValueError(
+                    f"{url} answered with more than {MAX_DATASET_BYTES} bytes"
+                )
             yield raw.decode("utf-8")
 
 
@@ -158,7 +193,8 @@ def _extract() -> dict[int, dict]:
 
 def _relevant(line: str) -> bool:
     """Whether a raw line may hold a record the checks need, decided without
-    parsing it: a pinned id anywhere in it, or the edition's reference. A line that matches by chance costs one parse and no more."""
+    parsing it: a pinned id anywhere in it, or the edition's reference. A line
+    that matches by chance costs one parse and no more."""
     if SUPPLEMENT_PREFIX in line:
         return True
     return any(str(i) in line for i in PINNED_RECORDS)

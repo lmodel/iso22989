@@ -5,7 +5,8 @@ reads ISO's open data page. These tests replace its two network calls,
 `_lines` and `_get`, with canned answers built from the extract, so they run
 offline. They show what the report says when ISO adds or publishes an
 amendment, changes a stage, publishes a successor, drops a record or changes
-the licence, and when the network fails.
+the licence, when the network fails, and when an address or an answer is not
+one the watch accepts.
 """
 
 import importlib.util
@@ -287,7 +288,7 @@ def test_a_gzipped_page_is_read(watch, tmp_path):
         def __exit__(self, *exc):
             return False
 
-        def read(self):
+        def read(self, size=-1):
             return body
 
         def geturl(self):
@@ -298,3 +299,67 @@ def test_a_gzipped_page_is_read(watch, tmp_path):
         "https://web.archive.org/x",
         b"<p>ok</p>",
     )
+
+
+def test_a_redirect_to_plain_http_is_refused(watch):
+    """The watch follows a redirect only over https."""
+    handler = watch._HttpsOnly()
+    with pytest.raises(urllib.error.URLError, match="refused"):
+        handler.redirect_request(
+            None, None, 302, "Found", {}, "http://www.iso.org/open-data.html"
+        )
+
+
+def test_a_redirect_to_another_host_is_refused(watch):
+    """The watch follows a redirect only to a host it reads from."""
+    handler = watch._HttpsOnly()
+    with pytest.raises(urllib.error.URLError, match="refused"):
+        handler.redirect_request(None, None, 302, "Found", {}, "https://example.org/x")
+
+
+@pytest.mark.parametrize(
+    "url", ["http://www.iso.org/open-data.html", "https://example.org/x"]
+)
+def test_an_address_off_the_list_is_refused(watch, url):
+    """The address the watch starts from is held to the same rule."""
+    with pytest.raises(urllib.error.URLError, match="refused"):
+        watch._open(url)
+
+
+class _Response:
+    """A stub of an open response that serves one body."""
+
+    def __init__(self, body, url="https://web.archive.org/x"):
+        self.body, self.url = body, url
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        return False
+
+    def read(self, size=-1):
+        return self.body if size < 0 else self.body[:size]
+
+    def __iter__(self):
+        return iter(self.body.splitlines(keepends=True))
+
+    def geturl(self):
+        return self.url
+
+
+def test_an_oversized_page_is_refused(watch):
+    """The watch reads no more of a page than its cap, and reports an answer
+    over it as a check that could not finish."""
+    watch.MAX_PAGE_BYTES = 8
+    watch._open = lambda url: _Response(b"<p>a page over the cap</p>")
+    with pytest.raises(ValueError, match="more than 8 bytes"):
+        watch._get("https://web.archive.org/x")
+
+
+def test_an_oversized_dataset_is_refused(watch):
+    """The watch stops reading the dataset past its cap."""
+    watch.MAX_DATASET_BYTES = 20
+    watch._open = lambda url: _Response(b'{"id":1}\n{"id":2}\n{"id":3}\n')
+    with pytest.raises(ValueError, match="more than 20 bytes"):
+        list(watch._lines(watch.DATASET))
