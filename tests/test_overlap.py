@@ -108,4 +108,7 @@ def test_a_missing_number_fails_the_run(overlap, tmp_path, capsys):
     source = tmp_path / "source.txt"
     source.write_text("zzz yyy xxx www vvv uuu\n", encoding="utf-8")
     assert overlap.main(["--source", str(source)]) == 1
-    assert "schema cites 3.1.4, which starts no line of the copy" in capsys.readouterr().out
+    assert (
+        "schema cites 3.1.4, which starts no line of the copy"
+        in capsys.readouterr().out
+    )
