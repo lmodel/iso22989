@@ -6,7 +6,7 @@ This page is for anyone reading the [LinkML](https://linkml.io) schema's element
 
 Classes and enums carry the `Aic` prefix, for AI concepts, and slots the `aic_` prefix, so they can be imported beside the Linked Open Knowledge Format (LOKF) and other vocabularies without a clash. Enums are singular, and enum values are snake_case. Every element is in the `iso22989:` namespace (`https://w3id.org/lmodel/iso22989/`).
 
-An element cites what it renders by number: `iso22989_term` for a term of Clause 3, and `iso22989_clause` for a clause. [`tests/iso22989_numbers.yaml`](https://github.com/lmodel/iso22989/blob/main/tests/iso22989_numbers.yaml) lists every term with the element that renders it, or why none does, and every clause number. A concept keeps its own name where that name is the term. Descriptions are this project's own words. [OVERLAY.md](https://github.com/lmodel/iso22989/blob/main/src/iso22989/schema/OVERLAY.md) says how a licence holder merges the standard's wording into a private copy.
+An element cites what it renders by number: `iso22989_term` for a term of Clause 3, and `iso22989_clause` for a clause. [`tests/iso22989_numbers.yaml`](https://github.com/lmodel/iso22989/blob/main/tests/iso22989_numbers.yaml) lists every term with the element that renders it, or why none does, and every clause number. A concept keeps its own name where that name is the term. Descriptions are this project's own words. A reader with a licensed copy looks the standard's wording up there, by those numbers.
 
 ## Records and references
 

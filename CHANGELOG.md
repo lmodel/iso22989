@@ -21,7 +21,6 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 - **The schema is rewritten** with the `Aic` prefix on classes and enums and the `aic_` prefix on slots, from 85 classes and 42 enums to 26 classes and 21 enums, each citing what it renders. A record mixes in `AicRecordMixin`, and a reference holds the `aic_id` of the record it names.
 - **Systems and models become hierarchies told apart by a designator**, and the `AicEcosystem` root lists every kind of record.
 - **The header** carries `version: "2022"` and ISO's page in `source`.
-- **The overlay** covers attributes and writes only under `tmp/`, and `OVERLAY.md` and `docs/about.md` are compacted.
 - **The template settings** turn PyPI publishing and the docs preview off, linkml and linkml-runtime are locked at 1.12.1, and the Python project is named `iso22989-linkml`.
 
 ### Removed
@@ -29,3 +28,4 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 - **The nine SSSOM sets**, which a matching tool wrote and no source confirmed, and most of whose targets no longer exist.
 - **Classes and values with no clause or term behind them**: `Organization`, `InterestedParty`, `RiskItem`, the `Term` hierarchy and the abbreviations, and the one-off classes that held a single enum.
 - **The mkdocs site**, with redirects from its addresses to the new site.
+- **The overlay scaffold and its two scripts.** Each element cites its term or clause by number, and a reader with a licensed copy looks the wording up there.

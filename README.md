@@ -30,8 +30,8 @@ The schema is the one home for mappings. The SSSOM sets are gone, since a matchi
 
 * [docs/](docs/): the website's own pages
 * [project/](project/): generated project files (do not edit them)
-* [scripts/](scripts/): the upstream watch, the overlap check and the overlay's two scripts
-* [src/iso22989/schema/](src/iso22989/schema): the LinkML schema (edit it), the overlay scaffold and ISO's records
+* [scripts/](scripts/): the upstream watch and the overlap check
+* [src/iso22989/schema/](src/iso22989/schema): the LinkML schema (edit it) and ISO's records
 * [src/iso22989/datamodel/](src/iso22989/datamodel): the generated Python datamodel
 * [tests/](tests/): Python tests, with example data in [data/](tests/data) and the neighbours' adapt copies in [neighbours/](tests/neighbours)
 * [website/](website/): the Astro Starlight site built from the README, `docs/`, the schema's pages and the knowledge bundle

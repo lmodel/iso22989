@@ -151,6 +151,3 @@ skills-lock.json
 # The release job's tools, installed from .github/release/package-lock.json
 /.github/release/node_modules/
 
-# A licence holder's private overlay of ISO/IEC 22989 text, which must never
-# be committed or packaged (src/iso22989/schema/OVERLAY.md).
-/src/iso22989/schema/iso22989-overlay.yaml

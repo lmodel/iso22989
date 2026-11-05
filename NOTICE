@@ -38,11 +38,6 @@ scripts/check_overlap.py lets a person who holds a copy test this: it reports
 any run of four or more consecutive words the repository shares with that
 copy. The copy stays outside the repository.
 
-src/iso22989/schema/iso22989-overlay.template.yaml lists the schema's
-elements with empty placeholders and holds no text of the standard. A
-licence holder may fill a private copy of it, which .gitignore keeps out of
-this repository; that copy must never be committed or distributed.
-
 ISO Open Data
 -------------
 

@@ -84,9 +84,8 @@ linkml_meta = LinkMLMeta({'annotations': {'edition': {'tag': 'edition', 'value':
                   'reproduced here. Each element cites what it renders by number, '
                   'in the iso22989_term annotation for a term of Clause 3 and the '
                   'iso22989_clause annotation for a clause, and its description is '
-                  "this project's own words. A licence holder can merge the "
-                  "standard's wording into a private copy with the overlay that "
-                  'src/iso22989/schema/OVERLAY.md describes.',
+                  "this project's own words. A reader with a licensed copy looks "
+                  "the standard's wording up there by those numbers.",
                   'tests/iso22989_numbers.yaml lists every term number and says '
                   'which element renders it, or why none does.',
                   'Every record that other records refer to has an aic_id, and a '
