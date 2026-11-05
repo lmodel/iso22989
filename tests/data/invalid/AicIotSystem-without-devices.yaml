@@ -1,0 +1,6 @@
+# Fails at: /
+---
+aic_id: ex:building
+title: Building access
+aic_iot_ai_systems:
+  - ex:fraud-screen

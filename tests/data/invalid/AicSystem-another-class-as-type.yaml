@@ -1,0 +1,5 @@
+# Fails at: /aic_system_type
+---
+aic_id: ex:fraud-screen
+title: Payment fraud screen
+aic_system_type: AicRobot

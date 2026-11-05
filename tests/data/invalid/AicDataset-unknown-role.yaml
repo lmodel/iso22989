@@ -1,0 +1,17 @@
+# Fails at: /aic_dataset_roles/0
+---
+aic_id: ex:payments-2025
+title: Payments of 2025
+aic_dataset_roles:
+  - reference
+aic_dataset_source: The bank's payment ledger.
+aic_dataset_sample_count: 1200000
+aic_dataset_labels:
+  - honest
+  - dishonest
+aic_dataset_ground_truth: Chargebacks confirmed by the card scheme.
+aic_dataset_holds_pii: true
+aic_dataset_processes:
+  - aic_data_process_kind: data_quality_checking
+    aic_data_process_method: A script that counts empty fields.
+    aic_data_process_date: '2026-01-15'

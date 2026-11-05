@@ -1,0 +1,11 @@
+# Fails at: /aic_network_layer_count
+---
+aic_id: ex:claims-network
+title: Claims network
+aic_model_type: AicNeuralNetworkModel
+aic_ml_paradigm: supervised
+aic_ml_algorithm: neural_network
+aic_network_architecture: recurrent
+aic_network_layer_count: 0
+aic_network_activation_functions:
+  - tanh

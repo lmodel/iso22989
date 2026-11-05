@@ -1,0 +1,6 @@
+---
+aic_id: ex:cardholders
+title: Cardholders
+aic_stakeholder_role: ai_subject
+aic_stakeholder_sub_roles:
+  - data_subject

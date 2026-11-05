@@ -1,0 +1,12 @@
+---
+aic_id: ex:release-7
+title: Release of model 7
+aic_lifecycle_stage: deployment
+aic_lifecycle_system: ex:fraud-screen
+aic_lifecycle_inputs:
+  - The signed-off model.
+aic_lifecycle_outputs:
+  - The model in service.
+aic_lifecycle_responsible: ex:bank
+aic_lifecycle_start: '2026-02-11'
+aic_lifecycle_end: '2026-02-12'

@@ -1,0 +1,6 @@
+---
+aic_id: ex:act-1
+title: Payment 1 held
+aic_action_decision: ex:dec-1
+aic_action_target: Payment 1
+aic_action_time: '2026-03-01T10:15:00Z'

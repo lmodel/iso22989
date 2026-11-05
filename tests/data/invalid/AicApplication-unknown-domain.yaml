@@ -1,0 +1,8 @@
+# Fails at: /aic_application_domain
+---
+aic_id: ex:fraud-app
+title: Card fraud screening
+aic_application_system: ex:fraud-screen
+aic_application_domain: healthcare
+aic_application_sector: Retail banking
+aic_application_purpose: Screen card payments.

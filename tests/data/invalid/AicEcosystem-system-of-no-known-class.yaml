@@ -1,0 +1,8 @@
+# Fails at: /aic_ecosystem_systems/0
+---
+aic_id: ex:eco
+title: Card payments
+aic_ecosystem_systems:
+  - aic_id: ex:fraud-screen
+    title: Payment fraud screen
+    aic_system_type: AicService

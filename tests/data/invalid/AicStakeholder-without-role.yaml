@@ -1,0 +1,10 @@
+# Fails at: /
+---
+aic_id: ex:bank
+title: The bank
+aic_stakeholder_sub_roles:
+  - ai_developer
+aic_stakeholder_organization: Example Bank
+aic_stakeholder_contact: https://example.org/contact
+aic_stakeholder_responsibilities:
+  - Keeps the model current.

@@ -1,0 +1,6 @@
+---
+aic_id: ex:fraud-rulebook
+title: Fraud rulebook
+aic_model_type: AicModel
+aic_model_version: '3'
+aic_model_represents: How analysts tell dishonest payments apart.

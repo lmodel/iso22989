@@ -1,0 +1,6 @@
+# Fails at: /
+---
+aic_id: ex:agent
+title: Trading agent
+aic_system_type: AicAgent
+aic_agent_environment: A simulated market.

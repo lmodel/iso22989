@@ -1,0 +1,7 @@
+---
+aic_id: ex:agent
+title: Trading agent
+aic_system_type: AicAgent
+aic_agent_goals:
+  - Keep the portfolio within its limits.
+aic_agent_environment: A simulated market.
