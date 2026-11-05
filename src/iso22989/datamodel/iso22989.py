@@ -1639,7 +1639,7 @@ class AicAutonomy(EnumDefinitionImpl):
 
 class AicKnowledgeKind(EnumDefinitionImpl):
     """
-    How a body of knowledge is put.
+    Whether a body of knowledge states facts or steps.
     """
     declarative = PermissibleValue(
         text="declarative",
@@ -1650,7 +1650,7 @@ class AicKnowledgeKind(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="AicKnowledgeKind",
-        description="How a body of knowledge is put.",
+        description="Whether a body of knowledge states facts or steps.",
     )
 
 class AicFunctionalStep(EnumDefinitionImpl):
@@ -1963,7 +1963,7 @@ class AicLifecycleStage(EnumDefinitionImpl):
 
 class AicOecdLifecycleStage(EnumDefinitionImpl):
     """
-    A stage of the OECD's account of an AI system's life, which Annex A sets beside the standard's.
+    A phase of the OECD's account of an AI system's life, which Annex A sets beside the standard's.
     """
     plan_and_design = PermissibleValue(
         text="plan_and_design",
@@ -1973,20 +1973,23 @@ class AicOecdLifecycleStage(EnumDefinitionImpl):
         description="Gathering and readying the data.")
     build_and_use_model = PermissibleValue(
         text="build_and_use_model",
-        description="Making the model and trying it.")
+        description="Making the model, or adapting one that exists, and trying it on the task.")
     verify_and_validate = PermissibleValue(
         text="verify_and_validate",
-        description="Checking the model.")
+        description="""Testing and evaluating the system, and checking it against what was specified and what it is for.""")
     deploy = PermissibleValue(
         text="deploy",
-        description="Putting the system into use.")
+        description="Making the system available for use.")
     operate_and_monitor = PermissibleValue(
         text="operate_and_monitor",
-        description="Running the system and watching it.")
+        description="Running the system and watching how it behaves.")
+    retire_or_decommission = PermissibleValue(
+        text="retire_or_decommission",
+        description="Taking the system out of service, a step that may come at any point while it runs.")
 
     _defn = EnumDefinition(
         name="AicOecdLifecycleStage",
-        description="A stage of the OECD's account of an AI system's life, which Annex A sets beside the standard's.",
+        description="A phase of the OECD's account of an AI system's life, which Annex A sets beside the standard's.",
     )
 
 class AicResourceKind(EnumDefinitionImpl):

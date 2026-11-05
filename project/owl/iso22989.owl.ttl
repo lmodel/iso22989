@@ -27,7 +27,7 @@
 	iso22989:standard "ISO/IEC 22989:2022" .
 iso22989:AicAction a owl:Class ;
 	rdfs:label "AicAction" ;
-	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n100 , _:c14n108 , _:c14n214 , _:c14n241 , _:c14n26 , _:c14n376 , _:c14n397 , _:c14n61 , _:c14n99 ;
+	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n100 , _:c14n108 , _:c14n213 , _:c14n240 , _:c14n26 , _:c14n376 , _:c14n397 , _:c14n61 , _:c14n99 ;
 	skos:definition "What was done because of a decision." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	iso22989:iso22989_clause "7.4.4" .
@@ -71,7 +71,7 @@ iso22989:AicAlgorithmFamily a owl:Class ;
 	iso22989:iso22989_term "3.3.6" .
 iso22989:AicApplication a owl:Class ;
 	rdfs:label "AicApplication" ;
-	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n102 , _:c14n162 , _:c14n229 , _:c14n237 , _:c14n250 , _:c14n256 , _:c14n354 , _:c14n401 , _:c14n407 , _:c14n415 , _:c14n424 , _:c14n71 ;
+	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n102 , _:c14n162 , _:c14n228 , _:c14n236 , _:c14n249 , _:c14n255 , _:c14n354 , _:c14n401 , _:c14n407 , _:c14n415 , _:c14n424 , _:c14n71 ;
 	skos:definition "One use of a system in a line of work." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	iso22989:iso22989_clause "10" .
@@ -116,7 +116,7 @@ iso22989:AicApproach a owl:Class ;
 	iso22989:iso22989_clause "5.9" .
 iso22989:AicAssessment a owl:Class ;
 	rdfs:label "AicAssessment" ;
-	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n11 , _:c14n254 , _:c14n257 , _:c14n258 , _:c14n273 , _:c14n284 , _:c14n308 , _:c14n329 , _:c14n340 , _:c14n342 , _:c14n373 , _:c14n38 , _:c14n404 , _:c14n6 , _:c14n74 ;
+	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n11 , _:c14n253 , _:c14n256 , _:c14n257 , _:c14n273 , _:c14n284 , _:c14n308 , _:c14n329 , _:c14n340 , _:c14n342 , _:c14n373 , _:c14n38 , _:c14n404 , _:c14n6 , _:c14n74 ;
 	skos:definition "One verification or validation of a system." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	iso22989:iso22989_clause "5.16" .
@@ -156,7 +156,7 @@ iso22989:AicAutonomy a owl:Class ;
 	iso22989:iso22989_clause "5.13" .
 iso22989:AicComponent a owl:Class ;
 	rdfs:label "AicComponent" ;
-	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n113 , _:c14n208 , _:c14n288 , _:c14n297 , _:c14n370 ;
+	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n113 , _:c14n207 , _:c14n288 , _:c14n297 , _:c14n370 ;
 	skos:definition "A part of a system that does one job in it." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	iso22989:iso22989_term "3.1.2" .
@@ -211,7 +211,7 @@ iso22989:AicDataProcessKind a owl:Class ;
 	iso22989:iso22989_clause "5.10" .
 iso22989:AicDataset a owl:Class ;
 	rdfs:label "AicDataset" ;
-	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n111 , _:c14n205 , _:c14n236 , _:c14n25 , _:c14n253 , _:c14n269 , _:c14n275 , _:c14n30 , _:c14n319 , _:c14n341 , _:c14n357 , _:c14n359 , _:c14n417 , _:c14n420 , _:c14n421 , _:c14n438 , _:c14n70 , _:c14n82 ;
+	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n111 , _:c14n204 , _:c14n235 , _:c14n25 , _:c14n252 , _:c14n269 , _:c14n275 , _:c14n30 , _:c14n319 , _:c14n341 , _:c14n357 , _:c14n359 , _:c14n417 , _:c14n420 , _:c14n421 , _:c14n439 , _:c14n70 , _:c14n82 ;
 	skos:definition "A set of data kept together in one format." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	skos:note "SPDX's DatasetPackage describes a dataset as a distributed package." ;
@@ -253,13 +253,13 @@ iso22989:AicDatasetRole a owl:Class ;
 	linkml:permissible_values iso22989:AicDatasetRole\#input , iso22989:AicDatasetRole\#production , iso22989:AicDatasetRole\#test , iso22989:AicDatasetRole\#training , iso22989:AicDatasetRole\#validation .
 iso22989:AicDecision a owl:Class ;
 	rdfs:label "AicDecision" ;
-	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n128 , _:c14n169 , _:c14n178 , _:c14n204 , _:c14n216 , _:c14n244 , _:c14n313 , _:c14n347 ;
+	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n128 , _:c14n169 , _:c14n178 , _:c14n203 , _:c14n215 , _:c14n243 , _:c14n313 , _:c14n347 ;
 	skos:definition "A choice made on the strength of some predictions." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	iso22989:iso22989_clause "7.4.3" .
 iso22989:AicEcosystem a owl:Class ;
 	rdfs:label "AicEcosystem" ;
-	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n0 , _:c14n13 , _:c14n131 , _:c14n133 , _:c14n147 , _:c14n153 , _:c14n165 , _:c14n168 , _:c14n173 , _:c14n176 , _:c14n184 , _:c14n196 , _:c14n201 , _:c14n206 , _:c14n231 , _:c14n232 , _:c14n239 , _:c14n246 , _:c14n263 , _:c14n270 , _:c14n287 , _:c14n291 , _:c14n301 , _:c14n302 , _:c14n334 , _:c14n34 , _:c14n350 , _:c14n365 , _:c14n395 , _:c14n400 , _:c14n440 , _:c14n47 , _:c14n5 , _:c14n53 , _:c14n85 , _:c14n96 ;
+	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n0 , _:c14n13 , _:c14n131 , _:c14n133 , _:c14n147 , _:c14n153 , _:c14n165 , _:c14n168 , _:c14n173 , _:c14n176 , _:c14n184 , _:c14n196 , _:c14n200 , _:c14n205 , _:c14n230 , _:c14n231 , _:c14n238 , _:c14n245 , _:c14n263 , _:c14n270 , _:c14n287 , _:c14n291 , _:c14n301 , _:c14n302 , _:c14n334 , _:c14n34 , _:c14n350 , _:c14n365 , _:c14n395 , _:c14n400 , _:c14n441 , _:c14n47 , _:c14n5 , _:c14n53 , _:c14n85 , _:c14n96 ;
 	skos:definition "The AI systems around one context of use, with the data, resources and parties that surround them, each kind of record in a list of its own." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	iso22989:iso22989_clause "8" .
@@ -345,7 +345,7 @@ iso22989:AicIotDevice a owl:Class ;
 	iso22989:iso22989_term "3.1.19" .
 iso22989:AicIotSystem a owl:Class ;
 	rdfs:label "AicIotSystem" ;
-	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n123 , _:c14n224 , _:c14n45 , _:c14n94 ;
+	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n123 , _:c14n223 , _:c14n45 , _:c14n94 ;
 	skos:definition "A networked system that links devices and offers services built on them." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	iso22989:iso22989_clause "5.14.2" ;
@@ -370,7 +370,7 @@ iso22989:AicKnowledgeKind\#procedural a owl:Class ;
 iso22989:AicKnowledgeKind a owl:Class ;
 	rdfs:label "AicKnowledgeKind" ;
 	owl:unionOf _:c14n89 ;
-	skos:definition "How a body of knowledge is put." ;
+	skos:definition "Whether a body of knowledge states facts or steps." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	linkml:permissible_values iso22989:AicKnowledgeKind\#declarative , iso22989:AicKnowledgeKind\#procedural ;
 	iso22989:iso22989_clause "5.4" .
@@ -412,7 +412,7 @@ iso22989:AicLearningParadigm a owl:Class ;
 	iso22989:iso22989_clause "5.11" .
 iso22989:AicLifecycleProcess a owl:Class ;
 	rdfs:label "AicLifecycleProcess" ;
-	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n105 , _:c14n181 , _:c14n195 , _:c14n217 , _:c14n259 , _:c14n268 , _:c14n278 , _:c14n3 , _:c14n314 , _:c14n327 , _:c14n33 , _:c14n356 , _:c14n368 , _:c14n4 , _:c14n410 , _:c14n413 , _:c14n57 , _:c14n84 , _:c14n95 ;
+	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n105 , _:c14n181 , _:c14n195 , _:c14n216 , _:c14n258 , _:c14n268 , _:c14n278 , _:c14n3 , _:c14n314 , _:c14n327 , _:c14n33 , _:c14n356 , _:c14n368 , _:c14n4 , _:c14n410 , _:c14n413 , _:c14n57 , _:c14n84 , _:c14n95 ;
 	skos:definition "A piece of work done at one stage of a system's life." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	iso22989:iso22989_clause "6.2" .
@@ -456,6 +456,7 @@ iso22989:AicLifecycleStage\#retirement a owl:Class ;
 	rdfs:label "retirement" ;
 	rdfs:subClassOf iso22989:AicLifecycleStage ;
 	skos:definition "Taking the system out of use." ;
+	skos:relatedMatch iso22989:AicOecdLifecycleStage\#retire_or_decommission ;
 	iso22989:iso22989_clause "6.2.9" .
 iso22989:AicLifecycleStage\#verification_and_validation a owl:Class ;
 	rdfs:label "verification_and_validation" ;
@@ -465,16 +466,16 @@ iso22989:AicLifecycleStage\#verification_and_validation a owl:Class ;
 	iso22989:iso22989_clause "6.2.4" .
 iso22989:AicLifecycleStage a owl:Class ;
 	rdfs:label "AicLifecycleStage" ;
-	owl:unionOf _:c14n221 ;
+	owl:unionOf _:c14n220 ;
 	skos:definition "A stage in an AI system's life." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
-	skos:note "The related_mappings to AicOecdLifecycleStage are this project's reading of Annex A, and have not been checked against its text." ;
+	skos:note "The related_mappings pair each stage with the OECD phase it answers to. Annex A of the standard sets the two accounts side by side, and this project has not checked the pairing against it; the retirement row rests on the OECD's text alone." ;
 	linkml:permissible_values iso22989:AicLifecycleStage\#continuous_validation , iso22989:AicLifecycleStage\#deployment , iso22989:AicLifecycleStage\#design_and_development , iso22989:AicLifecycleStage\#inception , iso22989:AicLifecycleStage\#operation_and_monitoring , iso22989:AicLifecycleStage\#re_evaluation , iso22989:AicLifecycleStage\#retirement , iso22989:AicLifecycleStage\#verification_and_validation ;
 	iso22989:iso22989_clause "6.2" ;
 	iso22989:iso22989_term "3.1.22" .
 iso22989:AicMachineLearningModel a owl:Class ;
 	rdfs:label "AicMachineLearningModel" ;
-	rdfs:subClassOf iso22989:AicModel , _:c14n119 , _:c14n155 , _:c14n175 , _:c14n251 , _:c14n274 , _:c14n276 , _:c14n28 , _:c14n290 , _:c14n298 , _:c14n322 , _:c14n326 , _:c14n328 , _:c14n336 , _:c14n346 , _:c14n363 , _:c14n366 , _:c14n387 , _:c14n399 , _:c14n434 , _:c14n58 , _:c14n64 , _:c14n81 ;
+	rdfs:subClassOf iso22989:AicModel , _:c14n119 , _:c14n155 , _:c14n175 , _:c14n250 , _:c14n274 , _:c14n276 , _:c14n28 , _:c14n290 , _:c14n298 , _:c14n322 , _:c14n326 , _:c14n328 , _:c14n336 , _:c14n346 , _:c14n363 , _:c14n366 , _:c14n387 , _:c14n399 , _:c14n434 , _:c14n58 , _:c14n64 , _:c14n81 ;
 	skos:definition "A model whose numbers were fitted to data by a training run." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	iso22989:iso22989_clause "5.11.7" ;
@@ -514,7 +515,7 @@ iso22989:AicNetworkArchitecture a owl:Class ;
 	iso22989:iso22989_clause "5.12.1" .
 iso22989:AicNeuralNetworkModel a owl:Class ;
 	rdfs:label "AicNeuralNetworkModel" ;
-	rdfs:subClassOf iso22989:AicMachineLearningModel , _:c14n134 , _:c14n146 , _:c14n188 , _:c14n247 , _:c14n312 , _:c14n382 , _:c14n398 , _:c14n72 ;
+	rdfs:subClassOf iso22989:AicMachineLearningModel , _:c14n134 , _:c14n146 , _:c14n188 , _:c14n246 , _:c14n312 , _:c14n382 , _:c14n398 , _:c14n72 ;
 	skos:definition "A kind of machine learning model built from layers of simple connected units." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	iso22989:iso22989_clause "5.12.1" ;
@@ -522,7 +523,7 @@ iso22989:AicNeuralNetworkModel a owl:Class ;
 iso22989:AicOecdLifecycleStage\#build_and_use_model a owl:Class ;
 	rdfs:label "build_and_use_model" ;
 	rdfs:subClassOf iso22989:AicOecdLifecycleStage ;
-	skos:definition "Making the model and trying it." .
+	skos:definition "Making the model, or adapting one that exists, and trying it on the task." .
 iso22989:AicOecdLifecycleStage\#collect_and_process_data a owl:Class ;
 	rdfs:label "collect_and_process_data" ;
 	rdfs:subClassOf iso22989:AicOecdLifecycleStage ;
@@ -530,36 +531,42 @@ iso22989:AicOecdLifecycleStage\#collect_and_process_data a owl:Class ;
 iso22989:AicOecdLifecycleStage\#deploy a owl:Class ;
 	rdfs:label "deploy" ;
 	rdfs:subClassOf iso22989:AicOecdLifecycleStage ;
-	skos:definition "Putting the system into use." .
+	skos:definition "Making the system available for use." .
 iso22989:AicOecdLifecycleStage\#operate_and_monitor a owl:Class ;
 	rdfs:label "operate_and_monitor" ;
 	rdfs:subClassOf iso22989:AicOecdLifecycleStage ;
-	skos:definition "Running the system and watching it." .
+	skos:definition "Running the system and watching how it behaves." .
 iso22989:AicOecdLifecycleStage\#plan_and_design a owl:Class ;
 	rdfs:label "plan_and_design" ;
 	rdfs:subClassOf iso22989:AicOecdLifecycleStage ;
 	skos:definition "Setting out what the system is for and how it will work." .
+iso22989:AicOecdLifecycleStage\#retire_or_decommission a owl:Class ;
+	rdfs:label "retire_or_decommission" ;
+	rdfs:subClassOf iso22989:AicOecdLifecycleStage ;
+	skos:definition "Taking the system out of service, a step that may come at any point while it runs." .
 iso22989:AicOecdLifecycleStage\#verify_and_validate a owl:Class ;
 	rdfs:label "verify_and_validate" ;
 	rdfs:subClassOf iso22989:AicOecdLifecycleStage ;
-	skos:definition "Checking the model." .
+	skos:definition "Testing and evaluating the system, and checking it against what was specified and what it is for." .
 iso22989:AicOecdLifecycleStage a owl:Class ;
 	rdfs:label "AicOecdLifecycleStage" ;
-	owl:unionOf _:c14n211 ;
-	skos:definition "A stage of the OECD's account of an AI system's life, which Annex A sets beside the standard's." ;
+	owl:unionOf _:c14n210 ;
+	skos:definition "A phase of the OECD's account of an AI system's life, which Annex A sets beside the standard's." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
-	linkml:permissible_values iso22989:AicOecdLifecycleStage\#build_and_use_model , iso22989:AicOecdLifecycleStage\#collect_and_process_data , iso22989:AicOecdLifecycleStage\#deploy , iso22989:AicOecdLifecycleStage\#operate_and_monitor , iso22989:AicOecdLifecycleStage\#plan_and_design , iso22989:AicOecdLifecycleStage\#verify_and_validate ;
-	iso22989:iso22989_clause "Annex A" .
+	skos:note "The first six values are the phases the OECD Recommendation on Artificial Intelligence (OECD/LEGAL/0449) named when the standard was published, as the OECD Framework for the Classification of AI Systems (2022) draws them. The Recommendation as revised on 3 May 2024 names seven: it adds retiring or decommissioning, widens building to adapting a model that exists, and widens checking to testing and evaluation. The descriptions follow the revised text, read at legalinstruments.oecd.org on 2026-11-05, and retire_or_decommission is here for a record that follows it." ;
+	linkml:permissible_values iso22989:AicOecdLifecycleStage\#build_and_use_model , iso22989:AicOecdLifecycleStage\#collect_and_process_data , iso22989:AicOecdLifecycleStage\#deploy , iso22989:AicOecdLifecycleStage\#operate_and_monitor , iso22989:AicOecdLifecycleStage\#plan_and_design , iso22989:AicOecdLifecycleStage\#retire_or_decommission , iso22989:AicOecdLifecycleStage\#verify_and_validate ;
+	iso22989:iso22989_clause "Annex A" ;
+	iso22989:oecd_source "OECD/LEGAL/0449" .
 iso22989:AicPrediction a owl:Class ;
 	rdfs:label "AicPrediction" ;
-	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n1 , _:c14n110 , _:c14n126 , _:c14n220 , _:c14n23 , _:c14n378 , _:c14n379 , _:c14n431 , _:c14n435 ;
+	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n1 , _:c14n110 , _:c14n126 , _:c14n219 , _:c14n23 , _:c14n378 , _:c14n379 , _:c14n431 , _:c14n436 ;
 	skos:definition "A result a system worked out for one case." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	iso22989:iso22989_clause "7.4.2" ;
 	iso22989:iso22989_term "3.1.27" .
 iso22989:AicRecordMixin a owl:Class ;
 	rdfs:label "AicRecordMixin" ;
-	rdfs:subClassOf _:c14n141 , _:c14n148 , _:c14n240 , _:c14n306 , _:c14n325 , _:c14n330 , _:c14n396 , _:c14n48 , _:c14n7 ;
+	rdfs:subClassOf _:c14n141 , _:c14n148 , _:c14n239 , _:c14n306 , _:c14n325 , _:c14n330 , _:c14n396 , _:c14n48 , _:c14n7 ;
 	skos:definition "What every record has, so that other records can refer to it: an identifier, a title and a description." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	skos:note "It is a mixin, not a base class, so that the adapt copy can re-root some record classes on LOKF's Concept and leave the others as they are. lokf adapt replaces aic_id with LOKF's id, and a class that declares id itself must descend from Concept." .
@@ -588,13 +595,13 @@ iso22989:AicResourceKind a owl:Class ;
 	iso22989:iso22989_clause "8.7" .
 iso22989:AicResourcePool a owl:Class ;
 	rdfs:label "AicResourcePool" ;
-	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n101 , _:c14n124 , _:c14n135 , _:c14n242 , _:c14n243 , _:c14n310 , _:c14n414 , _:c14n51 , _:c14n88 ;
+	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n101 , _:c14n124 , _:c14n135 , _:c14n241 , _:c14n242 , _:c14n310 , _:c14n414 , _:c14n51 , _:c14n88 ;
 	skos:definition "A body of computing resource that AI work can draw on." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	iso22989:iso22989_clause "8.7" .
 iso22989:AicRobot a owl:Class ;
 	rdfs:label "AicRobot" ;
-	rdfs:subClassOf iso22989:AicSystem , _:c14n183 , _:c14n222 , _:c14n252 , _:c14n266 ;
+	rdfs:subClassOf iso22989:AicSystem , _:c14n183 , _:c14n221 , _:c14n251 , _:c14n266 ;
 	skos:broadMatch gist_ontology:Equipment ;
 	skos:definition "A system that moves or acts on physical things through its own actuators." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
@@ -602,7 +609,7 @@ iso22989:AicRobot a owl:Class ;
 	iso22989:iso22989_term "3.1.29" .
 iso22989:AicStakeholder a owl:Class ;
 	rdfs:label "AicStakeholder" ;
-	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n130 , _:c14n17 , _:c14n215 , _:c14n31 , _:c14n318 , _:c14n343 , _:c14n405 , _:c14n419 , _:c14n437 , _:c14n55 , _:c14n76 , _:c14n86 , _:c14n93 ;
+	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n130 , _:c14n17 , _:c14n214 , _:c14n31 , _:c14n318 , _:c14n343 , _:c14n405 , _:c14n419 , _:c14n438 , _:c14n55 , _:c14n76 , _:c14n86 , _:c14n93 ;
 	skos:definition "A person, group or organization with a part in an AI system or an interest in it." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	skos:note "UCO's Role is the function something has in context, which this record states for one party. A party with two roles has a record for each." ;
@@ -698,14 +705,14 @@ iso22989:AicStakeholderSubRole\#regulator a owl:Class ;
 	iso22989:role "relevant_authority" .
 iso22989:AicStakeholderSubRole a owl:Class ;
 	rdfs:label "AicStakeholderSubRole" ;
-	owl:unionOf _:c14n249 ;
+	owl:unionOf _:c14n248 ;
 	skos:definition "A narrower part within one of the roles." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	skos:note "These are the narrower parts ISO/IEC 42001:2023 lists under each role in clause 4.1, which refers to clause 5.19 of this standard. The role annotation names the role each sits under." ;
 	linkml:permissible_values iso22989:AicStakeholderSubRole\#ai_developer , iso22989:AicStakeholderSubRole\#ai_platform_provider , iso22989:AicStakeholderSubRole\#ai_product_or_service_provider , iso22989:AicStakeholderSubRole\#ai_system_integrator , iso22989:AicStakeholderSubRole\#ai_user , iso22989:AicStakeholderSubRole\#data_provider , iso22989:AicStakeholderSubRole\#data_subject , iso22989:AicStakeholderSubRole\#other_subject , iso22989:AicStakeholderSubRole\#policy_maker , iso22989:AicStakeholderSubRole\#regulator .
 iso22989:AicSystem a owl:Class ;
 	rdfs:label "AicSystem" ;
-	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n107 , _:c14n116 , _:c14n125 , _:c14n144 , _:c14n161 , _:c14n163 , _:c14n164 , _:c14n170 , _:c14n189 , _:c14n190 , _:c14n198 , _:c14n202 , _:c14n203 , _:c14n209 , _:c14n210 , _:c14n212 , _:c14n219 , _:c14n233 , _:c14n234 , _:c14n238 , _:c14n24 , _:c14n245 , _:c14n271 , _:c14n280 , _:c14n281 , _:c14n295 , _:c14n304 , _:c14n311 , _:c14n32 , _:c14n339 , _:c14n352 , _:c14n36 , _:c14n367 , _:c14n381 , _:c14n385 , _:c14n40 , _:c14n423 , _:c14n428 , _:c14n63 , _:c14n66 , _:c14n75 , _:c14n77 , _:c14n78 , _:c14n87 , _:c14n90 ;
+	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n107 , _:c14n116 , _:c14n125 , _:c14n144 , _:c14n161 , _:c14n163 , _:c14n164 , _:c14n170 , _:c14n189 , _:c14n190 , _:c14n198 , _:c14n201 , _:c14n202 , _:c14n208 , _:c14n209 , _:c14n211 , _:c14n218 , _:c14n232 , _:c14n233 , _:c14n237 , _:c14n24 , _:c14n244 , _:c14n271 , _:c14n280 , _:c14n281 , _:c14n295 , _:c14n304 , _:c14n311 , _:c14n32 , _:c14n339 , _:c14n352 , _:c14n36 , _:c14n367 , _:c14n381 , _:c14n385 , _:c14n40 , _:c14n423 , _:c14n428 , _:c14n63 , _:c14n66 , _:c14n75 , _:c14n77 , _:c14n78 , _:c14n87 , _:c14n90 ;
 	skos:broadMatch gist_ontology:System ;
 	skos:definition "A system built to produce results for goals set by people, using AI techniques, whatever else it is made of." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
@@ -732,7 +739,7 @@ iso22989:AicSystemScope a owl:Class ;
 	iso22989:iso22989_clause "5.2" .
 iso22989:AicTask a owl:Class ;
 	rdfs:label "AicTask" ;
-	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n180 , _:c14n213 , _:c14n227 , _:c14n228 , _:c14n303 , _:c14n344 , _:c14n361 , _:c14n391 , _:c14n403 , _:c14n430 ;
+	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n180 , _:c14n212 , _:c14n226 , _:c14n227 , _:c14n303 , _:c14n344 , _:c14n361 , _:c14n391 , _:c14n403 , _:c14n430 ;
 	skos:definition "Something a system is asked to get done." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
 	skos:note "gist's Task is a piece of work that is planned or under way, where this is what a system is asked to do." ;
@@ -1544,12 +1551,12 @@ _:c14n116 a owl:Restriction ;
 _:c14n117 rdf:first iso22989:AicDatasetRole\#input ;
 	rdf:rest rdf:nil .
 _:c14n118 rdf:first iso22989:AicLifecycleStage\#deployment ;
-	rdf:rest _:c14n226 .
+	rdf:rest _:c14n225 .
 _:c14n119 a owl:Restriction ;
 	owl:allValuesFrom xsd:date ;
 	owl:onProperty iso22989:aic_ml_trained_on .
 _:c14n12 rdf:first iso22989:AicTaskKind\#relationship_extraction ;
-	rdf:rest _:c14n223 .
+	rdf:rest _:c14n222 .
 _:c14n120 a owl:Restriction ;
 	owl:minCardinality 1 ;
 	owl:onProperty iso22989:aic_agent_goals .
@@ -1626,13 +1633,13 @@ _:c14n144 a owl:Restriction ;
 _:c14n145 rdf:first iso22989:AicStakeholderRole\#relevant_authority ;
 	rdf:rest rdf:nil .
 _:c14n146 a owl:Restriction ;
-	owl:allValuesFrom _:c14n460 ;
+	owl:allValuesFrom _:c14n461 ;
 	owl:onProperty iso22989:aic_network_layer_count .
 _:c14n147 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicStakeholder ;
 	owl:onProperty iso22989:aic_ecosystem_stakeholders .
 _:c14n148 a owl:Restriction ;
-	owl:allValuesFrom _:c14n465 ;
+	owl:allValuesFrom _:c14n468 ;
 	owl:onProperty iso22989:title .
 _:c14n149 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -1661,7 +1668,7 @@ _:c14n156 a owl:Restriction ;
 _:c14n157 rdf:first iso22989:AicResourceKind\#cloud ;
 	rdf:rest _:c14n92 .
 _:c14n158 rdf:first iso22989:AicAlgorithmFamily\#decision_tree ;
-	rdf:rest _:c14n235 .
+	rdf:rest _:c14n234 .
 _:c14n159 rdf:first iso22989:AicTrustworthinessProperty\#bias_and_fairness ;
 	rdf:rest _:c14n402 .
 _:c14n16 a owl:Restriction ;
@@ -1752,7 +1759,7 @@ _:c14n186 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_knowledge_representation .
 _:c14n187 rdf:first _:c14n67 ;
-	rdf:rest _:c14n470 .
+	rdf:rest _:c14n471 .
 _:c14n188 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty iso22989:aic_network_architecture .
@@ -1784,212 +1791,212 @@ _:c14n197 rdf:first iso22989:AicDataProcessKind\#imputation ;
 _:c14n198 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicSystemScope ;
 	owl:onProperty iso22989:aic_system_scope .
-_:c14n199 rdf:first iso22989:AicOecdLifecycleStage\#operate_and_monitor ;
-	rdf:rest rdf:nil .
+_:c14n199 rdf:first iso22989:AicAlgorithmFamily\#bayesian_network ;
+	rdf:rest _:c14n158 .
 _:c14n2 rdf:first iso22989:AicTaskKind\#emotion_recognition ;
 	rdf:rest _:c14n406 .
 _:c14n20 rdf:first iso22989:AicTechnique\#soft_computing ;
 	rdf:rest _:c14n375 .
-_:c14n200 rdf:first iso22989:AicAlgorithmFamily\#bayesian_network ;
-	rdf:rest _:c14n158 .
-_:c14n201 a owl:Restriction ;
+_:c14n200 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_ecosystem_tasks .
-_:c14n202 a owl:Restriction ;
+_:c14n201 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty iso22989:aic_system_stage .
-_:c14n203 a owl:Restriction ;
+_:c14n202 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_system_approaches .
-_:c14n204 a owl:Restriction ;
+_:c14n203 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_decision_predictions .
-_:c14n205 a owl:Restriction ;
+_:c14n204 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_dataset_labels .
-_:c14n206 a owl:Restriction ;
+_:c14n205 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicModel ;
 	owl:onProperty iso22989:aic_ecosystem_models .
-_:c14n207 rdf:first iso22989:AicLifecycleStage\#continuous_validation ;
+_:c14n206 rdf:first iso22989:AicLifecycleStage\#continuous_validation ;
 	rdf:rest _:c14n317 .
-_:c14n208 a owl:Restriction ;
+_:c14n207 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_component_step .
-_:c14n209 a owl:Restriction ;
+_:c14n208 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty iso22989:aic_system_human_teaming .
-_:c14n21 rdf:first iso22989:AicFunctionalStep\#prediction ;
-	rdf:rest _:c14n29 .
-_:c14n210 a owl:Restriction ;
+_:c14n209 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicStakeholder ;
 	owl:onProperty iso22989:aic_system_stakeholders .
-_:c14n211 rdf:first iso22989:AicOecdLifecycleStage\#plan_and_design ;
+_:c14n21 rdf:first iso22989:AicFunctionalStep\#prediction ;
+	rdf:rest _:c14n29 .
+_:c14n210 rdf:first iso22989:AicOecdLifecycleStage\#plan_and_design ;
 	rdf:rest _:c14n283 .
-_:c14n212 a owl:Restriction ;
+_:c14n211 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicComponent ;
 	owl:onProperty iso22989:aic_system_components .
-_:c14n213 a owl:Restriction ;
+_:c14n212 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty iso22989:aic_task_performance_measures .
-_:c14n214 a owl:Restriction ;
+_:c14n213 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicDecision ;
 	owl:onProperty iso22989:aic_action_decision .
-_:c14n215 a owl:Restriction ;
+_:c14n214 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_stakeholder_responsibilities .
-_:c14n216 a owl:Restriction ;
+_:c14n215 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_decision_criteria .
-_:c14n217 a owl:Restriction ;
+_:c14n216 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_lifecycle_inputs .
-_:c14n218 rdf:first iso22989:AicOecdLifecycleStage\#deploy ;
-	rdf:rest _:c14n199 .
-_:c14n219 a owl:Restriction ;
+_:c14n217 rdf:first iso22989:AicOecdLifecycleStage\#deploy ;
+	rdf:rest _:c14n261 .
+_:c14n218 a owl:Restriction ;
 	owl:minCardinality 1 ;
 	owl:onProperty iso22989:aic_system_type .
-_:c14n22 rdf:first iso22989:AicTrustworthinessProperty\#predictability ;
-	rdf:rest _:c14n355 .
-_:c14n220 a owl:Restriction ;
+_:c14n219 a owl:Restriction ;
 	owl:minCardinality 1 ;
 	owl:onProperty iso22989:aic_prediction_system .
-_:c14n221 rdf:first iso22989:AicLifecycleStage\#inception ;
+_:c14n22 rdf:first iso22989:AicTrustworthinessProperty\#predictability ;
+	rdf:rest _:c14n355 .
+_:c14n220 rdf:first iso22989:AicLifecycleStage\#inception ;
 	rdf:rest _:c14n335 .
-_:c14n222 a owl:Restriction ;
+_:c14n221 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty iso22989:aic_robot_actuators .
-_:c14n223 rdf:first iso22989:AicTaskKind\#sentiment_analysis ;
+_:c14n222 rdf:first iso22989:AicTaskKind\#sentiment_analysis ;
 	rdf:rest _:c14n323 .
-_:c14n224 a owl:Restriction ;
+_:c14n223 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicSystem ;
 	owl:onProperty iso22989:aic_iot_ai_systems .
-_:c14n225 a owl:Restriction ;
+_:c14n224 a owl:Restriction ;
 	rdfs:subClassOf iso22989:AicMachineLearningModel ;
 	owl:onProperty iso22989:aic_model_type ;
 	owl:someValuesFrom iso22989:AicMachineLearningModel .
-_:c14n226 rdf:first iso22989:AicLifecycleStage\#operation_and_monitoring ;
-	rdf:rest _:c14n207 .
-_:c14n227 a owl:Restriction ;
+_:c14n225 rdf:first iso22989:AicLifecycleStage\#operation_and_monitoring ;
+	rdf:rest _:c14n206 .
+_:c14n226 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_task_goal .
-_:c14n228 a owl:Restriction ;
+_:c14n227 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicTaskKind ;
 	owl:onProperty iso22989:aic_task_kind .
-_:c14n229 a owl:Restriction ;
+_:c14n228 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty iso22989:aic_application_sector .
+_:c14n229 rdf:first iso22989:AicTechnique\#cognitive_computing ;
+	rdf:rest _:c14n389 .
 _:c14n23 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty iso22989:aic_prediction_value .
-_:c14n230 rdf:first iso22989:AicTechnique\#cognitive_computing ;
-	rdf:rest _:c14n389 .
-_:c14n231 a owl:Restriction ;
+_:c14n230 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_ecosystem_iot_devices .
-_:c14n232 a owl:Restriction ;
+_:c14n231 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_ecosystem_knowledge .
-_:c14n233 a owl:Restriction ;
+_:c14n232 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_system_jurisdictional_issues .
-_:c14n234 a owl:Restriction ;
+_:c14n233 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty iso22989:aic_system_purpose .
-_:c14n235 rdf:first iso22989:AicAlgorithmFamily\#support_vector_machine ;
+_:c14n234 rdf:first iso22989:AicAlgorithmFamily\#support_vector_machine ;
 	rdf:rest rdf:nil .
-_:c14n236 a owl:Restriction ;
+_:c14n235 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty iso22989:aic_dataset_ground_truth .
-_:c14n237 a owl:Restriction ;
+_:c14n236 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty iso22989:aic_application_system .
-_:c14n238 a owl:Restriction ;
+_:c14n237 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_system_steps .
-_:c14n239 a owl:Restriction ;
+_:c14n238 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicIotSystem ;
 	owl:onProperty iso22989:aic_ecosystem_iot_systems .
+_:c14n239 a owl:Restriction ;
+	owl:minCardinality 1 ;
+	owl:onProperty iso22989:aic_id .
 _:c14n24 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_system_human_teaming .
 _:c14n240 a owl:Restriction ;
-	owl:minCardinality 1 ;
-	owl:onProperty iso22989:aic_id .
-_:c14n241 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty iso22989:aic_action_target .
-_:c14n242 a owl:Restriction ;
+_:c14n241 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_pool_capacity .
-_:c14n243 a owl:Restriction ;
+_:c14n242 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_pool_hardware .
-_:c14n244 a owl:Restriction ;
+_:c14n243 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty iso22989:aic_decision_criteria .
-_:c14n245 a owl:Restriction ;
+_:c14n244 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicApproach ;
 	owl:onProperty iso22989:aic_system_approaches .
-_:c14n246 a owl:Restriction ;
+_:c14n245 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_ecosystem_decisions .
-_:c14n247 a owl:Restriction ;
+_:c14n246 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicNetworkArchitecture ;
 	owl:onProperty iso22989:aic_network_architecture .
-_:c14n248 rdf:first iso22989:AicLearningParadigm\#unsupervised ;
+_:c14n247 rdf:first iso22989:AicLearningParadigm\#unsupervised ;
 	rdf:rest _:c14n160 .
-_:c14n249 rdf:first iso22989:AicStakeholderSubRole\#ai_platform_provider ;
+_:c14n248 rdf:first iso22989:AicStakeholderSubRole\#ai_platform_provider ;
 	rdf:rest _:c14n10 .
+_:c14n249 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty iso22989:aic_application_domain .
 _:c14n25 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_dataset_holds_pii .
 _:c14n250 a owl:Restriction ;
 	owl:maxCardinality 1 ;
-	owl:onProperty iso22989:aic_application_domain .
-_:c14n251 a owl:Restriction ;
-	owl:maxCardinality 1 ;
 	owl:onProperty iso22989:aic_ml_parameter_count .
-_:c14n252 a owl:Restriction ;
+_:c14n251 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty iso22989:aic_robot_sensors .
-_:c14n253 a owl:Restriction ;
+_:c14n252 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty iso22989:aic_dataset_ground_truth .
-_:c14n254 a owl:Restriction ;
+_:c14n253 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty iso22989:aic_assessment_date .
-_:c14n255 rdf:first iso22989:AicStakeholderRole\#ai_producer ;
+_:c14n254 rdf:first iso22989:AicStakeholderRole\#ai_producer ;
 	rdf:rest _:c14n35 .
-_:c14n256 a owl:Restriction ;
+_:c14n255 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicApplicationDomain ;
 	owl:onProperty iso22989:aic_application_domain .
-_:c14n257 a owl:Restriction ;
+_:c14n256 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty iso22989:aic_assessment_method .
-_:c14n258 a owl:Restriction ;
+_:c14n257 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicSystem ;
 	owl:onProperty iso22989:aic_assessment_system .
-_:c14n259 a owl:Restriction ;
+_:c14n258 a owl:Restriction ;
 	owl:allValuesFrom xsd:string ;
 	owl:onProperty iso22989:aic_lifecycle_inputs .
-_:c14n26 a owl:Restriction ;
-	owl:maxCardinality 1 ;
-	owl:onProperty iso22989:aic_action_time .
-_:c14n260 a owl:Restriction ;
+_:c14n259 a owl:Restriction ;
 	rdfs:subClassOf iso22989:AicRobot ;
 	owl:onProperty iso22989:aic_system_type ;
 	owl:someValuesFrom iso22989:AicRobot .
-_:c14n261 rdf:first iso22989:AicDataProcessKind\#data_sampling ;
-	rdf:rest _:c14n439 .
+_:c14n26 a owl:Restriction ;
+	owl:maxCardinality 1 ;
+	owl:onProperty iso22989:aic_action_time .
+_:c14n260 rdf:first iso22989:AicDataProcessKind\#data_sampling ;
+	rdf:rest _:c14n440 .
+_:c14n261 rdf:first iso22989:AicOecdLifecycleStage\#operate_and_monitor ;
+	rdf:rest _:c14n435 .
 _:c14n262 rdf:first iso22989:AicStakeholderSubRole\#ai_user ;
 	rdf:rest _:c14n279 .
 _:c14n263 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicComponent ;
 	owl:onProperty iso22989:aic_ecosystem_components .
 _:c14n264 rdf:first iso22989:AicDataProcessKind\#data_augmentation ;
-	rdf:rest _:c14n261 .
-_:c14n265 rdf:first _:c14n462 ;
-	rdf:rest _:c14n443 .
+	rdf:rest _:c14n260 .
+_:c14n265 rdf:first _:c14n463 ;
+	rdf:rest _:c14n444 .
 _:c14n266 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_robot_sensors .
@@ -2011,7 +2018,7 @@ _:c14n271 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_system_models .
 _:c14n272 rdf:first iso22989:AicTechnique\#deep_learning ;
-	rdf:rest _:c14n230 .
+	rdf:rest _:c14n229 .
 _:c14n273 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty iso22989:aic_assessment_kind .
@@ -2170,7 +2177,7 @@ _:c14n322 a owl:Restriction ;
 _:c14n323 rdf:first iso22989:AicTaskKind\#speech_recognition ;
 	rdf:rest _:c14n171 .
 _:c14n324 rdf:first iso22989:AicLearningParadigm\#supervised ;
-	rdf:rest _:c14n248 .
+	rdf:rest _:c14n247 .
 _:c14n325 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty iso22989:aic_id .
@@ -2266,7 +2273,7 @@ _:c14n354 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_application_domain .
 _:c14n355 rdf:first iso22989:AicTrustworthinessProperty\#organizational_transparency ;
-	rdf:rest _:c14n436 .
+	rdf:rest _:c14n437 .
 _:c14n356 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_lifecycle_end .
@@ -2284,7 +2291,7 @@ _:c14n36 a owl:Restriction ;
 _:c14n360 rdf:first iso22989:AicStakeholderSubRole\#data_subject ;
 	rdf:rest _:c14n348 .
 _:c14n361 a owl:Restriction ;
-	owl:allValuesFrom _:c14n467 ;
+	owl:allValuesFrom _:c14n466 ;
 	owl:onProperty iso22989:aic_task_languages .
 _:c14n362 rdf:first iso22989:AicStakeholderSubRole\#policy_maker ;
 	rdf:rest _:c14n83 .
@@ -2306,7 +2313,7 @@ _:c14n368 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_lifecycle_responsible .
 _:c14n369 rdf:first iso22989:AicAlgorithmFamily\#neural_network ;
-	rdf:rest _:c14n200 .
+	rdf:rest _:c14n199 .
 _:c14n37 a owl:Restriction ;
 	owl:allValuesFrom xsd:date ;
 	owl:onProperty iso22989:aic_data_process_date .
@@ -2396,7 +2403,7 @@ _:c14n398 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty iso22989:aic_network_layer_count .
 _:c14n399 a owl:Restriction ;
-	owl:allValuesFrom _:c14n448 ;
+	owl:allValuesFrom _:c14n449 ;
 	owl:onProperty iso22989:aic_ml_parameter_count .
 _:c14n4 a owl:Restriction ;
 	owl:minCardinality 1 ;
@@ -2480,7 +2487,7 @@ _:c14n425 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicTrustworthinessProperty ;
 	owl:onProperty iso22989:aic_claim_property .
 _:c14n426 rdf:first iso22989:AicStakeholderRole\#ai_provider ;
-	rdf:rest _:c14n255 .
+	rdf:rest _:c14n254 .
 _:c14n427 rdf:first iso22989:AicApplicationDomain\#predictive_maintenance ;
 	rdf:rest rdf:nil .
 _:c14n428 a owl:Restriction ;
@@ -2504,94 +2511,96 @@ _:c14n433 rdf:first iso22989:AicNetworkArchitecture\#convolutional ;
 _:c14n434 a owl:Restriction ;
 	owl:allValuesFrom xsd:boolean ;
 	owl:onProperty iso22989:aic_ml_continuous_learning .
-_:c14n435 a owl:Restriction ;
-	owl:allValuesFrom _:c14n469 ;
+_:c14n435 rdf:first iso22989:AicOecdLifecycleStage\#retire_or_decommission ;
+	rdf:rest rdf:nil .
+_:c14n436 a owl:Restriction ;
+	owl:allValuesFrom _:c14n470 ;
 	owl:onProperty iso22989:aic_prediction_confidence .
-_:c14n436 rdf:first iso22989:AicTrustworthinessProperty\#system_transparency ;
+_:c14n437 rdf:first iso22989:AicTrustworthinessProperty\#system_transparency ;
 	rdf:rest _:c14n159 .
-_:c14n437 a owl:Restriction ;
+_:c14n438 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_stakeholder_sub_roles .
-_:c14n438 a owl:Restriction ;
+_:c14n439 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty iso22989:aic_dataset_holds_pii .
-_:c14n439 rdf:first iso22989:AicDataProcessKind\#exploratory_data_analysis ;
-	rdf:rest _:c14n197 .
 _:c14n44 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicKnowledgeKind ;
 	owl:onProperty iso22989:aic_knowledge_kind .
-_:c14n440 a owl:Restriction ;
+_:c14n440 rdf:first iso22989:AicDataProcessKind\#exploratory_data_analysis ;
+	rdf:rest _:c14n197 .
+_:c14n441 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_ecosystem_claims .
-_:c14n441 xsd:pattern "^[A-Za-z]{2,8}(-[A-Za-z0-9]{1,8})*$" .
-_:c14n442 a rdfs:Datatype ;
+_:c14n442 xsd:pattern "^[A-Za-z]{2,8}(-[A-Za-z0-9]{1,8})*$" .
+_:c14n443 a rdfs:Datatype ;
 	owl:onDatatype xsd:integer ;
-	owl:withRestrictions _:c14n444 .
-_:c14n443 rdf:first _:c14n442 ;
+	owl:withRestrictions _:c14n445 .
+_:c14n444 rdf:first _:c14n443 ;
 	rdf:rest rdf:nil .
-_:c14n444 rdf:first _:c14n371 ;
+_:c14n445 rdf:first _:c14n371 ;
 	rdf:rest rdf:nil .
-_:c14n445 a rdfs:Datatype ;
+_:c14n446 a rdfs:Datatype ;
 	owl:onDatatype xsd:integer ;
-	owl:withRestrictions _:c14n449 .
-_:c14n446 rdf:first _:c14n445 ;
+	owl:withRestrictions _:c14n450 .
+_:c14n447 rdf:first _:c14n446 ;
 	rdf:rest rdf:nil .
-_:c14n447 rdf:first xsd:integer ;
-	rdf:rest _:c14n446 .
-_:c14n448 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n447 .
-_:c14n449 rdf:first _:c14n450 ;
-	rdf:rest rdf:nil .
+_:c14n448 rdf:first xsd:integer ;
+	rdf:rest _:c14n447 .
+_:c14n449 a rdfs:Datatype ;
+	owl:intersectionOf _:c14n448 .
 _:c14n45 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_iot_ai_systems .
-_:c14n450 xsd:minInclusive 0 .
-_:c14n451 a rdfs:Datatype ;
+_:c14n450 rdf:first _:c14n451 ;
+	rdf:rest rdf:nil .
+_:c14n451 xsd:minInclusive 0 .
+_:c14n452 a rdfs:Datatype ;
 	owl:onDatatype xsd:integer ;
-	owl:withRestrictions _:c14n455 .
-_:c14n452 rdf:first _:c14n451 ;
+	owl:withRestrictions _:c14n456 .
+_:c14n453 rdf:first _:c14n452 ;
 	rdf:rest rdf:nil .
-_:c14n453 rdf:first xsd:integer ;
-	rdf:rest _:c14n452 .
-_:c14n454 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n453 .
-_:c14n455 rdf:first _:c14n456 ;
+_:c14n454 rdf:first xsd:integer ;
+	rdf:rest _:c14n453 .
+_:c14n455 a rdfs:Datatype ;
+	owl:intersectionOf _:c14n454 .
+_:c14n456 rdf:first _:c14n457 ;
 	rdf:rest rdf:nil .
-_:c14n456 xsd:minInclusive 0 .
-_:c14n457 a rdfs:Datatype ;
+_:c14n457 xsd:minInclusive 0 .
+_:c14n458 a rdfs:Datatype ;
 	owl:onDatatype xsd:integer ;
-	owl:withRestrictions _:c14n461 .
-_:c14n458 rdf:first _:c14n457 ;
+	owl:withRestrictions _:c14n462 .
+_:c14n459 rdf:first _:c14n458 ;
 	rdf:rest rdf:nil .
-_:c14n459 rdf:first xsd:integer ;
-	rdf:rest _:c14n458 .
 _:c14n46 owl:unionOf _:c14n187 .
-_:c14n460 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n459 .
-_:c14n461 rdf:first _:c14n136 ;
+_:c14n460 rdf:first xsd:integer ;
+	rdf:rest _:c14n459 .
+_:c14n461 a rdfs:Datatype ;
+	owl:intersectionOf _:c14n460 .
+_:c14n462 rdf:first _:c14n136 ;
 	rdf:rest rdf:nil .
-_:c14n462 a rdfs:Datatype ;
+_:c14n463 a rdfs:Datatype ;
 	owl:onDatatype xsd:integer ;
-	owl:withRestrictions _:c14n463 .
-_:c14n463 rdf:first _:c14n464 ;
+	owl:withRestrictions _:c14n464 .
+_:c14n464 rdf:first _:c14n465 ;
 	rdf:rest rdf:nil .
-_:c14n464 xsd:minInclusive 0 .
-_:c14n465 a rdfs:Datatype ;
+_:c14n465 xsd:minInclusive 0 .
+_:c14n466 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
-	owl:withRestrictions _:c14n466 .
-_:c14n466 rdf:first _:c14n307 ;
+	owl:withRestrictions _:c14n467 .
+_:c14n467 rdf:first _:c14n442 ;
 	rdf:rest rdf:nil .
-_:c14n467 a rdfs:Datatype ;
+_:c14n468 a rdfs:Datatype ;
 	owl:onDatatype xsd:string ;
-	owl:withRestrictions _:c14n468 .
-_:c14n468 rdf:first _:c14n441 ;
+	owl:withRestrictions _:c14n469 .
+_:c14n469 rdf:first _:c14n307 ;
 	rdf:rest rdf:nil .
-_:c14n469 a rdfs:Datatype ;
-	owl:intersectionOf _:c14n193 .
 _:c14n47 a owl:Restriction ;
 	owl:allValuesFrom iso22989:AicDataset ;
 	owl:onProperty iso22989:aic_ecosystem_datasets .
-_:c14n470 rdf:first _:c14n285 ;
+_:c14n470 a rdfs:Datatype ;
+	owl:intersectionOf _:c14n193 .
+_:c14n471 rdf:first _:c14n285 ;
 	rdf:rest rdf:nil .
 _:c14n48 a owl:Restriction ;
 	owl:minCardinality 0 ;
@@ -2646,7 +2655,7 @@ _:c14n64 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_ml_retrained_from .
 _:c14n65 rdf:first iso22989:AicOecdLifecycleStage\#verify_and_validate ;
-	rdf:rest _:c14n218 .
+	rdf:rest _:c14n217 .
 _:c14n66 a owl:Restriction ;
 	owl:minCardinality 0 ;
 	owl:onProperty iso22989:aic_system_societal_impacts .
@@ -2700,7 +2709,7 @@ _:c14n81 a owl:Restriction ;
 	owl:maxCardinality 1 ;
 	owl:onProperty iso22989:aic_ml_paradigm .
 _:c14n82 a owl:Restriction ;
-	owl:allValuesFrom _:c14n454 ;
+	owl:allValuesFrom _:c14n455 ;
 	owl:onProperty iso22989:aic_dataset_sample_count .
 _:c14n83 rdf:first iso22989:AicStakeholderSubRole\#regulator ;
 	rdf:rest rdf:nil .

@@ -112,6 +112,7 @@ enum AicOecdLifecycleStage
     verify_and_validate
     deploy
     operate_and_monitor
+    retire_or_decommission
   }
 
 enum AicResourceKind

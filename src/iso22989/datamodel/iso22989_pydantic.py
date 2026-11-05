@@ -251,7 +251,7 @@ class AicAutonomy(str, Enum):
 
 class AicKnowledgeKind(str, Enum):
     """
-    How a body of knowledge is put.
+    Whether a body of knowledge states facts or steps.
     """
     declarative = "declarative"
     """
@@ -595,7 +595,7 @@ class AicLifecycleStage(str, Enum):
 
 class AicOecdLifecycleStage(str, Enum):
     """
-    A stage of the OECD's account of an AI system's life, which Annex A sets beside the standard's.
+    A phase of the OECD's account of an AI system's life, which Annex A sets beside the standard's.
     """
     plan_and_design = "plan_and_design"
     """
@@ -607,19 +607,23 @@ class AicOecdLifecycleStage(str, Enum):
     """
     build_and_use_model = "build_and_use_model"
     """
-    Making the model and trying it.
+    Making the model, or adapting one that exists, and trying it on the task.
     """
     verify_and_validate = "verify_and_validate"
     """
-    Checking the model.
+    Testing and evaluating the system, and checking it against what was specified and what it is for.
     """
     deploy = "deploy"
     """
-    Putting the system into use.
+    Making the system available for use.
     """
     operate_and_monitor = "operate_and_monitor"
     """
-    Running the system and watching it.
+    Running the system and watching how it behaves.
+    """
+    retire_or_decommission = "retire_or_decommission"
+    """
+    Taking the system out of service, a step that may come at any point while it runs.
     """
 
 

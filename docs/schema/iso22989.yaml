@@ -559,7 +559,7 @@ enums:
       iso22989_clause:
         tag: iso22989_clause
         value: '5.4'
-    description: How a body of knowledge is put.
+    description: Whether a body of knowledge states facts or steps.
     in_subset:
     - aic_systems
     from_schema: https://w3id.org/lmodel/iso22989
@@ -1182,8 +1182,10 @@ enums:
         value: '6.2'
     description: A stage in an AI system's life.
     comments:
-    - The related_mappings to AicOecdLifecycleStage are this project's reading of
-      Annex A, and have not been checked against its text.
+    - The related_mappings pair each stage with the OECD phase it answers to. Annex
+      A of the standard sets the two accounts side by side, and this project has not
+      checked the pairing against it; the retirement row rests on the OECD's text
+      alone.
     in_subset:
     - aic_lifecycle
     from_schema: https://w3id.org/lmodel/iso22989
@@ -1264,6 +1266,8 @@ enums:
           iso22989_clause:
             tag: iso22989_clause
             value: 6.2.9
+        related_mappings:
+        - iso22989:AicOecdLifecycleStage#retire_or_decommission
   AicOecdLifecycleStage:
     name: AicOecdLifecycleStage
     definition_uri: https://w3id.org/lmodel/iso22989/AicOecdLifecycleStage
@@ -1271,8 +1275,20 @@ enums:
       iso22989_clause:
         tag: iso22989_clause
         value: Annex A
-    description: A stage of the OECD's account of an AI system's life, which Annex
+      oecd_source:
+        tag: oecd_source
+        value: OECD/LEGAL/0449
+    description: A phase of the OECD's account of an AI system's life, which Annex
       A sets beside the standard's.
+    comments:
+    - 'The first six values are the phases the OECD Recommendation on Artificial Intelligence
+      (OECD/LEGAL/0449) named when the standard was published, as the OECD Framework
+      for the Classification of AI Systems (2022) draws them. The Recommendation as
+      revised on 3 May 2024 names seven: it adds retiring or decommissioning, widens
+      building to adapting a model that exists, and widens checking to testing and
+      evaluation. The descriptions follow the revised text, read at legalinstruments.oecd.org
+      on 2026-11-05, and retire_or_decommission is here for a record that follows
+      it.'
     in_subset:
     - aic_lifecycle
     from_schema: https://w3id.org/lmodel/iso22989
@@ -1285,16 +1301,22 @@ enums:
         description: Gathering and readying the data.
       build_and_use_model:
         text: build_and_use_model
-        description: Making the model and trying it.
+        description: Making the model, or adapting one that exists, and trying it
+          on the task.
       verify_and_validate:
         text: verify_and_validate
-        description: Checking the model.
+        description: Testing and evaluating the system, and checking it against what
+          was specified and what it is for.
       deploy:
         text: deploy
-        description: Putting the system into use.
+        description: Making the system available for use.
       operate_and_monitor:
         text: operate_and_monitor
-        description: Running the system and watching it.
+        description: Running the system and watching how it behaves.
+      retire_or_decommission:
+        text: retire_or_decommission
+        description: Taking the system out of service, a step that may come at any
+          point while it runs.
   AicResourceKind:
     name: AicResourceKind
     definition_uri: https://w3id.org/lmodel/iso22989/AicResourceKind
@@ -4449,6 +4471,6 @@ classes:
     class_uri: iso22989:AicCyberPhysicalSystem
 metamodel_version: 1.12.0
 source_file: iso22989.yaml
-source_file_date: '2026-11-05T10:55:51'
-source_file_size: 53458
+source_file_date: '2026-11-05T10:58:03'
+source_file_size: 54662
 

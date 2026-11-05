@@ -23,7 +23,7 @@ A prediction, the decision it informs and the action that follows are records th
 
 ## What is left out
 
-The schema holds no text of ISO/IEC 22989. It does not list the standard's abbreviations, since the schema spells each name out. Its `AicOecdLifecycleStage` values and the `related_mappings` to them are this project's reading of Annex A and have not been checked against its text.
+The schema holds no text of ISO/IEC 22989. It does not list the standard's abbreviations, since the schema spells each name out. Its `AicOecdLifecycleStage` values are the OECD's phases, read from the OECD's own text. The `related_mappings` that pair them with the standard's stages are this project's reading, and have not been checked against Annex A.
 
 The schema models the 2022 text alone. ISO lists two amendments in progress, and `scripts/check_upstream_release.py` reports when ISO publishes one.
 

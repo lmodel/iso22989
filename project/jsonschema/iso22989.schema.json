@@ -1377,7 +1377,7 @@
             "type": "object"
         },
         "AicKnowledgeKind": {
-            "description": "How a body of knowledge is put.",
+            "description": "Whether a body of knowledge states facts or steps.",
             "enum": [
                 "declarative",
                 "procedural"
@@ -1830,14 +1830,15 @@
             "type": "object"
         },
         "AicOecdLifecycleStage": {
-            "description": "A stage of the OECD's account of an AI system's life, which Annex A sets beside the standard's.",
+            "description": "A phase of the OECD's account of an AI system's life, which Annex A sets beside the standard's.",
             "enum": [
                 "plan_and_design",
                 "collect_and_process_data",
                 "build_and_use_model",
                 "verify_and_validate",
                 "deploy",
-                "operate_and_monitor"
+                "operate_and_monitor",
+                "retire_or_decommission"
             ],
             "title": "AicOecdLifecycleStage",
             "type": "string"

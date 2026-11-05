@@ -74,7 +74,7 @@ export enum AicAutonomy {
     heteronomous = "heteronomous",
 };
 /**
-* How a body of knowledge is put.
+* Whether a body of knowledge states facts or steps.
 */
 export enum AicKnowledgeKind {
     
@@ -282,7 +282,7 @@ export enum AicLifecycleStage {
     retirement = "retirement",
 };
 /**
-* A stage of the OECD's account of an AI system's life, which Annex A sets beside the standard's.
+* A phase of the OECD's account of an AI system's life, which Annex A sets beside the standard's.
 */
 export enum AicOecdLifecycleStage {
     
@@ -290,14 +290,16 @@ export enum AicOecdLifecycleStage {
     plan_and_design = "plan_and_design",
     /** Gathering and readying the data. */
     collect_and_process_data = "collect_and_process_data",
-    /** Making the model and trying it. */
+    /** Making the model, or adapting one that exists, and trying it on the task. */
     build_and_use_model = "build_and_use_model",
-    /** Checking the model. */
+    /** Testing and evaluating the system, and checking it against what was specified and what it is for. */
     verify_and_validate = "verify_and_validate",
-    /** Putting the system into use. */
+    /** Making the system available for use. */
     deploy = "deploy",
-    /** Running the system and watching it. */
+    /** Running the system and watching how it behaves. */
     operate_and_monitor = "operate_and_monitor",
+    /** Taking the system out of service, a step that may come at any point while it runs. */
+    retire_or_decommission = "retire_or_decommission",
 };
 /**
 * A kind of computing resource AI work runs on.

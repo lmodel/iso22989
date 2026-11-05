@@ -21,6 +21,7 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 - **The schema is rewritten** with the `Aic` prefix on classes and enums and the `aic_` prefix on slots, from 85 classes and 42 enums to 26 classes and 21 enums, each citing what it renders. A record mixes in `AicRecordMixin`, and a reference holds the `aic_id` of the record it names.
 - **Systems and models become hierarchies told apart by a designator**, and the `AicEcosystem` root lists every kind of record.
 - **The header** carries `version: "2022"` and ISO's page in `source`.
+- **The OECD life-cycle phases are read from the OECD's own text**, with `retire_or_decommission` from the Recommendation's 2024 revision and the standard's `retirement` mapped to it.
 - **The template settings** turn PyPI publishing and the docs preview off, linkml and linkml-runtime are locked at 1.12.1, and the Python project is named `iso22989-linkml`.
 
 ### Removed

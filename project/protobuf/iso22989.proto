@@ -680,7 +680,7 @@ enum AicFunctionalStep {
   AIC_FUNCTIONAL_STEP_DECISION = 4;
   AIC_FUNCTIONAL_STEP_ACTION = 5;
 }
-// How a body of knowledge is put.
+// Whether a body of knowledge states facts or steps.
 enum AicKnowledgeKind {
   AIC_KNOWLEDGE_KIND_UNSPECIFIED = 0;
   AIC_KNOWLEDGE_KIND_DECLARATIVE = 1;
@@ -715,7 +715,7 @@ enum AicNetworkArchitecture {
   AIC_NETWORK_ARCHITECTURE_LONG_SHORT_TERM_MEMORY = 3;
   AIC_NETWORK_ARCHITECTURE_CONVOLUTIONAL = 4;
 }
-// A stage of the OECD's account of an AI system's life, which Annex A sets beside the standard's.
+// A phase of the OECD's account of an AI system's life, which Annex A sets beside the standard's.
 enum AicOecdLifecycleStage {
   AIC_OECD_LIFECYCLE_STAGE_UNSPECIFIED = 0;
   AIC_OECD_LIFECYCLE_STAGE_PLAN_AND_DESIGN = 1;
@@ -724,6 +724,7 @@ enum AicOecdLifecycleStage {
   AIC_OECD_LIFECYCLE_STAGE_VERIFY_AND_VALIDATE = 4;
   AIC_OECD_LIFECYCLE_STAGE_DEPLOY = 5;
   AIC_OECD_LIFECYCLE_STAGE_OPERATE_AND_MONITOR = 6;
+  AIC_OECD_LIFECYCLE_STAGE_RETIRE_OR_DECOMMISSION = 7;
 }
 // A kind of computing resource AI work runs on.
 enum AicResourceKind {
