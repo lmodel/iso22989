@@ -29,8 +29,8 @@ from pydantic import (
 )
 
 
-metamodel_version = "1.11.0"
-version = "0.1.0"
+metamodel_version = "1.12.0"
+version = "2022"
 
 
 class ConfiguredBaseModel(BaseModel):
@@ -66,5098 +66,1916 @@ class LinkMLMeta(RootModel):
         return key in self.root
 
 
-linkml_meta = LinkMLMeta({'annotations': {'developing_committee': {'tag': 'developing_committee',
-                                              'value': 'ISO/IEC JTC 1/SC 42 '
-                                                       '(Artificial Intelligence)'},
-                     'related_standards': {'tag': 'related_standards',
-                                           'value': 'ISO/IEC 42001 (AI management '
-                                                    'system); ISO/IEC 23894 (AI '
-                                                    'risk management guidance); '
-                                                    'ISO/IEC 38507 (Governance '
-                                                    'implications of AI); ISO/IEC '
-                                                    '5338 (AI system life cycle '
-                                                    'process); ISO/IEC 5259 (Data '
-                                                    'quality for analytics and '
-                                                    'ML); ISO/IEC TR 24028 '
-                                                    '(Overview of trustworthiness '
-                                                    'in AI); ISO/IEC TR 24027 '
-                                                    '(Bias in AI systems and AI '
-                                                    'aided decision making); OECD '
-                                                    'AI Principles; NIST AI Risk '
-                                                    'Management Framework (AI RMF '
-                                                    '1.0)'},
-                     'rights_notice': {'tag': 'rights_notice',
-                                       'value': 'This project is licensed under '
-                                                'Apache-2.0 for original schema '
-                                                'structure and descriptions. '
-                                                'ISO/IEC standards text is owned '
-                                                'by ISO/IEC and is not reproduced '
-                                                'verbatim by this project. '
-                                                'Verbatim term definitions, where '
-                                                'required by downstream consumers, '
-                                                'must be supplied through a '
-                                                'private overlay file under their '
-                                                'own ISO licence.'},
-                     'schema_status': {'tag': 'schema_status', 'value': 'draft'},
-                     'standard_date': {'tag': 'standard_date', 'value': '2022-07'},
-                     'standard_edition': {'tag': 'standard_edition',
-                                          'value': 'First edition'},
-                     'standard_reference': {'tag': 'standard_reference',
-                                            'value': 'ISO/IEC 22989:2022(E)'},
-                     'standard_title': {'tag': 'standard_title',
-                                        'value': 'Information technology — '
-                                                 'Artificial intelligence — '
-                                                 'Artificial intelligence concepts '
-                                                 'and terminology'}},
+linkml_meta = LinkMLMeta({'annotations': {'edition': {'tag': 'edition', 'value': '1'},
+                     'iso_open_data_date': {'tag': 'iso_open_data_date',
+                                            'value': '2026-11-05'},
+                     'publication_date': {'tag': 'publication_date',
+                                          'value': '2022-07-19'},
+                     'standard': {'tag': 'standard',
+                                  'value': 'ISO/IEC 22989:2022'}},
+     'comments': ['The version is the edition the schema models, and source is '
+                  "ISO's page for that edition. ISO Open Data's records of it and "
+                  'of the two amendments in progress are copied to '
+                  'src/iso22989/schema/iso-open-data/ as of the date in the '
+                  'annotations, and scripts/check_upstream_release.py reports when '
+                  'ISO publishes one of them or another edition. The release tags '
+                  "are the schema's own versions.",
+                  'ISO/IEC 22989 is copyright ISO and IEC, and none of its text is '
+                  'reproduced here. Each element cites what it renders by number, '
+                  'in the iso22989_term annotation for a term of Clause 3 and the '
+                  'iso22989_clause annotation for a clause, and its description is '
+                  "this project's own words. A licence holder can merge the "
+                  "standard's wording into a private copy with the overlay that "
+                  'src/iso22989/schema/OVERLAY.md describes.',
+                  'tests/iso22989_numbers.yaml lists every term number and says '
+                  'which element renders it, or why none does.',
+                  'Every record that other records refer to has an aic_id, and a '
+                  'reference holds that identifier. AicEcosystem holds each kind '
+                  'of record in a list of its own.'],
      'default_prefix': 'iso22989',
      'default_range': 'string',
-     'description': 'A LinkML schema modelling the artificial-intelligence '
-                    'concepts, terminology, life-cycle stages, stakeholder roles, '
-                    'ecosystem components and application domains defined in '
-                    'ISO/IEC 22989:2022. The schema supplies the controlled '
-                    'vocabulary referenced by sibling lmodel schemas (iso42001 '
-                    'AIMS, iso23894 AI risk management) and supports SSSOM '
-                    'mappings to adjacent AI taxonomies.',
+     'description': 'A LinkML vocabulary for describing an AI system in the terms '
+                    'of ISO/IEC 22989:2022: the system and its kinds, its models, '
+                    'data and tasks, its place in the life cycle, the parties '
+                    'around it, the trustworthiness claims made for it, and the '
+                    'fields and applications it belongs to.',
      'id': 'https://w3id.org/lmodel/iso22989',
      'imports': ['linkml:types'],
-     'license': 'https://www.apache.org/licenses/LICENSE-2.0',
+     'license': 'Apache-2.0',
      'name': 'iso22989',
-     'prefixes': {'dcterms': {'prefix_prefix': 'dcterms',
-                              'prefix_reference': 'http://purl.org/dc/terms/'},
-                  'eu_ai_act': {'prefix_prefix': 'eu_ai_act',
-                                'prefix_reference': 'https://w3id.org/lmodel/eu-ai-act/'},
-                  'gist_linkml': {'prefix_prefix': 'gist_linkml',
-                                  'prefix_reference': 'https://w3id.org/lmodel/gist/'},
+     'prefixes': {'gist_ontology': {'prefix_prefix': 'gist_ontology',
+                                    'prefix_reference': 'https://w3id.org/semanticarts/ns/ontology/gist/'},
                   'iso22989': {'prefix_prefix': 'iso22989',
                                'prefix_reference': 'https://w3id.org/lmodel/iso22989/'},
-                  'iso23894': {'prefix_prefix': 'iso23894',
-                               'prefix_reference': 'https://w3id.org/lmodel/iso23894/'},
-                  'iso27001': {'prefix_prefix': 'iso27001',
-                               'prefix_reference': 'https://w3id.org/lmodel/iso27001/'},
-                  'iso29100': {'prefix_prefix': 'iso29100',
-                               'prefix_reference': 'https://w3id.org/lmodel/iso29100/'},
-                  'iso42001': {'prefix_prefix': 'iso42001',
-                               'prefix_reference': 'https://w3id.org/lmodel/iso42001/'},
                   'linkml': {'prefix_prefix': 'linkml',
                              'prefix_reference': 'https://w3id.org/linkml/'},
-                  'nist_ai_100_1': {'prefix_prefix': 'nist_ai_100_1',
-                                    'prefix_reference': 'https://w3id.org/lmodel/nist-ai-100-1/'},
-                  'nist_ai_600_1': {'prefix_prefix': 'nist_ai_600_1',
-                                    'prefix_reference': 'https://w3id.org/lmodel/nist-ai-600-1/'},
-                  'nist_ai_rmf': {'prefix_prefix': 'nist_ai_rmf',
-                                  'prefix_reference': 'https://w3id.org/lmodel/nist-ai-100-1/'},
-                  'nist_ai_rmf_common': {'prefix_prefix': 'nist_ai_rmf_common',
-                                         'prefix_reference': 'https://w3id.org/lmodel/nist-ai-100-1/schema/nist_ai_rmf_common/'},
-                  'oecd_ai': {'prefix_prefix': 'oecd_ai',
-                              'prefix_reference': 'https://oecd.ai/en/ai-principles#'},
-                  'prov': {'prefix_prefix': 'prov',
-                           'prefix_reference': 'http://www.w3.org/ns/prov#'},
-                  'rdfs': {'prefix_prefix': 'rdfs',
-                           'prefix_reference': 'http://www.w3.org/2000/01/rdf-schema#'},
                   'schema': {'prefix_prefix': 'schema',
                              'prefix_reference': 'http://schema.org/'},
-                  'semapv': {'prefix_prefix': 'semapv',
-                             'prefix_reference': 'https://w3id.org/semapv/vocab/'},
-                  'skos': {'prefix_prefix': 'skos',
-                           'prefix_reference': 'http://www.w3.org/2004/02/skos/core#'},
-                  'uco_core': {'prefix_prefix': 'uco_core',
-                               'prefix_reference': 'https://w3id.org/lmodel/uco-core/'}},
+                  'spdx_ai': {'prefix_prefix': 'spdx_ai',
+                              'prefix_reference': 'https://spdx.org/rdf/3.0.1/terms/AI/'},
+                  'spdx_dataset': {'prefix_prefix': 'spdx_dataset',
+                                   'prefix_reference': 'https://spdx.org/rdf/3.0.1/terms/Dataset/'},
+                  'uco-observable': {'prefix_prefix': 'uco-observable',
+                                     'prefix_reference': 'https://ontology.unifiedcyberontology.org/uco/observable/'},
+                  'uco-role': {'prefix_prefix': 'uco-role',
+                               'prefix_reference': 'https://ontology.unifiedcyberontology.org/uco/role/'}},
      'see_also': ['https://lmodel.github.io/iso22989',
                   'https://www.iso.org/standard/74296.html'],
+     'source': 'https://www.iso.org/standard/74296.html',
      'source_file': 'src/iso22989/schema/iso22989.yaml',
-     'subsets': {'ai_applications_domain': {'description': 'Application domains '
-                                                           'presented in Clause 10 '
-                                                           '(fraud detection, '
-                                                           'automated vehicles, '
-                                                           'predictive maintenance '
-                                                           'and similar).',
-                                            'from_schema': 'https://w3id.org/lmodel/iso22989',
-                                            'name': 'ai_applications_domain'},
-                 'ai_concepts': {'description': 'Conceptual elements introduced in '
-                                                'Clause 5 (AI concepts), including '
-                                                'agent, knowledge, cognition, '
-                                                'autonomy, IoT/CPS, '
-                                                'trustworthiness, jurisdictional '
-                                                'and societal-impact concepts.',
-                                 'from_schema': 'https://w3id.org/lmodel/iso22989',
-                                 'name': 'ai_concepts'},
-                 'ai_ecosystem': {'description': 'Ecosystem-level classes in '
-                                                 'Clause 8 (AI systems, AI '
-                                                 'functions, ML, engineering '
-                                                 'approaches, data sources, '
-                                                 'cloud/edge computing and '
-                                                 'resource pools).',
-                                  'from_schema': 'https://w3id.org/lmodel/iso22989',
-                                  'name': 'ai_ecosystem'},
-                 'ai_fields': {'description': 'Sub-fields of AI introduced in '
-                                              'Clause 9 (computer vision, NLP, '
-                                              'data mining, planning).',
-                               'from_schema': 'https://w3id.org/lmodel/iso22989',
-                               'name': 'ai_fields'},
-                 'ai_functional_view': {'description': 'Classes representing the '
-                                                       'functional view of an AI '
-                                                       'system in Clause 7 (data '
-                                                       'and information, knowledge '
-                                                       'and learning, '
-                                                       'prediction/decision/ '
-                                                       'action chain).',
-                                        'from_schema': 'https://w3id.org/lmodel/iso22989',
-                                        'name': 'ai_functional_view'},
-                 'ai_lifecycle': {'description': 'Classes and enums representing '
-                                                 'the AI system life-cycle model '
-                                                 'and its stages in Clause 6.',
-                                  'from_schema': 'https://w3id.org/lmodel/iso22989',
-                                  'name': 'ai_lifecycle'},
-                 'ai_stakeholders': {'description': 'AI stakeholder roles '
-                                                    'enumerated in Clause 5.19 '
-                                                    '(provider, producer, '
-                                                    'customer, partner, subject, '
-                                                    'relevant authorities) '
-                                                    'together with the sub-role '
-                                                    'refinements used by the '
-                                                    'standard.',
-                                     'from_schema': 'https://w3id.org/lmodel/iso22989',
-                                     'name': 'ai_stakeholders'},
-                 'terminology': {'description': 'Classes and enums representing '
-                                                'terms and definitions in Clause 3 '
-                                                'of ISO/IEC 22989:2022 (Terms '
-                                                'related to AI, data, machine '
-                                                'learning, neural networks, '
-                                                'trustworthiness, natural-language '
-                                                'processing and computer vision).',
-                                 'from_schema': 'https://w3id.org/lmodel/iso22989',
-                                 'name': 'terminology'},
-                 'trustworthiness': {'description': 'Trustworthiness properties of '
-                                                    'AI systems as listed in '
-                                                    'Clause 5.15 (robustness, '
-                                                    'reliability, resilience, '
-                                                    'controllability, '
-                                                    'explainability, '
-                                                    'predictability, transparency, '
-                                                    'fairness, bias mitigation).',
-                                     'from_schema': 'https://w3id.org/lmodel/iso22989',
-                                     'name': 'trustworthiness'}},
-     'title': 'ISO/IEC 22989:2022: AI Concepts and Terminology — LinkML Schema',
-     'types': {'ConfidenceScore': {'base': 'float',
-                                   'description': 'Numeric confidence score '
-                                                  'expressed as a value in the '
-                                                  'closed interval [0.0, 1.0]. '
-                                                  'Used for model prediction '
-                                                  'confidence, trust scores and '
-                                                  'similar normalised quality '
-                                                  'indicators.',
+     'subsets': {'aic_data': {'description': 'Datasets and the work done on them '
+                                             '(clauses 5.10 and 8.6).',
+                              'from_schema': 'https://w3id.org/lmodel/iso22989',
+                              'name': 'aic_data'},
+                 'aic_ecosystem': {'description': 'What surrounds AI systems, such '
+                                                  'as computing resources (clause '
+                                                  '8).',
                                    'from_schema': 'https://w3id.org/lmodel/iso22989',
-                                   'maximum_value': 1.0,
-                                   'minimum_value': 0.0,
-                                   'name': 'ConfidenceScore',
-                                   'typeof': 'float',
-                                   'uri': 'xsd:float'},
-               'DurationType': {'base': 'str',
-                                'description': 'ISO 8601 duration value such as '
-                                               'P1Y, P30D or PT4H.',
-                                'from_schema': 'https://w3id.org/lmodel/iso22989',
-                                'name': 'DurationType',
-                                'uri': 'xsd:duration'}}} )
+                                   'name': 'aic_ecosystem'},
+                 'aic_fields_and_applications': {'description': 'The fields of AI '
+                                                                'and where systems '
+                                                                'are applied '
+                                                                '(clauses 9 and '
+                                                                '10).',
+                                                 'from_schema': 'https://w3id.org/lmodel/iso22989',
+                                                 'name': 'aic_fields_and_applications'},
+                 'aic_functional_view': {'description': 'How a system moves from '
+                                                        'data to acting on its '
+                                                        'results (clause 7).',
+                                         'from_schema': 'https://w3id.org/lmodel/iso22989',
+                                         'name': 'aic_functional_view'},
+                 'aic_iot': {'description': 'Connected devices and physical '
+                                            'systems (clause 5.14).',
+                             'from_schema': 'https://w3id.org/lmodel/iso22989',
+                             'name': 'aic_iot'},
+                 'aic_lifecycle': {'description': "The stages of an AI system's "
+                                                  'life and the work in each '
+                                                  '(clause 6).',
+                                   'from_schema': 'https://w3id.org/lmodel/iso22989',
+                                   'name': 'aic_lifecycle'},
+                 'aic_machine_learning': {'description': 'Models and how they '
+                                                         'learn (clauses 5.11, '
+                                                         '5.12 and 8.4).',
+                                          'from_schema': 'https://w3id.org/lmodel/iso22989',
+                                          'name': 'aic_machine_learning'},
+                 'aic_stakeholders': {'description': 'The parties around an AI '
+                                                     'system (clause 5.19).',
+                                      'from_schema': 'https://w3id.org/lmodel/iso22989',
+                                      'name': 'aic_stakeholders'},
+                 'aic_systems': {'description': 'AI systems, their kinds and their '
+                                                'parts (clauses 5.1 to 5.9, 5.13 '
+                                                'and 8.2).',
+                                 'from_schema': 'https://w3id.org/lmodel/iso22989',
+                                 'name': 'aic_systems'},
+                 'aic_trustworthiness': {'description': 'Claims about an AI system '
+                                                        'and checks on it (clauses '
+                                                        '5.15 and 5.16).',
+                                         'from_schema': 'https://w3id.org/lmodel/iso22989',
+                                         'name': 'aic_trustworthiness'}},
+     'title': 'ISO/IEC 22989:2022 AI concepts and terminology'} )
 
-class AISystemType(str, Enum):
+class AicSystemScope(str, Enum):
     """
-    High-level capability classification of an AI system, from narrow (single-task) through general (broad cross-domain) systems and the historical strong/weak AI distinction in Clause 5.2.
+    How wide a range of problems a system can take on.
     """
     narrow_ai = "narrow_ai"
     """
-    AI system designed and deployed for a single, well-bounded task.
+    Built for a bounded set of problems, and cannot move beyond them.
     """
     general_ai = "general_ai"
     """
-    Hypothetical AI system able to perform any cognitive task a human can perform.
-    """
-    weak_ai = "weak_ai"
-    """
-    Historical term largely overlapping with narrow AI; emphasises tool-like behaviour.
-    """
-    strong_ai = "strong_ai"
-    """
-    Historical term largely overlapping with general AI; emphasises human-equivalent cognition.
+    Able to take on problems of many kinds, including ones it was not built for.
     """
 
 
-class SymbolicApproach(str, Enum):
+class AicApproach(str, Enum):
     """
-    The symbolic vs subsymbolic axis used in Clause 5.9 to classify AI reasoning techniques.
+    Whether a system works on explicit symbols or on learned numeric encodings.
     """
     symbolic = "symbolic"
     """
-    Approaches that manipulate explicit symbolic representations (rules, logic, knowledge graphs).
+    Works by manipulating explicit symbols and the rules that relate them.
     """
     subsymbolic = "subsymbolic"
     """
-    Approaches that operate on distributed numeric representations (neural networks, statistical models).
-    """
-    hybrid = "hybrid"
-    """
-    Approaches that combine symbolic and subsymbolic techniques (neuro-symbolic AI).
+    Works on numeric encodings that carry meaning only as a whole, such as the weights of a network.
     """
 
 
-class MachineLearningParadigm(str, Enum):
+class AicTechnique(str, Enum):
     """
-    Top-level machine-learning paradigms enumerated in Clause 5.11.
+    A family of techniques a system is built with.
     """
-    supervised = "supervised"
+    machine_learning = "machine_learning"
     """
-    Learning from labelled input-output examples.
+    Fits a model's numbers to data rather than having a person write the logic.
     """
-    unsupervised = "unsupervised"
+    deep_learning = "deep_learning"
     """
-    Learning structure from unlabelled data (clustering, density estimation, dimensionality reduction).
+    Machine learning that stacks many layers of a network.
     """
-    semi_supervised = "semi_supervised"
+    cognitive_computing = "cognitive_computing"
     """
-    Learning from a mixture of labelled and unlabelled data.
+    Aims at interaction with people that feels closer to how people deal with one another.
     """
-    reinforcement = "reinforcement"
+    semantic_computing = "semantic_computing"
     """
-    Learning policies by interaction with an environment that issues rewards.
+    Works out what content and requests mean, so that it can act on the meaning.
     """
-    transfer = "transfer"
+    soft_computing = "soft_computing"
     """
-    Reusing knowledge learned on one task to accelerate learning on a related task.
-    """
-    self_supervised = "self_supervised"
-    """
-    Learning representations from data using auxiliary tasks derived from the data itself.
-    """
-
-
-class MLAlgorithmFamily(str, Enum):
-    """
-    Example machine-learning algorithm families enumerated in Clause 5.12.
-    """
-    neural_network = "neural_network"
-    """
-    Networks of interconnected processing units (artificial neurons) trained by gradient methods.
-    """
-    bayesian_network = "bayesian_network"
-    """
-    Probabilistic graphical models encoding conditional dependencies between variables.
-    """
-    decision_tree = "decision_tree"
-    """
-    Tree-structured models splitting the input space on feature thresholds.
-    """
-    support_vector_machine = "support_vector_machine"
-    """
-    Margin-maximising classifiers operating in (possibly kernelised) feature spaces.
+    Accepts inexact or uncertain reasoning where an exact answer would cost too much.
     """
     genetic_algorithm = "genetic_algorithm"
     """
-    Population-based optimisation inspired by biological evolution (Clause 5.8).
-    """
-
-
-class AutonomyLevel(str, Enum):
-    """
-    Degree of system autonomy as discussed in Clause 5.13 (autonomy, heteronomy and automation). Encodes both the qualitative axis (autonomous / heteronomous / automated) and the six-level operational autonomy gradient widely used by ISO/IEC JTC 1/SC 42 work products.
-    """
-    automated = "automated"
-    """
-    System executes a fixed predefined behaviour without runtime adaptation.
-    """
-    heteronomous = "heteronomous"
-    """
-    System operates under external direction or supervision.
-    """
-    autonomous = "autonomous"
-    """
-    System pursues goals using its own decision-making within a defined operating envelope.
-    """
-    level_0_no_automation = "level_0_no_automation"
-    """
-    Human performs all tasks; no autonomous functionality (Clause 5.13).
-    """
-    level_1_assistance = "level_1_assistance"
-    """
-    System assists the operator with one or more specific tasks.
-    """
-    level_2_partial_automation = "level_2_partial_automation"
-    """
-    System performs some sub-functions; operator retains overall control.
-    """
-    level_3_conditional_automation = "level_3_conditional_automation"
-    """
-    System handles defined tasks but expects the operator to intervene when requested.
-    """
-    level_4_high_automation = "level_4_high_automation"
-    """
-    System performs the mission within a defined operating envelope without operator intervention.
-    """
-    level_5_full_automation = "level_5_full_automation"
-    """
-    System performs the entire mission autonomously across all conditions.
-    """
-
-
-class TrustworthinessPropertyType(str, Enum):
-    """
-    Properties contributing to AI trustworthiness, enumerated in Clause 5.15 (robustness, reliability, resilience, controllability, explainability, predictability, transparency, fairness and bias-related properties).
-    """
-    robustness = "robustness"
-    """
-    Ability to maintain performance under varied or adversarial conditions.
-    """
-    reliability = "reliability"
-    """
-    Consistent intended behaviour over time under stated conditions.
-    """
-    resilience = "resilience"
-    """
-    Ability to recover acceptable behaviour after disruption or failure.
-    """
-    controllability = "controllability"
-    """
-    Property of allowing authorised humans to intervene in system behaviour.
-    """
-    explainability = "explainability"
-    """
-    Property of producing explanations of system behaviour that are intelligible to relevant audiences.
-    """
-    predictability = "predictability"
-    """
-    Property of behaviour being anticipatable given known inputs and state.
-    """
-    transparency = "transparency"
-    """
-    Property of disclosing meaningful information about the system to interested parties.
-    """
-    fairness = "fairness"
-    """
-    Property of avoiding inappropriate or harmful discrimination across groups.
-    """
-    bias_mitigation = "bias_mitigation"
-    """
-    Property of identifying and reducing unwanted bias in data, models or outcomes.
-    """
-    accountability = "accountability"
-    """
-    Property of having identifiable parties answerable for system behaviour and outcomes.
-    """
-    privacy = "privacy"
-    """
-    Property of respecting personal data and individual privacy expectations.
-    """
-    safety = "safety"
-    """
-    Property of not causing unacceptable risk of harm to people, property or environment.
-    """
-    availability = "availability"
-    """
-    Property of being accessible and usable on demand by authorised entities (Clause 5.15.3 context).
-    """
-    integrity = "integrity"
-    """
-    Property of safeguarding accuracy and completeness of data, models and outputs (Clause 5.15 Note).
-    """
-    authenticity = "authenticity"
-    """
-    Property of being able to verify the origin and identity of inputs, models and outputs (Clause 5.15 Note).
-    """
-    security = "security"
-    """
-    Property of preserving confidentiality, integrity and availability of the AI system and its data (Clause 5.15 context).
-    """
-    usability = "usability"
-    """
-    Property of being effectively, efficiently and satisfactorily usable by the intended users (Clause 5.15 Note).
-    """
-    quality = "quality"
-    """
-    Aggregate property reflecting how well the AI system meets stated and implied needs (Clause 5.15 Note).
-    """
-    fault_tolerance = "fault_tolerance"
-    """
-    Property of continuing to operate correctly in the presence of component faults (Clause 5.15.4 context).
-    """
-
-
-class BiasType(str, Enum):
-    """
-    Categories of bias relevant to AI systems as discussed in Clause 5.15.9 and ISO/IEC TR 24027.
-    """
-    data_bias = "data_bias"
-    """
-    Bias introduced through sampling, labelling or representation of training data.
-    """
-    algorithmic_bias = "algorithmic_bias"
-    """
-    Bias introduced through model or algorithm choice and parameterisation.
-    """
-    societal_bias = "societal_bias"
-    """
-    Bias reflecting structural inequalities in the data-generating environment.
-    """
-    cognitive_bias = "cognitive_bias"
-    """
-    Bias introduced through human cognition during design, labelling or interpretation.
-    """
-    automation_bias = "automation_bias"
-    """
-    Tendency of users to over-rely on automated outputs.
-    """
-
-
-class AILifecycleStage(str, Enum):
-    """
-    AI system life-cycle stages identified in Clause 6.2.
-    """
-    inception = "inception"
-    """
-    Identification of need, opportunity and high-level objectives for the AI system.
-    """
-    design_and_development = "design_and_development"
-    """
-    Architecture, model selection, data preparation, training and integration activities.
-    """
-    verification_and_validation = "verification_and_validation"
-    """
-    Evidence-gathering activities establishing that the system meets specified requirements.
-    """
-    deployment = "deployment"
-    """
-    Release of the AI system into its operational environment.
-    """
-    operation_and_monitoring = "operation_and_monitoring"
-    """
-    Routine use of the AI system with ongoing observation of behaviour and performance.
-    """
-    continuous_validation = "continuous_validation"
-    """
-    Ongoing checks that the system continues to meet validation criteria during operation.
-    """
-    re_evaluation = "re_evaluation"
-    """
-    Periodic or event-triggered reassessment of the system, often leading to retraining or redesign.
-    """
-    retirement = "retirement"
-    """
-    Decommissioning of the AI system and management of residual data and artefacts.
-    """
-
-
-class AIFunctionalComponent(str, Enum):
-    """
-    Functional building blocks of an AI system as introduced in Clause 7.
-    """
-    data_and_information = "data_and_information"
-    """
-    Data acquisition, storage and information management functions.
-    """
-    knowledge_and_learning = "knowledge_and_learning"
-    """
-    Functions producing or maintaining knowledge representations and learned models.
-    """
-    prediction = "prediction"
-    """
-    Functions producing predictions from inputs using a trained model or knowledge base.
-    """
-    decision = "decision"
-    """
-    Functions selecting a course of action based on predictions and constraints.
-    """
-    action = "action"
-    """
-    Functions enacting decisions on the environment or downstream systems.
-    """
-
-
-class AIStakeholderRoleType(str, Enum):
-    """
-    AI stakeholder roles enumerated in Clause 5.19.
-    """
-    ai_provider = "ai_provider"
-    """
-    Party that makes an AI system available to AI customers.
-    """
-    ai_producer = "ai_producer"
-    """
-    Party that designs, develops or assembles AI systems or components.
-    """
-    ai_customer = "ai_customer"
-    """
-    Party that uses an AI system or a service backed by an AI system.
-    """
-    ai_partner = "ai_partner"
-    """
-    Party providing services that support the AI life cycle (data brokers, integrators, evaluators).
-    """
-    ai_subject = "ai_subject"
-    """
-    Person or group whose data is used by, or who is otherwise affected by, the AI system.
-    """
-    relevant_authority = "relevant_authority"
-    """
-    Body with regulatory, supervisory or standards-setting responsibility for AI.
-    """
-
-
-class EngineeringApproach(str, Enum):
-    """
-    Non-learning engineering approaches contributing to AI, from Clause 8.5.
-    """
-    expert_system = "expert_system"
-    """
-    Rule-based system encoding domain expertise (Clause 8.5.2).
+    Searches by breeding and selecting candidate answers over many generations.
     """
     logic_programming = "logic_programming"
     """
-    Programming paradigm based on formal logic (Clause 8.5.3).
-    """
-    knowledge_graph = "knowledge_graph"
-    """
-    Graph-structured knowledge representation used for reasoning and retrieval.
-    """
-    constraint_satisfaction = "constraint_satisfaction"
-    """
-    Solving problems by satisfying a set of declared constraints.
+    States facts and rules in logic, and lets a solver reach the conclusions.
     """
 
 
-class ComputingResourceType(str, Enum):
+class AicAutonomy(str, Enum):
     """
-    Categories of computing resource used by AI systems, drawn from Clauses 8.6 (cloud and edge computing) and 8.7 (resource pools).
+    Whether a system can change its own remit or stays under outside direction.
     """
-    cloud = "cloud"
+    autonomous = "autonomous"
     """
-    Centralised, elastically provisioned computing resources accessed over a network.
+    Can change what it is for or where it applies with nobody directing it.
     """
-    edge = "edge"
+    heteronomous = "heteronomous"
     """
-    Computing resources located close to data sources or end users.
-    """
-    on_premises = "on_premises"
-    """
-    Computing resources owned and operated within the organisation's own facilities.
-    """
-    cpu = "cpu"
-    """
-    General-purpose central-processing-unit compute capacity.
-    """
-    gpu = "gpu"
-    """
-    Graphics-processing-unit compute capacity, commonly used for neural network training and inference.
-    """
-    tpu = "tpu"
-    """
-    Tensor-processing-unit or similar accelerator specialised for ML workloads.
-    """
-    asic = "asic"
-    """
-    Application-specific integrated circuit designed for a fixed AI workload (Clause 8.7.2).
-    """
-    fpga = "fpga"
-    """
-    Field-programmable gate array offering reconfigurable hardware acceleration.
-    """
-    npu = "npu"
-    """
-    Neural-network processing unit specialised for neural-network inference and training.
-    """
-    dsp = "dsp"
-    """
-    Digital signal processor used to accelerate signal-processing workloads.
+    Stays under the direction of a person or another system.
     """
 
 
-class DataModality(str, Enum):
+class AicKnowledgeKind(str, Enum):
     """
-    Modalities of input data handled by AI systems, drawn from the data, NLP and CV terminology sections (Clauses 3.2, 3.6, 3.7).
-    """
-    structured = "structured"
-    """
-    Tabular or relational data with an explicit schema.
-    """
-    semi_structured = "semi_structured"
-    """
-    Data with self-describing structure such as JSON, XML or graph formats.
-    """
-    unstructured = "unstructured"
-    """
-    Data without an explicit schema (free text, images, audio, video).
-    """
-    text = "text"
-    """
-    Natural-language text data.
-    """
-    image = "image"
-    """
-    Two-dimensional visual data.
-    """
-    video = "video"
-    """
-    Temporal sequences of visual frames.
-    """
-    audio = "audio"
-    """
-    Acoustic signal data.
-    """
-    sensor = "sensor"
-    """
-    Telemetry or measurement data from physical sensors.
-    """
-    time_series = "time_series"
-    """
-    Ordered observations indexed by time.
-    """
-    graph = "graph"
-    """
-    Data represented as nodes and edges.
-    """
-
-
-class DatasetRole(str, Enum):
-    """
-    Role a dataset plays in a machine-learning workflow, drawn from Clauses 5.11.6–5.11.8.
-    """
-    training = "training"
-    """
-    Dataset used to fit model parameters.
-    """
-    validation = "validation"
-    """
-    Dataset used to tune hyperparameters and select among candidate models.
-    """
-    test = "test"
-    """
-    Dataset used for a final unbiased estimate of model performance.
-    """
-    production = "production"
-    """
-    Live data observed during operational deployment.
-    """
-    reference = "reference"
-    """
-    Curated dataset used as a benchmark across experiments.
-    """
-
-
-class NLPComponentType(str, Enum):
-    """
-    Components of a natural-language-processing pipeline as enumerated in Clauses 3.6 and 9.2.
-    """
-    tokenisation = "tokenisation"
-    """
-    Segmenting text into tokens such as words or subwords.
-    """
-    lemmatisation = "lemmatisation"
-    """
-    Reducing tokens to their canonical dictionary form.
-    """
-    part_of_speech_tagging = "part_of_speech_tagging"
-    """
-    Assigning grammatical category labels to tokens.
-    """
-    syntactic_parsing = "syntactic_parsing"
-    """
-    Producing syntactic structure for sentences.
-    """
-    semantic_analysis = "semantic_analysis"
-    """
-    Deriving meaning representations from text.
-    """
-    named_entity_recognition = "named_entity_recognition"
-    """
-    Identifying and classifying named entities in text.
-    """
-    sentiment_analysis = "sentiment_analysis"
-    """
-    Estimating subjective polarity or affect in text.
-    """
-    machine_translation = "machine_translation"
-    """
-    Automatically translating text between natural languages.
-    """
-    speech_recognition = "speech_recognition"
-    """
-    Converting acoustic speech signals into text.
-    """
-    speech_synthesis = "speech_synthesis"
-    """
-    Generating speech audio from text.
-    """
-    natural_language_understanding = "natural_language_understanding"
-    """
-    Deriving structured meaning, intent or entities from natural-language input (Clause 9.2).
-    """
-    natural_language_generation = "natural_language_generation"
-    """
-    Producing natural-language output from structured inputs (Clause 9.2).
-    """
-    automatic_summarization = "automatic_summarization"
-    """
-    Producing condensed summaries of longer text (Clause 3.6.1).
-    """
-    dialogue_management = "dialogue_management"
-    """
-    Controlling multi-turn conversational interaction (Clause 9.2.2).
-    """
-    information_retrieval = "information_retrieval"
-    """
-    Finding relevant documents or passages in a collection in response to a query.
-    """
-    question_answering = "question_answering"
-    """
-    Producing direct answers to natural-language questions.
-    """
-    relationship_extraction = "relationship_extraction"
-    """
-    Identifying typed relationships between entities mentioned in text.
-    """
-    emotion_recognition = "emotion_recognition"
-    """
-    Detecting affective or emotional state expressed in text or speech.
-    """
-    optical_character_recognition = "optical_character_recognition"
-    """
-    Converting images of printed or handwritten text into machine-readable text (Clause 3.6.12).
-    """
-    coreference_resolution = "coreference_resolution"
-    """
-    Linking mentions in text that refer to the same entity.
-    """
-
-
-class ComputerVisionTask(str, Enum):
-    """
-    Computer-vision tasks drawn from Clauses 3.7 and 9.1.
-    """
-    image_classification = "image_classification"
-    """
-    Assigning a class label to an image.
-    """
-    object_detection = "object_detection"
-    """
-    Localising and classifying objects within an image.
-    """
-    semantic_segmentation = "semantic_segmentation"
-    """
-    Assigning a class label to each pixel in an image.
-    """
-    instance_segmentation = "instance_segmentation"
-    """
-    Assigning labels to pixels grouped by individual object instance.
-    """
-    image_recognition = "image_recognition"
-    """
-    General recognition of image content, including faces and scenes.
-    """
-    pose_estimation = "pose_estimation"
-    """
-    Estimating the spatial pose of objects or persons.
-    """
-    optical_character_recognition = "optical_character_recognition"
-    """
-    Extracting machine-readable text from images of printed or handwritten content.
-    """
-    face_recognition = "face_recognition"
-    """
-    Identifying or verifying persons from facial images (Clause 3.7.2).
-    """
-    scene_recognition = "scene_recognition"
-    """
-    Classifying the type of scene or environment depicted in an image.
-    """
-    motion_tracking = "motion_tracking"
-    """
-    Following the position of objects across successive frames in video.
-    """
-    visual_anomaly_detection = "visual_anomaly_detection"
-    """
-    Identifying visual patterns that deviate from expected behaviour.
-    """
-    three_d_reconstruction = "three_d_reconstruction"
-    """
-    Recovering three-dimensional structure from one or more images.
-    """
-    action_recognition = "action_recognition"
-    """
-    Recognising discrete actions performed in video.
-    """
-    activity_recognition = "activity_recognition"
-    """
-    Recognising higher-level activities composed of multiple actions in video.
-    """
-
-
-class AIField(str, Enum):
-    """
-    Sub-fields of AI referenced in Clause 9.
-    """
-    computer_vision = "computer_vision"
-    """
-    AI sub-field concerned with interpreting visual information.
-    """
-    natural_language_processing = "natural_language_processing"
-    """
-    AI sub-field concerned with processing and generating human language.
-    """
-    data_mining = "data_mining"
-    """
-    Extraction of patterns and knowledge from large data sets.
-    """
-    planning = "planning"
-    """
-    AI sub-field concerned with sequencing actions to achieve goals.
-    """
-    robotics = "robotics"
-    """
-    AI sub-field concerned with embodied autonomous systems.
-    """
-    knowledge_representation_and_reasoning = "knowledge_representation_and_reasoning"
-    """
-    AI sub-field concerned with explicit representation and inference over knowledge.
-    """
-    speech_processing = "speech_processing"
-    """
-    AI sub-field concerned with processing and producing speech signals.
-    """
-    multi_agent_systems = "multi_agent_systems"
-    """
-    AI sub-field concerned with coordination and interaction among multiple agents.
-    """
-
-
-class AIApplicationDomain(str, Enum):
-    """
-    Example AI application domains presented in Clause 10.
-    """
-    fraud_detection = "fraud_detection"
-    """
-    Identification of fraudulent transactions or behaviours (Clause 10.2).
-    """
-    automated_vehicles = "automated_vehicles"
-    """
-    AI capabilities used in self-driving or driver-assistance systems (Clause 10.3).
-    """
-    predictive_maintenance = "predictive_maintenance"
-    """
-    Anticipating equipment failures from sensor data (Clause 10.4).
-    """
-    recommendation = "recommendation"
-    """
-    Personalised recommendation of items or actions.
-    """
-    medical_diagnosis = "medical_diagnosis"
-    """
-    AI-assisted diagnostic decision support in healthcare.
-    """
-    content_generation = "content_generation"
-    """
-    AI-generated text, images, audio or other media.
-    """
-    agriculture = "agriculture"
-    """
-    AI applications in farming, crop and livestock management (Clause 10.1).
-    """
-    automotive = "automotive"
-    """
-    AI applications in vehicle design, manufacture and in-vehicle services (Clause 10.1).
-    """
-    banking_and_finance = "banking_and_finance"
-    """
-    AI applications in banking, finance and capital markets (Clause 10.1).
-    """
-    defense_and_security = "defense_and_security"
-    """
-    AI applications in defence and physical security (Clause 10.1).
-    """
-    education = "education"
-    """
-    AI applications in learning, teaching and assessment (Clause 10.1).
-    """
-    energy_and_utilities = "energy_and_utilities"
-    """
-    AI applications in energy generation, distribution and consumption (Clause 10.1).
-    """
-    healthcare = "healthcare"
-    """
-    AI applications in clinical care and health management (Clause 10.1).
-    """
-    legal_services = "legal_services"
-    """
-    AI applications in legal research, contracting and compliance (Clause 10.1).
-    """
-    manufacturing = "manufacturing"
-    """
-    AI applications in industrial production (Clause 10.1).
-    """
-    media_and_entertainment = "media_and_entertainment"
-    """
-    AI applications in media production, distribution and recommendation (Clause 10.1).
-    """
-    mixed_reality = "mixed_reality"
-    """
-    AI applications in virtual, augmented and mixed reality (Clause 10.1).
-    """
-    public_sector = "public_sector"
-    """
-    AI applications in government and public administration (Clause 10.1).
-    """
-    retail = "retail"
-    """
-    AI applications in retail and e-commerce (Clause 10.1).
-    """
-    space = "space"
-    """
-    AI applications in space exploration and operations (Clause 10.1).
-    """
-    telecommunications = "telecommunications"
-    """
-    AI applications in telecommunications networks and services (Clause 10.1).
-    """
-
-
-class OECDLifecycleStage(str, Enum):
-    """
-    OECD AI system life-cycle stages used in the informative mapping of Annex A.
-    """
-    plan_and_design = "plan_and_design"
-    """
-    OECD stage covering planning and design activities.
-    """
-    collect_and_process_data = "collect_and_process_data"
-    """
-    OECD stage covering data collection and processing.
-    """
-    build_and_use_model = "build_and_use_model"
-    """
-    OECD stage covering model building and inference.
-    """
-    verify_and_validate = "verify_and_validate"
-    """
-    OECD stage covering verification and validation.
-    """
-    deploy = "deploy"
-    """
-    OECD stage covering deployment of the AI system.
-    """
-    operate_and_monitor = "operate_and_monitor"
-    """
-    OECD stage covering operation and monitoring of the AI system.
-    """
-
-
-class JurisdictionalIssueType(str, Enum):
-    """
-    Categories of jurisdictional issue surfaced in Clause 5.17.
-    """
-    data_residency = "data_residency"
-    """
-    Constraints on the geographical location of stored or processed data.
-    """
-    cross_border_transfer = "cross_border_transfer"
-    """
-    Constraints on movement of data or AI outputs across legal jurisdictions.
-    """
-    liability = "liability"
-    """
-    Allocation of legal responsibility for AI-system actions and outcomes.
-    """
-    regulatory_compliance = "regulatory_compliance"
-    """
-    Conformity with applicable AI-specific or sector-specific regulations.
-    """
-    intellectual_property = "intellectual_property"
-    """
-    Ownership and licensing of training data, models and outputs.
-    """
-
-
-class SocietalImpactCategory(str, Enum):
-    """
-    Categories of societal impact discussed in Clause 5.18.
-    """
-    employment = "employment"
-    """
-    Effects on labour markets and the nature of work.
-    """
-    human_rights = "human_rights"
-    """
-    Effects on the exercise of fundamental human rights.
-    """
-    environment = "environment"
-    """
-    Environmental footprint of AI development and deployment.
-    """
-    democratic_processes = "democratic_processes"
-    """
-    Effects on political discourse, elections and civic participation.
-    """
-    digital_divide = "digital_divide"
-    """
-    Differential access to and impact of AI systems across populations.
-    """
-
-
-class NeuralNetworkArchitecture(str, Enum):
-    """
-    Architectural families of neural networks enumerated across Clause 3.4 and Clause 5.12.1.
-    """
-    feed_forward = "feed_forward"
-    """
-    Feed-forward neural network with unidirectional information flow (Clause 3.4.6).
-    """
-    recurrent = "recurrent"
-    """
-    Recurrent neural network with feedback connections (Clause 3.4.10).
-    """
-    long_short_term_memory = "long_short_term_memory"
-    """
-    LSTM recurrent architecture mitigating short memory in plain RNNs (Clause 3.4.7).
-    """
-    gated_recurrent_unit = "gated_recurrent_unit"
-    """
-    GRU recurrent architecture, a simplified gating variant of LSTM.
-    """
-    convolutional = "convolutional"
-    """
-    Convolutional neural network using local receptive fields (Clause 3.4.2).
-    """
-    transformer = "transformer"
-    """
-    Attention-based architecture used for sequence modelling.
-    """
-    autoencoder = "autoencoder"
-    """
-    Encoder-decoder architecture trained to reconstruct inputs for representation learning.
-    """
-    generative_adversarial = "generative_adversarial"
-    """
-    Adversarial pairing of generator and discriminator networks.
-    """
-    deep = "deep"
-    """
-    Neural network with many hidden layers (deep learning, Clause 3.4.4).
-    """
-
-
-class NeuralNetworkPhenomenon(str, Enum):
-    """
-    Training-time phenomena that affect neural-network learning, drawn from Clause 3.4.
-    """
-    vanishing_gradient = "vanishing_gradient"
-    """
-    Gradient signal shrinks across layers during back-propagation, slowing learning.
-    """
-    exploding_gradient = "exploding_gradient"
-    """
-    Gradient signal grows without bound across layers during back-propagation (Clause 3.4.5).
-    """
-    catastrophic_forgetting = "catastrophic_forgetting"
-    """
-    Previously learned knowledge is lost when the network is retrained on new data.
-    """
-    overfitting = "overfitting"
-    """
-    Model fits training data idiosyncrasies and fails to generalise.
-    """
-    underfitting = "underfitting"
-    """
-    Model lacks capacity or training to capture the underlying signal.
-    """
-
-
-class ActivationFunctionType(str, Enum):
-    """
-    Common activation functions used in neural networks (Clause 3.4.1).
-    """
-    sigmoid = "sigmoid"
-    """
-    Logistic sigmoid activation.
-    """
-    tanh = "tanh"
-    """
-    Hyperbolic tangent activation.
-    """
-    relu = "relu"
-    """
-    Rectified linear unit activation.
-    """
-    leaky_relu = "leaky_relu"
-    """
-    Rectified linear unit with non-zero gradient below zero.
-    """
-    softmax = "softmax"
-    """
-    Softmax activation producing a probability distribution.
-    """
-    linear = "linear"
-    """
-    Identity / linear activation.
-    """
-    other = "other"
-    """
-    Activation function not enumerated explicitly.
-    """
-
-
-class AgentArchitectureType(str, Enum):
-    """
-    Agent architectures discussed in Clause 5.3 (agent paradigm).
-    """
-    reflex_agent = "reflex_agent"
-    """
-    Agent that maps current percepts directly to actions.
-    """
-    model_based_agent = "model_based_agent"
-    """
-    Agent that maintains an internal model of the environment to guide action.
-    """
-    goal_based_agent = "goal_based_agent"
-    """
-    Agent that selects actions to achieve explicit goals.
-    """
-    utility_based_agent = "utility_based_agent"
-    """
-    Agent that selects actions to maximise an expected utility function.
-    """
-    learning_agent = "learning_agent"
-    """
-    Agent that improves its behaviour through experience.
-    """
-    multi_agent = "multi_agent"
-    """
-    Agent operating jointly with other agents in a shared environment.
-    """
-
-
-class KnowledgeType(str, Enum):
-    """
-    Types of knowledge distinguished in Clause 3.1 and Clause 5.4 (declarative versus procedural knowledge, etc.).
+    How a body of knowledge is put.
     """
     declarative = "declarative"
     """
-    Knowledge of facts and relationships (Clause 3.1.12).
+    States what is the case.
     """
     procedural = "procedural"
     """
-    Knowledge of how to perform tasks (Clause 3.1.28).
-    """
-    tacit = "tacit"
-    """
-    Implicit, experience-based knowledge that is hard to articulate.
-    """
-    common_sense = "common_sense"
-    """
-    Background knowledge expected to be shared by typical humans.
-    """
-    domain_specific = "domain_specific"
-    """
-    Knowledge specific to a particular application domain.
+    States what to do, step by step.
     """
 
 
-class DataProcessType(str, Enum):
+class AicFunctionalStep(str, Enum):
     """
-    Data-handling processes enumerated in Clause 5.10 and Clause 3.2 (data acquisition, annotation, preparation, quality checking, sampling, augmentation, drift and poisoning handling, etc.).
+    A step in how a system gets from data to acting on its results.
     """
-    data_acquisition = "data_acquisition"
+    data_and_information = "data_and_information"
     """
-    Collecting data from one or more sources.
+    Taking in data and giving it meaning.
     """
-    exploratory_data_analysis = "exploratory_data_analysis"
+    knowledge_and_learning = "knowledge_and_learning"
     """
-    Initial profiling of a dataset to understand its characteristics (Clause 3.2.6).
+    Building up what the system knows, and learning from more data.
+    """
+    prediction = "prediction"
+    """
+    Working out a likely result for the case in hand.
+    """
+    decision = "decision"
+    """
+    Choosing what to do, given the results so far.
+    """
+    action = "action"
+    """
+    Carrying out what was chosen.
+    """
+
+
+class AicLearningParadigm(str, Enum):
+    """
+    How a model learns from its data.
+    """
+    supervised = "supervised"
+    """
+    Every example comes with the answer it should give.
+    """
+    unsupervised = "unsupervised"
+    """
+    No example comes with an answer, so the model looks for structure.
+    """
+    semi_supervised = "semi_supervised"
+    """
+    Some examples come with answers and the rest do not.
+    """
+    reinforcement = "reinforcement"
+    """
+    The model acts, gets a reward or penalty, and adjusts to earn more reward.
+    """
+    transfer = "transfer"
+    """
+    What was learned on one problem gives a start on another.
+    """
+
+
+class AicAlgorithmFamily(str, Enum):
+    """
+    A family of algorithms that fit machine learning models.
+    """
+    neural_network = "neural_network"
+    """
+    Layers of simple units whose connection weights are tuned to the data.
+    """
+    bayesian_network = "bayesian_network"
+    """
+    A graph of variables and how the probability of one depends on others.
+    """
+    decision_tree = "decision_tree"
+    """
+    A series of branching tests that end in a result.
+    """
+    support_vector_machine = "support_vector_machine"
+    """
+    Finds the widest gap that separates the classes of example.
+    """
+
+
+class AicNetworkArchitecture(str, Enum):
+    """
+    How the layers of a neural network are connected.
+    """
+    feed_forward = "feed_forward"
+    """
+    Signals pass one way, from first layer to last, with no loops.
+    """
+    recurrent = "recurrent"
+    """
+    Outputs feed back as inputs, so the network can follow a sequence.
+    """
+    long_short_term_memory = "long_short_term_memory"
+    """
+    A recurrent design whose gates let it carry a signal across long sequences.
+    """
+    convolutional = "convolutional"
+    """
+    Layers slide small filters across the input, as is usual for images.
+    """
+
+
+class AicDatasetRole(str, Enum):
+    """
+    What a dataset is used for.
+    """
+    training = "training"
+    """
+    Used to fit a model.
+    """
+    validation = "validation"
+    """
+    Used while developing a model, to compare versions and tune settings.
+    """
+    test = "test"
+    """
+    Held back from development, to judge the finished model.
+    """
+    production = "production"
+    """
+    Gathered while the system runs, when it is deployed and in real use.
+    """
+    input = "input"
+    """
+    What a system is given so that it can work out a result.
+    """
+
+
+class AicDataProcessKind(str, Enum):
+    """
+    A kind of work done on data before or while a model uses it.
     """
     data_annotation = "data_annotation"
     """
-    Adding labels or other metadata to data items (Clause 3.2.1).
-    """
-    data_labeling = "data_labeling"
-    """
-    Assigning target labels to records for supervised learning.
-    """
-    data_preparation = "data_preparation"
-    """
-    Transforming raw data into a form suitable for analysis or training.
-    """
-    data_cleaning = "data_cleaning"
-    """
-    Detecting and correcting errors and inconsistencies in data.
-    """
-    filtering = "filtering"
-    """
-    Removing data items that do not match selection criteria.
-    """
-    normalisation = "normalisation"
-    """
-    Rescaling features to a common range or distribution.
-    """
-    de_identification = "de_identification"
-    """
-    Removing or transforming personally identifiable information.
+    Adds descriptive notes to data and leaves the data itself as it was.
     """
     data_quality_checking = "data_quality_checking"
     """
-    Assessing completeness, accuracy, representativeness and bias of data (Clause 3.2.2).
-    """
-    data_sampling = "data_sampling"
-    """
-    Selecting a subset of records from a larger population (Clause 3.2.4).
+    Looks for gaps, skew and whatever else would limit the data's use.
     """
     data_augmentation = "data_augmentation"
     """
-    Creating additional training examples via transformation of existing data (Clause 3.2.3).
+    Makes new samples out of existing ones by altering them.
     """
-    feature_engineering = "feature_engineering"
+    data_sampling = "data_sampling"
     """
-    Constructing or selecting features used as model inputs.
+    Picks a smaller part of the data that behaves like the whole.
+    """
+    exploratory_data_analysis = "exploratory_data_analysis"
+    """
+    A first look at data to learn its shape and what it may hold.
     """
     imputation = "imputation"
     """
-    Replacing missing values with substituted estimates (Clause 3.2.8).
-    """
-    data_drift_detection = "data_drift_detection"
-    """
-    Detecting changes in the statistical distribution of operational data.
-    """
-    data_poisoning_detection = "data_poisoning_detection"
-    """
-    Identifying adversarial contamination of training data.
-    """
-    concept_drift_handling = "concept_drift_handling"
-    """
-    Detecting and responding to changes in the relationship between inputs and target labels (Clause 5.11.9.1).
-    """
-    catastrophic_forgetting_mitigation = "catastrophic_forgetting_mitigation"
-    """
-    Strategies to prevent loss of previously learned knowledge during retraining (Clause 5.11.9.1).
-    """
-    retraining = "retraining"
-    """
-    Updating an existing trained model on new or revised data (Clause 5.11.9).
+    Fills gaps with values worked out from what is there.
     """
 
 
-class DataLabelType(str, Enum):
+class AicTrustworthinessProperty(str, Enum):
     """
-    Categories of target label produced or consumed by ML workflows.
+    A property a trustworthiness claim is about.
     """
-    categorical = "categorical"
+    robustness = "robustness"
     """
-    Discrete unordered class labels.
+    Keeps performing well when conditions turn hostile or unusual.
     """
-    binary = "binary"
+    reliability = "reliability"
     """
-    Two-class label (typically positive / negative).
+    Behaves and delivers as intended, time after time.
     """
-    ordinal = "ordinal"
+    resilience = "resilience"
     """
-    Discrete ordered labels.
+    Gets back to working order soon after something goes wrong.
     """
-    numeric = "numeric"
+    controllability = "controllability"
     """
-    Continuous numeric target value.
+    A person or another system can step in and steer it.
     """
-    structured = "structured"
+    explainability = "explainability"
     """
-    Composite or graph-structured label.
+    Can say, in terms people follow, what drove a result.
     """
-    sequence = "sequence"
+    predictability = "predictability"
     """
-    Ordered sequence of label tokens (e.g. sequence labelling, structured prediction).
+    Lets people form sound expectations of what it will produce.
     """
-    graph = "graph"
+    organizational_transparency = "organizational_transparency"
     """
-    Graph-structured label such as a parse tree or relational structure.
+    The organization tells those concerned what it does and decides.
     """
-    none = "none"
+    system_transparency = "system_transparency"
     """
-    No explicit label (unsupervised or self-supervised setting).
+    Those concerned can learn what they need to know about the system.
+    """
+    bias_and_fairness = "bias_and_fairness"
+    """
+    Whether the system treats some people or things worse than others, as a pattern.
+    """
+    accountability = "accountability"
+    """
+    Someone answers for what the system does and decides.
+    """
+    availability = "availability"
+    """
+    Those entitled to use it can reach it and use it when they ask.
     """
 
 
-class TaskCategory(str, Enum):
+class AicAssessmentKind(str, Enum):
     """
-    Categories of AI task addressed by AI systems, derived from the\n      machine-learning, NLP and computer-vision terminology in Clause 3.
+    Which question an assessment answers.
     """
-    classification = "classification"
+    verification = "verification"
     """
-    Assigning a class label to an input.
+    Evidence shows that the system meets what was specified for it.
     """
-    regression = "regression"
+    validation = "validation"
     """
-    Predicting a continuous numeric value.
+    Evidence shows that the system suits the use it is meant for.
     """
-    clustering = "clustering"
+
+
+class AicStakeholderRole(str, Enum):
     """
-    Grouping items by similarity without supervision.
+    The part a party plays around an AI system.
     """
-    ranking = "ranking"
+    ai_provider = "ai_provider"
     """
-    Ordering items by relevance or preference.
+    Offers AI products or services, or the platform for them.
     """
-    recommendation = "recommendation"
+    ai_producer = "ai_producer"
     """
-    Suggesting items to a user given context.
+    Designs, builds, tests or runs AI systems.
     """
-    anomaly_detection = "anomaly_detection"
+    ai_customer = "ai_customer"
     """
-    Identifying inputs that deviate from expected behaviour.
+    Takes an AI product or service for its own use.
     """
-    dimensionality_reduction = "dimensionality_reduction"
+    ai_partner = "ai_partner"
     """
-    Producing a lower-dimensional representation of the data.
+    Helps others in the ecosystem, by integrating systems or supplying data.
     """
-    generation = "generation"
+    ai_subject = "ai_subject"
     """
-    Producing new content (text, images, audio, etc.).
+    Is affected by an AI system, or has data about them used in it.
+    """
+    relevant_authority = "relevant_authority"
+    """
+    Sets policy for AI or holds others to the rules on it.
+    """
+
+
+class AicStakeholderSubRole(str, Enum):
+    """
+    A narrower part within one of the roles.
+    """
+    ai_platform_provider = "ai_platform_provider"
+    """
+    Offers the platform that others run AI on.
+    """
+    ai_product_or_service_provider = "ai_product_or_service_provider"
+    """
+    Offers a finished AI product or a service built on AI.
+    """
+    ai_developer = "ai_developer"
+    """
+    Writes and builds the system.
+    """
+    ai_user = "ai_user"
+    """
+    Uses the system directly.
+    """
+    ai_system_integrator = "ai_system_integrator"
+    """
+    Fits AI parts into a larger system.
+    """
+    data_provider = "data_provider"
+    """
+    Supplies data that others build or run on.
+    """
+    data_subject = "data_subject"
+    """
+    A person the data is about.
+    """
+    other_subject = "other_subject"
+    """
+    Anyone else a system affects.
+    """
+    policy_maker = "policy_maker"
+    """
+    Decides policy on AI.
+    """
+    regulator = "regulator"
+    """
+    Holds others to the rules on AI.
+    """
+
+
+class AicLifecycleStage(str, Enum):
+    """
+    A stage in an AI system's life.
+    """
+    inception = "inception"
+    """
+    Deciding that a system is wanted, what it is for and whether it can be done.
+    """
+    design_and_development = "design_and_development"
+    """
+    Making the system, from its architecture through its data work to its models.
+    """
+    verification_and_validation = "verification_and_validation"
+    """
+    Checking what was made against its specification and against its purpose.
+    """
+    deployment = "deployment"
+    """
+    Installing the system where it is to run, and making it ready for use.
+    """
+    operation_and_monitoring = "operation_and_monitoring"
+    """
+    Running the system and keeping an eye on how it behaves.
+    """
+    continuous_validation = "continuous_validation"
+    """
+    Repeating the checks on a system that goes on learning as it runs.
+    """
+    re_evaluation = "re_evaluation"
+    """
+    Looking again at whether the running system still meets its aims.
+    """
+    retirement = "retirement"
+    """
+    Taking the system out of use.
+    """
+
+
+class AicOecdLifecycleStage(str, Enum):
+    """
+    A stage of the OECD's account of an AI system's life, which Annex A sets beside the standard's.
+    """
+    plan_and_design = "plan_and_design"
+    """
+    Setting out what the system is for and how it will work.
+    """
+    collect_and_process_data = "collect_and_process_data"
+    """
+    Gathering and readying the data.
+    """
+    build_and_use_model = "build_and_use_model"
+    """
+    Making the model and trying it.
+    """
+    verify_and_validate = "verify_and_validate"
+    """
+    Checking the model.
+    """
+    deploy = "deploy"
+    """
+    Putting the system into use.
+    """
+    operate_and_monitor = "operate_and_monitor"
+    """
+    Running the system and watching it.
+    """
+
+
+class AicResourceKind(str, Enum):
+    """
+    A kind of computing resource AI work runs on.
+    """
+    cloud = "cloud"
+    """
+    Computing bought as a shared service, in someone else's data centre.
+    """
+    edge = "edge"
+    """
+    Computing close to where data arises, rather than in a far data centre.
+    """
+    application_specific_integrated_circuit = "application_specific_integrated_circuit"
+    """
+    A chip made for one kind of work, such as training or running a model.
+    """
+
+
+class AicField(str, Enum):
+    """
+    A field of AI a system belongs to.
+    """
+    computer_vision = "computer_vision"
+    """
+    Making sense of pictures and video.
+    """
+    natural_language_processing = "natural_language_processing"
+    """
+    Making sense of, or producing, human language.
+    """
+    data_mining = "data_mining"
+    """
+    Finding patterns in large amounts of numbers.
     """
     planning = "planning"
     """
-    Producing a sequence of actions that achieve a goal.
-    """
-    control = "control"
-    """
-    Selecting actions to influence a dynamical system.
-    """
-    decision_support = "decision_support"
-    """
-    Producing recommendations or explanations to support human decisions.
+    Working out a sequence of steps that reaches an aim.
     """
 
 
-class AISystemCharacteristic(str, Enum):
+class AicTaskKind(str, Enum):
     """
-    Distinguishing characteristics of AI systems summarised in Clause 5.1.
+    A named kind of task from the fields of language and vision.
     """
-    interactive = "interactive"
+    automatic_summarization = "automatic_summarization"
     """
-    Engages in interaction with users or other systems.
+    Cuts a text down to its main points.
     """
-    contextual = "contextual"
+    dialogue_management = "dialogue_management"
     """
-    Adapts behaviour to its operational context.
+    Decides what to say next in a conversation.
     """
-    adaptive = "adaptive"
+    emotion_recognition = "emotion_recognition"
     """
-    Adjusts behaviour over time in response to new data or feedback.
+    Works out the feeling a text or voice conveys.
     """
-    oversight_enabled = "oversight_enabled"
+    information_retrieval = "information_retrieval"
     """
-    Provides mechanisms for human oversight and intervention.
+    Finds stored documents that answer a need.
     """
-    data_dependent = "data_dependent"
+    machine_translation = "machine_translation"
     """
-    Performance depends materially on the data used to build or operate the system.
+    Renders text from one language in another.
     """
-
-
-class SoftComputingTechnique(str, Enum):
+    named_entity_recognition = "named_entity_recognition"
     """
-    Techniques grouped under soft computing in Clause 5.7.
+    Spots the people, places and other named things in a text.
     """
-    fuzzy_logic = "fuzzy_logic"
+    natural_language_generation = "natural_language_generation"
     """
-    Reasoning with degrees of truth rather than crisp Boolean values.
+    Writes text from data or from an internal form.
     """
-    evolutionary_computing = "evolutionary_computing"
+    natural_language_understanding = "natural_language_understanding"
     """
-    Optimisation inspired by biological evolution (including genetic algorithms).
+    Takes a text and draws out what it means.
     """
-    swarm_intelligence = "swarm_intelligence"
+    optical_character_recognition = "optical_character_recognition"
     """
-    Optimisation inspired by collective behaviour of decentralised agents.
+    Reads printed or written characters from a picture.
     """
-    probabilistic_reasoning = "probabilistic_reasoning"
+    part_of_speech_tagging = "part_of_speech_tagging"
     """
-    Reasoning under uncertainty using probability theory.
+    Marks each word as a noun, a verb and so on.
     """
-    neural_computing = "neural_computing"
+    question_answering = "question_answering"
     """
-    Computation realised by networks of artificial neurons.
+    Replies to a question put in everyday words.
     """
-
-
-class BigDataCharacteristic(str, Enum):
+    relationship_extraction = "relationship_extraction"
     """
-    Characteristics commonly used to describe big data sources in Clause 8.6.1.
+    Finds how the things a text names relate to one another.
     """
-    volume = "volume"
+    sentiment_analysis = "sentiment_analysis"
     """
-    Total amount of data managed.
+    Works out the opinion a text expresses.
     """
-    velocity = "velocity"
+    speech_recognition = "speech_recognition"
     """
-    Rate at which data is generated or processed.
+    Turns spoken words into text.
     """
-    variety = "variety"
+    speech_synthesis = "speech_synthesis"
     """
-    Range of data types and sources.
+    Turns text into spoken words.
     """
-    veracity = "veracity"
+    face_recognition = "face_recognition"
     """
-    Trustworthiness and accuracy of the data.
+    Matches a face in a picture against stored faces.
     """
-    value = "value"
+    image_recognition = "image_recognition"
     """
-    Usefulness of the data for the intended purpose.
-    """
-    variability = "variability"
-    """
-    Degree to which data characteristics change over time.
+    Says what a picture shows.
     """
 
 
-class IoTDeviceRole(str, Enum):
+class AicApplicationDomain(str, Enum):
     """
-    Roles played by devices in IoT and cyber-physical systems (Clause 5.14).
+    A domain the standard works through as an application of AI.
     """
-    sensor = "sensor"
+    fraud_detection = "fraud_detection"
     """
-    Device that observes the physical environment.
+    Spotting dishonest transactions or claims.
     """
-    actuator = "actuator"
+    automated_vehicles = "automated_vehicles"
     """
-    Device that effects changes in the physical environment.
+    Vehicles that drive part or all of the way without a driver.
     """
-    gateway = "gateway"
+    predictive_maintenance = "predictive_maintenance"
     """
-    Device that connects local IoT subnets to wider networks.
-    """
-    edge_compute = "edge_compute"
-    """
-    Device providing local computation at the network edge.
-    """
-    controller = "controller"
-    """
-    Device that supervises or coordinates other IoT devices.
-    """
-
-
-class AbbreviationCode(str, Enum):
-    """
-    Acronyms and abbreviations listed in Clause 4.
-    """
-    AI = "AI"
-    """
-    Artificial intelligence.
-    """
-    API = "API"
-    """
-    Application programming interface.
-    """
-    ASIC = "ASIC"
-    """
-    Application-specific integrated circuit.
-    """
-    CNN = "CNN"
-    """
-    Convolutional neural network.
-    """
-    CPS = "CPS"
-    """
-    Cyber-physical system.
-    """
-    CPU = "CPU"
-    """
-    Central processing unit.
-    """
-    CRISP_DM = "CRISP_DM"
-    """
-    Cross-industry standard process for data mining.
-    """
-    DNN = "DNN"
-    """
-    Deep neural network.
-    """
-    DSP = "DSP"
-    """
-    Digital signal processor.
-    """
-    FFNN = "FFNN"
-    """
-    Feed-forward neural network.
-    """
-    FPGA = "FPGA"
-    """
-    Field-programmable gate array.
-    """
-    GA = "GA"
-    """
-    Genetic algorithm.
-    """
-    GPU = "GPU"
-    """
-    Graphics processing unit.
-    """
-    HMM = "HMM"
-    """
-    Hidden Markov model.
-    """
-    IoT = "IoT"
-    """
-    Internet of Things.
-    """
-    IR = "IR"
-    """
-    Information retrieval.
-    """
-    IT = "IT"
-    """
-    Information technology.
-    """
-    KDD = "KDD"
-    """
-    Knowledge discovery in data.
-    """
-    LSTM = "LSTM"
-    """
-    Long short-term memory.
-    """
-    ML = "ML"
-    """
-    Machine learning.
-    """
-    MT = "MT"
-    """
-    Machine translation.
-    """
-    NER = "NER"
-    """
-    Named entity recognition.
-    """
-    NLG = "NLG"
-    """
-    Natural language generation.
-    """
-    NLP = "NLP"
-    """
-    Natural language processing.
-    """
-    NLU = "NLU"
-    """
-    Natural language understanding.
-    """
-    NN = "NN"
-    """
-    Neural network.
-    """
-    NPU = "NPU"
-    """
-    Neural-network processing unit.
-    """
-    OCR = "OCR"
-    """
-    Optical character recognition.
-    """
-    OECD = "OECD"
-    """
-    Organisation for Economic Co-operation and Development.
-    """
-    PII = "PII"
-    """
-    Personally identifiable information.
-    """
-    POS = "POS"
-    """
-    Part of speech.
-    """
-    RL = "RL"
-    """
-    Reinforcement learning.
-    """
-    RNN = "RNN"
-    """
-    Recurrent neural network.
-    """
-    SVM = "SVM"
-    """
-    Support vector machine.
-    """
-
-
-class ValidationStrategy(str, Enum):
-    """
-    Strategies for partitioning data and assessing generalisation, drawn from Clause 5.11.8 and Clause 5.16.
-    """
-    holdout = "holdout"
-    """
-    Single train / validation / test split.
-    """
-    two_way_split = "two_way_split"
-    """
-    Two-way split (train / test) used when data is limited (Clause 5.11.8).
-    """
-    cross_validation = "cross_validation"
-    """
-    K-fold cross-validation.
-    """
-    stratified_cross_validation = "stratified_cross_validation"
-    """
-    Cross-validation that preserves class distribution in each fold.
-    """
-    bootstrap = "bootstrap"
-    """
-    Resampling-with-replacement estimation of generalisation error.
-    """
-    time_series_split = "time_series_split"
-    """
-    Forward-chaining split that respects temporal order.
-    """
-
-
-class VerificationValidationLevel(str, Enum):
-    """
-    Levels of verifiability and validatability used to characterise an AI system in Clause 5.16.
-    """
-    completely_verifiable = "completely_verifiable"
-    """
-    System behaviour is fully verifiable against specifications.
-    """
-    partially_verifiable_validatable = "partially_verifiable_validatable"
-    """
-    System is partially verifiable and validatable against specifications.
-    """
-    unverifiable_validatable = "unverifiable_validatable"
-    """
-    System is not verifiable but its behaviour can be validated empirically.
-    """
-    unverifiable_partially_validatable = "unverifiable_partially_validatable"
-    """
-    System is not verifiable and only partially validatable.
-    """
-    unverifiable_unvalidatable = "unverifiable_unvalidatable"
-    """
-    System is neither verifiable nor validatable with available techniques.
-    """
-
-
-class DataSourceType(str, Enum):
-    """
-    Classification of data sources discussed in Clause 8.6.1.
-    """
-    first_party = "first_party"
-    """
-    Data collected directly by the organisation operating the AI system.
-    """
-    second_party = "second_party"
-    """
-    Data shared by a partner organisation under agreement.
-    """
-    third_party = "third_party"
-    """
-    Data acquired from an external data provider.
-    """
-    open_data = "open_data"
-    """
-    Publicly available data released under an open licence.
-    """
-    synthetic = "synthetic"
-    """
-    Data generated by simulation, sampling or generative models.
-    """
-    queried_union = "queried_union"
-    """
-    Data assembled on demand from a union of underlying sources.
-    """
-
-
-class DataCollectionMethod(str, Enum):
-    """
-    Methods of data collection enumerated in Clause 8.6.1.
-    """
-    point_of_sale = "point_of_sale"
-    """
-    Captured at the point of a commercial transaction.
-    """
-    survey = "survey"
-    """
-    Collected through structured questionnaires.
-    """
-    research_study = "research_study"
-    """
-    Collected as part of a designed research study.
-    """
-    sensor_capture = "sensor_capture"
-    """
-    Captured by a physical sensor.
-    """
-    image_capture = "image_capture"
-    """
-    Captured by an imaging device.
-    """
-    audio_capture = "audio_capture"
-    """
-    Captured by an audio recording device.
-    """
-    document_extraction = "document_extraction"
-    """
-    Extracted from text or document corpora.
-    """
-    web_scraping = "web_scraping"
-    """
-    Harvested from publicly accessible web resources.
-    """
-    interaction_log = "interaction_log"
-    """
-    Recorded from interactions with software or services.
-    """
-    transactional_log = "transactional_log"
-    """
-    Recorded as a side effect of transactional systems.
-    """
-
-
-class AutonomyCriterion(str, Enum):
-    """
-    Criteria contributing to the assessment of autonomy in Clause 5.13.\n      Each criterion is graded independently when assigning an\n      `AutonomyLevel`.
-    """
-    external_supervision = "external_supervision"
-    """
-    Degree to which an external operator supervises the system.
-    """
-    situated_understanding = "situated_understanding"
-    """
-    Degree to which the system understands its operational context.
-    """
-    reactivity = "reactivity"
-    """
-    Degree to which the system reacts to environmental changes.
-    """
-    persistence = "persistence"
-    """
-    Span over which the system continues operating without intervention.
-    """
-    adaptability = "adaptability"
-    """
-    Degree to which the system adapts behaviour to new conditions.
-    """
-    performance_evaluation = "performance_evaluation"
-    """
-    Ability of the system to evaluate its own performance.
-    """
-    proactive_planning = "proactive_planning"
-    """
-    Ability of the system to plan future actions proactively.
-    """
-
-
-class NeuroSymbolicApproach(str, Enum):
-    """
-    Sub-categorisation of hybrid neuro-symbolic approaches mentioned in\n      Clause 5.9.
-    """
-    symbolic_in_neural = "symbolic_in_neural"
-    """
-    Symbolic reasoning embedded within a primarily subsymbolic architecture.
-    """
-    neural_in_symbolic = "neural_in_symbolic"
-    """
-    Subsymbolic components invoked inside a symbolic reasoning framework.
-    """
-    tightly_coupled = "tightly_coupled"
-    """
-    Symbolic and subsymbolic components share representations end-to-end.
-    """
-    loosely_coupled = "loosely_coupled"
-    """
-    Symbolic and subsymbolic components exchange information at well-defined interfaces.
-    """
-
-
-class RecommendationOutcomeType(str, Enum):
-    """
-    High-level categorisation of recommendations produced by an AI system\n      (Clauses 7.4, 10).
-    """
-    content_recommendation = "content_recommendation"
-    """
-    Suggestion of content items.
-    """
-    action_recommendation = "action_recommendation"
-    """
-    Suggestion of an action to take.
-    """
-    ranking_recommendation = "ranking_recommendation"
-    """
-    Recommendation expressed as a ranked list.
-    """
-    next_best_action = "next_best_action"
-    """
-    Recommendation of the single most appropriate next action.
-    """
-
-
-class ExecutionStatus(str, Enum):
-    """
-    Execution status values for actions and processes.
-    """
-    planned = "planned"
-    """
-    Execution has been planned but not yet started.
-    """
-    in_progress = "in_progress"
-    """
-    Execution is currently in progress.
-    """
-    completed = "completed"
-    """
-    Execution has completed successfully.
-    """
-    failed = "failed"
-    """
-    Execution has terminated unsuccessfully.
-    """
-    cancelled = "cancelled"
-    """
-    Execution was cancelled before completion.
+    Forecasting when equipment needs attention, before it fails.
     """
 
 
 
-class NamedEntity(ConfiguredBaseModel):
+class AicRecordMixin(ConfiguredBaseModel):
     """
-    Abstract base class for any addressable entity in the schema, carrying identity, label and clause-reference metadata.
+    What every record has, so that other records can refer to it: an identifier, a title and a description.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
-         'class_uri': 'schema:Thing',
-         'close_mappings': ['nist_ai_rmf_common:NamedThing', 'uco_core:UcoThing'],
-         'exact_mappings': ['iso29100:NamedEntity'],
-         'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class Term(NamedEntity):
-    """
-    Abstract base class for a glossary term defined in Clause 3. Concrete subclasses partition the terminology along Clauses 3.1–3.7.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
-         'exact_mappings': ['skos:Concept'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'comments': ['It is a mixin, not a base class, so that the adapt copy can '
+                      "re-root some record classes on LOKF's Concept and leave the "
+                      "others as they are. lokf adapt replaces aic_id with LOKF's id, "
+                      'and a class that declares id itself must descend from Concept.'],
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['terminology']})
+         'mixin': True,
+         'slot_usage': {'title': {'name': 'title',
+                                  'pattern': '^\\s*\\S',
+                                  'required': True}}})
 
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class AITerm(Term):
+class AicEcosystem(AicRecordMixin):
     """
-    Term defined in Clause 3.1 (terms related to AI).
+    The AI systems around one context of use, with the data, resources and parties that surround them, each kind of record in a list of its own.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'clause_section': {'tag': 'clause_section', 'value': '3.1'}},
-         'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class DataTerm(Term):
-    """
-    Term defined in Clause 3.2 (terms related to data).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'clause_section': {'tag': 'clause_section', 'value': '3.2'}},
-         'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class MachineLearningTerm(Term):
-    """
-    Term defined in Clause 3.3 (terms related to machine learning).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'clause_section': {'tag': 'clause_section', 'value': '3.3'}},
-         'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class NeuralNetworkTerm(Term):
-    """
-    Term defined in Clause 3.4 (terms related to neural networks).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'clause_section': {'tag': 'clause_section', 'value': '3.4'}},
-         'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class TrustworthinessTerm(Term):
-    """
-    Term defined in Clause 3.5 (terms related to trustworthiness).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'clause_section': {'tag': 'clause_section', 'value': '3.5'}},
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause', 'value': '8'}},
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['terminology', 'trustworthiness']})
+         'in_subset': ['aic_ecosystem'],
+         'mixins': ['AicRecordMixin'],
+         'tree_root': True})
 
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_ecosystem_systems: Optional[list[Union[AicSystem,AicAgent,AicExpertSystem,AicRobot]]] = Field(default=None, description="""The AI systems.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_components: Optional[list[AicComponent]] = Field(default=None, description="""The parts of those systems.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_knowledge: Optional[list[AicKnowledge]] = Field(default=None, description="""The bodies of knowledge those systems draw on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_tasks: Optional[list[AicTask]] = Field(default=None, description="""The tasks those systems take on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_models: Optional[list[Union[AicModel,AicMachineLearningModel,AicNeuralNetworkModel]]] = Field(default=None, description="""The models those systems use.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_datasets: Optional[list[AicDataset]] = Field(default=None, description="""The datasets those systems and models use.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_stakeholders: Optional[list[AicStakeholder]] = Field(default=None, description="""The parties around those systems.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_lifecycle_processes: Optional[list[AicLifecycleProcess]] = Field(default=None, description="""The work done at each stage of those systems' lives.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_claims: Optional[list[AicTrustworthinessClaim]] = Field(default=None, description="""The trustworthiness claims made for those systems.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_assessments: Optional[list[AicAssessment]] = Field(default=None, description="""The verification and validation of those systems.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_predictions: Optional[list[AicPrediction]] = Field(default=None, description="""The predictions those systems produced.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_decisions: Optional[list[AicDecision]] = Field(default=None, description="""The decisions taken on those predictions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_actions: Optional[list[AicAction]] = Field(default=None, description="""The actions taken on those decisions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_applications: Optional[list[AicApplication]] = Field(default=None, description="""Where those systems are applied.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_resource_pools: Optional[list[AicResourcePool]] = Field(default=None, description="""The computing resources those systems run on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_iot_devices: Optional[list[AicIotDevice]] = Field(default=None, description="""The connected devices in the ecosystem.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_iot_systems: Optional[list[AicIotSystem]] = Field(default=None, description="""The connected systems in the ecosystem.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_ecosystem_cyber_physical_systems: Optional[list[AicCyberPhysicalSystem]] = Field(default=None, description="""The cyber-physical systems in the ecosystem.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicEcosystem']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class NLPTerm(Term):
+class AicSystem(AicRecordMixin):
     """
-    Term defined in Clause 3.6 (terms related to natural-language processing).
+    A system built to produce results for goals set by people, using AI techniques, whatever else it is made of.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'clause_section': {'tag': 'clause_section', 'value': '3.6'}},
-         'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class ComputerVisionTerm(Term):
-    """
-    Term defined in Clause 3.7 (terms related to computer vision).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'clause_section': {'tag': 'clause_section', 'value': '3.7'}},
-         'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class AbbreviatedTerm(NamedEntity):
-    """
-    Abbreviation or acronym listed in Clause 4 with its expansion and optional definition reference.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['terminology'],
-         'slot_usage': {'expansion': {'description': 'Expanded form of the '
-                                                     'abbreviation.',
-                                      'name': 'expansion',
-                                      'required': True}}})
-
-    expansion: str = Field(default=..., description="""Expanded form of the abbreviation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AbbreviatedTerm', 'AbbreviationEntry']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class AIConcept(NamedEntity):
-    """
-    Abstract base for Clause 5 conceptual entities (agent, knowledge, cognition, autonomy, etc.).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause', 'value': '8.2'},
+                         'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.4'}},
+         'broad_mappings': ['gist_ontology:System'],
+         'comments': ["gist's System is any composite whose parts work as a whole, so "
+                      "it is the wider term. SPDX's AIPackage describes a system as a "
+                      'distributed package.'],
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_concepts']})
+         'in_subset': ['aic_systems'],
+         'mixins': ['AicRecordMixin'],
+         'related_mappings': ['spdx_ai:AIPackage']})
 
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_system_type: Literal["AicSystem"] = Field(default="AicSystem", description="""Which class this record is: AicSystem or a kind of it.""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['AicSystem']} })
+    aic_system_purpose: Optional[str] = Field(default=None, description="""What the system is meant to do.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_scope: Optional[AicSystemScope] = Field(default=None, description="""How wide a range of problems the system can take on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_approaches: Optional[list[AicApproach]] = Field(default=None, description="""Whether it works symbolically, subsymbolically or both ways.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_techniques: Optional[list[AicTechnique]] = Field(default=None, description="""The families of technique it is built with.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_automated: Optional[bool] = Field(default=None, description="""Whether it runs without a person acting at each step, under the conditions given.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_clause': {'tag': 'iso22989_clause', 'value': '5.13'},
+                         'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.7'}},
+         'domain_of': ['AicSystem']} })
+    aic_system_autonomy: Optional[AicAutonomy] = Field(default=None, description="""Whether it can change its own remit or stays under outside direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_human_teaming: Optional[str] = Field(default=None, description="""How people and the system share the work, if they do.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.3.3'}},
+         'domain_of': ['AicSystem']} })
+    aic_system_stage: Optional[AicLifecycleStage] = Field(default=None, description="""The stage of its life the system is in now.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_fields: Optional[list[AicField]] = Field(default=None, description="""The fields of AI it belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_steps: Optional[list[AicFunctionalStep]] = Field(default=None, description="""The steps from data to action that it performs.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_components: Optional[list[str]] = Field(default=None, description="""The parts it is made of.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_models: Optional[list[str]] = Field(default=None, description="""The models it uses.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_datasets: Optional[list[str]] = Field(default=None, description="""The datasets it uses.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_tasks: Optional[list[str]] = Field(default=None, description="""The tasks it takes on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_stakeholders: Optional[list[str]] = Field(default=None, description="""The parties around it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_resource_pools: Optional[list[str]] = Field(default=None, description="""The computing resources it runs on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_jurisdictional_issues: Optional[list[str]] = Field(default=None, description="""The legal questions that follow from where it is built, offered or used.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.17'}},
+         'domain_of': ['AicSystem']} })
+    aic_system_societal_impacts: Optional[list[str]] = Field(default=None, description="""The effects it may have on people and society beyond its users.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.18'}},
+         'domain_of': ['AicSystem']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class AIAgent(AIConcept):
+class AicAgent(AicSystem):
     """
-    Entity that perceives its environment and acts upon it to achieve goals (Clause 5.3).
+    A system that perceives its surroundings and acts on them in pursuit of goals.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    autonomy_level: Optional[AutonomyLevel] = Field(default=None, description="""Operational autonomy level of the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIAgent', 'AISystem', 'AutonomyAssessment']} })
-    symbolic_approach: Optional[SymbolicApproach] = Field(default=None, description="""Predominant symbolic vs subsymbolic approach used by the system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIAgent', 'KnowledgeRepresentation', 'AISystem']} })
-    agent_architecture: Optional[AgentArchitectureType] = Field(default=None, description="""Agent architecture realised by the entity (Clause 5.3).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIAgent', 'AISystem']} })
-    goal_set: Optional[list[str]] = Field(default=None, description="""Goals the agent is configured to pursue.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIAgent']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class KnowledgeRepresentation(AIConcept):
-    """
-    Representation of knowledge usable by an AI system (Clause 5.4), including knowledge graphs, ontologies and rule bases.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    symbolic_approach: Optional[SymbolicApproach] = Field(default=None, description="""Predominant symbolic vs subsymbolic approach used by the system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIAgent', 'KnowledgeRepresentation', 'AISystem']} })
-    knowledge_type: Optional[KnowledgeType] = Field(default=None, description="""Type of knowledge captured (Clause 3.1.12, 3.1.28).""", json_schema_extra = { "linkml_meta": {'domain_of': ['KnowledgeRepresentation']} })
-    representation_form: Optional[str] = Field(default=None, description="""Concrete form of representation (rules, frames, ontology, graph, vectors).""", json_schema_extra = { "linkml_meta": {'domain_of': ['KnowledgeRepresentation']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class AISystem(NamedEntity):
-    """
-    Engineered system that uses AI techniques to perform tasks delegated to it. Aggregates lifecycle, functional, model and stakeholder data.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'exact_mappings': ['iso42001:AISystem', 'nist_ai_100_1:AiSystem'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause', 'value': '5.3'},
+                         'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.1'}},
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_concepts', 'ai_lifecycle', 'ai_functional_view'],
-         'related_mappings': ['nist_ai_rmf:AISystem',
-                              'iso27001:Asset',
-                              'uco_core:UcoObject']})
+         'in_subset': ['aic_systems']})
 
-    ai_system_type: Optional[AISystemType] = Field(default=None, description="""Capability classification of the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem']} })
-    symbolic_approach: Optional[SymbolicApproach] = Field(default=None, description="""Predominant symbolic vs subsymbolic approach used by the system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIAgent', 'KnowledgeRepresentation', 'AISystem']} })
-    autonomy_level: Optional[AutonomyLevel] = Field(default=None, description="""Operational autonomy level of the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIAgent', 'AISystem', 'AutonomyAssessment']} })
-    intended_purpose: Optional[str] = Field(default=None, description="""Stated intended purpose of the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem', 'AIApplication']} })
-    application_domain: Optional[list[AIApplicationDomain]] = Field(default=None, description="""Application domain(s) the AI system targets.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem', 'AIApplication']} })
-    ai_field: Optional[list[AIField]] = Field(default=None, description="""AI sub-field(s) the system draws on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem']} })
-    functional_components: Optional[list[AIFunctionalComponent]] = Field(default=None, description="""Functional components exhibited by the system (Clause 7).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem']} })
-    lifecycle_stage: Optional[AILifecycleStage] = Field(default=None, description="""Current life-cycle stage of the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem']} })
-    stakeholders: Optional[list[AIStakeholderRole]] = Field(default=None, description="""Stakeholder roles associated with the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem']} })
-    components: Optional[list[AIComponent]] = Field(default=None, description="""Constituent components of the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem']} })
-    models: Optional[list[AIModel]] = Field(default=None, description="""Trained or knowledge-based models embedded in the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem']} })
-    datasets: Optional[list[Dataset]] = Field(default=None, description="""Datasets used by, or produced by, the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem']} })
-    trustworthiness_properties: Optional[list[TrustworthinessProperty]] = Field(default=None, description="""Trustworthiness properties claimed for the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem']} })
-    jurisdictional_issues: Optional[list[JurisdictionalIssueType]] = Field(default=None, description="""Jurisdictional issues considered in scope for the application.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem', 'AIApplication']} })
-    societal_impacts: Optional[list[SocietalImpactCategory]] = Field(default=None, description="""Societal impact categories considered in scope.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem', 'AIApplication']} })
-    system_characteristics: Optional[list[AISystemCharacteristic]] = Field(default=None, description="""Distinguishing characteristics from Clause 5.1.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem']} })
-    task_categories: Optional[list[TaskCategory]] = Field(default=None, description="""Task categories the AI system addresses.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem']} })
-    agent_architecture: Optional[AgentArchitectureType] = Field(default=None, description="""Agent architecture, if the AI system is structured as an agent (Clause 5.3).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIAgent', 'AISystem']} })
-    data_processes: Optional[list[DataProcess]] = Field(default=None, description="""Data-handling processes applied within the AI system (Clause 5.10).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem', 'AIConceptsCollection']} })
-    iot_integration: Optional[str] = Field(default=None, description="""IoT/CPS system this AI system is integrated with, if any (Clause 5.14).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_agent_goals: list[str] = Field(default=..., description="""The goals the agent pursues.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicAgent']} })
+    aic_agent_environment: Optional[str] = Field(default=None, description="""The surroundings the agent perceives and acts on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicAgent']} })
+    aic_system_type: Literal["AicAgent"] = Field(default="AicAgent", description="""Which class this record is: AicSystem or a kind of it.""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['AicSystem']} })
+    aic_system_purpose: Optional[str] = Field(default=None, description="""What the system is meant to do.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_scope: Optional[AicSystemScope] = Field(default=None, description="""How wide a range of problems the system can take on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_approaches: Optional[list[AicApproach]] = Field(default=None, description="""Whether it works symbolically, subsymbolically or both ways.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_techniques: Optional[list[AicTechnique]] = Field(default=None, description="""The families of technique it is built with.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_automated: Optional[bool] = Field(default=None, description="""Whether it runs without a person acting at each step, under the conditions given.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_clause': {'tag': 'iso22989_clause', 'value': '5.13'},
+                         'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.7'}},
+         'domain_of': ['AicSystem']} })
+    aic_system_autonomy: Optional[AicAutonomy] = Field(default=None, description="""Whether it can change its own remit or stays under outside direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_human_teaming: Optional[str] = Field(default=None, description="""How people and the system share the work, if they do.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.3.3'}},
+         'domain_of': ['AicSystem']} })
+    aic_system_stage: Optional[AicLifecycleStage] = Field(default=None, description="""The stage of its life the system is in now.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_fields: Optional[list[AicField]] = Field(default=None, description="""The fields of AI it belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_steps: Optional[list[AicFunctionalStep]] = Field(default=None, description="""The steps from data to action that it performs.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_components: Optional[list[str]] = Field(default=None, description="""The parts it is made of.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_models: Optional[list[str]] = Field(default=None, description="""The models it uses.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_datasets: Optional[list[str]] = Field(default=None, description="""The datasets it uses.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_tasks: Optional[list[str]] = Field(default=None, description="""The tasks it takes on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_stakeholders: Optional[list[str]] = Field(default=None, description="""The parties around it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_resource_pools: Optional[list[str]] = Field(default=None, description="""The computing resources it runs on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_jurisdictional_issues: Optional[list[str]] = Field(default=None, description="""The legal questions that follow from where it is built, offered or used.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.17'}},
+         'domain_of': ['AicSystem']} })
+    aic_system_societal_impacts: Optional[list[str]] = Field(default=None, description="""The effects it may have on people and society beyond its users.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.18'}},
+         'domain_of': ['AicSystem']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class AIComponent(NamedEntity):
+class AicExpertSystem(AicSystem):
     """
-    Functional component of an AI system, such as a data pipeline, preprocessor, model server, or post-processing module.
+    A system that puts what human specialists know into a form it can reason with.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_functional_view']})
-
-    component_function: Optional[AIFunctionalComponent] = Field(default=None, description="""Functional view component implemented by an AI component (Clause 7).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIComponent']} })
-    depends_on: Optional[list[str]] = Field(default=None, description="""Other components this component depends on at runtime.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIComponent']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class AIModel(NamedEntity):
-    """
-    Trained or rule-based model embedded in an AI system. Carries paradigm, algorithm family, dataset references and version metadata.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['nist_ai_100_1:AiSystemDimensionEnum#AI_MODEL'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '8.5.2'},
+                         'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.13'}},
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['terminology', 'ai_concepts'],
-         'related_mappings': ['nist_ai_rmf:Model']})
+         'in_subset': ['aic_systems']})
 
-    model_paradigm: Optional[MachineLearningParadigm] = Field(default=None, description="""Machine-learning paradigm under which the model was trained.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    algorithm_family: Optional[MLAlgorithmFamily] = Field(default=None, description="""Algorithm family the model belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    engineering_approach: Optional[EngineeringApproach] = Field(default=None, description="""Non-learning engineering approach used (for symbolic/knowledge-based models).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    training_dataset: Optional[str] = Field(default=None, description="""Dataset used to fit the model.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    validation_dataset: Optional[str] = Field(default=None, description="""Dataset used for hyperparameter tuning and model selection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    test_dataset: Optional[str] = Field(default=None, description="""Dataset used to estimate generalisation performance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    hyperparameters: Optional[list[str]] = Field(default=None, description="""Free-form record of model hyperparameter settings.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    model_version: Optional[str] = Field(default=None, description="""Version identifier of the trained model artefact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    trained_on: Optional[str] = Field(default=None, description="""Date or version reference for when the model was last trained.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    supports_continuous_learning: Optional[bool] = Field(default=None, description="""Whether a model supports continuous or online learning (Clause 3.1.9, 5.11.9.2).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    catastrophic_forgetting_risk: Optional[float] = Field(default=None, description="""Estimated risk of catastrophic forgetting on retraining (Clause 5.11.9.1).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    parameter_count: Optional[int] = Field(default=None, description="""Approximate count of trainable model parameters.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    training_duration: Optional[str] = Field(default=None, description="""Wall-clock duration of model training, expressed as an ISO 8601 duration.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    inference_latency_ms: Optional[float] = Field(default=None, description="""Typical end-to-end inference latency in milliseconds.""", ge=0.0, json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    model_compression_applied: Optional[bool] = Field(default=None, description="""Whether the model has had compression or distillation applied for deployment (Clause 8.6.2).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    neural_network_architecture: Optional[NeuralNetworkArchitecture] = Field(default=None, description="""Neural-network architecture, when algorithm_family is neural_network (Clauses 3.4, 5.12.1).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    activation_function: Optional[ActivationFunctionType] = Field(default=None, description="""Predominant activation function used in the network (Clause 3.4.1).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel', 'Neuron']} })
-    training_phenomena: Optional[list[NeuralNetworkPhenomenon]] = Field(default=None, description="""Training-time phenomena observed for the model (Clause 3.4).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_expert_knowledge: list[str] = Field(default=..., description="""The bodies of knowledge the system reasons with.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicExpertSystem']} })
+    aic_expert_inference: Optional[str] = Field(default=None, description="""How the system draws conclusions from that knowledge.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.17'}},
+         'domain_of': ['AicExpertSystem']} })
+    aic_system_type: Literal["AicExpertSystem"] = Field(default="AicExpertSystem", description="""Which class this record is: AicSystem or a kind of it.""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['AicSystem']} })
+    aic_system_purpose: Optional[str] = Field(default=None, description="""What the system is meant to do.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_scope: Optional[AicSystemScope] = Field(default=None, description="""How wide a range of problems the system can take on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_approaches: Optional[list[AicApproach]] = Field(default=None, description="""Whether it works symbolically, subsymbolically or both ways.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_techniques: Optional[list[AicTechnique]] = Field(default=None, description="""The families of technique it is built with.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_automated: Optional[bool] = Field(default=None, description="""Whether it runs without a person acting at each step, under the conditions given.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_clause': {'tag': 'iso22989_clause', 'value': '5.13'},
+                         'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.7'}},
+         'domain_of': ['AicSystem']} })
+    aic_system_autonomy: Optional[AicAutonomy] = Field(default=None, description="""Whether it can change its own remit or stays under outside direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_human_teaming: Optional[str] = Field(default=None, description="""How people and the system share the work, if they do.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.3.3'}},
+         'domain_of': ['AicSystem']} })
+    aic_system_stage: Optional[AicLifecycleStage] = Field(default=None, description="""The stage of its life the system is in now.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_fields: Optional[list[AicField]] = Field(default=None, description="""The fields of AI it belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_steps: Optional[list[AicFunctionalStep]] = Field(default=None, description="""The steps from data to action that it performs.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_components: Optional[list[str]] = Field(default=None, description="""The parts it is made of.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_models: Optional[list[str]] = Field(default=None, description="""The models it uses.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_datasets: Optional[list[str]] = Field(default=None, description="""The datasets it uses.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_tasks: Optional[list[str]] = Field(default=None, description="""The tasks it takes on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_stakeholders: Optional[list[str]] = Field(default=None, description="""The parties around it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_resource_pools: Optional[list[str]] = Field(default=None, description="""The computing resources it runs on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_jurisdictional_issues: Optional[list[str]] = Field(default=None, description="""The legal questions that follow from where it is built, offered or used.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.17'}},
+         'domain_of': ['AicSystem']} })
+    aic_system_societal_impacts: Optional[list[str]] = Field(default=None, description="""The effects it may have on people and society beyond its users.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.18'}},
+         'domain_of': ['AicSystem']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class NeuralNetworkModel(AIModel):
+class AicRobot(AicSystem):
     """
-    AIModel realised as a neural network (Clause 5.12.1, Clause 3.4 terms).
+    A system that moves or acts on physical things through its own actuators.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['terminology'],
-         'slot_usage': {'algorithm_family': {'ifabsent': 'MLAlgorithmFamily(neural_network)',
-                                             'name': 'algorithm_family'}}})
-
-    number_of_layers: Optional[int] = Field(default=None, description="""Number of layers in the network.""", ge=1, json_schema_extra = { "linkml_meta": {'domain_of': ['NeuralNetworkModel']} })
-    number_of_parameters: Optional[int] = Field(default=None, description="""Approximate number of trainable parameters.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['NeuralNetworkModel']} })
-    model_paradigm: Optional[MachineLearningParadigm] = Field(default=None, description="""Machine-learning paradigm under which the model was trained.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    algorithm_family: Optional[MLAlgorithmFamily] = Field(default=MLAlgorithmFamily.neural_network, description="""Algorithm family the model belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel'], 'ifabsent': 'MLAlgorithmFamily(neural_network)'} })
-    engineering_approach: Optional[EngineeringApproach] = Field(default=None, description="""Non-learning engineering approach used (for symbolic/knowledge-based models).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    training_dataset: Optional[str] = Field(default=None, description="""Dataset used to fit the model.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    validation_dataset: Optional[str] = Field(default=None, description="""Dataset used for hyperparameter tuning and model selection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    test_dataset: Optional[str] = Field(default=None, description="""Dataset used to estimate generalisation performance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    hyperparameters: Optional[list[str]] = Field(default=None, description="""Free-form record of model hyperparameter settings.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    model_version: Optional[str] = Field(default=None, description="""Version identifier of the trained model artefact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    trained_on: Optional[str] = Field(default=None, description="""Date or version reference for when the model was last trained.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    supports_continuous_learning: Optional[bool] = Field(default=None, description="""Whether a model supports continuous or online learning (Clause 3.1.9, 5.11.9.2).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    catastrophic_forgetting_risk: Optional[float] = Field(default=None, description="""Estimated risk of catastrophic forgetting on retraining (Clause 5.11.9.1).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    parameter_count: Optional[int] = Field(default=None, description="""Approximate count of trainable model parameters.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    training_duration: Optional[str] = Field(default=None, description="""Wall-clock duration of model training, expressed as an ISO 8601 duration.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    inference_latency_ms: Optional[float] = Field(default=None, description="""Typical end-to-end inference latency in milliseconds.""", ge=0.0, json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    model_compression_applied: Optional[bool] = Field(default=None, description="""Whether the model has had compression or distillation applied for deployment (Clause 8.6.2).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    neural_network_architecture: Optional[NeuralNetworkArchitecture] = Field(default=None, description="""Neural-network architecture, when algorithm_family is neural_network (Clauses 3.4, 5.12.1).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    activation_function: Optional[ActivationFunctionType] = Field(default=None, description="""Predominant activation function used in the network (Clause 3.4.1).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel', 'Neuron']} })
-    training_phenomena: Optional[list[NeuralNetworkPhenomenon]] = Field(default=None, description="""Training-time phenomena observed for the model (Clause 3.4).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class Dataset(NamedEntity):
-    """
-    Collection of data items used by an AI system in a training, validation, test, reference or production role.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['terminology'],
-         'related_mappings': ['schema:Dataset',
-                              'iso27001:Asset',
-                              'iso29100:PersonallyIdentifiableInformation',
-                              'uco_core:UcoObject']})
-
-    data_modality: Optional[list[DataModality]] = Field(default=None, description="""Modalities present in the dataset.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset']} })
-    dataset_role: Optional[DatasetRole] = Field(default=None, description="""Role the dataset plays in the ML workflow.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset']} })
-    data_provenance: Optional[str] = Field(default=None, description="""Provenance statement for the dataset (origin, collection method, licensing).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset'], 'slot_uri': 'prov:wasDerivedFrom'} })
-    record_count: Optional[int] = Field(default=None, description="""Number of records or examples in the dataset.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset']} })
-    data_quality_notes: Optional[str] = Field(default=None, description="""Notes on data quality, completeness or representativeness.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset']} })
-    contains_personal_data: Optional[bool] = Field(default=None, description="""Whether the dataset contains personal or personally identifiable information.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset']} })
-    label_type: Optional[DataLabelType] = Field(default=None, description="""Type of target label associated with the dataset (Clause 3.2.10).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset', 'DataLabel']} })
-    ground_truth_available: Optional[bool] = Field(default=None, description="""Whether trusted ground-truth labels are available (Clause 3.2.7).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset']} })
-    feature_count: Optional[int] = Field(default=None, description="""Number of features per record.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset']} })
-    data_processes_applied: Optional[list[DataProcess]] = Field(default=None, description="""Data-handling processes applied to the dataset (Clause 5.10).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class TrustworthinessProperty(NamedEntity):
-    """
-    Claim about a trustworthiness property of an AI system or model, with evidence and measurement metadata.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['nist_ai_rmf_common:TrustworthinessCharacteristicEnum'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.29'}},
+         'broad_mappings': ['gist_ontology:Equipment'],
+         'comments': ["gist's Equipment is any tangible, human-made thing used for a "
+                      'task, so it is the wider term.'],
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['trustworthiness'],
-         'related_mappings': ['nist_ai_rmf:TrustworthinessCharacteristic',
-                              'iso29100:PrivacyFramework']})
+         'in_subset': ['aic_systems']})
 
-    trustworthiness_property_type: TrustworthinessPropertyType = Field(default=..., description="""Which trustworthiness property is being characterised.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TrustworthinessProperty']} })
-    property_evidence: Optional[list[str]] = Field(default=None, description="""References to evidence supporting the property claim.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TrustworthinessProperty']} })
-    measurement_method: Optional[str] = Field(default=None, description="""How the property was assessed or measured.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TrustworthinessProperty']} })
-    applicable_biases: Optional[list[BiasType]] = Field(default=None, description="""Bias categories considered relevant to this property assessment.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TrustworthinessProperty']} })
-    confidence_score: Optional[float] = Field(default=None, description="""Normalised confidence in the property claim.""", json_schema_extra = { "linkml_meta": {'domain_of': ['TrustworthinessProperty']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_robot_actuators: list[str] = Field(default=..., description="""The actuators through which the robot acts.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRobot']} })
+    aic_robot_sensors: Optional[list[str]] = Field(default=None, description="""The sensors through which it perceives.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRobot']} })
+    aic_system_type: Literal["AicRobot"] = Field(default="AicRobot", description="""Which class this record is: AicSystem or a kind of it.""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['AicSystem']} })
+    aic_system_purpose: Optional[str] = Field(default=None, description="""What the system is meant to do.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_scope: Optional[AicSystemScope] = Field(default=None, description="""How wide a range of problems the system can take on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_approaches: Optional[list[AicApproach]] = Field(default=None, description="""Whether it works symbolically, subsymbolically or both ways.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_techniques: Optional[list[AicTechnique]] = Field(default=None, description="""The families of technique it is built with.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_automated: Optional[bool] = Field(default=None, description="""Whether it runs without a person acting at each step, under the conditions given.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_clause': {'tag': 'iso22989_clause', 'value': '5.13'},
+                         'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.7'}},
+         'domain_of': ['AicSystem']} })
+    aic_system_autonomy: Optional[AicAutonomy] = Field(default=None, description="""Whether it can change its own remit or stays under outside direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_human_teaming: Optional[str] = Field(default=None, description="""How people and the system share the work, if they do.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.3.3'}},
+         'domain_of': ['AicSystem']} })
+    aic_system_stage: Optional[AicLifecycleStage] = Field(default=None, description="""The stage of its life the system is in now.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_fields: Optional[list[AicField]] = Field(default=None, description="""The fields of AI it belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_steps: Optional[list[AicFunctionalStep]] = Field(default=None, description="""The steps from data to action that it performs.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_components: Optional[list[str]] = Field(default=None, description="""The parts it is made of.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_models: Optional[list[str]] = Field(default=None, description="""The models it uses.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_datasets: Optional[list[str]] = Field(default=None, description="""The datasets it uses.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_tasks: Optional[list[str]] = Field(default=None, description="""The tasks it takes on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_stakeholders: Optional[list[str]] = Field(default=None, description="""The parties around it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_resource_pools: Optional[list[str]] = Field(default=None, description="""The computing resources it runs on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicSystem']} })
+    aic_system_jurisdictional_issues: Optional[list[str]] = Field(default=None, description="""The legal questions that follow from where it is built, offered or used.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.17'}},
+         'domain_of': ['AicSystem']} })
+    aic_system_societal_impacts: Optional[list[str]] = Field(default=None, description="""The effects it may have on people and society beyond its users.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.18'}},
+         'domain_of': ['AicSystem']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class AILifecycleProcess(NamedEntity):
+class AicComponent(AicRecordMixin):
     """
-    Process or activity associated with a stage of the AI system life cycle (Clause 6).
+    A part of a system that does one job in it.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'broad_mappings': ['gist_linkml:Event'],
-         'close_mappings': ['nist_ai_100_1:AiLifecycleStage'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.2'}},
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_lifecycle'],
-         'related_mappings': ['nist_ai_600_1:SuggestedAction']})
+         'in_subset': ['aic_systems'],
+         'mixins': ['AicRecordMixin']})
 
-    process_stage: AILifecycleStage = Field(default=..., description="""Life-cycle stage the process belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AILifecycleProcess']} })
-    process_inputs: Optional[list[str]] = Field(default=None, description="""Inputs consumed by the process.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AILifecycleProcess']} })
-    process_outputs: Optional[list[str]] = Field(default=None, description="""Outputs produced by the process.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AILifecycleProcess']} })
-    responsible_role: Optional[AIStakeholderRoleType] = Field(default=None, description="""Stakeholder role responsible for executing the process.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AILifecycleProcess']} })
-    start_date: Optional[date] = Field(default=None, description="""Date the process started.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AILifecycleProcess']} })
-    end_date: Optional[date] = Field(default=None, description="""Date the process completed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AILifecycleProcess']} })
-    risk_items: Optional[list[str]] = Field(default=None, description="""Risks identified or addressed by a process or assessment.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AILifecycleProcess']} })
-    approval_criteria: Optional[list[str]] = Field(default=None, description="""Criteria that must be met for an output or process to be approved.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AILifecycleProcess']} })
-    process_sub_type: Optional[str] = Field(default=None, description="""Free-text refinement of the process within its life-cycle stage (e.g. \"objectives\", \"requirements\").""", json_schema_extra = { "linkml_meta": {'domain_of': ['AILifecycleProcess']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_component_step: Optional[AicFunctionalStep] = Field(default=None, description="""The step from data to action this part performs.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicComponent']} })
+    aic_component_depends_on: Optional[list[str]] = Field(default=None, description="""The other parts this part needs.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicComponent']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class AIStakeholderRole(NamedEntity):
+class AicKnowledge(AicRecordMixin):
     """
-    Stakeholder role enacted by an organisation or individual in relation to an AI system (Clause 5.19).
+    A body of what a system knows, in a form it can use.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['nist_ai_100_1:AiActor'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause', 'value': '5.4'},
+                         'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.21'}},
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_stakeholders']})
+         'in_subset': ['aic_systems'],
+         'mixins': ['AicRecordMixin']})
 
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=..., description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_knowledge_kind: Optional[AicKnowledgeKind] = Field(default=None, description="""Whether it states what is the case or what to do.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicKnowledge']} })
+    aic_knowledge_representation: Optional[str] = Field(default=None, description="""The form it is held in, such as rules, a graph or an ontology.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicKnowledge']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class AIProvider(AIStakeholderRole):
+class AicTask(AicRecordMixin):
     """
-    Stakeholder making an AI system available to customers (Clause 5.19.2).
+    Something a system is asked to get done.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'slot_usage': {'stakeholder_role_type': {'ifabsent': 'AIStakeholderRoleType(ai_provider)',
-                                                  'name': 'stakeholder_role_type'}}})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_provider, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_provider)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class AIProducer(AIStakeholderRole):
-    """
-    Stakeholder designing, developing or assembling AI systems (Clause 5.19.3).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['iso29100:PIIProcessor'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.35'}},
+         'comments': ["gist's Task is a piece of work that is planned or under way, "
+                      'where this is what a system is asked to do.'],
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'slot_usage': {'stakeholder_role_type': {'ifabsent': 'AIStakeholderRoleType(ai_producer)',
-                                                  'name': 'stakeholder_role_type'}}})
+         'in_subset': ['aic_systems'],
+         'mixins': ['AicRecordMixin'],
+         'related_mappings': ['gist_ontology:Task']})
 
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_producer, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_producer)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_task_kind: Optional[AicTaskKind] = Field(default=None, description="""The named kind of task it is, where it is one.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicTask']} })
+    aic_task_goal: Optional[str] = Field(default=None, description="""What getting the task done achieves.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicTask']} })
+    aic_task_languages: Optional[list[str]] = Field(default=None, description="""The human languages the task works in, as language tags such as en or fr-CA.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.6.7'}},
+         'domain_of': ['AicTask']} })
+    aic_task_performance_measures: Optional[list[str]] = Field(default=None, description="""What is measured to judge how well it is done, such as accuracy.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.25'}},
+         'domain_of': ['AicTask']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('aic_task_languages')
+    def pattern_aic_task_languages(cls, v):
+        pattern=re.compile(r"^[A-Za-z]{2,8}(-[A-Za-z0-9]{1,8})*$")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid aic_task_languages format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid aic_task_languages format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class AICustomer(AIStakeholderRole):
+class AicModel(AicRecordMixin):
     """
-    Stakeholder using an AI system or AI-backed service (Clause 5.19.4).
+    A representation of something, made so that a system can compute with it.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'slot_usage': {'stakeholder_role_type': {'ifabsent': 'AIStakeholderRoleType(ai_customer)',
-                                                  'name': 'stakeholder_role_type'}}})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_customer, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_customer)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class AIPartner(AIStakeholderRole):
-    """
-    Stakeholder providing supporting services across the AI life cycle (Clause 5.19.5).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['iso29100:ThirdParty',
-                            'nist_ai_100_1:AiActorTaskEnum#THIRD_PARTY_ENTITIES',
-                            'nist_ai_600_1:GaiActorTaskEnum#THIRD_PARTY_ENTITIES'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.23'}},
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'slot_usage': {'stakeholder_role_type': {'ifabsent': 'AIStakeholderRoleType(ai_partner)',
-                                                  'name': 'stakeholder_role_type'}}})
+         'in_subset': ['aic_machine_learning'],
+         'mixins': ['AicRecordMixin']})
 
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_partner, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_partner)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_model_type: Literal["AicModel"] = Field(default="AicModel", description="""Which class this record is: AicModel or a kind of it.""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['AicModel']} })
+    aic_model_version: Optional[str] = Field(default=None, description="""The version of the model, as its makers number it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicModel']} })
+    aic_model_represents: Optional[str] = Field(default=None, description="""What the model stands for, such as a process or a body of data.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicModel']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class AISubject(AIStakeholderRole):
+class AicMachineLearningModel(AicModel):
     """
-    Person or group affected by an AI system (Clause 5.19.6).
+    A model whose numbers were fitted to data by a training run.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['nist_ai_100_1:AiActorTaskEnum#AFFECTED_INDIVIDUALS_OR_COMMUNITIES',
-                            'nist_ai_600_1:GaiActorTaskEnum#AFFECTED_INDIVIDUALS_AND_COMMUNITIES'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.11.7'},
+                         'iso22989_term': {'tag': 'iso22989_term',
+                                           'value': '3.3.7, 3.3.14'}},
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'slot_usage': {'stakeholder_role_type': {'ifabsent': 'AIStakeholderRoleType(ai_subject)',
-                                                  'name': 'stakeholder_role_type'}}})
+         'in_subset': ['aic_machine_learning']})
 
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_subject, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_subject)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_ml_paradigm: Optional[AicLearningParadigm] = Field(default=None, description="""How the model learned from its data.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicMachineLearningModel']} })
+    aic_ml_algorithm: Optional[AicAlgorithmFamily] = Field(default=None, description="""The family of algorithm that fitted it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicMachineLearningModel']} })
+    aic_ml_datasets: Optional[list[str]] = Field(default=None, description="""The datasets used to fit, tune and test it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicMachineLearningModel']} })
+    aic_ml_hyperparameters: Optional[list[str]] = Field(default=None, description="""The settings fixed before training, each as name=value.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.3.4'}},
+         'domain_of': ['AicMachineLearningModel']} })
+    aic_ml_parameter_count: Optional[int] = Field(default=None, description="""How many numbers training fitted.""", ge=0, json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.3.8'}},
+         'domain_of': ['AicMachineLearningModel']} })
+    aic_ml_trained_on: Optional[date] = Field(default=None, description="""When the last training run ended.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.3.15'}},
+         'domain_of': ['AicMachineLearningModel']} })
+    aic_ml_retrained_from: Optional[str] = Field(default=None, description="""The earlier model that this one updates by training it again on other data.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.11.9'},
+                         'iso22989_term': {'tag': 'iso22989_term', 'value': '3.3.10'}},
+         'domain_of': ['AicMachineLearningModel']} })
+    aic_ml_continuous_learning: Optional[bool] = Field(default=None, description="""Whether it goes on learning in small steps while in use.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.9'}},
+         'domain_of': ['AicMachineLearningModel']} })
+    aic_model_type: Literal["AicMachineLearningModel"] = Field(default="AicMachineLearningModel", description="""Which class this record is: AicModel or a kind of it.""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['AicModel']} })
+    aic_model_version: Optional[str] = Field(default=None, description="""The version of the model, as its makers number it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicModel']} })
+    aic_model_represents: Optional[str] = Field(default=None, description="""What the model stands for, such as a process or a body of data.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicModel']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class RelevantAuthority(AIStakeholderRole):
+class AicNeuralNetworkModel(AicMachineLearningModel):
     """
-    Regulator or standards-setting body with oversight responsibilities (Clause 5.19.7).
+    A kind of machine learning model built from layers of simple connected units.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['nist_ai_100_1:AiActorTaskEnum#GOVERNANCE_AND_OVERSIGHT',
-                            'nist_ai_600_1:GaiActorTaskEnum#GOVERNANCE_AND_OVERSIGHT'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.12.1'},
+                         'iso22989_term': {'tag': 'iso22989_term', 'value': '3.4.8'}},
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'slot_usage': {'stakeholder_role_type': {'ifabsent': 'AIStakeholderRoleType(relevant_authority)',
-                                                  'name': 'stakeholder_role_type'}}})
+         'in_subset': ['aic_machine_learning']})
 
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.relevant_authority, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(relevant_authority)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_network_architecture: Optional[AicNetworkArchitecture] = Field(default=None, description="""How its layers are connected.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicNeuralNetworkModel']} })
+    aic_network_layer_count: Optional[int] = Field(default=None, description="""How many layers it has.""", ge=1, json_schema_extra = { "linkml_meta": {'domain_of': ['AicNeuralNetworkModel']} })
+    aic_network_activation_functions: Optional[list[str]] = Field(default=None, description="""The functions its units use to turn their inputs into an output.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.4.1'}},
+         'domain_of': ['AicNeuralNetworkModel']} })
+    aic_ml_paradigm: Optional[AicLearningParadigm] = Field(default=None, description="""How the model learned from its data.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicMachineLearningModel']} })
+    aic_ml_algorithm: Optional[AicAlgorithmFamily] = Field(default=None, description="""The family of algorithm that fitted it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicMachineLearningModel']} })
+    aic_ml_datasets: Optional[list[str]] = Field(default=None, description="""The datasets used to fit, tune and test it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicMachineLearningModel']} })
+    aic_ml_hyperparameters: Optional[list[str]] = Field(default=None, description="""The settings fixed before training, each as name=value.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.3.4'}},
+         'domain_of': ['AicMachineLearningModel']} })
+    aic_ml_parameter_count: Optional[int] = Field(default=None, description="""How many numbers training fitted.""", ge=0, json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.3.8'}},
+         'domain_of': ['AicMachineLearningModel']} })
+    aic_ml_trained_on: Optional[date] = Field(default=None, description="""When the last training run ended.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.3.15'}},
+         'domain_of': ['AicMachineLearningModel']} })
+    aic_ml_retrained_from: Optional[str] = Field(default=None, description="""The earlier model that this one updates by training it again on other data.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.11.9'},
+                         'iso22989_term': {'tag': 'iso22989_term', 'value': '3.3.10'}},
+         'domain_of': ['AicMachineLearningModel']} })
+    aic_ml_continuous_learning: Optional[bool] = Field(default=None, description="""Whether it goes on learning in small steps while in use.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.9'}},
+         'domain_of': ['AicMachineLearningModel']} })
+    aic_model_type: Literal["AicNeuralNetworkModel"] = Field(default="AicNeuralNetworkModel", description="""Which class this record is: AicModel or a kind of it.""", json_schema_extra = { "linkml_meta": {'designates_type': True, 'domain_of': ['AicModel']} })
+    aic_model_version: Optional[str] = Field(default=None, description="""The version of the model, as its makers number it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicModel']} })
+    aic_model_represents: Optional[str] = Field(default=None, description="""What the model stands for, such as a process or a body of data.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicModel']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class AIEcosystem(NamedEntity):
+class AicDataset(AicRecordMixin):
     """
-    Aggregation of the AI systems, data sources, computing resources and stakeholder roles that surround a deployment context (Clause 8).
+    A set of data kept together in one format.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_ecosystem']})
-
-    computing_resources: Optional[list[ComputingResourceType]] = Field(default=None, description="""Computing resource types relied upon.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIEcosystem']} })
-    data_sources: Optional[list[str]] = Field(default=None, description="""Identifiers or descriptions of data sources feeding the ecosystem.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIEcosystem']} })
-    ecosystem_components: Optional[list[str]] = Field(default=None, description="""Free-text or CURIE references to ecosystem components.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIEcosystem']} })
-    ai_systems: Optional[list[AISystem]] = Field(default=None, description="""AI systems documented in the collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIEcosystem', 'AIConceptsCollection']} })
-    ai_stakeholder_roles: Optional[list[AIStakeholderRole]] = Field(default=None, description="""Stakeholder role records in the collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIEcosystem', 'AIConceptsCollection']} })
-    big_data_characteristics: Optional[list[BigDataCharacteristic]] = Field(default=None, description="""Big-data characteristics that the ecosystem exhibits (Clause 8.6.1).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIEcosystem']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class ResourcePool(NamedEntity):
-    """
-    Pool of computing resources (CPU/GPU/TPU/ASIC/FPGA) available to AI workloads (Clause 8.7).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_ecosystem'],
-         'slot_usage': {'resource_type': {'name': 'resource_type', 'required': True}}})
-
-    resource_type: ComputingResourceType = Field(default=..., description="""Category of computing resource (Clause 8.7).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ResourcePool']} })
-    capacity_units: Optional[str] = Field(default=None, description="""Capacity expressed in units appropriate to the resource type.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ResourcePool']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class NLPComponent(NamedEntity):
-    """
-    Component of a natural-language-processing pipeline (Clause 9.2).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_fields'],
-         'slot_usage': {'nlp_component_type': {'name': 'nlp_component_type',
-                                               'required': True}}})
-
-    nlp_component_type: NLPComponentType = Field(default=..., description="""Type of NLP pipeline component (Clause 9.2.2).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NLPComponent']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class ComputerVisionFunction(NamedEntity):
-    """
-    Computer-vision capability provided by an AI system (Clause 9.1).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_fields'],
-         'slot_usage': {'cv_task': {'name': 'cv_task', 'required': True}}})
-
-    cv_task: ComputerVisionTask = Field(default=..., description="""Type of computer-vision task (Clause 9.1).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ComputerVisionFunction']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class AIApplication(NamedEntity):
-    """
-    Description of an AI application instance situated in a domain (Clause 10).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_applications_domain']})
-
-    application_domain: Optional[list[AIApplicationDomain]] = Field(default=None, description="""Application domain(s) the AI system targets.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem', 'AIApplication']} })
-    intended_purpose: Optional[str] = Field(default=None, description="""Stated intended purpose of the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem', 'AIApplication']} })
-    jurisdictional_issues: Optional[list[JurisdictionalIssueType]] = Field(default=None, description="""Jurisdictional issues considered in scope for the application.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem', 'AIApplication']} })
-    societal_impacts: Optional[list[SocietalImpactCategory]] = Field(default=None, description="""Societal impact categories considered in scope.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem', 'AIApplication']} })
-    hosting_system: Optional[str] = Field(default=None, description="""AI system that provides the application.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIApplication']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class Task(NamedEntity):
-    """
-    AI task addressed by a model or system (e.g. classification, regression, planning). Provides a first-class entity for the task categories enumerated across Clause 3 terminology.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['gist_linkml:Task',
-                            'nist_ai_100_1:AiSystemDimensionEnum#TASK_AND_OUTPUT'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.2.5'}},
+         'comments': ["SPDX's DatasetPackage describes a dataset as a distributed "
+                      'package.'],
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_functional_view'],
-         'slot_usage': {'task_category': {'name': 'task_category', 'required': True}}})
+         'in_subset': ['aic_data'],
+         'mixins': ['AicRecordMixin'],
+         'related_mappings': ['spdx_dataset:DatasetPackage']})
 
-    task_category: TaskCategory = Field(default=..., description="""Category of AI task being addressed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Task']} })
-    input_modalities: Optional[list[DataModality]] = Field(default=None, description="""Modalities of input accepted by a task or component.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Task']} })
-    output_label_type: Optional[DataLabelType] = Field(default=None, description="""Type of output label produced by a task, when applicable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Task']} })
-    performance_metric: Optional[list[str]] = Field(default=None, description="""Metrics used to evaluate performance.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Task']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_dataset_roles: Optional[list[AicDatasetRole]] = Field(default=None, description="""What the dataset is used for.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicDataset']} })
+    aic_dataset_source: Optional[str] = Field(default=None, description="""Where the data comes from.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '8.6.1'}},
+         'domain_of': ['AicDataset']} })
+    aic_dataset_sample_count: Optional[int] = Field(default=None, description="""How many samples it holds.""", ge=0, json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.2.13'}},
+         'domain_of': ['AicDataset']} })
+    aic_dataset_labels: Optional[list[str]] = Field(default=None, description="""The labels its samples can carry.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.2.10'}},
+         'domain_of': ['AicDataset']} })
+    aic_dataset_ground_truth: Optional[str] = Field(default=None, description="""Where the correct answers for its samples come from.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.2.7'}},
+         'domain_of': ['AicDataset']} })
+    aic_dataset_holds_pii: Optional[bool] = Field(default=None, description="""Whether it holds data that can identify a person.""", json_schema_extra = { "linkml_meta": {'annotations': {'iso22989_term': {'tag': 'iso22989_term', 'value': '3.2.11'}},
+         'domain_of': ['AicDataset']} })
+    aic_dataset_processes: Optional[list[AicDataProcess]] = Field(default=None, description="""The work done on the data.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicDataset']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class Prediction(NamedEntity):
+class AicDataProcess(ConfiguredBaseModel):
     """
-    Prediction produced by an AI model (Clause 7.4.2).
+    One piece of work done on a dataset.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_functional_view']})
-
-    predicted_value: Optional[str] = Field(default=None, description="""Serialised representation of a predicted value (Clause 7.4.2).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Prediction']} })
-    confidence: Optional[float] = Field(default=None, description="""Normalised confidence value associated with an output or claim.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Prediction', 'Recommendation']} })
-    produced_by: Optional[str] = Field(default=None, description="""Model that produced the prediction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Prediction']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class Decision(NamedEntity):
-    """
-    Decision produced by an AI system on the basis of one or more predictions (Clause 7.4.3).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['gist_linkml:Determination'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.10'}},
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_functional_view']})
+         'in_subset': ['aic_data']})
 
-    decision_outcome: Optional[str] = Field(default=None, description="""Chosen course of action resulting from a decision (Clause 7.4.3).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Decision']} })
-    decision_policy: Optional[str] = Field(default=None, description="""Policy or rule used to translate predictions into a decision.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Decision']} })
-    based_on_predictions: Optional[list[str]] = Field(default=None, description="""Predictions that supported the decision.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Decision', 'Recommendation']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
+    aic_data_process_kind: AicDataProcessKind = Field(default=..., description="""The kind of work.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicDataProcess']} })
+    aic_data_process_method: Optional[str] = Field(default=None, description="""How it was done, such as the tool used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicDataProcess']} })
+    aic_data_process_date: Optional[date] = Field(default=None, description="""When it was done.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicDataProcess']} })
 
 
-class Action(NamedEntity):
+class AicTrustworthinessClaim(AicRecordMixin):
     """
-    Action carried out as a result of an AI-system decision (Clause 7.4.4).
+    A claim that a system has a property people can rely on, with what backs it.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['gist_linkml:Event'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.15.1'},
+                         'iso22989_term': {'tag': 'iso22989_term', 'value': '3.5.16'}},
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_functional_view']})
+         'in_subset': ['aic_trustworthiness'],
+         'mixins': ['AicRecordMixin']})
 
-    action_target: Optional[str] = Field(default=None, description="""Entity or system on which an action is performed (Clause 7.4.4).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Action']} })
-    execution_status: Optional[ExecutionStatus] = Field(default=None, description="""Execution status of an action or process.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Action']} })
-    triggered_by: Optional[str] = Field(default=None, description="""Decision that triggered the action.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Action']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_claim_system: str = Field(default=..., description="""The system the claim is about.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicTrustworthinessClaim']} })
+    aic_claim_property: AicTrustworthinessProperty = Field(default=..., description="""The property claimed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicTrustworthinessClaim']} })
+    aic_claim_evidence: Optional[list[str]] = Field(default=None, description="""What backs the claim.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicTrustworthinessClaim']} })
+    aic_claim_measure: Optional[str] = Field(default=None, description="""How the property was measured, if it was.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicTrustworthinessClaim']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class InferenceEngine(NamedEntity):
+class AicAssessment(AicRecordMixin):
     """
-    Component performing inference over a model or knowledge base (Clause 3.1.17).
+    One verification or validation of a system.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_functional_view']})
-
-    inference_strategy: Optional[str] = Field(default=None, description="""Inference strategy used (e.g. forward_chaining, backward_chaining, probabilistic).""", json_schema_extra = { "linkml_meta": {'domain_of': ['InferenceEngine', 'Inference']} })
-    uses_model: Optional[str] = Field(default=None, description="""Model the inference engine evaluates.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InferenceEngine']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class KnowledgeGraph(KnowledgeRepresentation):
-    """
-    Graph-structured knowledge representation, often used for reasoning and retrieval (Clause 8.5).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_ecosystem'],
-         'related_mappings': ['gist_linkml:KnowledgeConcept']})
-
-    node_count: Optional[int] = Field(default=None, description="""Approximate number of nodes in a graph-structured artefact.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['KnowledgeGraph']} })
-    edge_count: Optional[int] = Field(default=None, description="""Approximate number of edges in a graph-structured artefact.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['KnowledgeGraph']} })
-    ontology_reference: Optional[list[str]] = Field(default=None, description="""Ontologies referenced by a knowledge artefact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['KnowledgeGraph']} })
-    symbolic_approach: Optional[SymbolicApproach] = Field(default=None, description="""Predominant symbolic vs subsymbolic approach used by the system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIAgent', 'KnowledgeRepresentation', 'AISystem']} })
-    knowledge_type: Optional[KnowledgeType] = Field(default=None, description="""Type of knowledge captured (Clause 3.1.12, 3.1.28).""", json_schema_extra = { "linkml_meta": {'domain_of': ['KnowledgeRepresentation']} })
-    representation_form: Optional[str] = Field(default=None, description="""Concrete form of representation (rules, frames, ontology, graph, vectors).""", json_schema_extra = { "linkml_meta": {'domain_of': ['KnowledgeRepresentation']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class ExpertSystem(NamedEntity):
-    """
-    Rule-based system encoding domain expertise (Clause 8.5.2).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_ecosystem']})
-
-    rule_count: Optional[int] = Field(default=None, description="""Approximate count of rules in a rule-based knowledge base.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['ExpertSystem']} })
-    inference_engine: Optional[InferenceEngine] = Field(default=None, description="""Inference engine used by the expert system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ExpertSystem']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class CognitiveComputingSystem(AIConcept):
-    """
-    System combining AI techniques to emulate human cognitive functions (Clause 5.5).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    cognitive_capabilities: Optional[list[str]] = Field(default=None, description="""Cognitive capabilities the system provides (e.g. perception, reasoning, learning).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CognitiveComputingSystem']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class SemanticComputingSystem(AIConcept):
-    """
-    System whose behaviour is driven by the explicit semantics of its inputs and knowledge sources (Clause 5.6).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    semantic_model: Optional[str] = Field(default=None, description="""Reference to the semantic model or ontology used.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SemanticComputingSystem']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class SoftComputingSystem(AIConcept):
-    """
-    System employing soft computing techniques tolerant of imprecision and uncertainty (Clause 5.7).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    soft_computing_techniques: list[SoftComputingTechnique] = Field(default=..., description="""Soft-computing techniques the system employs.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SoftComputingSystem']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class DataProcess(NamedEntity):
-    """
-    Discrete data-handling process applied to a dataset during AI system development or operation (Clause 5.10).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'broad_mappings': ['gist_linkml:Event'],
-         'close_mappings': ['nist_ai_100_1:AiSystemDimensionEnum#DATA_AND_INPUT'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.16'}},
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_functional_view'],
-         'related_mappings': ['iso29100:PIIProcessingActivity']})
+         'in_subset': ['aic_trustworthiness'],
+         'mixins': ['AicRecordMixin']})
 
-    process_type: DataProcessType = Field(default=..., description="""Type of data-handling process performed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataProcess']} })
-    input_dataset: Optional[str] = Field(default=None, description="""Dataset consumed by the process.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataProcess']} })
-    output_dataset: Optional[str] = Field(default=None, description="""Dataset produced by the process.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataProcess']} })
-    parameters: Optional[list[str]] = Field(default=None, description="""Free-form parameters configuring the process.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataProcess']} })
-    executed_by: Optional[str] = Field(default=None, description="""Stakeholder role that executed the process.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataProcess']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_assessment_kind: AicAssessmentKind = Field(default=..., description="""Whether it checks the system against its specification or against its purpose.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicAssessment']} })
+    aic_assessment_system: str = Field(default=..., description="""The system assessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicAssessment']} })
+    aic_assessment_method: Optional[str] = Field(default=None, description="""How the system was assessed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicAssessment']} })
+    aic_assessment_result: Optional[str] = Field(default=None, description="""What the assessment found.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicAssessment']} })
+    aic_assessment_date: Optional[date] = Field(default=None, description="""When it was done.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicAssessment']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class DataSample(NamedEntity):
+class AicLifecycleProcess(AicRecordMixin):
     """
-    Individual data record within a dataset (Clause 3.2.13).
+    A piece of work done at one stage of a system's life.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['terminology']})
-
-    sample_payload: Optional[str] = Field(default=None, description="""Serialised representation of the sample contents.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataSample']} })
-    sample_label: Optional[str] = Field(default=None, description="""Label or target value associated with the sample.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataSample']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class DataLabel(NamedEntity):
-    """
-    Label or annotation attached to one or more data samples (Clause 3.2.10).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['terminology'],
-         'slot_usage': {'label_value': {'name': 'label_value', 'required': True}}})
-
-    label_value: str = Field(default=..., description="""Concrete label value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataLabel']} })
-    label_type: Optional[DataLabelType] = Field(default=None, description="""Type of target label associated with a dataset, sample or annotation (Clause 3.2.10).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Dataset', 'DataLabel']} })
-    annotator: Optional[str] = Field(default=None, description="""Role of the party that produced the label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataLabel']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class GroundTruthRecord(NamedEntity):
-    """
-    Trusted reference record used to evaluate or train an AI model (Clause 3.2.7).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['terminology'],
-         'slot_usage': {'ground_truth_value': {'name': 'ground_truth_value',
-                                               'required': True}}})
-
-    ground_truth_value: str = Field(default=..., description="""Trusted reference value (Clause 3.2.7).""", json_schema_extra = { "linkml_meta": {'domain_of': ['GroundTruthRecord']} })
-    provenance_statement: Optional[str] = Field(default=None, description="""Provenance description for an artefact.""", json_schema_extra = { "linkml_meta": {'domain_of': ['GroundTruthRecord'], 'slot_uri': 'prov:wasDerivedFrom'} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class Robot(NamedEntity):
-    """
-    Embodied agent able to perceive its environment and act in the physical world (Clause 5.3 / Clause 9.5 robotics field).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_concepts']})
-
-    embodiment: Optional[str] = Field(default=None, description="""Free-text description of the physical embodiment.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Robot']} })
-    controlled_by: Optional[str] = Field(default=None, description="""AI system that controls the robot.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Robot']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class IoTDevice(NamedEntity):
-    """
-    Device participating in an Internet-of-Things deployment (Clause 5.14.2).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_ecosystem'],
-         'slot_usage': {'device_role': {'name': 'device_role', 'required': True}}})
-
-    device_role: IoTDeviceRole = Field(default=..., description="""Role played by a device in an IoT or cyber-physical system (Clause 5.14.2).""", json_schema_extra = { "linkml_meta": {'domain_of': ['IoTDevice']} })
-    sensing_capabilities: Optional[list[str]] = Field(default=None, description="""Sensing capabilities of the device.""", json_schema_extra = { "linkml_meta": {'domain_of': ['IoTDevice']} })
-    actuating_capabilities: Optional[list[str]] = Field(default=None, description="""Actuating capabilities of the device.""", json_schema_extra = { "linkml_meta": {'domain_of': ['IoTDevice']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class IoTSystem(NamedEntity):
-    """
-    Networked system composed of IoT devices, possibly enhanced with AI capabilities (Clause 5.14.2).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_ecosystem']})
-
-    devices: Optional[list[IoTDevice]] = Field(default=None, description="""Devices that make up the IoT system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['IoTSystem']} })
-    ai_components: Optional[list[str]] = Field(default=None, description="""AI components that operate within the IoT system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['IoTSystem']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class CyberPhysicalSystem(NamedEntity):
-    """
-    System that tightly integrates computational and physical components, typically with feedback loops between sensing and actuation (Clause 5.14.3).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_ecosystem']})
-
-    physical_processes: Optional[list[str]] = Field(default=None, description="""Physical processes the system monitors or controls.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CyberPhysicalSystem']} })
-    cyber_components: Optional[list[str]] = Field(default=None, description="""Computational components participating in the system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CyberPhysicalSystem']} })
-    iot_subsystem: Optional[str] = Field(default=None, description="""IoT subsystem the CPS relies on, if any.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CyberPhysicalSystem']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class AbbreviationEntry(NamedEntity):
-    """
-    Record of a single abbreviation listed in Clause 4 of the standard.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['terminology'],
-         'slot_usage': {'abbreviation_code': {'name': 'abbreviation_code',
-                                              'required': True},
-                        'expansion': {'name': 'expansion', 'required': True}}})
-
-    abbreviation_code: AbbreviationCode = Field(default=..., description="""Acronym or abbreviation code (Clause 4).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AbbreviationEntry']} })
-    expansion: str = Field(default=..., description="""Expanded form of an abbreviation (Clause 4).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AbbreviatedTerm', 'AbbreviationEntry']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class AIConceptsCollection(ConfiguredBaseModel):
-    """
-    Top-level container aggregating AI systems, models, datasets, lifecycle processes, stakeholder roles, applications and trustworthiness records for serialisation as a single artefact.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989', 'tree_root': True})
-
-    ai_systems: Optional[list[AISystem]] = Field(default=None, description="""AI systems documented in the collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIEcosystem', 'AIConceptsCollection']} })
-    ai_models: Optional[list[AIModel]] = Field(default=None, description="""Trained or knowledge-based models in the collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIConceptsCollection']} })
-    ai_datasets: Optional[list[Dataset]] = Field(default=None, description="""Datasets referenced by entities in the collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIConceptsCollection']} })
-    ai_lifecycle_processes: Optional[list[AILifecycleProcess]] = Field(default=None, description="""Life-cycle process records in the collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIConceptsCollection']} })
-    ai_stakeholder_roles: Optional[list[AIStakeholderRole]] = Field(default=None, description="""Stakeholder role records in the collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIEcosystem', 'AIConceptsCollection']} })
-    ai_applications: Optional[list[AIApplication]] = Field(default=None, description="""AI application records in the collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIConceptsCollection']} })
-    trustworthiness_records: Optional[list[TrustworthinessProperty]] = Field(default=None, description="""Trustworthiness property claims documented in the collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIConceptsCollection']} })
-    tasks: Optional[list[Task]] = Field(default=None, description="""Task records in the collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIConceptsCollection']} })
-    data_processes: Optional[list[DataProcess]] = Field(default=None, description="""Data-handling process records in the collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AISystem', 'AIConceptsCollection']} })
-    iot_systems: Optional[list[IoTSystem]] = Field(default=None, description="""IoT system records in the collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIConceptsCollection']} })
-    cyber_physical_systems: Optional[list[CyberPhysicalSystem]] = Field(default=None, description="""Cyber-physical system records in the collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIConceptsCollection']} })
-    knowledge_graphs: Optional[list[KnowledgeGraph]] = Field(default=None, description="""Knowledge-graph records in the collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIConceptsCollection']} })
-    expert_systems: Optional[list[ExpertSystem]] = Field(default=None, description="""Expert-system records in the collection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIConceptsCollection']} })
-    abbreviations: Optional[list[AbbreviationEntry]] = Field(default=None, description="""Clause 4 abbreviation records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIConceptsCollection']} })
-
-
-class AIPlatformProvider(AIProvider):
-    """
-    Provider of platform infrastructure on which AI services are operated (Clause 5.19.2).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_provider, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_provider)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class AIServiceProductProvider(AIProvider):
-    """
-    Provider of an AI-enabled service or product to customers (Clause 5.19.2).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_provider, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_provider)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class ModelDesigner(AIProducer):
-    """
-    Producer role responsible for designing AI models (Clause 5.19.3).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_producer, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_producer)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class ModelImplementer(AIProducer):
-    """
-    Producer role responsible for implementing AI models in code (Clause 5.19.3).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_producer, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_producer)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class ComputationVerifier(AIProducer):
-    """
-    Producer role verifying the computational behaviour of an AI system (Clause 5.19.3).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_producer, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_producer)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class ModelVerifier(AIProducer):
-    """
-    Producer role verifying that models meet specified requirements (Clause 5.19.3).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_producer, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_producer)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class AIUser(AICustomer):
-    """
-    End user of an AI system or AI-backed service (Clause 5.19.4).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['gist_linkml:Person'],
-         'exact_mappings': ['nist_ai_100_1:AiActorTaskEnum#END_USERS',
-                            'nist_ai_600_1:GaiActorTaskEnum#END_USERS'],
-         'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_customer, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_customer)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class AISystemIntegrator(AIPartner):
-    """
-    Partner integrating AI components into a wider system (Clause 5.19.5).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_partner, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_partner)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class DataProvider(AIPartner):
-    """
-    Partner supplying datasets used by AI systems (Clause 5.19.5).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['iso29100:PIIController'],
-         'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_partner, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_partner)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class AIAuditor(AIPartner):
-    """
-    Partner performing independent audits of AI systems (Clause 5.19.5).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['nist_ai_100_1:AiActorTaskEnum#TEVV',
-                            'nist_ai_600_1:GaiActorTaskEnum#TEVV'],
-         'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_partner, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_partner)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class AIEvaluator(AIPartner):
-    """
-    Partner performing evaluations of AI system performance and trustworthiness (Clause 5.19.5).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_partner, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_partner)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class DataSubject(AISubject):
-    """
-    Individual whose personal data is processed by an AI system (Clause 5.19.6).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['gist_linkml:Person'],
-         'exact_mappings': ['iso29100:PIIPrincipal'],
-         'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.ai_subject, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(ai_subject)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class PolicyMaker(RelevantAuthority):
-    """
-    Authority defining policy applicable to AI systems (Clause 5.19.7).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.relevant_authority, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(relevant_authority)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class Regulator(RelevantAuthority):
-    """
-    Authority responsible for regulatory oversight of AI systems (Clause 5.19.7).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    stakeholder_role_type: AIStakeholderRoleType = Field(default=AIStakeholderRoleType.relevant_authority, description="""Canonical stakeholder role type as defined in Clause 5.19.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole'],
-         'ifabsent': 'AIStakeholderRoleType(relevant_authority)'} })
-    organization_name: Optional[str] = Field(default=None, description="""Name of the organisation acting in the stakeholder role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    contact: Optional[str] = Field(default=None, description="""Contact identifier (e.g. email) for the stakeholder.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    responsibilities: Optional[list[str]] = Field(default=None, description="""Free-text statements of responsibility.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIStakeholderRole']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class AutonomyAssessment(NamedEntity):
-    """
-    Structured assessment of the autonomy level of an AI system using the criteria listed in Clause 5.13.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_concepts']})
-
-    autonomy_level: Optional[AutonomyLevel] = Field(default=None, description="""Operational autonomy level of the AI system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIAgent', 'AISystem', 'AutonomyAssessment']} })
-    autonomy_criterion_scores: Optional[list[str]] = Field(default=None, description="""Free-form scores or judgements for autonomy criteria (Clause 5.13).""", json_schema_extra = { "linkml_meta": {'domain_of': ['AutonomyAssessment']} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class VerificationValidationFramework(NamedEntity):
-    """
-    Verifiability and validatability claim for an AI system characterised according to the levels in Clause 5.16.
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['trustworthiness']})
-
-    verification_validation_level: Optional[VerificationValidationLevel] = Field(default=None, description="""Verifiability / validatability claim (Clause 5.16).""", json_schema_extra = { "linkml_meta": {'domain_of': ['VerificationValidationFramework']} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    verification_methods: Optional[list[str]] = Field(default=None, description="""Verification methods applied or applicable to the system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VerificationValidationFramework']} })
-    validation_methods: Optional[list[str]] = Field(default=None, description="""Validation methods applied or applicable to the system.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VerificationValidationFramework']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class HumanMachineTeam(AIConcept):
-    """
-    Collaboration arrangement combining one or more humans with one or more AI systems to pursue shared goals (Clauses 3.3.3, 5.13).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['nist_ai_600_1:GaiRiskCategoryEnum#HUMAN_AI_CONFIGURATION'],
-         'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    human_roles: Optional[list[str]] = Field(default=None, description="""Roles played by humans in the team.""", json_schema_extra = { "linkml_meta": {'domain_of': ['HumanMachineTeam']} })
-    ai_systems_involved: Optional[list[str]] = Field(default=None, description="""AI systems participating in the team.""", json_schema_extra = { "linkml_meta": {'domain_of': ['HumanMachineTeam']} })
-    task_allocation: Optional[str] = Field(default=None, description="""Free-text description of how tasks are allocated between humans and AI.""", json_schema_extra = { "linkml_meta": {'domain_of': ['HumanMachineTeam']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class IntelligenceAugmentation(AIConcept):
-    """
-    Use of AI to enhance the cognitive capabilities of humans rather than replace them (Clause 5.13 context).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    augmented_capability: Optional[list[str]] = Field(default=None, description="""Cognitive capabilities being augmented.""", json_schema_extra = { "linkml_meta": {'domain_of': ['IntelligenceAugmentation']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class Recommendation(NamedEntity):
-    """
-    Recommendation produced by an AI system (Clauses 7.4, 10).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_functional_view']})
-
-    recommendation_outcome_type: Optional[RecommendationOutcomeType] = Field(default=None, description="""High-level outcome type of a recommendation (Clauses 7.4, 10).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Recommendation']} })
-    confidence: Optional[float] = Field(default=None, description="""Normalised confidence value associated with an output or claim.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Prediction', 'Recommendation']} })
-    recommended_items: Optional[list[str]] = Field(default=None, description="""Items recommended by the system, serialised as strings.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Recommendation']} })
-    based_on_predictions: Optional[list[str]] = Field(default=None, description="""Predictions supporting the recommendation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Decision', 'Recommendation']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class EvaluationMetric(NamedEntity):
-    """
-    Metric used to evaluate AI system or model performance (Clause 7.4.3).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['trustworthiness']})
-
-    metric_name: str = Field(default=..., description="""Name of the metric (e.g. accuracy, F1, MAE).""", json_schema_extra = { "linkml_meta": {'domain_of': ['EvaluationMetric']} })
-    metric_value: Optional[float] = Field(default=None, description="""Observed numeric value of the metric.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EvaluationMetric']} })
-    metric_unit: Optional[str] = Field(default=None, description="""Unit of the metric, when applicable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EvaluationMetric']} })
-    reference_dataset: Optional[str] = Field(default=None, description="""Dataset against which the metric was computed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['EvaluationMetric']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class Threshold(NamedEntity):
-    """
-    Decision threshold applied to a metric, prediction or score (Clause 7.4.3).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_functional_view']})
-
-    threshold_value: float = Field(default=..., description="""Numeric threshold value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Threshold']} })
-    applies_to_metric: Optional[str] = Field(default=None, description="""Name of the metric or score the threshold applies to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Threshold']} })
-    threshold_policy: Optional[str] = Field(default=None, description="""Policy describing how the threshold is interpreted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Threshold']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class Neuron(AIConcept):
-    """
-    Computational unit in a neural network combining weighted inputs with a bias and an activation function (Clause 3.4.9).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    activation_function: Optional[ActivationFunctionType] = Field(default=None, description="""Activation function applied at the neuron output.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AIModel', 'Neuron']} })
-    input_arity: Optional[int] = Field(default=None, description="""Number of inputs combined by the neuron.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Neuron']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class ConvolutionOperation(AIConcept):
-    """
-    Convolution operation as used in convolutional neural networks (Clause 3.4.3).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989'})
-
-    kernel_size: Optional[list[int]] = Field(default=None, description="""Spatial dimensions of the convolution kernel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConvolutionOperation']} })
-    stride: Optional[int] = Field(default=None, description="""Stride applied when sliding the kernel over the input.""", ge=1, json_schema_extra = { "linkml_meta": {'domain_of': ['ConvolutionOperation']} })
-    padding: Optional[str] = Field(default=None, description="""Padding mode (e.g. valid, same).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConvolutionOperation']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class DataDrift(NamedEntity):
-    """
-    Observed change in the statistical distribution of operational data relative to training data (Clause 5.11.9.1).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['terminology']})
-
-    drift_type: Optional[str] = Field(default=None, description="""Type of drift (covariate, label, concept).""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataDrift']} })
-    detected_at: Optional[str] = Field(default=None, description="""Timestamp or interval at which drift was detected.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataDrift']} })
-    affected_dataset: Optional[str] = Field(default=None, description="""Dataset in which drift was observed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DataDrift']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class CatastrophicForgetting(NamedEntity):
-    """
-    Phenomenon by which a continually-trained model loses previously acquired competence (Clause 5.11.9.1).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['terminology']})
-
-    affected_model: Optional[str] = Field(default=None, description="""Model in which the phenomenon was observed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatastrophicForgetting']} })
-    mitigation_strategy: Optional[str] = Field(default=None, description="""Strategy applied to mitigate the phenomenon.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatastrophicForgetting', 'RiskItem']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class FaultToleranceMechanism(NamedEntity):
-    """
-    Mechanism enabling an AI system to continue operating correctly in the presence of component faults (Clause 5.15.4 context).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['trustworthiness']})
-
-    mechanism_type: Optional[str] = Field(default=None, description="""Type of mechanism (redundancy, graceful degradation, failover, etc.).""", json_schema_extra = { "linkml_meta": {'domain_of': ['FaultToleranceMechanism']} })
-    coverage_scope: Optional[str] = Field(default=None, description="""Scope of failure modes the mechanism covers.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FaultToleranceMechanism']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class NaturalLanguage(AIConcept):
-    """
-    Natural language treated as an object of processing or generation by an AI system (Clause 9.2).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989', 'in_subset': ['ai_fields']})
-
-    language_code: Optional[str] = Field(default=None, description="""BCP-47 language tag.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NaturalLanguage']} })
-    script: Optional[str] = Field(default=None, description="""ISO 15924 script code, when relevant.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NaturalLanguage']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
-         'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
-
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
-        if isinstance(v, list):
-            for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
-                    raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
-            raise ValueError(err_msg)
-        return v
-
-
-class RiskItem(NamedEntity):
-    """
-    Risk associated with an AI system, capturing source, potential event, consequence and treatment metadata (Clause 3.5.11; aligned with ISO/IEC 23894 risk concepts).
-    """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'close_mappings': ['iso27001:Risk',
-                            'iso29100:PrivacyRisk',
-                            'nist_ai_600_1:GaiRisk'],
-         'exact_mappings': ['nist_ai_100_1:Risk'],
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause', 'value': '6.2'}},
          'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['trustworthiness', 'ai_lifecycle']})
+         'in_subset': ['aic_lifecycle'],
+         'mixins': ['AicRecordMixin']})
 
-    risk_source: Optional[str] = Field(default=None, description="""Source from which the risk originates.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RiskItem']} })
-    potential_event: Optional[str] = Field(default=None, description="""Potential event whose occurrence would realise the risk.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RiskItem']} })
-    consequence: Optional[str] = Field(default=None, description="""Consequence to one or more stakeholders if the event occurs.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RiskItem']} })
-    likelihood: Optional[float] = Field(default=None, description="""Estimated likelihood of the event (0.0–1.0).""", json_schema_extra = { "linkml_meta": {'domain_of': ['RiskItem']} })
-    severity: Optional[str] = Field(default=None, description="""Qualitative severity assessment of the consequence.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RiskItem']} })
-    mitigation_strategy: Optional[list[str]] = Field(default=None, description="""Strategies to reduce likelihood or severity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CatastrophicForgetting', 'RiskItem']} })
-    affected_stakeholders: Optional[list[str]] = Field(default=None, description="""Stakeholder roles affected by the risk.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RiskItem']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_lifecycle_stage: AicLifecycleStage = Field(default=..., description="""The stage the work belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicLifecycleProcess']} })
+    aic_lifecycle_system: Optional[str] = Field(default=None, description="""The system the work is for.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicLifecycleProcess']} })
+    aic_lifecycle_inputs: Optional[list[str]] = Field(default=None, description="""What the work starts from.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicLifecycleProcess']} })
+    aic_lifecycle_outputs: Optional[list[str]] = Field(default=None, description="""What the work produces.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicLifecycleProcess']} })
+    aic_lifecycle_responsible: Optional[str] = Field(default=None, description="""The party that answers for the work.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicLifecycleProcess']} })
+    aic_lifecycle_start: Optional[date] = Field(default=None, description="""When the work began.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicLifecycleProcess']} })
+    aic_lifecycle_end: Optional[date] = Field(default=None, description="""When the work ended.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicLifecycleProcess']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class InputData(NamedEntity):
+class AicStakeholder(AicRecordMixin):
     """
-    Data presented to an AI system at inference time or during training (Clause 3.2.9).
+    A person, group or organization with a part in an AI system or an interest in it.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['terminology']})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.19.1'},
+                         'iso22989_term': {'tag': 'iso22989_term', 'value': '3.5.13'}},
+         'comments': ["UCO's Role is the function something has in context, which this "
+                      'record states for one party. A party with two roles has a '
+                      'record for each.'],
+         'from_schema': 'https://w3id.org/lmodel/iso22989',
+         'in_subset': ['aic_stakeholders'],
+         'mixins': ['AicRecordMixin'],
+         'related_mappings': ['uco-role:Role']})
 
-    data_source_type: Optional[DataSourceType] = Field(default=None, description="""Classification of a data source (Clause 8.6.1).""", json_schema_extra = { "linkml_meta": {'domain_of': ['InputData']} })
-    data_collection_method: Optional[DataCollectionMethod] = Field(default=None, description="""Method used to collect data (Clause 8.6.1).""", json_schema_extra = { "linkml_meta": {'domain_of': ['InputData']} })
-    modality: Optional[DataModality] = Field(default=None, description="""Modality of the input data.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InputData']} })
-    consumed_by: Optional[str] = Field(default=None, description="""AI system that consumes the input.""", json_schema_extra = { "linkml_meta": {'domain_of': ['InputData']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_stakeholder_role: AicStakeholderRole = Field(default=..., description="""The part the party plays.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicStakeholder']} })
+    aic_stakeholder_sub_roles: Optional[list[AicStakeholderSubRole]] = Field(default=None, description="""The narrower parts it plays within that role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicStakeholder']} })
+    aic_stakeholder_organization: Optional[str] = Field(default=None, description="""The organization the party is or belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicStakeholder']} })
+    aic_stakeholder_contact: Optional[str] = Field(default=None, description="""How to reach the party.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicStakeholder']} })
+    aic_stakeholder_responsibilities: Optional[list[str]] = Field(default=None, description="""What the party answers for.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicStakeholder']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class Inference(NamedEntity):
+class AicPrediction(AicRecordMixin):
     """
-    Act of deriving conclusions, predictions or recommendations from a model or knowledge base (Clause 3.1.17).
+    A result a system worked out for one case.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_functional_view']})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '7.4.2'},
+                         'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.27'}},
+         'from_schema': 'https://w3id.org/lmodel/iso22989',
+         'in_subset': ['aic_functional_view'],
+         'mixins': ['AicRecordMixin']})
 
-    inference_strategy: Optional[str] = Field(default=None, description="""Strategy used (forward-chaining, backward-chaining, probabilistic, neural forward pass).""", json_schema_extra = { "linkml_meta": {'domain_of': ['InferenceEngine', 'Inference']} })
-    performed_by: Optional[str] = Field(default=None, description="""Engine that performed the inference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Inference']} })
-    over_model: Optional[str] = Field(default=None, description="""Model over which the inference was performed.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Inference']} })
-    produced_output: Optional[str] = Field(default=None, description="""Serialised representation of the inference output.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Inference']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_prediction_system: str = Field(default=..., description="""The system that produced it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicPrediction']} })
+    aic_prediction_value: str = Field(default=..., description="""What it says.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicPrediction']} })
+    aic_prediction_confidence: Optional[float] = Field(default=None, description="""How sure the system was, from 0 to 1.""", ge=0, le=1, json_schema_extra = { "linkml_meta": {'domain_of': ['AicPrediction']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class OECDLifecycleMapping(NamedEntity):
+class AicDecision(AicRecordMixin):
     """
-    Informative mapping between an ISO/IEC 22989 life-cycle stage and an OECD life-cycle stage (Annex A).
+    A choice made on the strength of some predictions.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/lmodel/iso22989',
-         'in_subset': ['ai_lifecycle']})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '7.4.3'}},
+         'from_schema': 'https://w3id.org/lmodel/iso22989',
+         'in_subset': ['aic_functional_view'],
+         'mixins': ['AicRecordMixin']})
 
-    iso_stage: AILifecycleStage = Field(default=..., description="""ISO/IEC 22989 life-cycle stage.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OECDLifecycleMapping']} })
-    oecd_stage: OECDLifecycleStage = Field(default=..., description="""Corresponding OECD life-cycle stage.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OECDLifecycleMapping']} })
-    mapping_notes: Optional[str] = Field(default=None, description="""Free-text notes on the mapping relationship.""", json_schema_extra = { "linkml_meta": {'domain_of': ['OECDLifecycleMapping']} })
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_decision_outcome: str = Field(default=..., description="""What was chosen.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicDecision']} })
+    aic_decision_predictions: Optional[list[str]] = Field(default=None, description="""The predictions it rests on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicDecision']} })
+    aic_decision_criteria: Optional[str] = Field(default=None, description="""How the choice was made, such as a threshold or a rule.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicDecision']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class Organization(NamedEntity):
+class AicAction(AicRecordMixin):
     """
-    Organisation that establishes and operates an AI management system; Annex SL harmonised anchor shared across ISO management-system standards (ISO/IEC 42001, ISO/IEC 27001).
+    What was done because of a decision.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'exact_mappings': ['gist_linkml:Organization',
-                            'iso27001:Organization',
-                            'iso42001:Organization'],
-         'from_schema': 'https://w3id.org/lmodel/iso22989'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '7.4.4'}},
+         'from_schema': 'https://w3id.org/lmodel/iso22989',
+         'in_subset': ['aic_functional_view'],
+         'mixins': ['AicRecordMixin']})
 
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_action_decision: str = Field(default=..., description="""The decision it carries out.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicAction']} })
+    aic_action_target: Optional[str] = Field(default=None, description="""What it acted on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicAction']} })
+    aic_action_time: Optional[datetime ] = Field(default=None, description="""When it was done.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicAction']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
-class InterestedParty(NamedEntity):
+class AicApplication(AicRecordMixin):
     """
-    Person or organisation that can affect, be affected by, or perceive itself to be affected by a decision or activity; Annex SL harmonised stakeholder anchor shared across ISO management-system standards.
+    One use of a system in a line of work.
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'exact_mappings': ['iso27001:InterestedParty', 'iso42001:InterestedParty'],
-         'from_schema': 'https://w3id.org/lmodel/iso22989'})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause', 'value': '10'}},
+         'from_schema': 'https://w3id.org/lmodel/iso22989',
+         'in_subset': ['aic_fields_and_applications'],
+         'mixins': ['AicRecordMixin']})
 
-    id: str = Field(default=..., description="""Unique CURIE or URI identifying the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:identifier'} })
-    name: str = Field(default=..., description="""Human-readable label for the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'],
-         'exact_mappings': ['dcterms:title', 'schema:name'],
+    aic_application_system: str = Field(default=..., description="""The system applied.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicApplication']} })
+    aic_application_domain: Optional[AicApplicationDomain] = Field(default=None, description="""The domain, where it is one the standard works through.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicApplication']} })
+    aic_application_sector: Optional[str] = Field(default=None, description="""The sector, in the words of whoever keeps the record.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicApplication']} })
+    aic_application_purpose: Optional[str] = Field(default=None, description="""What this use is for.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicApplication']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:name'} })
-    description: Optional[str] = Field(default=None, description="""Free-text description of the entity (paraphrased; verbatim ISO text excluded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'dcterms:description'} })
-    clause_reference: Optional[str] = Field(default=None, description="""ISO/IEC 22989:2022 clause identifier (e.g. \"5.11.4\") the element corresponds to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity',
-                       'AutonomyAssessment',
-                       'VerificationValidationFramework']} })
-    aliases: Optional[list[str]] = Field(default=None, description="""Alternative names or synonyms for the term.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:altLabel'} })
-    preferred_label: Optional[str] = Field(default=None, description="""Preferred natural-language label.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'skos:prefLabel'} })
-    see_also_uri: Optional[list[str]] = Field(default=None, description="""Pointers to related external resources or term records.""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedEntity'], 'slot_uri': 'rdfs:seeAlso'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
 
-    @field_validator('clause_reference')
-    def pattern_clause_reference(cls, v):
-        pattern=re.compile(r"^[0-9]+(\.[0-9]+){0,3}$")
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
         if isinstance(v, list):
             for element in v:
-                if isinstance(element, str) and not pattern.match(element):
-                    err_msg = f"Invalid clause_reference format: {element}"
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
                     raise ValueError(err_msg)
-        elif isinstance(v, str) and not pattern.match(v):
-            err_msg = f"Invalid clause_reference format: {v}"
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+
+class AicResourcePool(AicRecordMixin):
+    """
+    A body of computing resource that AI work can draw on.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause', 'value': '8.7'}},
+         'from_schema': 'https://w3id.org/lmodel/iso22989',
+         'in_subset': ['aic_ecosystem'],
+         'mixins': ['AicRecordMixin']})
+
+    aic_pool_kind: Optional[AicResourceKind] = Field(default=None, description="""The kind of resource.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicResourcePool']} })
+    aic_pool_hardware: Optional[str] = Field(default=None, description="""The hardware in it, such as a model of accelerator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicResourcePool']} })
+    aic_pool_capacity: Optional[str] = Field(default=None, description="""How much it offers, in units its owner uses.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicResourcePool']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
+
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+
+class AicIotDevice(AicRecordMixin):
+    """
+    A connected device that reads from or acts on its physical surroundings.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.14.2'},
+                         'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.19'}},
+         'any_of': [{'slot_conditions': {'aic_device_senses': {'name': 'aic_device_senses',
+                                                               'required': True}}},
+                    {'slot_conditions': {'aic_device_actuates': {'name': 'aic_device_actuates',
+                                                                 'required': True}}}],
+         'broad_mappings': ['uco-observable:Device'],
+         'comments': ["UCO's Device is any piece of equipment made for a purpose, so "
+                      'it is the wider term. Its SmartDevice is the narrower one, a '
+                      'device tied directly to cloud networks or a phone.'],
+         'from_schema': 'https://w3id.org/lmodel/iso22989',
+         'in_subset': ['aic_iot'],
+         'mixins': ['AicRecordMixin'],
+         'narrow_mappings': ['uco-observable:SmartDevice']})
+
+    aic_device_senses: Optional[list[str]] = Field(default=None, description="""What the device reads from its surroundings.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicIotDevice']} })
+    aic_device_actuates: Optional[list[str]] = Field(default=None, description="""What the device acts on.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicIotDevice']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
+
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+
+class AicIotSystem(AicRecordMixin):
+    """
+    A networked system that links devices and offers services built on them.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.14.2'},
+                         'iso22989_term': {'tag': 'iso22989_term',
+                                           'value': '3.1.18, 3.1.20'}},
+         'from_schema': 'https://w3id.org/lmodel/iso22989',
+         'in_subset': ['aic_iot'],
+         'mixins': ['AicRecordMixin']})
+
+    aic_iot_devices: list[str] = Field(default=..., description="""The devices in it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicIotSystem']} })
+    aic_iot_ai_systems: Optional[list[str]] = Field(default=None, description="""The AI systems that work with it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicIotSystem']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
+
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+
+class AicCyberPhysicalSystem(AicRecordMixin):
+    """
+    Computing and physical processes tied in a loop, each affecting the other.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause',
+                                             'value': '5.14.3'}},
+         'from_schema': 'https://w3id.org/lmodel/iso22989',
+         'in_subset': ['aic_iot'],
+         'mixins': ['AicRecordMixin']})
+
+    aic_cps_physical_processes: list[str] = Field(default=..., description="""The physical processes it senses and controls.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicCyberPhysicalSystem']} })
+    aic_cps_iot_system: Optional[str] = Field(default=None, description="""The connected system it runs on, if it does.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicCyberPhysicalSystem']} })
+    aic_cps_ai_systems: Optional[list[str]] = Field(default=None, description="""The AI systems that work with it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicCyberPhysicalSystem']} })
+    aic_id: str = Field(default=..., description="""The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicRecordMixin']} })
+    title: str = Field(default=..., description="""The name the record's author gives it.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's title means and carries the same IRI, so "
+                      "lokf adapt folds it into LOKF's slot and a knowledge bundle "
+                      'reads one title key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(default=None, description="""What the record describes, in its author's words.""", json_schema_extra = { "linkml_meta": {'comments': ["It means what LOKF's description means and carries the same "
+                      "IRI, so lokf adapt folds it into LOKF's slot and a knowledge "
+                      'bundle reads one description key.'],
+         'domain_of': ['AicRecordMixin'],
+         'slot_uri': 'schema:description'} })
+
+    @field_validator('title')
+    def pattern_title(cls, v):
+        pattern=re.compile(r"^\s*\S")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid title format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid title format: {v}"
             raise ValueError(err_msg)
         return v
 
 
 # Model rebuild
 # see https://pydantic-docs.helpmanual.io/usage/models/#rebuilding-a-model
-NamedEntity.model_rebuild()
-Term.model_rebuild()
-AITerm.model_rebuild()
-DataTerm.model_rebuild()
-MachineLearningTerm.model_rebuild()
-NeuralNetworkTerm.model_rebuild()
-TrustworthinessTerm.model_rebuild()
-NLPTerm.model_rebuild()
-ComputerVisionTerm.model_rebuild()
-AbbreviatedTerm.model_rebuild()
-AIConcept.model_rebuild()
-AIAgent.model_rebuild()
-KnowledgeRepresentation.model_rebuild()
-AISystem.model_rebuild()
-AIComponent.model_rebuild()
-AIModel.model_rebuild()
-NeuralNetworkModel.model_rebuild()
-Dataset.model_rebuild()
-TrustworthinessProperty.model_rebuild()
-AILifecycleProcess.model_rebuild()
-AIStakeholderRole.model_rebuild()
-AIProvider.model_rebuild()
-AIProducer.model_rebuild()
-AICustomer.model_rebuild()
-AIPartner.model_rebuild()
-AISubject.model_rebuild()
-RelevantAuthority.model_rebuild()
-AIEcosystem.model_rebuild()
-ResourcePool.model_rebuild()
-NLPComponent.model_rebuild()
-ComputerVisionFunction.model_rebuild()
-AIApplication.model_rebuild()
-Task.model_rebuild()
-Prediction.model_rebuild()
-Decision.model_rebuild()
-Action.model_rebuild()
-InferenceEngine.model_rebuild()
-KnowledgeGraph.model_rebuild()
-ExpertSystem.model_rebuild()
-CognitiveComputingSystem.model_rebuild()
-SemanticComputingSystem.model_rebuild()
-SoftComputingSystem.model_rebuild()
-DataProcess.model_rebuild()
-DataSample.model_rebuild()
-DataLabel.model_rebuild()
-GroundTruthRecord.model_rebuild()
-Robot.model_rebuild()
-IoTDevice.model_rebuild()
-IoTSystem.model_rebuild()
-CyberPhysicalSystem.model_rebuild()
-AbbreviationEntry.model_rebuild()
-AIConceptsCollection.model_rebuild()
-AIPlatformProvider.model_rebuild()
-AIServiceProductProvider.model_rebuild()
-ModelDesigner.model_rebuild()
-ModelImplementer.model_rebuild()
-ComputationVerifier.model_rebuild()
-ModelVerifier.model_rebuild()
-AIUser.model_rebuild()
-AISystemIntegrator.model_rebuild()
-DataProvider.model_rebuild()
-AIAuditor.model_rebuild()
-AIEvaluator.model_rebuild()
-DataSubject.model_rebuild()
-PolicyMaker.model_rebuild()
-Regulator.model_rebuild()
-AutonomyAssessment.model_rebuild()
-VerificationValidationFramework.model_rebuild()
-HumanMachineTeam.model_rebuild()
-IntelligenceAugmentation.model_rebuild()
-Recommendation.model_rebuild()
-EvaluationMetric.model_rebuild()
-Threshold.model_rebuild()
-Neuron.model_rebuild()
-ConvolutionOperation.model_rebuild()
-DataDrift.model_rebuild()
-CatastrophicForgetting.model_rebuild()
-FaultToleranceMechanism.model_rebuild()
-NaturalLanguage.model_rebuild()
-RiskItem.model_rebuild()
-InputData.model_rebuild()
-Inference.model_rebuild()
-OECDLifecycleMapping.model_rebuild()
-Organization.model_rebuild()
-InterestedParty.model_rebuild()
+AicRecordMixin.model_rebuild()
+AicEcosystem.model_rebuild()
+AicSystem.model_rebuild()
+AicAgent.model_rebuild()
+AicExpertSystem.model_rebuild()
+AicRobot.model_rebuild()
+AicComponent.model_rebuild()
+AicKnowledge.model_rebuild()
+AicTask.model_rebuild()
+AicModel.model_rebuild()
+AicMachineLearningModel.model_rebuild()
+AicNeuralNetworkModel.model_rebuild()
+AicDataset.model_rebuild()
+AicDataProcess.model_rebuild()
+AicTrustworthinessClaim.model_rebuild()
+AicAssessment.model_rebuild()
+AicLifecycleProcess.model_rebuild()
+AicStakeholder.model_rebuild()
+AicPrediction.model_rebuild()
+AicDecision.model_rebuild()
+AicAction.model_rebuild()
+AicApplication.model_rebuild()
+AicResourcePool.model_rebuild()
+AicIotDevice.model_rebuild()
+AicIotSystem.model_rebuild()
+AicCyberPhysicalSystem.model_rebuild()

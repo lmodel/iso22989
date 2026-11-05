@@ -1,1190 +1,621 @@
 {
    "@context": {
       "xsd": "http://www.w3.org/2001/XMLSchema#",
-      "dcterms": "http://purl.org/dc/terms/",
-      "eu_ai_act": "https://w3id.org/lmodel/eu-ai-act/",
-      "gist_linkml": "https://w3id.org/lmodel/gist/",
+      "gist_ontology": "https://w3id.org/semanticarts/ns/ontology/gist/",
       "iso22989": "https://w3id.org/lmodel/iso22989/",
-      "iso23894": "https://w3id.org/lmodel/iso23894/",
-      "iso27001": "https://w3id.org/lmodel/iso27001/",
-      "iso29100": "https://w3id.org/lmodel/iso29100/",
-      "iso42001": "https://w3id.org/lmodel/iso42001/",
       "linkml": "https://w3id.org/linkml/",
-      "nist_ai_100_1": "https://w3id.org/lmodel/nist-ai-100-1/",
-      "nist_ai_600_1": "https://w3id.org/lmodel/nist-ai-600-1/",
-      "nist_ai_rmf": "https://w3id.org/lmodel/nist-ai-100-1/",
-      "nist_ai_rmf_common": "https://w3id.org/lmodel/nist-ai-100-1/schema/nist_ai_rmf_common/",
-      "oecd_ai": "https://oecd.ai/en/ai-principles#",
-      "prov": "http://www.w3.org/ns/prov#",
-      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
       "schema": "http://schema.org/",
-      "semapv": "https://w3id.org/semapv/vocab/",
       "skos": "http://www.w3.org/2004/02/skos/core#",
-      "uco_core": "https://w3id.org/lmodel/uco-core/",
+      "spdx_ai": "https://spdx.org/rdf/3.0.1/terms/AI/",
+      "spdx_dataset": "https://spdx.org/rdf/3.0.1/terms/Dataset/",
+      "uco-observable": "https://ontology.unifiedcyberontology.org/uco/observable/",
+      "uco-role": "https://ontology.unifiedcyberontology.org/uco/role/",
       "@vocab": "https://w3id.org/lmodel/iso22989/",
-      "abbreviation_code": {
+      "aic_id": "@id",
+      "aic_model_type": {
+         "@id": "aic_model_type"
+      },
+      "aic_system_type": {
+         "@id": "aic_system_type"
+      },
+      "aic_action_decision": {
+         "@type": "@id",
+         "@id": "aic_action_decision"
+      },
+      "aic_action_target": {
+         "@id": "aic_action_target"
+      },
+      "aic_action_time": {
+         "@type": "xsd:dateTime",
+         "@id": "aic_action_time"
+      },
+      "aic_agent_environment": {
+         "@id": "aic_agent_environment"
+      },
+      "aic_agent_goals": {
+         "@id": "aic_agent_goals"
+      },
+      "aic_application_domain": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "abbreviation_code"
+         "@id": "aic_application_domain"
       },
-      "triggered_by": {
+      "aic_application_purpose": {
+         "@id": "aic_application_purpose"
+      },
+      "aic_application_sector": {
+         "@id": "aic_application_sector"
+      },
+      "aic_application_system": {
          "@type": "@id",
-         "@id": "triggered_by"
+         "@id": "aic_application_system"
       },
-      "action_target": {
-         "@id": "action_target"
+      "aic_assessment_date": {
+         "@type": "xsd:date",
+         "@id": "aic_assessment_date"
       },
-      "ai_applications": {
-         "@type": "@id",
-         "@id": "ai_applications"
-      },
-      "ai_datasets": {
-         "@type": "@id",
-         "@id": "ai_datasets"
-      },
-      "ai_field": {
+      "aic_assessment_kind": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "ai_field"
+         "@id": "aic_assessment_kind"
       },
-      "ai_lifecycle_processes": {
+      "aic_assessment_method": {
+         "@id": "aic_assessment_method"
+      },
+      "aic_assessment_result": {
+         "@id": "aic_assessment_result"
+      },
+      "aic_assessment_system": {
          "@type": "@id",
-         "@id": "ai_lifecycle_processes"
+         "@id": "aic_assessment_system"
       },
-      "ai_models": {
+      "aic_component_depends_on": {
          "@type": "@id",
-         "@id": "ai_models"
+         "@id": "aic_component_depends_on"
       },
-      "ai_stakeholder_roles": {
-         "@type": "@id",
-         "@id": "ai_stakeholder_roles"
-      },
-      "ai_system_type": {
+      "aic_component_step": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "ai_system_type"
+         "@id": "aic_component_step"
       },
-      "ai_systems": {
+      "aic_cps_ai_systems": {
          "@type": "@id",
-         "@id": "ai_systems"
+         "@id": "aic_cps_ai_systems"
       },
-      "agent_architecture": {
+      "aic_cps_iot_system": {
+         "@type": "@id",
+         "@id": "aic_cps_iot_system"
+      },
+      "aic_cps_physical_processes": {
+         "@id": "aic_cps_physical_processes"
+      },
+      "aic_data_process_date": {
+         "@type": "xsd:date",
+         "@id": "aic_data_process_date"
+      },
+      "aic_data_process_kind": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "agent_architecture"
+         "@id": "aic_data_process_kind"
       },
-      "goal_set": {
-         "@id": "goal_set"
+      "aic_data_process_method": {
+         "@id": "aic_data_process_method"
       },
-      "hosting_system": {
-         "@type": "@id",
-         "@id": "hosting_system"
+      "aic_dataset_ground_truth": {
+         "@id": "aic_dataset_ground_truth"
       },
-      "depends_on": {
-         "@type": "@id",
-         "@id": "depends_on"
-      },
-      "abbreviations": {
-         "@type": "@id",
-         "@id": "abbreviations"
-      },
-      "cyber_physical_systems": {
-         "@type": "@id",
-         "@id": "cyber_physical_systems"
-      },
-      "data_processes": {
-         "@type": "@id",
-         "@id": "data_processes"
-      },
-      "expert_systems": {
-         "@type": "@id",
-         "@id": "expert_systems"
-      },
-      "iot_systems": {
-         "@type": "@id",
-         "@id": "iot_systems"
-      },
-      "knowledge_graphs": {
-         "@type": "@id",
-         "@id": "knowledge_graphs"
-      },
-      "tasks": {
-         "@type": "@id",
-         "@id": "tasks"
-      },
-      "big_data_characteristics": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "big_data_characteristics"
-      },
-      "process_sub_type": {
-         "@id": "process_sub_type"
-      },
-      "activation_function": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "activation_function"
-      },
-      "neural_network_architecture": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "neural_network_architecture"
-      },
-      "training_phenomena": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "training_phenomena"
-      },
-      "iot_integration": {
-         "@type": "@id",
-         "@id": "iot_integration"
-      },
-      "system_characteristics": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "system_characteristics"
-      },
-      "task_categories": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "task_categories"
-      },
-      "algorithm_family": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "algorithm_family"
-      },
-      "aliases": {
-         "@id": "skos:altLabel"
-      },
-      "applicable_biases": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "applicable_biases"
-      },
-      "application_domain": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "application_domain"
-      },
-      "approval_criteria": {
-         "@id": "approval_criteria"
-      },
-      "autonomy_criterion_scores": {
-         "@id": "autonomy_criterion_scores"
-      },
-      "autonomy_level": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "autonomy_level"
-      },
-      "catastrophic_forgetting_risk": {
-         "@type": "xsd:float",
-         "@id": "catastrophic_forgetting_risk"
-      },
-      "affected_model": {
-         "@type": "@id",
-         "@id": "affected_model"
-      },
-      "mitigation_strategy": {
-         "@id": "mitigation_strategy"
-      },
-      "clause_reference": {
-         "@id": "clause_reference"
-      },
-      "cognitive_capabilities": {
-         "@id": "cognitive_capabilities"
-      },
-      "collection_date_range": {
-         "@id": "collection_date_range"
-      },
-      "component_function": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "component_function"
-      },
-      "components": {
-         "@type": "@id",
-         "@id": "components"
-      },
-      "computing_resources": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "computing_resources"
-      },
-      "confidence": {
-         "@type": "xsd:float",
-         "@id": "confidence"
-      },
-      "confidence_score": {
-         "@type": "xsd:float",
-         "@id": "confidence_score"
-      },
-      "contact": {
-         "@id": "contact"
-      },
-      "contains_personal_data": {
+      "aic_dataset_holds_pii": {
          "@type": "xsd:boolean",
-         "@id": "contains_personal_data"
+         "@id": "aic_dataset_holds_pii"
       },
-      "kernel_size": {
+      "aic_dataset_labels": {
+         "@id": "aic_dataset_labels"
+      },
+      "aic_dataset_processes": {
+         "@type": "@id",
+         "@id": "aic_dataset_processes"
+      },
+      "aic_dataset_roles": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "aic_dataset_roles"
+      },
+      "aic_dataset_sample_count": {
          "@type": "xsd:integer",
-         "@id": "kernel_size"
+         "@id": "aic_dataset_sample_count"
       },
-      "padding": {
-         "@id": "padding"
+      "aic_dataset_source": {
+         "@id": "aic_dataset_source"
       },
-      "stride": {
-         "@type": "xsd:integer",
-         "@id": "stride"
+      "aic_decision_criteria": {
+         "@id": "aic_decision_criteria"
       },
-      "cv_task": {
+      "aic_decision_outcome": {
+         "@id": "aic_decision_outcome"
+      },
+      "aic_decision_predictions": {
+         "@type": "@id",
+         "@id": "aic_decision_predictions"
+      },
+      "aic_ecosystem_actions": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_actions"
+      },
+      "aic_ecosystem_applications": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_applications"
+      },
+      "aic_ecosystem_assessments": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_assessments"
+      },
+      "aic_ecosystem_claims": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_claims"
+      },
+      "aic_ecosystem_components": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_components"
+      },
+      "aic_ecosystem_cyber_physical_systems": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_cyber_physical_systems"
+      },
+      "aic_ecosystem_datasets": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_datasets"
+      },
+      "aic_ecosystem_decisions": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_decisions"
+      },
+      "aic_ecosystem_iot_devices": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_iot_devices"
+      },
+      "aic_ecosystem_iot_systems": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_iot_systems"
+      },
+      "aic_ecosystem_knowledge": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_knowledge"
+      },
+      "aic_ecosystem_lifecycle_processes": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_lifecycle_processes"
+      },
+      "aic_ecosystem_models": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_models"
+      },
+      "aic_ecosystem_predictions": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_predictions"
+      },
+      "aic_ecosystem_resource_pools": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_resource_pools"
+      },
+      "aic_ecosystem_stakeholders": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_stakeholders"
+      },
+      "aic_ecosystem_systems": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_systems"
+      },
+      "aic_ecosystem_tasks": {
+         "@type": "@id",
+         "@id": "aic_ecosystem_tasks"
+      },
+      "aic_expert_inference": {
+         "@id": "aic_expert_inference"
+      },
+      "aic_expert_knowledge": {
+         "@type": "@id",
+         "@id": "aic_expert_knowledge"
+      },
+      "aic_device_actuates": {
+         "@id": "aic_device_actuates"
+      },
+      "aic_device_senses": {
+         "@id": "aic_device_senses"
+      },
+      "aic_iot_ai_systems": {
+         "@type": "@id",
+         "@id": "aic_iot_ai_systems"
+      },
+      "aic_iot_devices": {
+         "@type": "@id",
+         "@id": "aic_iot_devices"
+      },
+      "aic_knowledge_kind": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "cv_task"
+         "@id": "aic_knowledge_kind"
       },
-      "cyber_components": {
+      "aic_knowledge_representation": {
+         "@id": "aic_knowledge_representation"
+      },
+      "aic_lifecycle_end": {
+         "@type": "xsd:date",
+         "@id": "aic_lifecycle_end"
+      },
+      "aic_lifecycle_inputs": {
+         "@id": "aic_lifecycle_inputs"
+      },
+      "aic_lifecycle_outputs": {
+         "@id": "aic_lifecycle_outputs"
+      },
+      "aic_lifecycle_responsible": {
          "@type": "@id",
-         "@id": "cyber_components"
+         "@id": "aic_lifecycle_responsible"
       },
-      "iot_subsystem": {
-         "@type": "@id",
-         "@id": "iot_subsystem"
-      },
-      "physical_processes": {
-         "@id": "physical_processes"
-      },
-      "data_collection_method": {
+      "aic_lifecycle_stage": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "data_collection_method"
+         "@id": "aic_lifecycle_stage"
       },
-      "data_modality": {
+      "aic_lifecycle_start": {
+         "@type": "xsd:date",
+         "@id": "aic_lifecycle_start"
+      },
+      "aic_lifecycle_system": {
+         "@type": "@id",
+         "@id": "aic_lifecycle_system"
+      },
+      "aic_ml_algorithm": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "data_modality"
+         "@id": "aic_ml_algorithm"
       },
-      "data_provenance": {
-         "@id": "prov:wasDerivedFrom"
-      },
-      "data_quality_notes": {
-         "@id": "data_quality_notes"
-      },
-      "data_source_type": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "data_source_type"
-      },
-      "data_sources": {
-         "@id": "data_sources"
-      },
-      "data_version": {
-         "@id": "data_version"
-      },
-      "affected_dataset": {
-         "@type": "@id",
-         "@id": "affected_dataset"
-      },
-      "detected_at": {
-         "@id": "detected_at"
-      },
-      "drift_type": {
-         "@id": "drift_type"
-      },
-      "annotator": {
-         "@type": "@id",
-         "@id": "annotator"
-      },
-      "executed_by": {
-         "@type": "@id",
-         "@id": "executed_by"
-      },
-      "input_dataset": {
-         "@type": "@id",
-         "@id": "input_dataset"
-      },
-      "output_dataset": {
-         "@type": "@id",
-         "@id": "output_dataset"
-      },
-      "parameters": {
-         "@id": "parameters"
-      },
-      "process_type": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "process_type"
-      },
-      "sample_label": {
-         "@id": "sample_label"
-      },
-      "sample_payload": {
-         "@id": "sample_payload"
-      },
-      "data_processes_applied": {
-         "@type": "@id",
-         "@id": "data_processes_applied"
-      },
-      "feature_count": {
-         "@type": "xsd:integer",
-         "@id": "feature_count"
-      },
-      "ground_truth_available": {
+      "aic_ml_continuous_learning": {
          "@type": "xsd:boolean",
-         "@id": "ground_truth_available"
+         "@id": "aic_ml_continuous_learning"
       },
-      "label_type": {
+      "aic_ml_datasets": {
+         "@type": "@id",
+         "@id": "aic_ml_datasets"
+      },
+      "aic_ml_hyperparameters": {
+         "@id": "aic_ml_hyperparameters"
+      },
+      "aic_ml_paradigm": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "label_type"
+         "@id": "aic_ml_paradigm"
       },
-      "dataset_role": {
+      "aic_ml_parameter_count": {
+         "@type": "xsd:integer",
+         "@id": "aic_ml_parameter_count"
+      },
+      "aic_ml_retrained_from": {
+         "@type": "@id",
+         "@id": "aic_ml_retrained_from"
+      },
+      "aic_ml_trained_on": {
+         "@type": "xsd:date",
+         "@id": "aic_ml_trained_on"
+      },
+      "aic_model_represents": {
+         "@id": "aic_model_represents"
+      },
+      "aic_model_version": {
+         "@id": "aic_model_version"
+      },
+      "aic_network_activation_functions": {
+         "@id": "aic_network_activation_functions"
+      },
+      "aic_network_architecture": {
          "@context": {
             "text": "skos:notation",
             "description": "skos:prefLabel",
             "meaning": "@id"
          },
-         "@id": "dataset_role"
+         "@id": "aic_network_architecture"
       },
-      "datasets": {
+      "aic_network_layer_count": {
+         "@type": "xsd:integer",
+         "@id": "aic_network_layer_count"
+      },
+      "aic_prediction_confidence": {
+         "@type": "xsd:float",
+         "@id": "aic_prediction_confidence"
+      },
+      "aic_prediction_system": {
          "@type": "@id",
-         "@id": "datasets"
+         "@id": "aic_prediction_system"
       },
-      "based_on_predictions": {
+      "aic_prediction_value": {
+         "@id": "aic_prediction_value"
+      },
+      "aic_pool_capacity": {
+         "@id": "aic_pool_capacity"
+      },
+      "aic_pool_hardware": {
+         "@id": "aic_pool_hardware"
+      },
+      "aic_pool_kind": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "aic_pool_kind"
+      },
+      "aic_robot_actuators": {
+         "@id": "aic_robot_actuators"
+      },
+      "aic_robot_sensors": {
+         "@id": "aic_robot_sensors"
+      },
+      "aic_stakeholder_contact": {
+         "@id": "aic_stakeholder_contact"
+      },
+      "aic_stakeholder_organization": {
+         "@id": "aic_stakeholder_organization"
+      },
+      "aic_stakeholder_responsibilities": {
+         "@id": "aic_stakeholder_responsibilities"
+      },
+      "aic_stakeholder_role": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "aic_stakeholder_role"
+      },
+      "aic_stakeholder_sub_roles": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "aic_stakeholder_sub_roles"
+      },
+      "aic_system_approaches": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "aic_system_approaches"
+      },
+      "aic_system_automated": {
+         "@type": "xsd:boolean",
+         "@id": "aic_system_automated"
+      },
+      "aic_system_autonomy": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "aic_system_autonomy"
+      },
+      "aic_system_components": {
          "@type": "@id",
-         "@id": "based_on_predictions"
+         "@id": "aic_system_components"
       },
-      "decision_outcome": {
-         "@id": "decision_outcome"
+      "aic_system_datasets": {
+         "@type": "@id",
+         "@id": "aic_system_datasets"
       },
-      "decision_policy": {
-         "@id": "decision_policy"
+      "aic_system_fields": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "aic_system_fields"
+      },
+      "aic_system_human_teaming": {
+         "@id": "aic_system_human_teaming"
+      },
+      "aic_system_jurisdictional_issues": {
+         "@id": "aic_system_jurisdictional_issues"
+      },
+      "aic_system_models": {
+         "@type": "@id",
+         "@id": "aic_system_models"
+      },
+      "aic_system_purpose": {
+         "@id": "aic_system_purpose"
+      },
+      "aic_system_resource_pools": {
+         "@type": "@id",
+         "@id": "aic_system_resource_pools"
+      },
+      "aic_system_scope": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "aic_system_scope"
+      },
+      "aic_system_societal_impacts": {
+         "@id": "aic_system_societal_impacts"
+      },
+      "aic_system_stage": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "aic_system_stage"
+      },
+      "aic_system_stakeholders": {
+         "@type": "@id",
+         "@id": "aic_system_stakeholders"
+      },
+      "aic_system_steps": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "aic_system_steps"
+      },
+      "aic_system_tasks": {
+         "@type": "@id",
+         "@id": "aic_system_tasks"
+      },
+      "aic_system_techniques": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "aic_system_techniques"
+      },
+      "aic_task_goal": {
+         "@id": "aic_task_goal"
+      },
+      "aic_task_kind": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "aic_task_kind"
+      },
+      "aic_task_languages": {
+         "@id": "aic_task_languages"
+      },
+      "aic_task_performance_measures": {
+         "@id": "aic_task_performance_measures"
+      },
+      "aic_claim_evidence": {
+         "@id": "aic_claim_evidence"
+      },
+      "aic_claim_measure": {
+         "@id": "aic_claim_measure"
+      },
+      "aic_claim_property": {
+         "@context": {
+            "text": "skos:notation",
+            "description": "skos:prefLabel",
+            "meaning": "@id"
+         },
+         "@id": "aic_claim_property"
+      },
+      "aic_claim_system": {
+         "@type": "@id",
+         "@id": "aic_claim_system"
       },
       "description": {
-         "@id": "dcterms:description"
+         "@id": "schema:description"
       },
-      "device_role": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "device_role"
-      },
-      "ecosystem_components": {
-         "@id": "ecosystem_components"
-      },
-      "edge_count": {
-         "@type": "xsd:integer",
-         "@id": "edge_count"
-      },
-      "end_date": {
-         "@type": "xsd:date",
-         "@id": "end_date"
-      },
-      "engineering_approach": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "engineering_approach"
-      },
-      "metric_name": {
-         "@id": "metric_name"
-      },
-      "metric_unit": {
-         "@id": "metric_unit"
-      },
-      "metric_value": {
-         "@type": "xsd:float",
-         "@id": "metric_value"
-      },
-      "reference_dataset": {
-         "@type": "@id",
-         "@id": "reference_dataset"
-      },
-      "execution_status": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "execution_status"
-      },
-      "expansion": {
-         "@id": "expansion"
-      },
-      "inference_engine": {
-         "@type": "@id",
-         "@id": "inference_engine"
-      },
-      "coverage_scope": {
-         "@id": "coverage_scope"
-      },
-      "mechanism_type": {
-         "@id": "mechanism_type"
-      },
-      "functional_components": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "functional_components"
-      },
-      "ground_truth_value": {
-         "@id": "ground_truth_value"
-      },
-      "ai_systems_involved": {
-         "@type": "@id",
-         "@id": "ai_systems_involved"
-      },
-      "human_roles": {
-         "@id": "human_roles"
-      },
-      "task_allocation": {
-         "@id": "task_allocation"
-      },
-      "hyperparameters": {
-         "@id": "hyperparameters"
-      },
-      "id": "@id",
-      "inference_strategy": {
-         "@id": "inference_strategy"
-      },
-      "over_model": {
-         "@type": "@id",
-         "@id": "over_model"
-      },
-      "performed_by": {
-         "@type": "@id",
-         "@id": "performed_by"
-      },
-      "produced_output": {
-         "@id": "produced_output"
-      },
-      "inference_latency_ms": {
-         "@type": "xsd:float",
-         "@id": "inference_latency_ms"
-      },
-      "uses_model": {
-         "@type": "@id",
-         "@id": "uses_model"
-      },
-      "input_modalities": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "input_modalities"
-      },
-      "consumed_by": {
-         "@type": "@id",
-         "@id": "consumed_by"
-      },
-      "modality": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "modality"
-      },
-      "augmented_capability": {
-         "@id": "augmented_capability"
-      },
-      "intended_purpose": {
-         "@id": "intended_purpose"
-      },
-      "actuating_capabilities": {
-         "@id": "actuating_capabilities"
-      },
-      "sensing_capabilities": {
-         "@id": "sensing_capabilities"
-      },
-      "ai_components": {
-         "@type": "@id",
-         "@id": "ai_components"
-      },
-      "devices": {
-         "@type": "@id",
-         "@id": "devices"
-      },
-      "jurisdictional_issues": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "jurisdictional_issues"
-      },
-      "knowledge_type": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "knowledge_type"
-      },
-      "representation_form": {
-         "@id": "representation_form"
-      },
-      "label_value": {
-         "@id": "label_value"
-      },
-      "lifecycle_stage": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "lifecycle_stage"
-      },
-      "measurement_method": {
-         "@id": "measurement_method"
-      },
-      "model_compression_applied": {
-         "@type": "xsd:boolean",
-         "@id": "model_compression_applied"
-      },
-      "model_paradigm": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "model_paradigm"
-      },
-      "model_version": {
-         "@id": "model_version"
-      },
-      "models": {
-         "@type": "@id",
-         "@id": "models"
-      },
-      "name": {
+      "title": {
          "@id": "schema:name"
       },
-      "language_code": {
-         "@id": "language_code"
+      "AicAction": {
+         "@id": "AicAction"
       },
-      "script": {
-         "@id": "script"
+      "AicAgent": {
+         "@id": "AicAgent"
       },
-      "number_of_layers": {
-         "@type": "xsd:integer",
-         "@id": "number_of_layers"
+      "AicApplication": {
+         "@id": "AicApplication"
       },
-      "number_of_parameters": {
-         "@type": "xsd:integer",
-         "@id": "number_of_parameters"
+      "AicAssessment": {
+         "@id": "AicAssessment"
       },
-      "input_arity": {
-         "@type": "xsd:integer",
-         "@id": "input_arity"
+      "AicComponent": {
+         "@id": "AicComponent"
       },
-      "nlp_component_type": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "nlp_component_type"
+      "AicCyberPhysicalSystem": {
+         "@id": "AicCyberPhysicalSystem"
       },
-      "node_count": {
-         "@type": "xsd:integer",
-         "@id": "node_count"
+      "AicDataProcess": {
+         "@id": "AicDataProcess"
       },
-      "iso_stage": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "iso_stage"
+      "AicDataset": {
+         "@id": "AicDataset"
       },
-      "mapping_notes": {
-         "@id": "mapping_notes"
+      "AicDecision": {
+         "@id": "AicDecision"
       },
-      "oecd_stage": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "oecd_stage"
+      "AicEcosystem": {
+         "@id": "AicEcosystem"
       },
-      "ontology_reference": {
-         "@type": "xsd:anyURI",
-         "@id": "ontology_reference"
+      "AicExpertSystem": {
+         "@id": "AicExpertSystem"
       },
-      "organization_name": {
-         "@id": "organization_name"
+      "AicIotDevice": {
+         "@id": "AicIotDevice"
       },
-      "output_label_type": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "output_label_type"
+      "AicIotSystem": {
+         "@id": "AicIotSystem"
       },
-      "parameter_count": {
-         "@type": "xsd:integer",
-         "@id": "parameter_count"
+      "AicKnowledge": {
+         "@id": "AicKnowledge"
       },
-      "performance_metric": {
-         "@id": "performance_metric"
+      "AicLifecycleProcess": {
+         "@id": "AicLifecycleProcess"
       },
-      "predicted_value": {
-         "@id": "predicted_value"
+      "AicMachineLearningModel": {
+         "@id": "AicMachineLearningModel"
       },
-      "produced_by": {
-         "@type": "@id",
-         "@id": "produced_by"
+      "AicModel": {
+         "@id": "AicModel"
       },
-      "preferred_label": {
-         "@id": "skos:prefLabel"
+      "AicNeuralNetworkModel": {
+         "@id": "AicNeuralNetworkModel"
       },
-      "process_inputs": {
-         "@id": "process_inputs"
+      "AicPrediction": {
+         "@id": "AicPrediction"
       },
-      "process_outputs": {
-         "@id": "process_outputs"
+      "AicRecordMixin": {
+         "@id": "AicRecordMixin"
       },
-      "process_stage": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "process_stage"
+      "AicResourcePool": {
+         "@id": "AicResourcePool"
       },
-      "property_evidence": {
-         "@id": "property_evidence"
+      "AicRobot": {
+         "@id": "AicRobot"
       },
-      "provenance_statement": {
-         "@id": "prov:wasDerivedFrom"
+      "AicStakeholder": {
+         "@id": "AicStakeholder"
       },
-      "recommended_items": {
-         "@id": "recommended_items"
+      "AicSystem": {
+         "@id": "AicSystem"
       },
-      "recommendation_outcome_type": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "recommendation_outcome_type"
+      "AicTask": {
+         "@id": "AicTask"
       },
-      "record_count": {
-         "@type": "xsd:integer",
-         "@id": "record_count"
-      },
-      "resource_type": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "resource_type"
-      },
-      "capacity_units": {
-         "@id": "capacity_units"
-      },
-      "responsibilities": {
-         "@id": "responsibilities"
-      },
-      "responsible_role": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "responsible_role"
-      },
-      "risk_items": {
-         "@id": "risk_items"
-      },
-      "affected_stakeholders": {
-         "@type": "@id",
-         "@id": "affected_stakeholders"
-      },
-      "consequence": {
-         "@id": "consequence"
-      },
-      "likelihood": {
-         "@type": "xsd:float",
-         "@id": "likelihood"
-      },
-      "potential_event": {
-         "@id": "potential_event"
-      },
-      "risk_source": {
-         "@id": "risk_source"
-      },
-      "severity": {
-         "@id": "severity"
-      },
-      "controlled_by": {
-         "@type": "@id",
-         "@id": "controlled_by"
-      },
-      "embodiment": {
-         "@id": "embodiment"
-      },
-      "rule_count": {
-         "@type": "xsd:integer",
-         "@id": "rule_count"
-      },
-      "see_also_uri": {
-         "@type": "xsd:anyURI",
-         "@id": "rdfs:seeAlso"
-      },
-      "semantic_model": {
-         "@id": "semantic_model"
-      },
-      "societal_impacts": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "societal_impacts"
-      },
-      "soft_computing_techniques": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "soft_computing_techniques"
-      },
-      "stakeholder_role_type": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "stakeholder_role_type"
-      },
-      "stakeholders": {
-         "@type": "@id",
-         "@id": "stakeholders"
-      },
-      "start_date": {
-         "@type": "xsd:date",
-         "@id": "start_date"
-      },
-      "supports_continuous_learning": {
-         "@type": "xsd:boolean",
-         "@id": "supports_continuous_learning"
-      },
-      "symbolic_approach": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "symbolic_approach"
-      },
-      "task_category": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "task_category"
-      },
-      "test_dataset": {
-         "@type": "@id",
-         "@id": "test_dataset"
-      },
-      "applies_to_metric": {
-         "@id": "applies_to_metric"
-      },
-      "threshold_policy": {
-         "@id": "threshold_policy"
-      },
-      "threshold_value": {
-         "@type": "xsd:float",
-         "@id": "threshold_value"
-      },
-      "trained_on": {
-         "@id": "trained_on"
-      },
-      "training_dataset": {
-         "@type": "@id",
-         "@id": "training_dataset"
-      },
-      "training_duration": {
-         "@type": "xsd:duration",
-         "@id": "training_duration"
-      },
-      "trustworthiness_properties": {
-         "@type": "@id",
-         "@id": "trustworthiness_properties"
-      },
-      "trustworthiness_property_type": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "trustworthiness_property_type"
-      },
-      "trustworthiness_records": {
-         "@type": "@id",
-         "@id": "trustworthiness_records"
-      },
-      "validation_dataset": {
-         "@type": "@id",
-         "@id": "validation_dataset"
-      },
-      "validation_strategy": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "validation_strategy"
-      },
-      "verification_validation_level": {
-         "@context": {
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
-         "@id": "verification_validation_level"
-      },
-      "validation_methods": {
-         "@id": "validation_methods"
-      },
-      "verification_methods": {
-         "@id": "verification_methods"
-      },
-      "AbbreviatedTerm": {
-         "@id": "AbbreviatedTerm"
-      },
-      "AbbreviationEntry": {
-         "@id": "AbbreviationEntry"
-      },
-      "Action": {
-         "@id": "Action"
-      },
-      "AIAgent": {
-         "@id": "AIAgent"
-      },
-      "AIApplication": {
-         "@id": "AIApplication"
-      },
-      "AIAuditor": {
-         "@id": "AIAuditor"
-      },
-      "AIComponent": {
-         "@id": "AIComponent"
-      },
-      "AIConcept": {
-         "@id": "AIConcept"
-      },
-      "AIConceptsCollection": {
-         "@id": "AIConceptsCollection"
-      },
-      "AICustomer": {
-         "@id": "AICustomer"
-      },
-      "AIEcosystem": {
-         "@id": "AIEcosystem"
-      },
-      "AIEvaluator": {
-         "@id": "AIEvaluator"
-      },
-      "AILifecycleProcess": {
-         "@id": "AILifecycleProcess"
-      },
-      "AIModel": {
-         "@id": "AIModel"
-      },
-      "AIPartner": {
-         "@id": "AIPartner"
-      },
-      "AIPlatformProvider": {
-         "@id": "AIPlatformProvider"
-      },
-      "AIProducer": {
-         "@id": "AIProducer"
-      },
-      "AIProvider": {
-         "@id": "AIProvider"
-      },
-      "AIServiceProductProvider": {
-         "@id": "AIServiceProductProvider"
-      },
-      "AIStakeholderRole": {
-         "@id": "AIStakeholderRole"
-      },
-      "AISubject": {
-         "@id": "AISubject"
-      },
-      "AISystem": {
-         "@id": "AISystem"
-      },
-      "AISystemIntegrator": {
-         "@id": "AISystemIntegrator"
-      },
-      "AITerm": {
-         "@id": "AITerm"
-      },
-      "AIUser": {
-         "@id": "AIUser"
-      },
-      "AutonomyAssessment": {
-         "@id": "AutonomyAssessment"
-      },
-      "CatastrophicForgetting": {
-         "@id": "CatastrophicForgetting"
-      },
-      "CognitiveComputingSystem": {
-         "@id": "CognitiveComputingSystem"
-      },
-      "ComputationVerifier": {
-         "@id": "ComputationVerifier"
-      },
-      "ComputerVisionFunction": {
-         "@id": "ComputerVisionFunction"
-      },
-      "ComputerVisionTerm": {
-         "@id": "ComputerVisionTerm"
-      },
-      "ConvolutionOperation": {
-         "@id": "ConvolutionOperation"
-      },
-      "CyberPhysicalSystem": {
-         "@id": "CyberPhysicalSystem"
-      },
-      "DataDrift": {
-         "@id": "DataDrift"
-      },
-      "DataLabel": {
-         "@id": "DataLabel"
-      },
-      "DataProcess": {
-         "@id": "DataProcess"
-      },
-      "DataProvider": {
-         "@id": "DataProvider"
-      },
-      "DataSample": {
-         "@id": "DataSample"
-      },
-      "Dataset": {
-         "@id": "Dataset"
-      },
-      "DataSubject": {
-         "@id": "DataSubject"
-      },
-      "DataTerm": {
-         "@id": "DataTerm"
-      },
-      "Decision": {
-         "@id": "Decision"
-      },
-      "EvaluationMetric": {
-         "@id": "EvaluationMetric"
-      },
-      "ExpertSystem": {
-         "@id": "ExpertSystem"
-      },
-      "FaultToleranceMechanism": {
-         "@id": "FaultToleranceMechanism"
-      },
-      "GroundTruthRecord": {
-         "@id": "GroundTruthRecord"
-      },
-      "HumanMachineTeam": {
-         "@id": "HumanMachineTeam"
-      },
-      "Inference": {
-         "@id": "Inference"
-      },
-      "InferenceEngine": {
-         "@id": "InferenceEngine"
-      },
-      "InputData": {
-         "@id": "InputData"
-      },
-      "IntelligenceAugmentation": {
-         "@id": "IntelligenceAugmentation"
-      },
-      "InterestedParty": {
-         "@id": "InterestedParty"
-      },
-      "IoTDevice": {
-         "@id": "IoTDevice"
-      },
-      "IoTSystem": {
-         "@id": "IoTSystem"
-      },
-      "KnowledgeGraph": {
-         "@id": "KnowledgeGraph"
-      },
-      "KnowledgeRepresentation": {
-         "@id": "KnowledgeRepresentation"
-      },
-      "MachineLearningTerm": {
-         "@id": "MachineLearningTerm"
-      },
-      "ModelDesigner": {
-         "@id": "ModelDesigner"
-      },
-      "ModelImplementer": {
-         "@id": "ModelImplementer"
-      },
-      "ModelVerifier": {
-         "@id": "ModelVerifier"
-      },
-      "NamedEntity": {
-         "@id": "schema:Thing"
-      },
-      "NaturalLanguage": {
-         "@id": "NaturalLanguage"
-      },
-      "NeuralNetworkModel": {
-         "@id": "NeuralNetworkModel"
-      },
-      "NeuralNetworkTerm": {
-         "@id": "NeuralNetworkTerm"
-      },
-      "Neuron": {
-         "@id": "Neuron"
-      },
-      "NLPComponent": {
-         "@id": "NLPComponent"
-      },
-      "NLPTerm": {
-         "@id": "NLPTerm"
-      },
-      "OECDLifecycleMapping": {
-         "@id": "OECDLifecycleMapping"
-      },
-      "Organization": {
-         "@id": "Organization"
-      },
-      "PolicyMaker": {
-         "@id": "PolicyMaker"
-      },
-      "Prediction": {
-         "@id": "Prediction"
-      },
-      "Recommendation": {
-         "@id": "Recommendation"
-      },
-      "Regulator": {
-         "@id": "Regulator"
-      },
-      "RelevantAuthority": {
-         "@id": "RelevantAuthority"
-      },
-      "ResourcePool": {
-         "@id": "ResourcePool"
-      },
-      "RiskItem": {
-         "@id": "RiskItem"
-      },
-      "Robot": {
-         "@id": "Robot"
-      },
-      "SemanticComputingSystem": {
-         "@id": "SemanticComputingSystem"
-      },
-      "SoftComputingSystem": {
-         "@id": "SoftComputingSystem"
-      },
-      "Task": {
-         "@id": "Task"
-      },
-      "Term": {
-         "@id": "Term"
-      },
-      "Threshold": {
-         "@id": "Threshold"
-      },
-      "TrustworthinessProperty": {
-         "@id": "TrustworthinessProperty"
-      },
-      "TrustworthinessTerm": {
-         "@id": "TrustworthinessTerm"
-      },
-      "VerificationValidationFramework": {
-         "@id": "VerificationValidationFramework"
+      "AicTrustworthinessClaim": {
+         "@id": "AicTrustworthinessClaim"
       }
    }
 }

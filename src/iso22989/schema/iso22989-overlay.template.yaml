@@ -1,8 +1,8 @@
 # =============================================================================
 # iso22989-overlay.template.yaml
 #
-# Empty overlay scaffold for ISO/IEC 22989:2022. Generated from the public
-# schema. Contains NO copyrighted text and is safe to distribute.
+# Empty overlay scaffold for ISO/IEC 22989:2022. Generated from
+# the public schema. Contains NO copyrighted text and is safe to distribute.
 #
 # License owners of ISO/IEC 22989:2022 may copy this file to
 #     iso22989-overlay.yaml
@@ -12,10 +12,12 @@
 # The populated `iso22989-overlay.yaml` is ignored by git (see .gitignore)
 # and must NOT be redistributed. Apply it locally with:
 #     just overlay-licensed-text
+# which writes the merged schema under tmp/ only.
 #
-# Merge semantics: deep-merge over iso22989.yaml. For each element, only the
-# `description` and `comments` keys are overlaid; all structural fields
-# (slots, ranges, mappings, annotations) are preserved from the public schema.
+# Merge semantics: deep-merge over iso22989.yaml. For each class, attribute,
+# slot, enum and permissible value, only descriptive keys are overlaid; all
+# structural fields (slots, ranges, mappings, annotations) are kept from the
+# public schema.
 # =============================================================================
 
 id: https://w3id.org/lmodel/iso22989/overlay
@@ -26,532 +28,436 @@ description: |-
 license: PROPRIETARY-ISO-IEC-22989-2022
 
 classes:
-  AIAgent:
-    description: ''
-    comments: []
-  AIApplication:
-    description: ''
-    comments: []
-  AIAuditor:
-    description: ''
-    comments: []
-  AIComponent:
-    description: ''
-    comments: []
-  AIConcept:
-    description: ''
-    comments: []
-  AIConceptsCollection:
-    description: ''
-    comments: []
-  AICustomer:
-    description: ''
-    comments: []
-  AIEcosystem:
-    description: ''
-    comments: []
-  AIEvaluator:
-    description: ''
-    comments: []
-  AILifecycleProcess:
-    description: ''
-    comments: []
-  AIModel:
-    description: ''
-    comments: []
-  AIPartner:
-    description: ''
-    comments: []
-  AIPlatformProvider:
-    description: ''
-    comments: []
-  AIProducer:
-    description: ''
-    comments: []
-  AIProvider:
-    description: ''
-    comments: []
-  AIServiceProductProvider:
-    description: ''
-    comments: []
-  AIStakeholderRole:
-    description: ''
-    comments: []
-  AISubject:
-    description: ''
-    comments: []
-  AISystem:
-    description: ''
-    comments: []
-  AISystemIntegrator:
-    description: ''
-    comments: []
-  AITerm:
-    description: ''
-    comments: []
-  AIUser:
-    description: ''
-    comments: []
-  AbbreviatedTerm:
-    description: ''
-    comments: []
-  AbbreviationEntry:
-    description: ''
-    comments: []
-  Action:
-    description: ''
-    comments: []
-  AutonomyAssessment:
-    description: ''
-    comments: []
-  CatastrophicForgetting:
-    description: ''
-    comments: []
-  CognitiveComputingSystem:
-    description: ''
-    comments: []
-  ComputationVerifier:
-    description: ''
-    comments: []
-  ComputerVisionFunction:
-    description: ''
-    comments: []
-  ComputerVisionTerm:
-    description: ''
-    comments: []
-  ConvolutionOperation:
-    description: ''
-    comments: []
-  CyberPhysicalSystem:
-    description: ''
-    comments: []
-  DataDrift:
-    description: ''
-    comments: []
-  DataLabel:
-    description: ''
-    comments: []
-  DataProcess:
-    description: ''
-    comments: []
-  DataProvider:
-    description: ''
-    comments: []
-  DataSample:
-    description: ''
-    comments: []
-  DataSubject:
-    description: ''
-    comments: []
-  DataTerm:
-    description: ''
-    comments: []
-  Dataset:
-    description: ''
-    comments: []
-  Decision:
-    description: ''
-    comments: []
-  EvaluationMetric:
-    description: ''
-    comments: []
-  ExpertSystem:
-    description: ''
-    comments: []
-  FaultToleranceMechanism:
-    description: ''
-    comments: []
-  GroundTruthRecord:
-    description: ''
-    comments: []
-  HumanMachineTeam:
-    description: ''
-    comments: []
-  Inference:
-    description: ''
-    comments: []
-  InferenceEngine:
-    description: ''
-    comments: []
-  InputData:
-    description: ''
-    comments: []
-  IntelligenceAugmentation:
-    description: ''
-    comments: []
-  IoTDevice:
-    description: ''
-    comments: []
-  IoTSystem:
-    description: ''
-    comments: []
-  KnowledgeGraph:
-    description: ''
-    comments: []
-  KnowledgeRepresentation:
-    description: ''
-    comments: []
-  MachineLearningTerm:
-    description: ''
-    comments: []
-  ModelDesigner:
-    description: ''
-    comments: []
-  ModelImplementer:
-    description: ''
-    comments: []
-  ModelVerifier:
-    description: ''
-    comments: []
-  NLPComponent:
-    description: ''
-    comments: []
-  NLPTerm:
-    description: ''
-    comments: []
-  NamedEntity:
-    description: ''
-    comments: []
-  NaturalLanguage:
-    description: ''
-    comments: []
-  NeuralNetworkModel:
-    description: ''
-    comments: []
-  NeuralNetworkTerm:
-    description: ''
-    comments: []
-  Neuron:
-    description: ''
-    comments: []
-  OECDLifecycleMapping:
-    description: ''
-    comments: []
-  PolicyMaker:
-    description: ''
-    comments: []
-  Prediction:
-    description: ''
-    comments: []
-  Recommendation:
-    description: ''
-    comments: []
-  Regulator:
-    description: ''
-    comments: []
-  RelevantAuthority:
-    description: ''
-    comments: []
-  ResourcePool:
-    description: ''
-    comments: []
-  RiskItem:
-    description: ''
-    comments: []
-  Robot:
-    description: ''
-    comments: []
-  SemanticComputingSystem:
-    description: ''
-    comments: []
-  SoftComputingSystem:
-    description: ''
-    comments: []
-  Task:
-    description: ''
-    comments: []
-  Term:
-    description: ''
-    comments: []
-  Threshold:
-    description: ''
-    comments: []
-  TrustworthinessProperty:
-    description: ''
-    comments: []
-  TrustworthinessTerm:
-    description: ''
-    comments: []
-  VerificationValidationFramework:
-    description: ''
-    comments: []
+  AicAction:
+    description: ''
+    comments: []
+    attributes:
+      aic_action_decision:
+        description: ''
+      aic_action_target:
+        description: ''
+      aic_action_time:
+        description: ''
+  AicAgent:
+    description: ''
+    comments: []
+    attributes:
+      aic_agent_environment:
+        description: ''
+      aic_agent_goals:
+        description: ''
+  AicApplication:
+    description: ''
+    comments: []
+    attributes:
+      aic_application_domain:
+        description: ''
+      aic_application_purpose:
+        description: ''
+      aic_application_sector:
+        description: ''
+      aic_application_system:
+        description: ''
+  AicAssessment:
+    description: ''
+    comments: []
+    attributes:
+      aic_assessment_date:
+        description: ''
+      aic_assessment_kind:
+        description: ''
+      aic_assessment_method:
+        description: ''
+      aic_assessment_result:
+        description: ''
+      aic_assessment_system:
+        description: ''
+  AicComponent:
+    description: ''
+    comments: []
+    attributes:
+      aic_component_depends_on:
+        description: ''
+      aic_component_step:
+        description: ''
+  AicCyberPhysicalSystem:
+    description: ''
+    comments: []
+    attributes:
+      aic_cps_ai_systems:
+        description: ''
+      aic_cps_iot_system:
+        description: ''
+      aic_cps_physical_processes:
+        description: ''
+  AicDataProcess:
+    description: ''
+    comments: []
+    attributes:
+      aic_data_process_date:
+        description: ''
+      aic_data_process_kind:
+        description: ''
+      aic_data_process_method:
+        description: ''
+  AicDataset:
+    description: ''
+    comments: []
+    attributes:
+      aic_dataset_ground_truth:
+        description: ''
+      aic_dataset_holds_pii:
+        description: ''
+      aic_dataset_labels:
+        description: ''
+      aic_dataset_processes:
+        description: ''
+      aic_dataset_roles:
+        description: ''
+      aic_dataset_sample_count:
+        description: ''
+      aic_dataset_source:
+        description: ''
+  AicDecision:
+    description: ''
+    comments: []
+    attributes:
+      aic_decision_criteria:
+        description: ''
+      aic_decision_outcome:
+        description: ''
+      aic_decision_predictions:
+        description: ''
+  AicEcosystem:
+    description: ''
+    comments: []
+    attributes:
+      aic_ecosystem_actions:
+        description: ''
+      aic_ecosystem_applications:
+        description: ''
+      aic_ecosystem_assessments:
+        description: ''
+      aic_ecosystem_claims:
+        description: ''
+      aic_ecosystem_components:
+        description: ''
+      aic_ecosystem_cyber_physical_systems:
+        description: ''
+      aic_ecosystem_datasets:
+        description: ''
+      aic_ecosystem_decisions:
+        description: ''
+      aic_ecosystem_iot_devices:
+        description: ''
+      aic_ecosystem_iot_systems:
+        description: ''
+      aic_ecosystem_knowledge:
+        description: ''
+      aic_ecosystem_lifecycle_processes:
+        description: ''
+      aic_ecosystem_models:
+        description: ''
+      aic_ecosystem_predictions:
+        description: ''
+      aic_ecosystem_resource_pools:
+        description: ''
+      aic_ecosystem_stakeholders:
+        description: ''
+      aic_ecosystem_systems:
+        description: ''
+      aic_ecosystem_tasks:
+        description: ''
+  AicExpertSystem:
+    description: ''
+    comments: []
+    attributes:
+      aic_expert_inference:
+        description: ''
+      aic_expert_knowledge:
+        description: ''
+  AicIotDevice:
+    description: ''
+    comments: []
+    attributes:
+      aic_device_actuates:
+        description: ''
+      aic_device_senses:
+        description: ''
+  AicIotSystem:
+    description: ''
+    comments: []
+    attributes:
+      aic_iot_ai_systems:
+        description: ''
+      aic_iot_devices:
+        description: ''
+  AicKnowledge:
+    description: ''
+    comments: []
+    attributes:
+      aic_knowledge_kind:
+        description: ''
+      aic_knowledge_representation:
+        description: ''
+  AicLifecycleProcess:
+    description: ''
+    comments: []
+    attributes:
+      aic_lifecycle_end:
+        description: ''
+      aic_lifecycle_inputs:
+        description: ''
+      aic_lifecycle_outputs:
+        description: ''
+      aic_lifecycle_responsible:
+        description: ''
+      aic_lifecycle_stage:
+        description: ''
+      aic_lifecycle_start:
+        description: ''
+      aic_lifecycle_system:
+        description: ''
+  AicMachineLearningModel:
+    description: ''
+    comments: []
+    attributes:
+      aic_ml_algorithm:
+        description: ''
+      aic_ml_continuous_learning:
+        description: ''
+      aic_ml_datasets:
+        description: ''
+      aic_ml_hyperparameters:
+        description: ''
+      aic_ml_paradigm:
+        description: ''
+      aic_ml_parameter_count:
+        description: ''
+      aic_ml_retrained_from:
+        description: ''
+      aic_ml_trained_on:
+        description: ''
+  AicModel:
+    description: ''
+    comments: []
+    attributes:
+      aic_model_represents:
+        description: ''
+      aic_model_version:
+        description: ''
+  AicNeuralNetworkModel:
+    description: ''
+    comments: []
+    attributes:
+      aic_network_activation_functions:
+        description: ''
+      aic_network_architecture:
+        description: ''
+      aic_network_layer_count:
+        description: ''
+  AicPrediction:
+    description: ''
+    comments: []
+    attributes:
+      aic_prediction_confidence:
+        description: ''
+      aic_prediction_system:
+        description: ''
+      aic_prediction_value:
+        description: ''
+  AicRecordMixin:
+    description: ''
+    comments: []
+  AicResourcePool:
+    description: ''
+    comments: []
+    attributes:
+      aic_pool_capacity:
+        description: ''
+      aic_pool_hardware:
+        description: ''
+      aic_pool_kind:
+        description: ''
+  AicRobot:
+    description: ''
+    comments: []
+    attributes:
+      aic_robot_actuators:
+        description: ''
+      aic_robot_sensors:
+        description: ''
+  AicStakeholder:
+    description: ''
+    comments: []
+    attributes:
+      aic_stakeholder_contact:
+        description: ''
+      aic_stakeholder_organization:
+        description: ''
+      aic_stakeholder_responsibilities:
+        description: ''
+      aic_stakeholder_role:
+        description: ''
+      aic_stakeholder_sub_roles:
+        description: ''
+  AicSystem:
+    description: ''
+    comments: []
+    attributes:
+      aic_system_approaches:
+        description: ''
+      aic_system_automated:
+        description: ''
+      aic_system_autonomy:
+        description: ''
+      aic_system_components:
+        description: ''
+      aic_system_datasets:
+        description: ''
+      aic_system_fields:
+        description: ''
+      aic_system_human_teaming:
+        description: ''
+      aic_system_jurisdictional_issues:
+        description: ''
+      aic_system_models:
+        description: ''
+      aic_system_purpose:
+        description: ''
+      aic_system_resource_pools:
+        description: ''
+      aic_system_scope:
+        description: ''
+      aic_system_societal_impacts:
+        description: ''
+      aic_system_stage:
+        description: ''
+      aic_system_stakeholders:
+        description: ''
+      aic_system_steps:
+        description: ''
+      aic_system_tasks:
+        description: ''
+      aic_system_techniques:
+        description: ''
+  AicTask:
+    description: ''
+    comments: []
+    attributes:
+      aic_task_goal:
+        description: ''
+      aic_task_kind:
+        description: ''
+      aic_task_languages:
+        description: ''
+      aic_task_performance_measures:
+        description: ''
+  AicTrustworthinessClaim:
+    description: ''
+    comments: []
+    attributes:
+      aic_claim_evidence:
+        description: ''
+      aic_claim_measure:
+        description: ''
+      aic_claim_property:
+        description: ''
+      aic_claim_system:
+        description: ''
 slots:
-  abbreviation_code:
+  aic_id:
     description: ''
-  action_target:
+  aic_model_type:
     description: ''
-  ai_applications:
-    description: ''
-  ai_datasets:
-    description: ''
-  ai_field:
-    description: ''
-  ai_lifecycle_processes:
-    description: ''
-  ai_models:
-    description: ''
-  ai_stakeholder_roles:
-    description: ''
-  ai_system_type:
-    description: ''
-  ai_systems:
-    description: ''
-  algorithm_family:
-    description: ''
-  aliases:
-    description: ''
-  applicable_biases:
-    description: ''
-  application_domain:
-    description: ''
-  approval_criteria:
-    description: ''
-  autonomy_criterion_scores:
-    description: ''
-  autonomy_level:
-    description: ''
-  catastrophic_forgetting_risk:
-    description: ''
-  clause_reference:
-    description: ''
-  collection_date_range:
-    description: ''
-  component_function:
-    description: ''
-  components:
-    description: ''
-  computing_resources:
-    description: ''
-  confidence:
-    description: ''
-  confidence_score:
-    description: ''
-  contact:
-    description: ''
-  contains_personal_data:
-    description: ''
-  cv_task:
-    description: ''
-  data_collection_method:
-    description: ''
-  data_modality:
-    description: ''
-  data_provenance:
-    description: ''
-  data_quality_notes:
-    description: ''
-  data_source_type:
-    description: ''
-  data_sources:
-    description: ''
-  data_version:
-    description: ''
-  dataset_role:
-    description: ''
-  datasets:
-    description: ''
-  decision_outcome:
-    description: ''
-  decision_policy:
+  aic_system_type:
     description: ''
   description:
     description: ''
-  device_role:
-    description: ''
-  ecosystem_components:
-    description: ''
-  edge_count:
-    description: ''
-  end_date:
-    description: ''
-  engineering_approach:
-    description: ''
-  execution_status:
-    description: ''
-  expansion:
-    description: ''
-  feature_count:
-    description: ''
-  functional_components:
-    description: ''
-  ground_truth_available:
-    description: ''
-  ground_truth_value:
-    description: ''
-  hyperparameters:
-    description: ''
-  id:
-    description: ''
-  inference_latency_ms:
-    description: ''
-  input_modalities:
-    description: ''
-  intended_purpose:
-    description: ''
-  jurisdictional_issues:
-    description: ''
-  label_type:
-    description: ''
-  label_value:
-    description: ''
-  lifecycle_stage:
-    description: ''
-  measurement_method:
-    description: ''
-  model_compression_applied:
-    description: ''
-  model_paradigm:
-    description: ''
-  model_version:
-    description: ''
-  models:
-    description: ''
-  name:
-    description: ''
-  nlp_component_type:
-    description: ''
-  node_count:
-    description: ''
-  ontology_reference:
-    description: ''
-  organization_name:
-    description: ''
-  output_label_type:
-    description: ''
-  parameter_count:
-    description: ''
-  performance_metric:
-    description: ''
-  predicted_value:
-    description: ''
-  preferred_label:
-    description: ''
-  process_inputs:
-    description: ''
-  process_outputs:
-    description: ''
-  process_stage:
-    description: ''
-  property_evidence:
-    description: ''
-  provenance_statement:
-    description: ''
-  recommendation_outcome_type:
-    description: ''
-  record_count:
-    description: ''
-  resource_type:
-    description: ''
-  responsibilities:
-    description: ''
-  responsible_role:
-    description: ''
-  risk_items:
-    description: ''
-  rule_count:
-    description: ''
-  see_also_uri:
-    description: ''
-  societal_impacts:
-    description: ''
-  stakeholder_role_type:
-    description: ''
-  stakeholders:
-    description: ''
-  start_date:
-    description: ''
-  supports_continuous_learning:
-    description: ''
-  symbolic_approach:
-    description: ''
-  task_category:
-    description: ''
-  test_dataset:
-    description: ''
-  trained_on:
-    description: ''
-  training_dataset:
-    description: ''
-  training_duration:
-    description: ''
-  trustworthiness_properties:
-    description: ''
-  trustworthiness_property_type:
-    description: ''
-  trustworthiness_records:
-    description: ''
-  validation_dataset:
-    description: ''
-  validation_strategy:
-    description: ''
-  verification_validation_level:
+  title:
     description: ''
 enums:
-  AIApplicationDomain:
+  AicAlgorithmFamily:
     description: ''
     permissible_values:
-      agriculture:
+      bayesian_network:
         description: ''
+      decision_tree:
+        description: ''
+      neural_network:
+        description: ''
+      support_vector_machine:
+        description: ''
+  AicApplicationDomain:
+    description: ''
+    permissible_values:
       automated_vehicles:
-        description: ''
-      automotive:
-        description: ''
-      banking_and_finance:
-        description: ''
-      content_generation:
-        description: ''
-      defense_and_security:
-        description: ''
-      education:
-        description: ''
-      energy_and_utilities:
         description: ''
       fraud_detection:
         description: ''
-      healthcare:
-        description: ''
-      legal_services:
-        description: ''
-      manufacturing:
-        description: ''
-      media_and_entertainment:
-        description: ''
-      medical_diagnosis:
-        description: ''
-      mixed_reality:
-        description: ''
       predictive_maintenance:
         description: ''
-      public_sector:
+  AicApproach:
+    description: ''
+    permissible_values:
+      subsymbolic:
         description: ''
-      recommendation:
+      symbolic:
         description: ''
-      retail:
+  AicAssessmentKind:
+    description: ''
+    permissible_values:
+      validation:
         description: ''
-      space:
+      verification:
         description: ''
-      telecommunications:
+  AicAutonomy:
+    description: ''
+    permissible_values:
+      autonomous:
         description: ''
-  AIField:
+      heteronomous:
+        description: ''
+  AicDataProcessKind:
+    description: ''
+    permissible_values:
+      data_annotation:
+        description: ''
+      data_augmentation:
+        description: ''
+      data_quality_checking:
+        description: ''
+      data_sampling:
+        description: ''
+      exploratory_data_analysis:
+        description: ''
+      imputation:
+        description: ''
+  AicDatasetRole:
+    description: ''
+    permissible_values:
+      input:
+        description: ''
+      production:
+        description: ''
+      test:
+        description: ''
+      training:
+        description: ''
+      validation:
+        description: ''
+  AicField:
     description: ''
     permissible_values:
       computer_vision:
         description: ''
       data_mining:
         description: ''
-      knowledge_representation_and_reasoning:
-        description: ''
-      multi_agent_systems:
-        description: ''
       natural_language_processing:
         description: ''
       planning:
         description: ''
-      robotics:
-        description: ''
-      speech_processing:
-        description: ''
-  AIFunctionalComponent:
+  AicFunctionalStep:
     description: ''
     permissible_values:
       action:
@@ -564,7 +470,27 @@ enums:
         description: ''
       prediction:
         description: ''
-  AILifecycleStage:
+  AicKnowledgeKind:
+    description: ''
+    permissible_values:
+      declarative:
+        description: ''
+      procedural:
+        description: ''
+  AicLearningParadigm:
+    description: ''
+    permissible_values:
+      reinforcement:
+        description: ''
+      semi_supervised:
+        description: ''
+      supervised:
+        description: ''
+      transfer:
+        description: ''
+      unsupervised:
+        description: ''
+  AicLifecycleStage:
     description: ''
     permissible_values:
       continuous_validation:
@@ -583,7 +509,42 @@ enums:
         description: ''
       verification_and_validation:
         description: ''
-  AIStakeholderRoleType:
+  AicNetworkArchitecture:
+    description: ''
+    permissible_values:
+      convolutional:
+        description: ''
+      feed_forward:
+        description: ''
+      long_short_term_memory:
+        description: ''
+      recurrent:
+        description: ''
+  AicOecdLifecycleStage:
+    description: ''
+    permissible_values:
+      build_and_use_model:
+        description: ''
+      collect_and_process_data:
+        description: ''
+      deploy:
+        description: ''
+      operate_and_monitor:
+        description: ''
+      plan_and_design:
+        description: ''
+      verify_and_validate:
+        description: ''
+  AicResourceKind:
+    description: ''
+    permissible_values:
+      application_specific_integrated_circuit:
+        description: ''
+      cloud:
+        description: ''
+      edge:
+        description: ''
+  AicStakeholderRole:
     description: ''
     permissible_values:
       ai_customer:
@@ -598,492 +559,50 @@ enums:
         description: ''
       relevant_authority:
         description: ''
-  AISystemCharacteristic:
+  AicStakeholderSubRole:
     description: ''
     permissible_values:
-      adaptive:
+      ai_developer:
         description: ''
-      contextual:
+      ai_platform_provider:
         description: ''
-      data_dependent:
+      ai_product_or_service_provider:
         description: ''
-      interactive:
+      ai_system_integrator:
         description: ''
-      oversight_enabled:
+      ai_user:
         description: ''
-  AISystemType:
+      data_provider:
+        description: ''
+      data_subject:
+        description: ''
+      other_subject:
+        description: ''
+      policy_maker:
+        description: ''
+      regulator:
+        description: ''
+  AicSystemScope:
     description: ''
     permissible_values:
       general_ai:
         description: ''
       narrow_ai:
         description: ''
-      strong_ai:
-        description: ''
-      weak_ai:
-        description: ''
-  AbbreviationCode:
-    description: ''
-    permissible_values:
-      AI:
-        description: ''
-      API:
-        description: ''
-      ASIC:
-        description: ''
-      CNN:
-        description: ''
-      CPS:
-        description: ''
-      CPU:
-        description: ''
-      CRISP_DM:
-        description: ''
-      DNN:
-        description: ''
-      DSP:
-        description: ''
-      FFNN:
-        description: ''
-      FPGA:
-        description: ''
-      GA:
-        description: ''
-      GPU:
-        description: ''
-      HMM:
-        description: ''
-      IR:
-        description: ''
-      IT:
-        description: ''
-      IoT:
-        description: ''
-      KDD:
-        description: ''
-      LSTM:
-        description: ''
-      ML:
-        description: ''
-      MT:
-        description: ''
-      NER:
-        description: ''
-      NLG:
-        description: ''
-      NLP:
-        description: ''
-      NLU:
-        description: ''
-      NN:
-        description: ''
-      NPU:
-        description: ''
-      OCR:
-        description: ''
-      OECD:
-        description: ''
-      PII:
-        description: ''
-      POS:
-        description: ''
-      RL:
-        description: ''
-      RNN:
-        description: ''
-      SVM:
-        description: ''
-  ActivationFunctionType:
-    description: ''
-    permissible_values:
-      leaky_relu:
-        description: ''
-      linear:
-        description: ''
-      other:
-        description: ''
-      relu:
-        description: ''
-      sigmoid:
-        description: ''
-      softmax:
-        description: ''
-      tanh:
-        description: ''
-  AgentArchitectureType:
-    description: ''
-    permissible_values:
-      goal_based_agent:
-        description: ''
-      learning_agent:
-        description: ''
-      model_based_agent:
-        description: ''
-      multi_agent:
-        description: ''
-      reflex_agent:
-        description: ''
-      utility_based_agent:
-        description: ''
-  AutonomyCriterion:
-    description: ''
-    permissible_values:
-      adaptability:
-        description: ''
-      external_supervision:
-        description: ''
-      performance_evaluation:
-        description: ''
-      persistence:
-        description: ''
-      proactive_planning:
-        description: ''
-      reactivity:
-        description: ''
-      situated_understanding:
-        description: ''
-  AutonomyLevel:
-    description: ''
-    permissible_values:
-      automated:
-        description: ''
-      autonomous:
-        description: ''
-      heteronomous:
-        description: ''
-      level_0_no_automation:
-        description: ''
-      level_1_assistance:
-        description: ''
-      level_2_partial_automation:
-        description: ''
-      level_3_conditional_automation:
-        description: ''
-      level_4_high_automation:
-        description: ''
-      level_5_full_automation:
-        description: ''
-  BiasType:
-    description: ''
-    permissible_values:
-      algorithmic_bias:
-        description: ''
-      automation_bias:
-        description: ''
-      cognitive_bias:
-        description: ''
-      data_bias:
-        description: ''
-      societal_bias:
-        description: ''
-  BigDataCharacteristic:
-    description: ''
-    permissible_values:
-      value:
-        description: ''
-      variability:
-        description: ''
-      variety:
-        description: ''
-      velocity:
-        description: ''
-      veracity:
-        description: ''
-      volume:
-        description: ''
-  ComputerVisionTask:
-    description: ''
-    permissible_values:
-      action_recognition:
-        description: ''
-      activity_recognition:
-        description: ''
-      face_recognition:
-        description: ''
-      image_classification:
-        description: ''
-      image_recognition:
-        description: ''
-      instance_segmentation:
-        description: ''
-      motion_tracking:
-        description: ''
-      object_detection:
-        description: ''
-      optical_character_recognition:
-        description: ''
-      pose_estimation:
-        description: ''
-      scene_recognition:
-        description: ''
-      semantic_segmentation:
-        description: ''
-      three_d_reconstruction:
-        description: ''
-      visual_anomaly_detection:
-        description: ''
-  ComputingResourceType:
-    description: ''
-    permissible_values:
-      asic:
-        description: ''
-      cloud:
-        description: ''
-      cpu:
-        description: ''
-      dsp:
-        description: ''
-      edge:
-        description: ''
-      fpga:
-        description: ''
-      gpu:
-        description: ''
-      npu:
-        description: ''
-      on_premises:
-        description: ''
-      tpu:
-        description: ''
-  DataCollectionMethod:
-    description: ''
-    permissible_values:
-      audio_capture:
-        description: ''
-      document_extraction:
-        description: ''
-      image_capture:
-        description: ''
-      interaction_log:
-        description: ''
-      point_of_sale:
-        description: ''
-      research_study:
-        description: ''
-      sensor_capture:
-        description: ''
-      survey:
-        description: ''
-      transactional_log:
-        description: ''
-      web_scraping:
-        description: ''
-  DataLabelType:
-    description: ''
-    permissible_values:
-      binary:
-        description: ''
-      categorical:
-        description: ''
-      graph:
-        description: ''
-      none:
-        description: ''
-      numeric:
-        description: ''
-      ordinal:
-        description: ''
-      sequence:
-        description: ''
-      structured:
-        description: ''
-  DataModality:
-    description: ''
-    permissible_values:
-      audio:
-        description: ''
-      graph:
-        description: ''
-      image:
-        description: ''
-      semi_structured:
-        description: ''
-      sensor:
-        description: ''
-      structured:
-        description: ''
-      text:
-        description: ''
-      time_series:
-        description: ''
-      unstructured:
-        description: ''
-      video:
-        description: ''
-  DataProcessType:
-    description: ''
-    permissible_values:
-      catastrophic_forgetting_mitigation:
-        description: ''
-      concept_drift_handling:
-        description: ''
-      data_acquisition:
-        description: ''
-      data_annotation:
-        description: ''
-      data_augmentation:
-        description: ''
-      data_cleaning:
-        description: ''
-      data_drift_detection:
-        description: ''
-      data_labeling:
-        description: ''
-      data_poisoning_detection:
-        description: ''
-      data_preparation:
-        description: ''
-      data_quality_checking:
-        description: ''
-      data_sampling:
-        description: ''
-      de_identification:
-        description: ''
-      exploratory_data_analysis:
-        description: ''
-      feature_engineering:
-        description: ''
-      filtering:
-        description: ''
-      imputation:
-        description: ''
-      normalisation:
-        description: ''
-      retraining:
-        description: ''
-  DataSourceType:
-    description: ''
-    permissible_values:
-      first_party:
-        description: ''
-      open_data:
-        description: ''
-      queried_union:
-        description: ''
-      second_party:
-        description: ''
-      synthetic:
-        description: ''
-      third_party:
-        description: ''
-  DatasetRole:
-    description: ''
-    permissible_values:
-      production:
-        description: ''
-      reference:
-        description: ''
-      test:
-        description: ''
-      training:
-        description: ''
-      validation:
-        description: ''
-  EngineeringApproach:
-    description: ''
-    permissible_values:
-      constraint_satisfaction:
-        description: ''
-      expert_system:
-        description: ''
-      knowledge_graph:
-        description: ''
-      logic_programming:
-        description: ''
-  ExecutionStatus:
-    description: ''
-    permissible_values:
-      cancelled:
-        description: ''
-      completed:
-        description: ''
-      failed:
-        description: ''
-      in_progress:
-        description: ''
-      planned:
-        description: ''
-  IoTDeviceRole:
-    description: ''
-    permissible_values:
-      actuator:
-        description: ''
-      controller:
-        description: ''
-      edge_compute:
-        description: ''
-      gateway:
-        description: ''
-      sensor:
-        description: ''
-  JurisdictionalIssueType:
-    description: ''
-    permissible_values:
-      cross_border_transfer:
-        description: ''
-      data_residency:
-        description: ''
-      intellectual_property:
-        description: ''
-      liability:
-        description: ''
-      regulatory_compliance:
-        description: ''
-  KnowledgeType:
-    description: ''
-    permissible_values:
-      common_sense:
-        description: ''
-      declarative:
-        description: ''
-      domain_specific:
-        description: ''
-      procedural:
-        description: ''
-      tacit:
-        description: ''
-  MLAlgorithmFamily:
-    description: ''
-    permissible_values:
-      bayesian_network:
-        description: ''
-      decision_tree:
-        description: ''
-      genetic_algorithm:
-        description: ''
-      neural_network:
-        description: ''
-      support_vector_machine:
-        description: ''
-  MachineLearningParadigm:
-    description: ''
-    permissible_values:
-      reinforcement:
-        description: ''
-      self_supervised:
-        description: ''
-      semi_supervised:
-        description: ''
-      supervised:
-        description: ''
-      transfer:
-        description: ''
-      unsupervised:
-        description: ''
-  NLPComponentType:
+  AicTaskKind:
     description: ''
     permissible_values:
       automatic_summarization:
-        description: ''
-      coreference_resolution:
         description: ''
       dialogue_management:
         description: ''
       emotion_recognition:
         description: ''
-      information_retrieval:
+      face_recognition:
         description: ''
-      lemmatisation:
+      image_recognition:
+        description: ''
+      information_retrieval:
         description: ''
       machine_translation:
         description: ''
@@ -1101,175 +620,45 @@ enums:
         description: ''
       relationship_extraction:
         description: ''
-      semantic_analysis:
-        description: ''
       sentiment_analysis:
         description: ''
       speech_recognition:
         description: ''
       speech_synthesis:
         description: ''
-      syntactic_parsing:
-        description: ''
-      tokenisation:
-        description: ''
-  NeuralNetworkArchitecture:
+  AicTechnique:
     description: ''
     permissible_values:
-      autoencoder:
+      cognitive_computing:
         description: ''
-      convolutional:
+      deep_learning:
         description: ''
-      deep:
+      genetic_algorithm:
         description: ''
-      feed_forward:
+      logic_programming:
         description: ''
-      gated_recurrent_unit:
+      machine_learning:
         description: ''
-      generative_adversarial:
+      semantic_computing:
         description: ''
-      long_short_term_memory:
+      soft_computing:
         description: ''
-      recurrent:
-        description: ''
-      transformer:
-        description: ''
-  NeuralNetworkPhenomenon:
-    description: ''
-    permissible_values:
-      catastrophic_forgetting:
-        description: ''
-      exploding_gradient:
-        description: ''
-      overfitting:
-        description: ''
-      underfitting:
-        description: ''
-      vanishing_gradient:
-        description: ''
-  NeuroSymbolicApproach:
-    description: ''
-    permissible_values:
-      loosely_coupled:
-        description: ''
-      neural_in_symbolic:
-        description: ''
-      symbolic_in_neural:
-        description: ''
-      tightly_coupled:
-        description: ''
-  OECDLifecycleStage:
-    description: ''
-    permissible_values:
-      build_and_use_model:
-        description: ''
-      collect_and_process_data:
-        description: ''
-      deploy:
-        description: ''
-      operate_and_monitor:
-        description: ''
-      plan_and_design:
-        description: ''
-      verify_and_validate:
-        description: ''
-  RecommendationOutcomeType:
-    description: ''
-    permissible_values:
-      action_recommendation:
-        description: ''
-      content_recommendation:
-        description: ''
-      next_best_action:
-        description: ''
-      ranking_recommendation:
-        description: ''
-  SocietalImpactCategory:
-    description: ''
-    permissible_values:
-      democratic_processes:
-        description: ''
-      digital_divide:
-        description: ''
-      employment:
-        description: ''
-      environment:
-        description: ''
-      human_rights:
-        description: ''
-  SoftComputingTechnique:
-    description: ''
-    permissible_values:
-      evolutionary_computing:
-        description: ''
-      fuzzy_logic:
-        description: ''
-      neural_computing:
-        description: ''
-      probabilistic_reasoning:
-        description: ''
-      swarm_intelligence:
-        description: ''
-  SymbolicApproach:
-    description: ''
-    permissible_values:
-      hybrid:
-        description: ''
-      subsymbolic:
-        description: ''
-      symbolic:
-        description: ''
-  TaskCategory:
-    description: ''
-    permissible_values:
-      anomaly_detection:
-        description: ''
-      classification:
-        description: ''
-      clustering:
-        description: ''
-      control:
-        description: ''
-      decision_support:
-        description: ''
-      dimensionality_reduction:
-        description: ''
-      generation:
-        description: ''
-      planning:
-        description: ''
-      ranking:
-        description: ''
-      recommendation:
-        description: ''
-      regression:
-        description: ''
-  TrustworthinessPropertyType:
+  AicTrustworthinessProperty:
     description: ''
     permissible_values:
       accountability:
         description: ''
-      authenticity:
-        description: ''
       availability:
         description: ''
-      bias_mitigation:
+      bias_and_fairness:
         description: ''
       controllability:
         description: ''
       explainability:
         description: ''
-      fairness:
-        description: ''
-      fault_tolerance:
-        description: ''
-      integrity:
+      organizational_transparency:
         description: ''
       predictability:
-        description: ''
-      privacy:
-        description: ''
-      quality:
         description: ''
       reliability:
         description: ''
@@ -1277,39 +666,5 @@ enums:
         description: ''
       robustness:
         description: ''
-      safety:
-        description: ''
-      security:
-        description: ''
-      transparency:
-        description: ''
-      usability:
-        description: ''
-  ValidationStrategy:
-    description: ''
-    permissible_values:
-      bootstrap:
-        description: ''
-      cross_validation:
-        description: ''
-      holdout:
-        description: ''
-      stratified_cross_validation:
-        description: ''
-      time_series_split:
-        description: ''
-      two_way_split:
-        description: ''
-  VerificationValidationLevel:
-    description: ''
-    permissible_values:
-      completely_verifiable:
-        description: ''
-      partially_verifiable_validatable:
-        description: ''
-      unverifiable_partially_validatable:
-        description: ''
-      unverifiable_unvalidatable:
-        description: ''
-      unverifiable_validatable:
+      system_transparency:
         description: ''
