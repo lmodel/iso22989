@@ -3,8 +3,8 @@ type: Dataset
 id: https://w3id.org/lmodel/iso22989/knowledge/datasets/adapt-copy
 genre: reference
 title: The schema's adapt copy
-description: "`.lokf/iso22989.yaml`, the copy `just lokf-adapt` writes from the schema so that it sits beside LOKF's `lokf.yaml`: fifteen classes rooted on `Concept`, `ai_rmf_id` dropped for LOKF's `id`, `title` and `description` folded into LOKF's, and two designators demoted."
-resource: .lokf/iso22989.yaml
+description: "`.lokf/schema/iso22989.yaml`, the copy `just lokf-adapt` writes from the schema so that it sits beside LOKF's `lokf.yaml`: fifteen classes rooted on `Concept`, `ai_rmf_id` dropped for LOKF's `id`, `title` and `description` folded into LOKF's, and two designators demoted."
+resource: .lokf/schema/iso22989.yaml
 derivedFrom:
   - https://w3id.org/lmodel/iso22989/knowledge/datasets/iso22989-linkml-schema
 about:
@@ -16,20 +16,20 @@ sources:
   - id: readme.md
     resource: README.md
     title: the Knowledge Trust Ladder (KTL) section
-  - resource: .lokf/iso22989.yaml
+  - resource: .lokf/schema/iso22989.yaml
   - resource: .lokf/justfile
     title: the schema line
   - resource: .lokf/pyproject.toml
     title: the schema setting
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T09:56:09Z"
+  at: "2026-11-06T21:26:57Z"
 status: draft
 ---
 
 # The schema's adapt copy
 
-`just lokf-adapt` writes `.lokf/iso22989.yaml` from the schema, and `just lokf-adapt-check` fails when it is stale. CI runs the check.[^project.justfile]
+`just lokf-adapt` writes `.lokf/schema/iso22989.yaml` from the schema, and `just lokf-adapt-check` fails when it is stale. CI runs the check.[^project.justfile]
 
 The README lists the concept types for the *Known LOKF types* setting. A release attaches the copy as `schema-<tag>-iso22989.yaml`.[^readme.md]
 
