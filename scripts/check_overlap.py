@@ -5,8 +5,10 @@ ISO/IEC 22989 is copyright ISO and IEC, and this repository holds none of its
 text. A person who holds a copy can test that claim: this script takes the
 copy's plain text and fails on any run of four or more consecutive words that
 also appears in the schema's descriptions, titles and comments, or in the
-Markdown under docs/, the README or the schema's folder. It also fails when the
-schema cites a term or clause whose number starts no line of the copy.
+prose the repository writes beside it: its Markdown pages, NOTICE, llms.txt,
+the knowledge bundle's concepts, the example data and the reasons in
+tests/iso22989_numbers.yaml. It also fails when the schema cites a term or
+clause whose number starts no line of the copy.
 
 Run it by hand. It stays out of CI, since CI has no copy of the standard, and
 the copy must stay outside the repository.
@@ -32,12 +34,17 @@ ROOT = Path(__file__).resolve().parent.parent
 SCHEMA = ROOT / "src" / "iso22989" / "schema" / "iso22989.yaml"
 ALLOWED = ROOT / "tests" / "overlap_allowed.yaml"
 RUN = 4
-# The prose this repository writes, beside the schema.
+# The prose this repository writes beside the schema, as glob patterns from
+# the repository root.
 PROSE = (
-    "README.md",
-    "docs/about.md",
-    "docs/index.md",
-    "src/iso22989/schema/README.md",
+    "*.md",
+    "NOTICE",
+    "llms.txt",
+    "docs/*.md",
+    "src/iso22989/schema/*.md",
+    ".lokf/knowledge/**/*.md",
+    "tests/data/**/*.yaml",
+    "tests/iso22989_numbers.yaml",
 )
 TEXT_KEYS = ("description", "title", "comments", "notes")
 # The annotations that cite the standard by number, as "3.1.4" or "6.2, 6.2.1".
@@ -103,10 +110,9 @@ def repository_texts(root: Path = ROOT):
     yield from schema_texts(
         yaml.safe_load((root / SCHEMA.relative_to(ROOT)).read_text(encoding="utf-8"))
     )
-    for name in PROSE:
-        path = root / name
-        if path.is_file():
-            yield name, path.read_text(encoding="utf-8")
+    for pattern in PROSE:
+        for path in sorted(root.glob(pattern)):
+            yield str(path.relative_to(root)), path.read_text(encoding="utf-8")
 
 
 def allowed_runs(path: Path = ALLOWED) -> dict[tuple[str, ...], str]:

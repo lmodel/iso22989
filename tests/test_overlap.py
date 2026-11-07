@@ -58,12 +58,17 @@ def test_an_entry_without_a_reason_is_refused(overlap, tmp_path):
 
 
 def test_the_script_reads_the_schema_text_and_the_prose(overlap):
-    """Its texts cover a class description, a comment, and the README."""
+    """Its texts cover a class description, a comment, the Markdown pages,
+    NOTICE, the bundle's concepts, the example data and the numbers file."""
     texts = list(overlap.repository_texts())
     places = {where for where, _ in texts}
     assert "schema/classes/AicSystem/description" in places
     assert "schema/classes/AicSystem/comments" in places
-    assert "README.md" in places
+    assert {"README.md", "CHANGELOG.md", "NOTICE", "llms.txt"} <= places
+    assert {"docs/about.md", "docs/rights.md"} <= places
+    assert ".lokf/knowledge/explanations/scope.md" in places
+    assert "tests/iso22989_numbers.yaml" in places
+    assert any(where.startswith("tests/data/valid/") for where in places)
 
 
 def test_a_copy_inside_the_repository_is_refused(overlap, tmp_path, capsys):
