@@ -12,6 +12,8 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 - **`src/iso22989/schema/iso-open-data/`**, ISO Open Data's records of the edition and its two amendments in progress, with a weekly watch that reports a change. It reads only https addresses on a list of hosts and caps what it reads.
 - **`scripts/check_overlap.py`**, which lets a person who holds a copy of the standard find words the repository shares with it, and any cited number that starts no line of the copy.
 - **Tests** that hold the numbers, the header and each mapping, and an example per class and a counter-example per constraint, each naming where it fails.
+- **Rules on `AicStakeholder`** that refuse a sub-role of another role, and a pattern that holds each of `aic_ml_hyperparameters` to `name=value`, so any validator checks both.
+- **Mappings to lmodel/nist-ai-100-1** from a system, the OECD phases and the trustworthiness properties.
 - **`.lokf/iso22989.yaml`, the schema's `lokf adapt` copy.** The knowledge release attaches it as `schema-<tag>-iso22989.yaml`.
 - **The repository's Knowledge Trust Ladder (KTL) knowledge bundle and its sidecar automation**, from the KTL v0.61.0 templates with the lokf floor at 0.9.0, and a knowledge website that replaces the mkdocs site.
 - **The governance files**: SECURITY.md, AI_COVENANT.md, NOTICE and the CONTRIBUTING checklist.
