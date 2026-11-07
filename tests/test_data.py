@@ -240,7 +240,15 @@ def test_every_role_has_a_sub_role():
 
 @pytest.mark.parametrize("filepath", VALID_EXAMPLE_FILES)
 def test_a_lifecycle_process_ends_on_or_after_its_start(filepath):
-    """A piece of life-cycle work ends on or after the day it begins."""
+    """A piece of life-cycle work ends on or after the day it begins, where
+    the record gives both days."""
     for cls, data in _all_records(filepath):
-        if cls == "AicLifecycleProcess" and "aic_lifecycle_end" in data:
+        if (
+            cls == "AicLifecycleProcess"
+            and {
+                "aic_lifecycle_start",
+                "aic_lifecycle_end",
+            }
+            <= data.keys()
+        ):
             assert data["aic_lifecycle_start"] <= data["aic_lifecycle_end"]

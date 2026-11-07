@@ -33,6 +33,8 @@ TERMS_PER_SECTION = {
 def _elements():
     """Each element of the schema by the name the numbers file gives it, with
     its annotations."""
+    for name, slot in (SCHEMA.get("slots") or {}).items():
+        yield name, (slot or {}).get("annotations") or {}
     for name, cls in SCHEMA["classes"].items():
         yield name, cls.get("annotations") or {}
         for attribute, slot in (cls.get("attributes") or {}).items():
@@ -64,13 +66,17 @@ def test_the_file_lists_every_term_of_clause_3():
 
 def test_each_term_names_an_element_that_cites_it():
     """A term the file gives an element is one that element cites, and an
-    element that cites a term is the one the file gives."""
+    element that cites a term is the one the file gives. No term is cited by
+    two elements, since the file can name only one."""
     named = {
         number: element
         for number, element in NUMBERS["terms"].items()
         if isinstance(element, str)
     }
-    assert named == dict(_cited_terms())
+    cited = list(_cited_terms())
+    twice = sorted({n for n, _ in cited if [m for m, _ in cited].count(n) > 1})
+    assert not twice, twice
+    assert named == dict(cited)
 
 
 def test_a_term_left_out_says_why():
