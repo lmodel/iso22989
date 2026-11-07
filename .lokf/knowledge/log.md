@@ -1,5 +1,12 @@
 # Change Log
 
+## 2026-11-07
+
+* **Changed**: the neighbour copies number 35, since `tests/test_schema_rules.py` pins 13 more released schemas.
+* **Changed**: a sub-role's role is now a schema rule, which `tests/test_data.py` holds to the role annotations.
+* **Changed**: a mapping may name a neighbour's enum value, as the lmodel/nist-ai-100-1 mappings do.
+* **Changed**: the overlap check now reads the bundle, NOTICE and the example data too.
+
 ## 2026-11-05
 
 * **Removed**: The overlay scaffold, with the scripts and the page it described.

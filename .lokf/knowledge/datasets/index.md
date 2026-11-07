@@ -7,4 +7,4 @@
 * [The generated artefacts](generated-artefacts.md) - What `just gen-project` and `just gen-doc` generate from the schema: the projections in `project/`, the Python models in `src/iso22989/datamodel/`, and the merged schema in `docs/schema/`. None is edited by hand.
 * [The example data](example-data.md) - `tests/data/`: a valid example per class and a counter-example per constraint, each counter-example naming on its first line where it must fail. `AicEcosystem-card-payments` is one whole ecosystem.
 * [A bank as AI producer](example-stakeholder.md) - An example written as a concept of type `AicStakeholder` in the adapt copy's keys. It shows that the domain schema admits a party as a concept, with its role and sub-role.
-* [The neighbours' adapt copies](neighbour-copies.md) - The adapt copies of 22 released lmodel repositories in `tests/neighbours/`, each pinned by its SHA-256, which tests hold this schema's names and mappings to.
+* [The neighbours' adapt copies](neighbour-copies.md) - The adapt copies of 35 released lmodel repositories in `tests/neighbours/`, each pinned by its SHA-256, which tests hold this schema's names and mappings to.

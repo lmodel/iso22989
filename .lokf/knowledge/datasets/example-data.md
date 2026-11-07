@@ -15,7 +15,7 @@ sources:
   - resource: examples/README.md
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T09:56:09Z"
+  at: "2026-11-07T01:02:36Z"
 status: draft
 ---
 
@@ -23,7 +23,7 @@ status: draft
 
 File names follow `ClassName-suffix.yaml`.[^readme] A counter-example's first line, `# Fails at: <pointer>`, names where it must fail, so a file that starts failing for another reason fails the test.[^test_data.py]
 
-The same test file checks the rules no validator checks, over the examples: that references resolve within an ecosystem, that no identifier repeats, that a sub-role sits under its role, and that life-cycle work ends after it begins.[^test_data.py]
+The same test file checks the rules no validator checks, over the examples: that references resolve within an ecosystem, that no identifier repeats, and that life-cycle work ends after it begins. It also holds the schema's sub-role rules to the role annotations.[^test_data.py]
 
 [^readme]: tests/data/README.md
 [^test_data.py]: tests/test_data.py

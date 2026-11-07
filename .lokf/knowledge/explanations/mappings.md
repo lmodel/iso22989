@@ -14,13 +14,13 @@ sources:
     resource: tests/test_schema_rules.py
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T09:56:09Z"
+  at: "2026-11-07T01:02:36Z"
 status: draft
 ---
 
 # Mappings and the SSSOM sets
 
-The README lists each mapping, and the schema is their one home.[^readme.md] `tests/test_schema_rules.py` holds each to a class of a released copy.[^test_schema_rules.py]
+The README lists each mapping, and the schema is their one home.[^readme.md] `tests/test_schema_rules.py` holds each to a class or an enum value of a released copy.[^test_schema_rules.py]
 
 The SSSOM sets are gone, since a matching tool wrote them, no source confirmed their rows, and most named terms that no longer exist.[^readme.md]
 

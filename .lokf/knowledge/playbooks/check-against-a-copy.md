@@ -16,13 +16,13 @@ sources:
     resource: tests/test_overlap.py
 generated:
   by: process:ktl-librarian
-  at: "2026-11-05T10:58:18Z"
+  at: "2026-11-07T01:02:36Z"
 status: draft
 ---
 
 # Check the wording against a copy of the standard
 
-The script's docstring gives the commands. It reads the copy's plain text, refuses a copy inside the repository, and also reports a term or clause number the schema cites that starts no line of the copy.[^overlap]
+The script's docstring gives the commands. It reads the copy's plain text, checks the schema and the prose the repository writes beside it, the bundle included, refuses a copy inside the repository, and also reports a term or clause number the schema cites that starts no line of the copy.[^overlap]
 
 A run may be allowed only with a reason, in `tests/overlap_allowed.yaml`.[^allowed] Run it by hand: CI has no copy, and `tests/test_overlap.py` tests the script on text of its own.[^test_overlap.py]
 
