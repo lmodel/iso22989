@@ -60,6 +60,32 @@ NEIGHBOURS = {
     "nist-ai-100-1.yaml": "a9498259b8ff781fa3c24e668f5258146fe1fc4cd6e08c2aac394cb63b76a3c9",
     # lmodel/nist-ai-600-1 v0.1.0, schema-v0.1.0-nist-ai-600-1.yaml
     "nist-ai-600-1.yaml": "4fffc03c0db437256b45ffa6814c54053ffeae06a933b4d4550f94c9ff0494f4",
+    # lmodel/ai-governance-framework v0.1.0, schema-v0.1.0-ai-governance-framework.yaml
+    "ai-governance-framework.yaml": "5c853b7ffe526a8610c1b98a152e3321fb8db11a63007c3419cfb18a0e5d948d",
+    # lmodel/calm v0.1.1, schema-v0.1.1-calm.yaml
+    "calm.yaml": "79e1d30f9765efdf698b98f54a3621c4701a6a74782b0f038292addccf9682a4",
+    # lmodel/cis-controls v0.2.1, schema-v0.2.1-cis-controls.yaml
+    "cis-controls.yaml": "fbb325b4e55860381293b98f3be9c5b37e12903d3d88228d0e15a761dc80dc98",
+    # lmodel/collections v0.2.0, schema-v0.2.0-collections.yaml
+    "collections.yaml": "d750bfbd5be7ddfe40ce26760c76fa7859cbff45cb960913427f0585639dfeb0",
+    # lmodel/datatype v0.1.0, schema-v0.1.0-datatype.yaml
+    "datatype.yaml": "52fe21c1cd4675b851a26947b69ae9a3b5b68ead592711b23a6552866ec6f933",
+    # lmodel/dpv v0.1.0, schema-v0.1.0-dpv.yaml
+    "dpv.yaml": "388ca72d90615903c6d57b6d0856e71fcf77a3b07a318cf2b2bee0224930b362",
+    # lmodel/fix-orchestra v0.1.0, schema-v0.1.0-fix-orchestra.yaml
+    "fix-orchestra.yaml": "68574443d6a144f1e9c4f453fea67ad421bf05186cdce972c45e1ac00111f4a8",
+    # lmodel/fix-protocol v0.1.0, schema-v0.1.0-fix-protocol.yaml
+    "fix-protocol.yaml": "a2e7c62dbf856298b9c93c8d6eb93365690f768b0f0b00dbf17ad14384a76d02",
+    # lmodel/fix-sbe v0.1.0, schema-v0.1.0-fix-sbe.yaml
+    "fix-sbe.yaml": "894cc3948e8283ab09f96a27ad8cbacbd19dcd9a7d8ae46acb9f3c166d53a353",
+    # lmodel/fixp v0.1.0, schema-v0.1.0-fixp.yaml
+    "fixp.yaml": "d047c64cafa23b19ae55986fc5a6d79ad8e3bb660526b115ba17c65027b21f7a",
+    # lmodel/iso29100 v0.1.0, schema-v0.1.0-iso29100.yaml
+    "iso29100.yaml": "2b773c6c71a7bf72779fc92e9974f3c2b02c414fdc36c2185c4cb99f54f40bd2",
+    # lmodel/ocsf v0.1.0, schema-v0.1.0-ocsf.yaml
+    "ocsf.yaml": "b4e033eff09dc3684142308dd70d98926f30a853eb8906f0ad79f6cf1839167d",
+    # lmodel/void v0.1.0, schema-v0.1.0-void.yaml
+    "void.yaml": "8c21583f49b860e38cc2ee4312a9ef5242300989915bda6fa7a2dd1d0b252051",
 }
 NEIGHBOUR_DIR = ROOT / "tests" / "neighbours"
 ELEMENT_KINDS = ("classes", "enums", "types", "subsets")
