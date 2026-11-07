@@ -9,8 +9,10 @@ the licence, when the network fails, and when an address or an answer is not
 one the watch accepts.
 """
 
+import gzip
 import importlib.util
 import http.client
+import io
 import json
 import urllib.error
 from pathlib import Path
@@ -142,7 +144,7 @@ def test_a_new_supplement(watch, tmp_path):
     assert code == 1
     assert (
         "**ISO lists a supplement of ISO/IEC 22989:2022 that is not pinned: "
-        "ISO/IEC 22989:2022/CD Amd 3 (record 99999, stage 3020).**" in text
+        "`ISO/IEC 22989:2022/CD Amd 3` (record `99999`, stage `3020`).**" in text
     )
 
 
@@ -158,7 +160,7 @@ def test_a_pending_amendment_is_published(watch, tmp_path):
     code, text = _run(watch, tmp_path)
     assert code == 1
     assert "**ISO/IEC 22989:2022/FDAmd 1 (record 88145) changed:**" in text
-    assert "`currentStage` from 5000 to 6060" in text
+    assert "`currentStage` from `5000` to `6060`" in text
     assert "ISO has published this supplement." in text
 
 
@@ -169,7 +171,7 @@ def test_a_pending_amendment_moves_a_stage(watch, tmp_path):
     _stub(watch, records)
     code, text = _run(watch, tmp_path)
     assert code == 1
-    assert "`currentStage` from 3060 to 4020" in text
+    assert "`currentStage` from `3060` to `4020`" in text
     assert "ISO has published this supplement." not in text
 
 
@@ -184,10 +186,10 @@ def test_a_stage_change_and_a_replacement(watch, tmp_path):
     code, text = _run(watch, tmp_path)
     assert code == 1
     assert "**ISO/IEC 22989:2022 (record 74296) changed:**" in text
-    assert "`currentStage` from 6060 to 9599" in text
-    assert "`replacedBy` from null to [99998]" in text
-    assert "Its stage is now 9599, not 6060 (published)" in text
-    assert "ISO now lists it as replaced by [99998]" in text
+    assert "`currentStage` from `6060` to `9599`" in text
+    assert "`replacedBy` from `null` to `[99998]`" in text
+    assert "Its stage is now `9599`, not 6060 (published)" in text
+    assert "ISO now lists it as replaced by `[99998]`" in text
     assert "2 of 3 pinned records are unchanged." in text
 
 
@@ -207,7 +209,7 @@ def test_a_new_edition(watch, tmp_path):
     code, text = _run(watch, tmp_path)
     assert code == 1
     assert (
-        "**ISO/IEC DIS 22989 (record 99997, stage 4020) replaces record 74296.**"
+        "**`ISO/IEC DIS 22989` (record `99997`, stage `4020`) replaces record 74296.**"
         in text
     )
 
@@ -233,7 +235,7 @@ def test_a_changed_licence(watch, tmp_path):
     _stub(watch, _records(), page=page)
     code, text = _run(watch, tmp_path)
     assert code == 1
-    assert "names the dataset's licence as CC BY-NC 4.0" in text
+    assert "names the dataset's licence as `CC BY-NC 4.0`" in text
 
 
 def test_a_page_without_the_licence_row(watch, tmp_path):
@@ -277,8 +279,6 @@ def test_a_cut_connection_or_short_page_could_not_finish(watch, tmp_path):
 
 def test_a_gzipped_page_is_read(watch, tmp_path):
     """The Internet Archive serves the page gzipped; `_get` unpacks it."""
-    import gzip
-
     body = gzip.compress(b"<p>ok</p>")
 
     class Response:
@@ -331,6 +331,7 @@ class _Response:
 
     def __init__(self, body, url="https://web.archive.org/x"):
         self.body, self.url = body, url
+        self.stream = io.BytesIO(body)
 
     def __enter__(self):
         return self
@@ -341,8 +342,8 @@ class _Response:
     def read(self, size=-1):
         return self.body if size < 0 else self.body[:size]
 
-    def __iter__(self):
-        return iter(self.body.splitlines(keepends=True))
+    def readline(self, size=-1):
+        return self.stream.readline(size)
 
     def geturl(self):
         return self.url
@@ -363,3 +364,51 @@ def test_an_oversized_dataset_is_refused(watch):
     watch._open = lambda url: _Response(b'{"id":1}\n{"id":2}\n{"id":3}\n')
     with pytest.raises(ValueError, match="more than 20 bytes"):
         list(watch._lines(watch.DATASET))
+
+
+def test_a_page_that_unpacks_past_the_cap_is_refused(watch):
+    """A gzipped page is held to the cap once unpacked, so a small answer
+    cannot unpack to fill memory."""
+    watch.MAX_PAGE_BYTES = 64
+    watch._open = lambda url: _Response(gzip.compress(b"a" * 1000))
+    with pytest.raises(ValueError, match="unpacks to more than 64 bytes"):
+        watch._get("https://web.archive.org/x")
+
+
+def test_a_corrupt_gzipped_page_could_not_finish(watch, tmp_path):
+    """A gzipped page whose data is corrupt is a check that could not finish."""
+    # A gzip header, then a deflate block of a type that does not exist.
+    body = gzip.compress(b"")[:10] + b"\xff" * 16
+    watch._open = lambda url: _Response(body)
+    with pytest.raises(watch.zlib.error):
+        watch._get("https://web.archive.org/x")
+    _stub(watch, _records(), page_error=watch.zlib.error("invalid stored block"))
+    code, text = _run(watch, tmp_path)
+    assert code == 1
+    assert "**The licence check could not finish: `invalid stored block`.**" in text
+
+
+def test_an_overlong_dataset_line_is_refused(watch):
+    """The watch reads no line of the dataset past its own cap."""
+    watch.MAX_LINE_BYTES = 10
+    watch._open = lambda url: _Response(b'{"id":1}\n{"id":2,"long":true}\n')
+    with pytest.raises(ValueError, match="a line of more than 10 bytes"):
+        list(watch._lines(watch.DATASET))
+
+
+def test_a_field_the_dataset_chooses_is_quoted(watch, tmp_path):
+    """A field ISO's dataset chooses reaches the issue as a code span on one
+    line, so it can neither mention a person nor start a block of its own."""
+    records = _records()
+    records.append(
+        {
+            **_by_id(records, 88145),
+            "id": 99996,
+            "reference": "ISO/IEC 22989:2022/Amd 9 @someone\n\n# [a link](https://x)",
+        }
+    )
+    _stub(watch, records)
+    code, text = _run(watch, tmp_path)
+    assert code == 1
+    assert "`ISO/IEC 22989:2022/Amd 9 @someone # [a link](https://x)`" in text
+    assert "\n# [a link]" not in text

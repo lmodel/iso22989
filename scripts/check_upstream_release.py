@@ -47,7 +47,6 @@ Usage::
 from __future__ import annotations
 
 import argparse
-import gzip
 import hashlib
 import html
 import http.client
@@ -57,6 +56,7 @@ import sys
 import urllib.error
 import urllib.parse
 import urllib.request
+import zlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -110,7 +110,9 @@ PINNED_LICENCE_URL = "https://opendatacommons.org/licenses/by/1-0/"
 PUBLISHED = 6060
 
 # The hosts the script may reach, and the most it reads from each answer. The
-# dataset is about 80 MB, and the licence page far smaller.
+# dataset is about 80 MB, and the licence page far smaller. A page is also
+# held to the cap once unpacked, and a dataset line to its own cap, since a
+# record is a few kilobytes and a line with no end would fill memory.
 ALLOWED_HOSTS = {
     "isopublicstorageprod.blob.core.windows.net",
     "web.archive.org",
@@ -118,6 +120,7 @@ ALLOWED_HOSTS = {
 }
 MAX_DATASET_BYTES = 300 * 1024 * 1024
 MAX_PAGE_BYTES = 20 * 1024 * 1024
+MAX_LINE_BYTES = 1024 * 1024
 
 
 class _HttpsOnly(urllib.request.HTTPRedirectHandler):
@@ -148,27 +151,43 @@ def _get(url: str) -> tuple[str, bytes]:
     if len(body) > MAX_PAGE_BYTES:
         raise ValueError(f"{url} answered with more than {MAX_PAGE_BYTES} bytes")
     if body[:2] == b"\x1f\x8b":
-        body = gzip.decompress(body)
+        body = _gunzip(body, url)
     return final, body
+
+
+def _gunzip(body: bytes, url: str) -> bytes:
+    """A gzipped body, unpacked to no more than the page cap."""
+    unpack = zlib.decompressobj(wbits=16 + zlib.MAX_WBITS)
+    text = unpack.decompress(body, MAX_PAGE_BYTES + 1)
+    if len(text) > MAX_PAGE_BYTES:
+        raise ValueError(f"{url} unpacks to more than {MAX_PAGE_BYTES} bytes")
+    if not unpack.eof:
+        raise EOFError("Compressed file ended before the end-of-stream marker")
+    return text
 
 
 def _lines(url: str):
     """The dataset's lines, read one at a time from the response."""
     read = 0
     with _open(url) as resp:
-        for raw in resp:
+        while raw := resp.readline(MAX_LINE_BYTES + 1):
             read += len(raw)
             if read > MAX_DATASET_BYTES:
                 raise ValueError(
                     f"{url} answered with more than {MAX_DATASET_BYTES} bytes"
                 )
+            if len(raw) > MAX_LINE_BYTES:
+                raise ValueError(
+                    f"{url} sent a line of more than {MAX_LINE_BYTES} bytes"
+                )
             yield raw.decode("utf-8")
 
 
 def _code(text: object) -> str:
-    """Text a site chose, such as an address it redirected to, as a code
-    span, so it cannot mention a person or add a link in the issue."""
-    return "`" + str(text).replace("`", "'") + "`"
+    """Text a site chose, such as an address it redirected to or a field of a
+    record, as a code span on one line, so it cannot mention a person, add a
+    link or start a new block in the issue."""
+    return "`" + " ".join(str(text).replace("`", "'").split()) + "`"
 
 
 def line_of(record: dict) -> str:
@@ -274,14 +293,14 @@ def check_records() -> tuple[list[str], bool]:
             if new.get(k) != old.get(k)
         )
         details = "; ".join(
-            f"`{k}` from {json.dumps(old.get(k), ensure_ascii=False)} to "
-            f"{json.dumps(new.get(k), ensure_ascii=False)}"
+            f"{_code(k)} from {_code(json.dumps(old.get(k), ensure_ascii=False))} "
+            f"to {_code(json.dumps(new.get(k), ensure_ascii=False))}"
             for k in changed
         )
         report.append(f"- **{name} (record {rid}) changed:** {details}.")
         if rid == EDITION_ID and new.get("currentStage") != PUBLISHED:
             report.append(
-                f"  - Its stage is now {new.get('currentStage')}, not {PUBLISHED} "
+                f"  - Its stage is now {_code(new.get('currentStage'))}, not {PUBLISHED} "
                 "(published); read ISO's stage codes to see what that means."
             )
         if rid != EDITION_ID and new.get("currentStage") == PUBLISHED:
@@ -291,7 +310,7 @@ def check_records() -> tuple[list[str], bool]:
             )
         if new.get("replacedBy"):
             report.append(
-                f"  - ISO now lists it as replaced by {new['replacedBy']}. Decide "
+                f"  - ISO now lists it as replaced by {_code(new['replacedBy'])}. Decide "
                 "whether the schema moves to the successor."
             )
     report.append(
@@ -302,16 +321,16 @@ def check_records() -> tuple[list[str], bool]:
             attention = True
             report.append(
                 f"- **ISO lists a supplement of {PINNED_EDITION} that is not pinned: "
-                f"{record.get('reference')} (record {rid}, stage "
-                f"{record.get('currentStage')}).** Read it, decide what the schema "
+                f"{_code(record.get('reference'))} (record {_code(rid)}, stage "
+                f"{_code(record.get('currentStage'))}).** Read it, decide what the schema "
                 "changes, and add it to the extract and the header's version."
             )
     for rid, record in sorted(successors.items()):
         attention = True
         replaced = sorted(set(record.get("replaces") or []) & set(PINNED_RECORDS))
         report.append(
-            f"- **{record.get('reference')} (record {rid}, stage "
-            f"{record.get('currentStage')}) replaces record "
+            f"- **{_code(record.get('reference'))} (record {_code(rid)}, stage "
+            f"{_code(record.get('currentStage'))}) replaces record "
             f"{', '.join(map(str, replaced))}.** Decide whether the schema follows it."
         )
     return report, attention
@@ -341,8 +360,8 @@ def check_licence() -> tuple[list[str], bool]:
     if name != PINNED_LICENCE or url.rstrip("/") != PINNED_LICENCE_URL.rstrip("/"):
         return [
             f"- **ISO's open data page ({_code(where)}) names the dataset's licence as "
-            f"{name} ({url or 'no link'}), not {PINNED_LICENCE}.** Check that the "
-            "extract and NOTICE still meet its terms."
+            f"{_code(name)} ({_code(url or 'no link')}), not {PINNED_LICENCE}.** "
+            "Check that the extract and NOTICE still meet its terms."
         ], True
     return [f"- Licence: {PINNED_LICENCE}, as read at {_code(where)}."], False
 
@@ -367,8 +386,15 @@ def main(argv: list[str] | None = None) -> int:
             found, needs = check()
         # OSError covers a refused or failed fetch and a timeout,
         # HTTPException a connection cut off mid-dataset, EOFError a gzipped
-        # page cut short, and ValueError a line that is not JSON or UTF-8.
-        except (OSError, http.client.HTTPException, EOFError, ValueError) as err:
+        # page cut short, zlib.error a gzipped page that is corrupt, and
+        # ValueError an answer over a cap or a line that is not JSON or UTF-8.
+        except (
+            OSError,
+            http.client.HTTPException,
+            EOFError,
+            zlib.error,
+            ValueError,
+        ) as err:
             found = [f"- **The {label} check could not finish: {_code(err)}.**"]
             needs = True
         lines += found
