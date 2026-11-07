@@ -1,0 +1,9 @@
+# Fails at: /aic_task_languages/0
+---
+aic_id: ex:score-payment
+title: Score a payment
+aic_task_goal: Give each payment a score for how likely it is to be dishonest.
+aic_task_performance_measures:
+  - false positive rate
+aic_task_languages:
+  - not a tag

@@ -1,0 +1,6 @@
+---
+aic_id: ex:pred-1
+title: Score for payment 1
+aic_prediction_system: ex:fraud-screen
+aic_prediction_value: '0.93'
+aic_prediction_confidence: 0.8

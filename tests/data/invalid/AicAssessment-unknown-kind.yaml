@@ -1,0 +1,9 @@
+# Fails at: /aic_assessment_kind
+---
+aic_id: ex:assess-1
+title: Pre-release check
+aic_assessment_kind: audit
+aic_assessment_system: ex:fraud-screen
+aic_assessment_method: Replayed a year of payments.
+aic_assessment_result: Met the specified false positive rate.
+aic_assessment_date: '2026-02-10'

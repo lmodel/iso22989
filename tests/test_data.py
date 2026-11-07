@@ -1,109 +1,249 @@
-"""Data-driven tests for the ISO/IEC 22989 LinkML schema.
-
-Two example corpora drive these tests:
-
-* ``tests/data/valid/``   — records that MUST load and validate cleanly.
-* ``tests/data/invalid/`` — counter-examples that MUST be rejected by schema
-  validation. Each counter-example carries a header comment naming the single
-  constraint it violates (enum, required slot, pattern, min/max value, type).
-
-In both directories the file-name stem up to the first ``-`` names the target
-class, e.g. ``AISystem-001.yaml`` is validated against class ``AISystem``.
-"""
+"""Data test."""
 
 import glob
+import json
 import os
 from pathlib import Path
 
+import jsonschema
 import pytest
 import yaml
-from linkml_runtime import SchemaView
-from linkml_runtime.loaders import yaml_loader
 from linkml.validator import validate
+from linkml_runtime.loaders import yaml_loader
+from linkml_runtime.utils.schemaview import SchemaView
 
-import iso22989.datamodel.iso22989 as datamodel
+import iso22989.datamodel.iso22989
 
-SCHEMA = Path(__file__).parents[1] / "src" / "iso22989" / "schema" / "iso22989.yaml"
-
-DATA_DIR_VALID = Path(__file__).parent / "data" / "valid"
-DATA_DIR_INVALID = Path(__file__).parent / "data" / "invalid"
+ROOT = Path(__file__).parent.parent
+DATA_DIR = Path(__file__).parent / "data"
+DATA_DIR_VALID = DATA_DIR / "valid"
+DATA_DIR_INVALID = DATA_DIR / "invalid"
 
 VALID_EXAMPLE_FILES = sorted(glob.glob(os.path.join(DATA_DIR_VALID, "*.yaml")))
 INVALID_EXAMPLE_FILES = sorted(glob.glob(os.path.join(DATA_DIR_INVALID, "*.yaml")))
 
+SCHEMA = ROOT / "src" / "iso22989" / "schema" / "iso22989.yaml"
+COMMITTED_JSON_SCHEMA = ROOT / "project" / "jsonschema" / "iso22989.schema.json"
 
-def _target_class(filepath):
-    """Infer the target class name from the file stem (text before the first '-')."""
+
+def _class_of(filepath):
     return Path(filepath).stem.split("-")[0]
 
 
-def _id(filepath):
-    """Readable pytest id: the bare file name."""
-    return Path(filepath).name
-
-
-@pytest.fixture(scope="session")
-def schemaview():
-    """Parsed schema, shared across tests."""
-    return SchemaView(str(SCHEMA))
-
-
-# ---------------------------------------------------------------------------
-# Structural guards — fail loudly if the fixtures or schema go missing, so the
-# parametrized tests below can never pass vacuously.
-# ---------------------------------------------------------------------------
-
-
-def test_schema_loads(schemaview):
-    """The schema parses and exposes its expected tree-root container."""
-    classes = schemaview.all_classes()
-    assert "AIConceptsCollection" in classes
-    assert "AISystem" in classes
-
-
-def test_example_corpora_present():
-    """Both example directories contain at least one fixture."""
-    assert VALID_EXAMPLE_FILES, f"no valid examples under {DATA_DIR_VALID}"
-    assert INVALID_EXAMPLE_FILES, f"no invalid examples under {DATA_DIR_INVALID}"
-
-
-@pytest.mark.parametrize(
-    "filepath", VALID_EXAMPLE_FILES + INVALID_EXAMPLE_FILES, ids=_id
-)
-def test_example_filename_names_a_real_class(filepath, schemaview):
-    """Every fixture's stem maps to a concrete class in the schema."""
-    target_class_name = _target_class(filepath)
-    cls = schemaview.get_class(target_class_name)
-    assert cls is not None, f"{filepath}: '{target_class_name}' is not a schema class"
-    assert not cls.abstract, f"{filepath}: '{target_class_name}' is abstract"
-
-
-# ---------------------------------------------------------------------------
-# Positive / negative validation
-# ---------------------------------------------------------------------------
-
-
-@pytest.mark.parametrize("filepath", VALID_EXAMPLE_FILES, ids=_id)
+@pytest.mark.parametrize("filepath", VALID_EXAMPLE_FILES)
 def test_valid_data_files(filepath):
-    """Valid data files load via the Python model and validate cleanly."""
-    target_class_name = _target_class(filepath)
-    tgt_class = getattr(datamodel, target_class_name)
+    """Each valid example loads into the generated dataclass of its class."""
+    tgt_class = getattr(iso22989.datamodel.iso22989, _class_of(filepath))
     obj = yaml_loader.load(filepath, target_class=tgt_class)
     assert obj
 
+
+# The JSON Schema the validator generates is the one check that applies every
+# constraint, so each example is held to it: a valid one must pass, and a
+# counter-example must fail. The examples quote their dates, as JSON carries
+# them, because the validator reads a date as text.
+@pytest.mark.parametrize("filepath", VALID_EXAMPLE_FILES)
+def test_valid_data_files_validate(filepath):
+    """Every valid example passes the validator."""
     report = validate(
-        yaml.safe_load(Path(filepath).read_text()), str(SCHEMA), target_class_name
+        yaml.safe_load(Path(filepath).read_text(encoding="utf-8")),
+        str(SCHEMA),
+        _class_of(filepath),
     )
-    assert not report.results, (
-        f"{filepath} unexpectedly failed validation: {report.results}"
+    assert not report.results, [r.message for r in report.results]
+
+
+@pytest.mark.parametrize("filepath", VALID_EXAMPLE_FILES)
+def test_valid_data_files_pass_the_committed_json_schema(filepath):
+    """Every valid example passes the JSON Schema a user without LinkML takes."""
+    document = json.loads(COMMITTED_JSON_SCHEMA.read_text(encoding="utf-8"))
+    schema = {
+        "$schema": document["$schema"],
+        "$defs": document["$defs"],
+        "$ref": f"#/$defs/{_class_of(filepath)}",
+    }
+    jsonschema.validate(
+        yaml.safe_load(Path(filepath).read_text(encoding="utf-8")),
+        schema,
+        cls=jsonschema.Draft201909Validator,
     )
 
 
-@pytest.mark.parametrize("filepath", INVALID_EXAMPLE_FILES, ids=_id)
-def test_invalid_data_files(filepath):
-    """Invalid (counter-example) data files are rejected by schema validation."""
-    target_class_name = _target_class(filepath)
-    report = validate(
-        yaml.safe_load(Path(filepath).read_text()), str(SCHEMA), target_class_name
+@pytest.mark.parametrize("filepath", INVALID_EXAMPLE_FILES)
+def test_invalid_data_files_fail(filepath):
+    """Every counter-example fails the validator at the place its first line
+    names, as `# Fails at: <JSON pointer>`, so a file that starts failing for
+    another reason fails this test."""
+    text = Path(filepath).read_text(encoding="utf-8")
+    first = text.splitlines()[0]
+    assert first.startswith("# Fails at: "), (
+        f"{filepath}: the first line names where it fails, as # Fails at: /key"
     )
-    assert report.results, f"{filepath} unexpectedly passed validation"
+    pointer = first.removeprefix("# Fails at: ").strip()
+    report = validate(yaml.safe_load(text), str(SCHEMA), _class_of(filepath))
+    messages = [r.message for r in report.results]
+    assert any(m.endswith(f" in {pointer}") for m in messages), messages
+
+
+def test_every_class_has_an_example():
+    """Each class that data can be written in has a valid example: every class
+    but the mixin."""
+    classes = {
+        name
+        for name, cls in yaml.safe_load(SCHEMA.read_text())["classes"].items()
+        if not cls.get("abstract") and not cls.get("mixin")
+    }
+    examples = {_class_of(f) for f in VALID_EXAMPLE_FILES}
+    assert classes <= examples, sorted(classes - examples)
+
+
+# The rules the validator cannot check, held over the examples. docs/index.md
+# lists them.
+VIEW = SchemaView(str(SCHEMA))
+CLASSES = set(VIEW.all_classes())
+DESIGNATORS = {
+    name: slot.name
+    for name in CLASSES
+    for slot in VIEW.class_induced_slots(name)
+    if slot.designates_type
+}
+ROLE_OF = {
+    name: value.annotations["role"].value
+    for name, value in VIEW.get_enum("AicStakeholderSubRole").permissible_values.items()
+}
+
+
+def _records(node, cls, found):
+    """Collect every record a document holds, as (class, data), with each
+    inlined record under the class its slot ranges over, or the class its
+    designator names."""
+    if isinstance(node, list):
+        for item in node:
+            _records(item, cls, found)
+        return
+    if not isinstance(node, dict):
+        return
+    cls = node.get(DESIGNATORS.get(cls, ""), cls)
+    found.append((cls, node))
+    slots = {s.name: s for s in VIEW.class_induced_slots(cls)}
+    for key, value in node.items():
+        slot = slots.get(key)
+        if slot and slot.range in CLASSES and (slot.inlined or slot.inlined_as_list):
+            _records(value, slot.range, found)
+
+
+def _all_records(filepath):
+    found = []
+    _records(
+        yaml.safe_load(Path(filepath).read_text(encoding="utf-8")),
+        _class_of(filepath),
+        found,
+    )
+    return found
+
+
+def _is_kind_of(cls, ancestor):
+    return ancestor in VIEW.class_ancestors(cls)
+
+
+def unresolved_references(records):
+    """Each reference that names no record of the class it ranges over, and
+    each identifier two records share."""
+    problems = []
+    by_id = {}
+    for cls, data in records:
+        if "aic_id" in data:
+            if data["aic_id"] in by_id:
+                problems.append(f"{data['aic_id']} is used twice")
+            by_id[data["aic_id"]] = cls
+    for cls, data in records:
+        slots = {s.name: s for s in VIEW.class_induced_slots(cls)}
+        for key, value in data.items():
+            slot = slots.get(key)
+            if (
+                not slot
+                or slot.range not in CLASSES
+                or slot.inlined
+                or slot.inlined_as_list
+            ):
+                continue
+            for target in value if isinstance(value, list) else [value]:
+                if target not in by_id:
+                    problems.append(f"{key} names {target}, which is not held")
+                elif not _is_kind_of(by_id[target], slot.range):
+                    problems.append(
+                        f"{key} names {target}, a {by_id[target]}, not a {slot.range}"
+                    )
+    return problems
+
+
+ECOSYSTEMS = [f for f in VALID_EXAMPLE_FILES if _class_of(f) == "AicEcosystem"]
+
+
+@pytest.mark.parametrize("filepath", ECOSYSTEMS)
+def test_an_ecosystem_resolves_its_references(filepath):
+    """Within a whole ecosystem, no two records share an aic_id, and each
+    reference names a record the ecosystem holds, of the class it ranges over."""
+    assert not unresolved_references(_all_records(filepath))
+
+
+def test_the_reference_check_finds_a_fault():
+    """The check above finds a dangling reference, a reference to the wrong
+    class and a repeated identifier."""
+    system = {"aic_id": "ex:s", "aic_system_type": "AicSystem"}
+    assert unresolved_references(
+        [("AicSystem", {**system, "aic_system_models": ["ex:gone"]})]
+    ) == ["aic_system_models names ex:gone, which is not held"]
+    wrong = unresolved_references(
+        [("AicSystem", {**system, "aic_system_models": ["ex:s"]})]
+    )
+    assert wrong == ["aic_system_models names ex:s, a AicSystem, not a AicModel"]
+    assert "ex:s is used twice" in unresolved_references(
+        [("AicSystem", system), ("AicSystem", system)]
+    )
+
+
+def _sub_roles_the_rules_allow():
+    """Each role with the sub-roles the rules on AicStakeholder allow it."""
+    allowed = {}
+    for rule in VIEW.get_class("AicStakeholder").rules:
+        pre = rule.preconditions.slot_conditions
+        post = rule.postconditions.slot_conditions["aic_stakeholder_sub_roles"]
+        role = pre["aic_stakeholder_role"].equals_string
+        assert role not in allowed, role
+        allowed[role] = {condition.equals_string for condition in post.any_of}
+    return allowed
+
+
+def test_the_sub_role_rules_follow_the_role_annotations():
+    """The rules give each role exactly the sub-roles whose role annotation
+    names it, so the annotations and the validator cannot drift apart. The
+    counter-example AicStakeholder-sub-role-of-another-role.yaml shows the
+    validator refusing one."""
+    expected = {}
+    for sub, role in ROLE_OF.items():
+        expected.setdefault(role, set()).add(sub)
+    assert _sub_roles_the_rules_allow() == expected
+
+
+def test_every_role_has_a_sub_role():
+    """The sub-roles name only the six roles, and each role has at least one."""
+    roles = set(VIEW.get_enum("AicStakeholderRole").permissible_values)
+    assert set(ROLE_OF.values()) == roles
+    assert len(roles) == 6
+
+
+@pytest.mark.parametrize("filepath", VALID_EXAMPLE_FILES)
+def test_a_lifecycle_process_ends_on_or_after_its_start(filepath):
+    """A piece of life-cycle work ends on or after the day it begins, where
+    the record gives both days."""
+    for cls, data in _all_records(filepath):
+        if (
+            cls == "AicLifecycleProcess"
+            and {
+                "aic_lifecycle_start",
+                "aic_lifecycle_end",
+            }
+            <= data.keys()
+        ):
+            assert data["aic_lifecycle_start"] <= data["aic_lifecycle_end"]

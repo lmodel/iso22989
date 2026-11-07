@@ -1,0 +1,7 @@
+# Fails at: /aic_component_step
+---
+aic_id: ex:scorer
+title: Scorer
+aic_component_step: inference
+aic_component_depends_on:
+  - ex:feature-store

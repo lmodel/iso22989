@@ -1,0 +1,8 @@
+# Fails at: /aic_ml_hyperparameters/0
+---
+aic_id: ex:fraud-model
+title: Fraud model
+aic_model_type: AicMachineLearningModel
+aic_ml_paradigm: supervised
+aic_ml_hyperparameters:
+  - max_depth

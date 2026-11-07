@@ -1,0 +1,7 @@
+---
+aic_id: ex:expert
+title: Claims adviser
+aic_system_type: AicExpertSystem
+aic_expert_knowledge:
+  - ex:fraud-rules
+aic_expert_inference: Forward chaining over the rules.

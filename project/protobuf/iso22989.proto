@@ -1,1206 +1,812 @@
- syntax="proto3";
- package
-// metamodel_version: 1.11.0
-// version: 0.1.0
-// Abbreviation or acronym listed in Clause 4 with its expansion and optional definition reference.
-message AbbreviatedTerm
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string expansion = 0
- }
-// Record of a single abbreviation listed in Clause 4 of the standard.
-message AbbreviationEntry
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  abbreviationCode abbreviationCode = 0
-  string expansion = 0
- }
-// Action carried out as a result of an AI-system decision (Clause 7.4.4).
-message Action
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string actionTarget = 0
-  executionStatus executionStatus = 0
-  decision triggeredBy = 0
- }
-// Entity that perceives its environment and acts upon it to achieve goals (Clause 5.3).
-message AIAgent
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  autonomyLevel autonomyLevel = 0
-  symbolicApproach symbolicApproach = 0
-  agentArchitectureType agentArchitecture = 0
- repeated  string goalSet = 0
- }
-// Description of an AI application instance situated in a domain (Clause 10).
-message AIApplication
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- repeated  aIApplicationDomain applicationDomain = 0
-  string intendedPurpose = 0
- repeated  jurisdictionalIssueType jurisdictionalIssues = 0
- repeated  societalImpactCategory societalImpacts = 0
-  aISystem hostingSystem = 0
- }
-// Partner performing independent audits of AI systems (Clause 5.19.5).
-message AIAuditor
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Functional component of an AI system, such as a data pipeline, preprocessor, model server, or post-processing module.
-message AIComponent
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  aIFunctionalComponent componentFunction = 0
- repeated  aIComponent dependsOn = 0
- }
-// Top-level container aggregating AI systems, models, datasets, lifecycle processes, stakeholder roles, applications and trustworthiness records for serialisation as a single artefact.
-message AIConceptsCollection
- {
- repeated  aISystem aiSystems = 0
- repeated  aIModel aiModels = 0
- repeated  dataset aiDatasets = 0
- repeated  aILifecycleProcess aiLifecycleProcesses = 0
- repeated  aIStakeholderRole aiStakeholderRoles = 0
- repeated  aIApplication aiApplications = 0
- repeated  trustworthinessProperty trustworthinessRecords = 0
- repeated  task tasks = 0
- repeated  dataProcess dataProcesses = 0
- repeated  ioTSystem iotSystems = 0
- repeated  cyberPhysicalSystem cyberPhysicalSystems = 0
- repeated  knowledgeGraph knowledgeGraphs = 0
- repeated  expertSystem expertSystems = 0
- repeated  abbreviationEntry abbreviations = 0
- }
-// Stakeholder using an AI system or AI-backed service (Clause 5.19.4).
-message AICustomer
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Aggregation of the AI systems, data sources, computing resources and stakeholder roles that surround a deployment context (Clause 8).
-message AIEcosystem
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- repeated  computingResourceType computingResources = 0
- repeated  string dataSources = 0
- repeated  string ecosystemComponents = 0
- repeated  aISystem aiSystems = 0
- repeated  aIStakeholderRole aiStakeholderRoles = 0
- repeated  bigDataCharacteristic bigDataCharacteristics = 0
- }
-// Partner performing evaluations of AI system performance and trustworthiness (Clause 5.19.5).
-message AIEvaluator
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Process or activity associated with a stage of the AI system life cycle (Clause 6).
-message AILifecycleProcess
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  aILifecycleStage processStage = 0
- repeated  string processInputs = 0
- repeated  string processOutputs = 0
-  aIStakeholderRoleType responsibleRole = 0
-  date startDate = 0
-  date endDate = 0
- repeated  string riskItems = 0
- repeated  string approvalCriteria = 0
-  string processSubType = 0
- }
-// Trained or rule-based model embedded in an AI system. Carries paradigm, algorithm family, dataset references and version metadata.
-message AIModel
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  machineLearningParadigm modelParadigm = 0
-  mLAlgorithmFamily algorithmFamily = 0
-  engineeringApproach engineeringApproach = 0
-  dataset trainingDataset = 0
-  dataset validationDataset = 0
-  dataset testDataset = 0
- repeated  string hyperparameters = 0
-  string modelVersion = 0
-  string trainedOn = 0
-  boolean supportsContinuousLearning = 0
-  confidenceScore catastrophicForgettingRisk = 0
-  integer parameterCount = 0
-  durationType trainingDuration = 0
-  float inferenceLatencyMs = 0
-  boolean modelCompressionApplied = 0
-  neuralNetworkArchitecture neuralNetworkArchitecture = 0
-  activationFunctionType activationFunction = 0
- repeated  neuralNetworkPhenomenon trainingPhenomena = 0
- }
-// Stakeholder providing supporting services across the AI life cycle (Clause 5.19.5).
-message AIPartner
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Provider of platform infrastructure on which AI services are operated (Clause 5.19.2).
-message AIPlatformProvider
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Stakeholder designing, developing or assembling AI systems (Clause 5.19.3).
-message AIProducer
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Stakeholder making an AI system available to customers (Clause 5.19.2).
-message AIProvider
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Provider of an AI-enabled service or product to customers (Clause 5.19.2).
-message AIServiceProductProvider
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Stakeholder role enacted by an organisation or individual in relation to an AI system (Clause 5.19).
-message AIStakeholderRole
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
- }
-// Person or group affected by an AI system (Clause 5.19.6).
-message AISubject
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Engineered system that uses AI techniques to perform tasks delegated to it. Aggregates lifecycle, functional, model and stakeholder data.
-message AISystem
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  aISystemType aiSystemType = 0
-  symbolicApproach symbolicApproach = 0
-  autonomyLevel autonomyLevel = 0
-  string intendedPurpose = 0
- repeated  aIApplicationDomain applicationDomain = 0
- repeated  aIField aiField = 0
- repeated  aIFunctionalComponent functionalComponents = 0
-  aILifecycleStage lifecycleStage = 0
- repeated  aIStakeholderRole stakeholders = 0
- repeated  aIComponent components = 0
- repeated  aIModel models = 0
- repeated  dataset datasets = 0
- repeated  trustworthinessProperty trustworthinessProperties = 0
- repeated  jurisdictionalIssueType jurisdictionalIssues = 0
- repeated  societalImpactCategory societalImpacts = 0
- repeated  aISystemCharacteristic systemCharacteristics = 0
- repeated  taskCategory taskCategories = 0
-  agentArchitectureType agentArchitecture = 0
- repeated  dataProcess dataProcesses = 0
-  ioTSystem iotIntegration = 0
- }
-// Partner integrating AI components into a wider system (Clause 5.19.5).
-message AISystemIntegrator
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Term defined in Clause 3.1 (terms related to AI).
-message AITerm
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- }
-// End user of an AI system or AI-backed service (Clause 5.19.4).
-message AIUser
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Structured assessment of the autonomy level of an AI system using the criteria listed in Clause 5.13.
-message AutonomyAssessment
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  autonomyLevel autonomyLevel = 0
- repeated  string autonomyCriterionScores = 0
-  string clauseReference = 0
- }
-// Phenomenon by which a continually-trained model loses previously acquired competence (Clause 5.11.9.1).
-message CatastrophicForgetting
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  aIModel affectedModel = 0
-  string mitigationStrategy = 0
- }
-// System combining AI techniques to emulate human cognitive functions (Clause 5.5).
-message CognitiveComputingSystem
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- repeated  string cognitiveCapabilities = 0
- }
-// Producer role verifying the computational behaviour of an AI system (Clause 5.19.3).
-message ComputationVerifier
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Computer-vision capability provided by an AI system (Clause 9.1).
-message ComputerVisionFunction
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  computerVisionTask cvTask = 0
- }
-// Term defined in Clause 3.7 (terms related to computer vision).
-message ComputerVisionTerm
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- }
-// Convolution operation as used in convolutional neural networks (Clause 3.4.3).
-message ConvolutionOperation
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- repeated  integer kernelSize = 0
-  integer stride = 0
-  string padding = 0
- }
-// System that tightly integrates computational and physical components, typically with feedback loops between sensing and actuation (Clause 5.14.3).
-message CyberPhysicalSystem
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- repeated  string physicalProcesses = 0
- repeated  aIComponent cyberComponents = 0
-  ioTSystem iotSubsystem = 0
- }
-// Observed change in the statistical distribution of operational data relative to training data (Clause 5.11.9.1).
-message DataDrift
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string driftType = 0
-  string detectedAt = 0
-  dataset affectedDataset = 0
- }
-// Label or annotation attached to one or more data samples (Clause 3.2.10).
-message DataLabel
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string labelValue = 0
-  dataLabelType labelType = 0
-  aIStakeholderRole annotator = 0
- }
-// Discrete data-handling process applied to a dataset during AI system development or operation (Clause 5.10).
-message DataProcess
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  dataProcessType processType = 0
-  dataset inputDataset = 0
-  dataset outputDataset = 0
- repeated  string parameters = 0
-  aIStakeholderRole executedBy = 0
- }
-// Partner supplying datasets used by AI systems (Clause 5.19.5).
-message DataProvider
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Individual data record within a dataset (Clause 3.2.13).
-message DataSample
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string samplePayload = 0
-  string sampleLabel = 0
- }
-// Collection of data items used by an AI system in a training, validation, test, reference or production role.
-message Dataset
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- repeated  dataModality dataModality = 0
-  datasetRole datasetRole = 0
-  string dataProvenance = 0
-  integer recordCount = 0
-  string dataQualityNotes = 0
-  boolean containsPersonalData = 0
-  dataLabelType labelType = 0
-  boolean groundTruthAvailable = 0
-  integer featureCount = 0
- repeated  dataProcess dataProcessesApplied = 0
- }
-// Individual whose personal data is processed by an AI system (Clause 5.19.6).
-message DataSubject
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Term defined in Clause 3.2 (terms related to data).
-message DataTerm
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- }
-// Decision produced by an AI system on the basis of one or more predictions (Clause 7.4.3).
-message Decision
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string decisionOutcome = 0
-  string decisionPolicy = 0
- repeated  prediction basedOnPredictions = 0
- }
-// Metric used to evaluate AI system or model performance (Clause 7.4.3).
-message EvaluationMetric
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string metricName = 0
-  float metricValue = 0
-  string metricUnit = 0
-  dataset referenceDataset = 0
- }
-// Rule-based system encoding domain expertise (Clause 8.5.2).
-message ExpertSystem
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  integer ruleCount = 0
-  inferenceEngine inferenceEngine = 0
- }
-// Mechanism enabling an AI system to continue operating correctly in the presence of component faults (Clause 5.15.4 context).
-message FaultToleranceMechanism
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string mechanismType = 0
-  string coverageScope = 0
- }
-// Trusted reference record used to evaluate or train an AI model (Clause 3.2.7).
-message GroundTruthRecord
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string groundTruthValue = 0
-  string provenanceStatement = 0
- }
-// Collaboration arrangement combining one or more humans with one or more AI systems to pursue shared goals (Clauses 3.3.3, 5.13).
-message HumanMachineTeam
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- repeated  string humanRoles = 0
- repeated  aISystem aiSystemsInvolved = 0
-  string taskAllocation = 0
- }
-// Act of deriving conclusions, predictions or recommendations from a model or knowledge base (Clause 3.1.17).
-message Inference
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string inferenceStrategy = 0
-  inferenceEngine performedBy = 0
-  aIModel overModel = 0
-  string producedOutput = 0
- }
-// Component performing inference over a model or knowledge base (Clause 3.1.17).
-message InferenceEngine
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string inferenceStrategy = 0
-  aIModel usesModel = 0
- }
-// Data presented to an AI system at inference time or during training (Clause 3.2.9).
-message InputData
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  dataSourceType dataSourceType = 0
-  dataCollectionMethod dataCollectionMethod = 0
-  dataModality modality = 0
-  aISystem consumedBy = 0
- }
-// Use of AI to enhance the cognitive capabilities of humans rather than replace them (Clause 5.13 context).
-message IntelligenceAugmentation
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- repeated  string augmentedCapability = 0
- }
-// Person or organisation that can affect, be affected by, or perceive itself to be affected by a decision or activity; Annex SL harmonised stakeholder anchor shared across ISO management-system standards.
-message InterestedParty
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- }
-// Device participating in an Internet-of-Things deployment (Clause 5.14.2).
-message IoTDevice
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  ioTDeviceRole deviceRole = 0
- repeated  string sensingCapabilities = 0
- repeated  string actuatingCapabilities = 0
- }
-// Networked system composed of IoT devices, possibly enhanced with AI capabilities (Clause 5.14.2).
-message IoTSystem
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- repeated  ioTDevice devices = 0
- repeated  aIComponent aiComponents = 0
- }
-// Graph-structured knowledge representation, often used for reasoning and retrieval (Clause 8.5).
-message KnowledgeGraph
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  symbolicApproach symbolicApproach = 0
-  knowledgeType knowledgeType = 0
-  string representationForm = 0
-  integer nodeCount = 0
-  integer edgeCount = 0
- repeated  uriorcurie ontologyReference = 0
- }
-// Representation of knowledge usable by an AI system (Clause 5.4), including knowledge graphs, ontologies and rule bases.
-message KnowledgeRepresentation
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  symbolicApproach symbolicApproach = 0
-  knowledgeType knowledgeType = 0
-  string representationForm = 0
- }
-// Term defined in Clause 3.3 (terms related to machine learning).
-message MachineLearningTerm
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- }
-// Producer role responsible for designing AI models (Clause 5.19.3).
-message ModelDesigner
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Producer role responsible for implementing AI models in code (Clause 5.19.3).
-message ModelImplementer
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Producer role verifying that models meet specified requirements (Clause 5.19.3).
-message ModelVerifier
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Natural language treated as an object of processing or generation by an AI system (Clause 9.2).
-message NaturalLanguage
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string languageCode = 0
-  string script = 0
- }
-// AIModel realised as a neural network (Clause 5.12.1, Clause 3.4 terms).
-message NeuralNetworkModel
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  machineLearningParadigm modelParadigm = 0
-  engineeringApproach engineeringApproach = 0
-  dataset trainingDataset = 0
-  dataset validationDataset = 0
-  dataset testDataset = 0
- repeated  string hyperparameters = 0
-  string modelVersion = 0
-  string trainedOn = 0
-  boolean supportsContinuousLearning = 0
-  confidenceScore catastrophicForgettingRisk = 0
-  integer parameterCount = 0
-  durationType trainingDuration = 0
-  float inferenceLatencyMs = 0
-  boolean modelCompressionApplied = 0
-  neuralNetworkArchitecture neuralNetworkArchitecture = 0
-  activationFunctionType activationFunction = 0
- repeated  neuralNetworkPhenomenon trainingPhenomena = 0
-  integer numberOfLayers = 0
-  integer numberOfParameters = 0
-  mLAlgorithmFamily algorithmFamily = 0
- }
-// Term defined in Clause 3.4 (terms related to neural networks).
-message NeuralNetworkTerm
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- }
-// Computational unit in a neural network combining weighted inputs with a bias and an activation function (Clause 3.4.9).
-message Neuron
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  activationFunctionType activationFunction = 0
-  integer inputArity = 0
- }
-// Component of a natural-language-processing pipeline (Clause 9.2).
-message NLPComponent
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  nLPComponentType nlpComponentType = 0
- }
-// Term defined in Clause 3.6 (terms related to natural-language processing).
-message NLPTerm
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- }
-// Informative mapping between an ISO/IEC 22989 life-cycle stage and an OECD life-cycle stage (Annex A).
-message OECDLifecycleMapping
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  aILifecycleStage isoStage = 0
-  oECDLifecycleStage oecdStage = 0
-  string mappingNotes = 0
- }
-// Organisation that establishes and operates an AI management system; Annex SL harmonised anchor shared across ISO management-system standards (ISO/IEC 42001, ISO/IEC 27001).
-message Organization
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- }
-// Authority defining policy applicable to AI systems (Clause 5.19.7).
-message PolicyMaker
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Prediction produced by an AI model (Clause 7.4.2).
-message Prediction
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string predictedValue = 0
-  confidenceScore confidence = 0
-  aIModel producedBy = 0
- }
-// Recommendation produced by an AI system (Clauses 7.4, 10).
-message Recommendation
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  recommendationOutcomeType recommendationOutcomeType = 0
-  confidenceScore confidence = 0
- repeated  string recommendedItems = 0
- repeated  prediction basedOnPredictions = 0
- }
-// Authority responsible for regulatory oversight of AI systems (Clause 5.19.7).
-message Regulator
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Regulator or standards-setting body with oversight responsibilities (Clause 5.19.7).
-message RelevantAuthority
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string organizationName = 0
-  string contact = 0
- repeated  string responsibilities = 0
-  aIStakeholderRoleType stakeholderRoleType = 0
- }
-// Pool of computing resources (CPU/GPU/TPU/ASIC/FPGA) available to AI workloads (Clause 8.7).
-message ResourcePool
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  computingResourceType resourceType = 0
-  string capacityUnits = 0
- }
-// Risk associated with an AI system, capturing source, potential event, consequence and treatment metadata (Clause 3.5.11; aligned with ISO/IEC 23894 risk concepts).
-message RiskItem
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string riskSource = 0
-  string potentialEvent = 0
-  string consequence = 0
-  confidenceScore likelihood = 0
-  string severity = 0
- repeated  string mitigationStrategy = 0
- repeated  aIStakeholderRole affectedStakeholders = 0
- }
-// Embodied agent able to perceive its environment and act in the physical world (Clause 5.3 / Clause 9.5 robotics field).
-message Robot
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string embodiment = 0
-  aISystem controlledBy = 0
- }
-// System whose behaviour is driven by the explicit semantics of its inputs and knowledge sources (Clause 5.6).
-message SemanticComputingSystem
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  string semanticModel = 0
- }
-// System employing soft computing techniques tolerant of imprecision and uncertainty (Clause 5.7).
-message SoftComputingSystem
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- repeated  softComputingTechnique softComputingTechniques = 0
- }
-// AI task addressed by a model or system (e.g. classification, regression, planning). Provides a first-class entity for the task categories enumerated across Clause 3 terminology.
-message Task
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  taskCategory taskCategory = 0
- repeated  dataModality inputModalities = 0
-  dataLabelType outputLabelType = 0
- repeated  string performanceMetric = 0
- }
-// Decision threshold applied to a metric, prediction or score (Clause 7.4.3).
-message Threshold
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  float thresholdValue = 0
-  string appliesToMetric = 0
-  string thresholdPolicy = 0
- }
-// Claim about a trustworthiness property of an AI system or model, with evidence and measurement metadata.
-message TrustworthinessProperty
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  trustworthinessPropertyType trustworthinessPropertyType = 0
- repeated  string propertyEvidence = 0
-  string measurementMethod = 0
- repeated  biasType applicableBiases = 0
-  confidenceScore confidenceScore = 0
- }
-// Term defined in Clause 3.5 (terms related to trustworthiness).
-message TrustworthinessTerm
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  string clauseReference = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
- }
-// Verifiability and validatability claim for an AI system characterised according to the levels in Clause 5.16.
-message VerificationValidationFramework
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
- repeated  string aliases = 0
-  string preferredLabel = 0
- repeated  uriorcurie seeAlsoUri = 0
-  verificationValidationLevel verificationValidationLevel = 0
-  string clauseReference = 0
- repeated  string verificationMethods = 0
- repeated  string validationMethods = 0
- }
+syntax = "proto3";
+package iso22989;
+// metamodel_version: 1.12.0
+// version: 2022
+// What was done because of a decision.
+message AicAction {
+  // The decision it carries out.
+  AicDecision aic_action_decision = 1;
+  // What it acted on.
+  string aic_action_target = 2;
+  // When it was done.
+  string aic_action_time = 3;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 4;
+  // The name the record's author gives it.
+  string title = 5;
+  // What the record describes, in its author's words.
+  string description = 6;
+}
+// A system that perceives its surroundings and acts on them in pursuit of goals.
+message AicAgent {
+  // Which class this record is: AicSystem or a kind of it.
+  string aic_system_type = 1;
+  // What the system is meant to do.
+  string aic_system_purpose = 2;
+  // How wide a range of problems the system can take on.
+  AicSystemScope aic_system_scope = 3;
+  // Whether it works symbolically, subsymbolically or both ways.
+  repeated AicApproach aic_system_approaches = 4;
+  // The families of technique it is built with.
+  repeated AicTechnique aic_system_techniques = 5;
+  // Whether it runs without a person acting at each step, under the conditions given.
+  bool aic_system_automated = 6;
+  // Whether it can change its own remit or stays under outside direction.
+  AicAutonomy aic_system_autonomy = 7;
+  // How people and the system share the work, if they do.
+  string aic_system_human_teaming = 8;
+  // The stage of its life the system is in now.
+  AicLifecycleStage aic_system_stage = 9;
+  // The fields of AI it belongs to.
+  repeated AicField aic_system_fields = 10;
+  // The steps from data to action that it performs.
+  repeated AicFunctionalStep aic_system_steps = 11;
+  // The parts it is made of.
+  repeated AicComponent aic_system_components = 12;
+  // The models it uses.
+  repeated AicModel aic_system_models = 13;
+  // The datasets it uses.
+  repeated AicDataset aic_system_datasets = 14;
+  // The tasks it takes on.
+  repeated AicTask aic_system_tasks = 15;
+  // The parties around it.
+  repeated AicStakeholder aic_system_stakeholders = 16;
+  // The computing resources it runs on.
+  repeated AicResourcePool aic_system_resource_pools = 17;
+  // The legal questions that follow from where it is built, offered or used.
+  repeated string aic_system_jurisdictional_issues = 18;
+  // The effects it may have on people and society beyond its users.
+  repeated string aic_system_societal_impacts = 19;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 20;
+  // The name the record's author gives it.
+  string title = 21;
+  // What the record describes, in its author's words.
+  string description = 22;
+  // The goals the agent pursues.
+  repeated string aic_agent_goals = 23;
+  // The surroundings the agent perceives and acts on.
+  string aic_agent_environment = 24;
+}
+// One use of a system in a line of work.
+message AicApplication {
+  // The system applied.
+  AicSystem aic_application_system = 1;
+  // The domain, where it is one the standard works through.
+  AicApplicationDomain aic_application_domain = 2;
+  // The sector, in the words of whoever keeps the record.
+  string aic_application_sector = 3;
+  // What this use is for.
+  string aic_application_purpose = 4;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 5;
+  // The name the record's author gives it.
+  string title = 6;
+  // What the record describes, in its author's words.
+  string description = 7;
+}
+// One verification or validation of a system.
+message AicAssessment {
+  // Whether it checks the system against its specification or against its purpose.
+  AicAssessmentKind aic_assessment_kind = 1;
+  // The system assessed.
+  AicSystem aic_assessment_system = 2;
+  // How the system was assessed.
+  string aic_assessment_method = 3;
+  // What the assessment found.
+  string aic_assessment_result = 4;
+  // When it was done.
+  string aic_assessment_date = 5;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 6;
+  // The name the record's author gives it.
+  string title = 7;
+  // What the record describes, in its author's words.
+  string description = 8;
+}
+// A part of a system that does one job in it.
+message AicComponent {
+  // The step from data to action this part performs.
+  AicFunctionalStep aic_component_step = 1;
+  // The other parts this part needs.
+  repeated AicComponent aic_component_depends_on = 2;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 3;
+  // The name the record's author gives it.
+  string title = 4;
+  // What the record describes, in its author's words.
+  string description = 5;
+}
+// Computing and physical processes tied in a loop, each affecting the other.
+message AicCyberPhysicalSystem {
+  // The physical processes it senses and controls.
+  repeated string aic_cps_physical_processes = 1;
+  // The connected system it runs on, if it does.
+  AicIotSystem aic_cps_iot_system = 2;
+  // The AI systems that work with it.
+  repeated AicSystem aic_cps_ai_systems = 3;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 4;
+  // The name the record's author gives it.
+  string title = 5;
+  // What the record describes, in its author's words.
+  string description = 6;
+}
+// One piece of work done on a dataset.
+message AicDataProcess {
+  // The kind of work.
+  AicDataProcessKind aic_data_process_kind = 1;
+  // How it was done, such as the tool used.
+  string aic_data_process_method = 2;
+  // When it was done.
+  string aic_data_process_date = 3;
+}
+// A set of data kept together in one format.
+message AicDataset {
+  // What the dataset is used for.
+  repeated AicDatasetRole aic_dataset_roles = 1;
+  // Where the data comes from.
+  string aic_dataset_source = 2;
+  // How many samples it holds.
+  int32 aic_dataset_sample_count = 3;
+  // The labels its samples can carry.
+  repeated string aic_dataset_labels = 4;
+  // Where the correct answers for its samples come from.
+  string aic_dataset_ground_truth = 5;
+  // Whether it holds data that can identify a person.
+  bool aic_dataset_holds_pii = 6;
+  // The work done on the data.
+  repeated AicDataProcess aic_dataset_processes = 7;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 8;
+  // The name the record's author gives it.
+  string title = 9;
+  // What the record describes, in its author's words.
+  string description = 10;
+}
+// A choice made on the strength of some predictions.
+message AicDecision {
+  // What was chosen.
+  string aic_decision_outcome = 1;
+  // The predictions it rests on.
+  repeated AicPrediction aic_decision_predictions = 2;
+  // How the choice was made, such as a threshold or a rule.
+  string aic_decision_criteria = 3;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 4;
+  // The name the record's author gives it.
+  string title = 5;
+  // What the record describes, in its author's words.
+  string description = 6;
+}
+// The AI systems around one context of use, with the data, resources and parties that surround them, each kind of record in a list of its own.
+message AicEcosystem {
+  // The AI systems.
+  repeated AicSystem aic_ecosystem_systems = 1;
+  // The parts of those systems.
+  repeated AicComponent aic_ecosystem_components = 2;
+  // The bodies of knowledge those systems draw on.
+  repeated AicKnowledge aic_ecosystem_knowledge = 3;
+  // The tasks those systems take on.
+  repeated AicTask aic_ecosystem_tasks = 4;
+  // The models those systems use.
+  repeated AicModel aic_ecosystem_models = 5;
+  // The datasets those systems and models use.
+  repeated AicDataset aic_ecosystem_datasets = 6;
+  // The parties around those systems.
+  repeated AicStakeholder aic_ecosystem_stakeholders = 7;
+  // The work done at each stage of those systems' lives.
+  repeated AicLifecycleProcess aic_ecosystem_lifecycle_processes = 8;
+  // The trustworthiness claims made for those systems.
+  repeated AicTrustworthinessClaim aic_ecosystem_claims = 9;
+  // The verification and validation of those systems.
+  repeated AicAssessment aic_ecosystem_assessments = 10;
+  // The predictions those systems produced.
+  repeated AicPrediction aic_ecosystem_predictions = 11;
+  // The decisions taken on those predictions.
+  repeated AicDecision aic_ecosystem_decisions = 12;
+  // The actions taken on those decisions.
+  repeated AicAction aic_ecosystem_actions = 13;
+  // Where those systems are applied.
+  repeated AicApplication aic_ecosystem_applications = 14;
+  // The computing resources those systems run on.
+  repeated AicResourcePool aic_ecosystem_resource_pools = 15;
+  // The connected devices in the ecosystem.
+  repeated AicIotDevice aic_ecosystem_iot_devices = 16;
+  // The connected systems in the ecosystem.
+  repeated AicIotSystem aic_ecosystem_iot_systems = 17;
+  // The cyber-physical systems in the ecosystem.
+  repeated AicCyberPhysicalSystem aic_ecosystem_cyber_physical_systems = 18;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 19;
+  // The name the record's author gives it.
+  string title = 20;
+  // What the record describes, in its author's words.
+  string description = 21;
+}
+// A system that puts what human specialists know into a form it can reason with.
+message AicExpertSystem {
+  // Which class this record is: AicSystem or a kind of it.
+  string aic_system_type = 1;
+  // What the system is meant to do.
+  string aic_system_purpose = 2;
+  // How wide a range of problems the system can take on.
+  AicSystemScope aic_system_scope = 3;
+  // Whether it works symbolically, subsymbolically or both ways.
+  repeated AicApproach aic_system_approaches = 4;
+  // The families of technique it is built with.
+  repeated AicTechnique aic_system_techniques = 5;
+  // Whether it runs without a person acting at each step, under the conditions given.
+  bool aic_system_automated = 6;
+  // Whether it can change its own remit or stays under outside direction.
+  AicAutonomy aic_system_autonomy = 7;
+  // How people and the system share the work, if they do.
+  string aic_system_human_teaming = 8;
+  // The stage of its life the system is in now.
+  AicLifecycleStage aic_system_stage = 9;
+  // The fields of AI it belongs to.
+  repeated AicField aic_system_fields = 10;
+  // The steps from data to action that it performs.
+  repeated AicFunctionalStep aic_system_steps = 11;
+  // The parts it is made of.
+  repeated AicComponent aic_system_components = 12;
+  // The models it uses.
+  repeated AicModel aic_system_models = 13;
+  // The datasets it uses.
+  repeated AicDataset aic_system_datasets = 14;
+  // The tasks it takes on.
+  repeated AicTask aic_system_tasks = 15;
+  // The parties around it.
+  repeated AicStakeholder aic_system_stakeholders = 16;
+  // The computing resources it runs on.
+  repeated AicResourcePool aic_system_resource_pools = 17;
+  // The legal questions that follow from where it is built, offered or used.
+  repeated string aic_system_jurisdictional_issues = 18;
+  // The effects it may have on people and society beyond its users.
+  repeated string aic_system_societal_impacts = 19;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 20;
+  // The name the record's author gives it.
+  string title = 21;
+  // What the record describes, in its author's words.
+  string description = 22;
+  // The bodies of knowledge the system reasons with.
+  repeated AicKnowledge aic_expert_knowledge = 23;
+  // How the system draws conclusions from that knowledge.
+  string aic_expert_inference = 24;
+}
+// A connected device that reads from or acts on its physical surroundings.
+message AicIotDevice {
+  // What the device reads from its surroundings.
+  repeated string aic_device_senses = 1;
+  // What the device acts on.
+  repeated string aic_device_actuates = 2;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 3;
+  // The name the record's author gives it.
+  string title = 4;
+  // What the record describes, in its author's words.
+  string description = 5;
+}
+// A networked system that links devices and offers services built on them.
+message AicIotSystem {
+  // The devices in it.
+  repeated AicIotDevice aic_iot_devices = 1;
+  // The AI systems that work with it.
+  repeated AicSystem aic_iot_ai_systems = 2;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 3;
+  // The name the record's author gives it.
+  string title = 4;
+  // What the record describes, in its author's words.
+  string description = 5;
+}
+// A body of what a system knows, in a form it can use.
+message AicKnowledge {
+  // Whether it states what is the case or what to do.
+  AicKnowledgeKind aic_knowledge_kind = 1;
+  // The form it is held in, such as rules, a graph or an ontology.
+  string aic_knowledge_representation = 2;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 3;
+  // The name the record's author gives it.
+  string title = 4;
+  // What the record describes, in its author's words.
+  string description = 5;
+}
+// A piece of work done at one stage of a system's life.
+message AicLifecycleProcess {
+  // The stage the work belongs to.
+  AicLifecycleStage aic_lifecycle_stage = 1;
+  // The system the work is for.
+  AicSystem aic_lifecycle_system = 2;
+  // What the work starts from.
+  repeated string aic_lifecycle_inputs = 3;
+  // What the work produces.
+  repeated string aic_lifecycle_outputs = 4;
+  // The party that answers for the work.
+  AicStakeholder aic_lifecycle_responsible = 5;
+  // When the work began.
+  string aic_lifecycle_start = 6;
+  // When the work ended.
+  string aic_lifecycle_end = 7;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 8;
+  // The name the record's author gives it.
+  string title = 9;
+  // What the record describes, in its author's words.
+  string description = 10;
+}
+// A model whose numbers were fitted to data by a training run.
+message AicMachineLearningModel {
+  // Which class this record is: AicModel or a kind of it.
+  string aic_model_type = 1;
+  // The version of the model, as its makers number it.
+  string aic_model_version = 2;
+  // What the model stands for, such as a process or a body of data.
+  string aic_model_represents = 3;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 4;
+  // The name the record's author gives it.
+  string title = 5;
+  // What the record describes, in its author's words.
+  string description = 6;
+  // How the model learned from its data.
+  AicLearningParadigm aic_ml_paradigm = 7;
+  // The family of algorithm that fitted it.
+  AicAlgorithmFamily aic_ml_algorithm = 8;
+  // The datasets used to fit, tune and test it.
+  repeated AicDataset aic_ml_datasets = 9;
+  // The settings fixed before training, each as name=value.
+  repeated string aic_ml_hyperparameters = 10;
+  // How many numbers training fitted.
+  int32 aic_ml_parameter_count = 11;
+  // When the last training run ended.
+  string aic_ml_trained_on = 12;
+  // The earlier model that this one updates by training it again on other data.
+  AicMachineLearningModel aic_ml_retrained_from = 13;
+  // Whether it goes on learning in small steps while in use.
+  bool aic_ml_continuous_learning = 14;
+}
+// A representation of something, made so that a system can compute with it.
+message AicModel {
+  // Which class this record is: AicModel or a kind of it.
+  string aic_model_type = 1;
+  // The version of the model, as its makers number it.
+  string aic_model_version = 2;
+  // What the model stands for, such as a process or a body of data.
+  string aic_model_represents = 3;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 4;
+  // The name the record's author gives it.
+  string title = 5;
+  // What the record describes, in its author's words.
+  string description = 6;
+}
+// A kind of machine learning model built from layers of simple connected units.
+message AicNeuralNetworkModel {
+  // Which class this record is: AicModel or a kind of it.
+  string aic_model_type = 1;
+  // The version of the model, as its makers number it.
+  string aic_model_version = 2;
+  // What the model stands for, such as a process or a body of data.
+  string aic_model_represents = 3;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 4;
+  // The name the record's author gives it.
+  string title = 5;
+  // What the record describes, in its author's words.
+  string description = 6;
+  // How the model learned from its data.
+  AicLearningParadigm aic_ml_paradigm = 7;
+  // The family of algorithm that fitted it.
+  AicAlgorithmFamily aic_ml_algorithm = 8;
+  // The datasets used to fit, tune and test it.
+  repeated AicDataset aic_ml_datasets = 9;
+  // The settings fixed before training, each as name=value.
+  repeated string aic_ml_hyperparameters = 10;
+  // How many numbers training fitted.
+  int32 aic_ml_parameter_count = 11;
+  // When the last training run ended.
+  string aic_ml_trained_on = 12;
+  // The earlier model that this one updates by training it again on other data.
+  AicMachineLearningModel aic_ml_retrained_from = 13;
+  // Whether it goes on learning in small steps while in use.
+  bool aic_ml_continuous_learning = 14;
+  // How its layers are connected.
+  AicNetworkArchitecture aic_network_architecture = 15;
+  // How many layers it has.
+  int32 aic_network_layer_count = 16;
+  // The functions its units use to turn their inputs into an output.
+  repeated string aic_network_activation_functions = 17;
+}
+// A result a system worked out for one case.
+message AicPrediction {
+  // The system that produced it.
+  AicSystem aic_prediction_system = 1;
+  // What it says.
+  string aic_prediction_value = 2;
+  // How sure the system was, from 0 to 1.
+  float aic_prediction_confidence = 3;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 4;
+  // The name the record's author gives it.
+  string title = 5;
+  // What the record describes, in its author's words.
+  string description = 6;
+}
+// What every record has, so that other records can refer to it: an identifier, a title and a description.
+message AicRecordMixin {
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 1;
+  // The name the record's author gives it.
+  string title = 2;
+  // What the record describes, in its author's words.
+  string description = 3;
+}
+// A body of computing resource that AI work can draw on.
+message AicResourcePool {
+  // The kind of resource.
+  AicResourceKind aic_pool_kind = 1;
+  // The hardware in it, such as a model of accelerator.
+  string aic_pool_hardware = 2;
+  // How much it offers, in units its owner uses.
+  string aic_pool_capacity = 3;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 4;
+  // The name the record's author gives it.
+  string title = 5;
+  // What the record describes, in its author's words.
+  string description = 6;
+}
+// A system that moves or acts on physical things through its own actuators.
+message AicRobot {
+  // Which class this record is: AicSystem or a kind of it.
+  string aic_system_type = 1;
+  // What the system is meant to do.
+  string aic_system_purpose = 2;
+  // How wide a range of problems the system can take on.
+  AicSystemScope aic_system_scope = 3;
+  // Whether it works symbolically, subsymbolically or both ways.
+  repeated AicApproach aic_system_approaches = 4;
+  // The families of technique it is built with.
+  repeated AicTechnique aic_system_techniques = 5;
+  // Whether it runs without a person acting at each step, under the conditions given.
+  bool aic_system_automated = 6;
+  // Whether it can change its own remit or stays under outside direction.
+  AicAutonomy aic_system_autonomy = 7;
+  // How people and the system share the work, if they do.
+  string aic_system_human_teaming = 8;
+  // The stage of its life the system is in now.
+  AicLifecycleStage aic_system_stage = 9;
+  // The fields of AI it belongs to.
+  repeated AicField aic_system_fields = 10;
+  // The steps from data to action that it performs.
+  repeated AicFunctionalStep aic_system_steps = 11;
+  // The parts it is made of.
+  repeated AicComponent aic_system_components = 12;
+  // The models it uses.
+  repeated AicModel aic_system_models = 13;
+  // The datasets it uses.
+  repeated AicDataset aic_system_datasets = 14;
+  // The tasks it takes on.
+  repeated AicTask aic_system_tasks = 15;
+  // The parties around it.
+  repeated AicStakeholder aic_system_stakeholders = 16;
+  // The computing resources it runs on.
+  repeated AicResourcePool aic_system_resource_pools = 17;
+  // The legal questions that follow from where it is built, offered or used.
+  repeated string aic_system_jurisdictional_issues = 18;
+  // The effects it may have on people and society beyond its users.
+  repeated string aic_system_societal_impacts = 19;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 20;
+  // The name the record's author gives it.
+  string title = 21;
+  // What the record describes, in its author's words.
+  string description = 22;
+  // The actuators through which the robot acts.
+  repeated string aic_robot_actuators = 23;
+  // The sensors through which it perceives.
+  repeated string aic_robot_sensors = 24;
+}
+// A person, group or organization with a part in an AI system or an interest in it.
+message AicStakeholder {
+  // The part the party plays.
+  AicStakeholderRole aic_stakeholder_role = 1;
+  // The narrower parts it plays within that role.
+  repeated AicStakeholderSubRole aic_stakeholder_sub_roles = 2;
+  // The organization the party is or belongs to.
+  string aic_stakeholder_organization = 3;
+  // How to reach the party.
+  string aic_stakeholder_contact = 4;
+  // What the party answers for.
+  repeated string aic_stakeholder_responsibilities = 5;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 6;
+  // The name the record's author gives it.
+  string title = 7;
+  // What the record describes, in its author's words.
+  string description = 8;
+}
+// A system built to produce results for goals set by people, using AI techniques, whatever else it is made of.
+message AicSystem {
+  // Which class this record is: AicSystem or a kind of it.
+  string aic_system_type = 1;
+  // What the system is meant to do.
+  string aic_system_purpose = 2;
+  // How wide a range of problems the system can take on.
+  AicSystemScope aic_system_scope = 3;
+  // Whether it works symbolically, subsymbolically or both ways.
+  repeated AicApproach aic_system_approaches = 4;
+  // The families of technique it is built with.
+  repeated AicTechnique aic_system_techniques = 5;
+  // Whether it runs without a person acting at each step, under the conditions given.
+  bool aic_system_automated = 6;
+  // Whether it can change its own remit or stays under outside direction.
+  AicAutonomy aic_system_autonomy = 7;
+  // How people and the system share the work, if they do.
+  string aic_system_human_teaming = 8;
+  // The stage of its life the system is in now.
+  AicLifecycleStage aic_system_stage = 9;
+  // The fields of AI it belongs to.
+  repeated AicField aic_system_fields = 10;
+  // The steps from data to action that it performs.
+  repeated AicFunctionalStep aic_system_steps = 11;
+  // The parts it is made of.
+  repeated AicComponent aic_system_components = 12;
+  // The models it uses.
+  repeated AicModel aic_system_models = 13;
+  // The datasets it uses.
+  repeated AicDataset aic_system_datasets = 14;
+  // The tasks it takes on.
+  repeated AicTask aic_system_tasks = 15;
+  // The parties around it.
+  repeated AicStakeholder aic_system_stakeholders = 16;
+  // The computing resources it runs on.
+  repeated AicResourcePool aic_system_resource_pools = 17;
+  // The legal questions that follow from where it is built, offered or used.
+  repeated string aic_system_jurisdictional_issues = 18;
+  // The effects it may have on people and society beyond its users.
+  repeated string aic_system_societal_impacts = 19;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 20;
+  // The name the record's author gives it.
+  string title = 21;
+  // What the record describes, in its author's words.
+  string description = 22;
+}
+// Something a system is asked to get done.
+message AicTask {
+  // The named kind of task it is, where it is one.
+  AicTaskKind aic_task_kind = 1;
+  // What getting the task done achieves.
+  string aic_task_goal = 2;
+  // The human languages the task works in, as language tags such as en or fr-CA.
+  repeated string aic_task_languages = 3;
+  // What is measured to judge how well it is done, such as accuracy.
+  repeated string aic_task_performance_measures = 4;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 5;
+  // The name the record's author gives it.
+  string title = 6;
+  // What the record describes, in its author's words.
+  string description = 7;
+}
+// A claim that a system has a property people can rely on, with what backs it.
+message AicTrustworthinessClaim {
+  // The system the claim is about.
+  AicSystem aic_claim_system = 1;
+  // The property claimed.
+  AicTrustworthinessProperty aic_claim_property = 2;
+  // What backs the claim.
+  repeated string aic_claim_evidence = 3;
+  // How the property was measured, if it was.
+  string aic_claim_measure = 4;
+  // The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it.
+  string aic_id = 5;
+  // The name the record's author gives it.
+  string title = 6;
+  // What the record describes, in its author's words.
+  string description = 7;
+}
+
+// A family of algorithms that fit machine learning models.
+enum AicAlgorithmFamily {
+  AIC_ALGORITHM_FAMILY_UNSPECIFIED = 0;
+  AIC_ALGORITHM_FAMILY_NEURAL_NETWORK = 1;
+  AIC_ALGORITHM_FAMILY_BAYESIAN_NETWORK = 2;
+  AIC_ALGORITHM_FAMILY_DECISION_TREE = 3;
+  AIC_ALGORITHM_FAMILY_SUPPORT_VECTOR_MACHINE = 4;
+}
+// A domain the standard works through as an application of AI.
+enum AicApplicationDomain {
+  AIC_APPLICATION_DOMAIN_UNSPECIFIED = 0;
+  AIC_APPLICATION_DOMAIN_FRAUD_DETECTION = 1;
+  AIC_APPLICATION_DOMAIN_AUTOMATED_VEHICLES = 2;
+  AIC_APPLICATION_DOMAIN_PREDICTIVE_MAINTENANCE = 3;
+}
+// Whether a system works on explicit symbols or on learned numeric encodings.
+enum AicApproach {
+  AIC_APPROACH_UNSPECIFIED = 0;
+  AIC_APPROACH_SYMBOLIC = 1;
+  AIC_APPROACH_SUBSYMBOLIC = 2;
+}
+// Which question an assessment answers.
+enum AicAssessmentKind {
+  AIC_ASSESSMENT_KIND_UNSPECIFIED = 0;
+  AIC_ASSESSMENT_KIND_VERIFICATION = 1;
+  AIC_ASSESSMENT_KIND_VALIDATION = 2;
+}
+// Whether a system can change its own remit or stays under outside direction.
+enum AicAutonomy {
+  AIC_AUTONOMY_UNSPECIFIED = 0;
+  AIC_AUTONOMY_AUTONOMOUS = 1;
+  AIC_AUTONOMY_HETERONOMOUS = 2;
+}
+// A kind of work done on data before or while a model uses it.
+enum AicDataProcessKind {
+  AIC_DATA_PROCESS_KIND_UNSPECIFIED = 0;
+  AIC_DATA_PROCESS_KIND_DATA_ANNOTATION = 1;
+  AIC_DATA_PROCESS_KIND_DATA_QUALITY_CHECKING = 2;
+  AIC_DATA_PROCESS_KIND_DATA_AUGMENTATION = 3;
+  AIC_DATA_PROCESS_KIND_DATA_SAMPLING = 4;
+  AIC_DATA_PROCESS_KIND_EXPLORATORY_DATA_ANALYSIS = 5;
+  AIC_DATA_PROCESS_KIND_IMPUTATION = 6;
+}
+// What a dataset is used for.
+enum AicDatasetRole {
+  AIC_DATASET_ROLE_UNSPECIFIED = 0;
+  AIC_DATASET_ROLE_TRAINING = 1;
+  AIC_DATASET_ROLE_VALIDATION = 2;
+  AIC_DATASET_ROLE_TEST = 3;
+  AIC_DATASET_ROLE_PRODUCTION = 4;
+  AIC_DATASET_ROLE_INPUT = 5;
+}
+// A field of AI a system belongs to.
+enum AicField {
+  AIC_FIELD_UNSPECIFIED = 0;
+  AIC_FIELD_COMPUTER_VISION = 1;
+  AIC_FIELD_NATURAL_LANGUAGE_PROCESSING = 2;
+  AIC_FIELD_DATA_MINING = 3;
+  AIC_FIELD_PLANNING = 4;
+}
+// A step in how a system gets from data to acting on its results.
+enum AicFunctionalStep {
+  AIC_FUNCTIONAL_STEP_UNSPECIFIED = 0;
+  AIC_FUNCTIONAL_STEP_DATA_AND_INFORMATION = 1;
+  AIC_FUNCTIONAL_STEP_KNOWLEDGE_AND_LEARNING = 2;
+  AIC_FUNCTIONAL_STEP_PREDICTION = 3;
+  AIC_FUNCTIONAL_STEP_DECISION = 4;
+  AIC_FUNCTIONAL_STEP_ACTION = 5;
+}
+// Whether a body of knowledge states facts or steps.
+enum AicKnowledgeKind {
+  AIC_KNOWLEDGE_KIND_UNSPECIFIED = 0;
+  AIC_KNOWLEDGE_KIND_DECLARATIVE = 1;
+  AIC_KNOWLEDGE_KIND_PROCEDURAL = 2;
+}
+// How a model learns from its data.
+enum AicLearningParadigm {
+  AIC_LEARNING_PARADIGM_UNSPECIFIED = 0;
+  AIC_LEARNING_PARADIGM_SUPERVISED = 1;
+  AIC_LEARNING_PARADIGM_UNSUPERVISED = 2;
+  AIC_LEARNING_PARADIGM_SEMI_SUPERVISED = 3;
+  AIC_LEARNING_PARADIGM_REINFORCEMENT = 4;
+  AIC_LEARNING_PARADIGM_TRANSFER = 5;
+}
+// A stage in an AI system's life.
+enum AicLifecycleStage {
+  AIC_LIFECYCLE_STAGE_UNSPECIFIED = 0;
+  AIC_LIFECYCLE_STAGE_INCEPTION = 1;
+  AIC_LIFECYCLE_STAGE_DESIGN_AND_DEVELOPMENT = 2;
+  AIC_LIFECYCLE_STAGE_VERIFICATION_AND_VALIDATION = 3;
+  AIC_LIFECYCLE_STAGE_DEPLOYMENT = 4;
+  AIC_LIFECYCLE_STAGE_OPERATION_AND_MONITORING = 5;
+  AIC_LIFECYCLE_STAGE_CONTINUOUS_VALIDATION = 6;
+  AIC_LIFECYCLE_STAGE_RE_EVALUATION = 7;
+  AIC_LIFECYCLE_STAGE_RETIREMENT = 8;
+}
+// How the layers of a neural network are connected.
+enum AicNetworkArchitecture {
+  AIC_NETWORK_ARCHITECTURE_UNSPECIFIED = 0;
+  AIC_NETWORK_ARCHITECTURE_FEED_FORWARD = 1;
+  AIC_NETWORK_ARCHITECTURE_RECURRENT = 2;
+  AIC_NETWORK_ARCHITECTURE_LONG_SHORT_TERM_MEMORY = 3;
+  AIC_NETWORK_ARCHITECTURE_CONVOLUTIONAL = 4;
+}
+// A phase of the OECD's account of an AI system's life, which Annex A sets beside the standard's.
+enum AicOecdLifecycleStage {
+  AIC_OECD_LIFECYCLE_STAGE_UNSPECIFIED = 0;
+  AIC_OECD_LIFECYCLE_STAGE_PLAN_AND_DESIGN = 1;
+  AIC_OECD_LIFECYCLE_STAGE_COLLECT_AND_PROCESS_DATA = 2;
+  AIC_OECD_LIFECYCLE_STAGE_BUILD_AND_USE_MODEL = 3;
+  AIC_OECD_LIFECYCLE_STAGE_VERIFY_AND_VALIDATE = 4;
+  AIC_OECD_LIFECYCLE_STAGE_DEPLOY = 5;
+  AIC_OECD_LIFECYCLE_STAGE_OPERATE_AND_MONITOR = 6;
+  AIC_OECD_LIFECYCLE_STAGE_RETIRE_OR_DECOMMISSION = 7;
+}
+// A kind of computing resource AI work runs on.
+enum AicResourceKind {
+  AIC_RESOURCE_KIND_UNSPECIFIED = 0;
+  AIC_RESOURCE_KIND_CLOUD = 1;
+  AIC_RESOURCE_KIND_EDGE = 2;
+  AIC_RESOURCE_KIND_APPLICATION_SPECIFIC_INTEGRATED_CIRCUIT = 3;
+}
+// The part a party plays around an AI system.
+enum AicStakeholderRole {
+  AIC_STAKEHOLDER_ROLE_UNSPECIFIED = 0;
+  AIC_STAKEHOLDER_ROLE_AI_PROVIDER = 1;
+  AIC_STAKEHOLDER_ROLE_AI_PRODUCER = 2;
+  AIC_STAKEHOLDER_ROLE_AI_CUSTOMER = 3;
+  AIC_STAKEHOLDER_ROLE_AI_PARTNER = 4;
+  AIC_STAKEHOLDER_ROLE_AI_SUBJECT = 5;
+  AIC_STAKEHOLDER_ROLE_RELEVANT_AUTHORITY = 6;
+}
+// A narrower part within one of the roles.
+enum AicStakeholderSubRole {
+  AIC_STAKEHOLDER_SUB_ROLE_UNSPECIFIED = 0;
+  AIC_STAKEHOLDER_SUB_ROLE_AI_PLATFORM_PROVIDER = 1;
+  AIC_STAKEHOLDER_SUB_ROLE_AI_PRODUCT_OR_SERVICE_PROVIDER = 2;
+  AIC_STAKEHOLDER_SUB_ROLE_AI_DEVELOPER = 3;
+  AIC_STAKEHOLDER_SUB_ROLE_AI_USER = 4;
+  AIC_STAKEHOLDER_SUB_ROLE_AI_SYSTEM_INTEGRATOR = 5;
+  AIC_STAKEHOLDER_SUB_ROLE_DATA_PROVIDER = 6;
+  AIC_STAKEHOLDER_SUB_ROLE_DATA_SUBJECT = 7;
+  AIC_STAKEHOLDER_SUB_ROLE_OTHER_SUBJECT = 8;
+  AIC_STAKEHOLDER_SUB_ROLE_POLICY_MAKER = 9;
+  AIC_STAKEHOLDER_SUB_ROLE_REGULATOR = 10;
+}
+// How wide a range of problems a system can take on.
+enum AicSystemScope {
+  AIC_SYSTEM_SCOPE_UNSPECIFIED = 0;
+  AIC_SYSTEM_SCOPE_NARROW_AI = 1;
+  AIC_SYSTEM_SCOPE_GENERAL_AI = 2;
+}
+// A named kind of task from the fields of language and vision.
+enum AicTaskKind {
+  AIC_TASK_KIND_UNSPECIFIED = 0;
+  AIC_TASK_KIND_AUTOMATIC_SUMMARIZATION = 1;
+  AIC_TASK_KIND_DIALOGUE_MANAGEMENT = 2;
+  AIC_TASK_KIND_EMOTION_RECOGNITION = 3;
+  AIC_TASK_KIND_INFORMATION_RETRIEVAL = 4;
+  AIC_TASK_KIND_MACHINE_TRANSLATION = 5;
+  AIC_TASK_KIND_NAMED_ENTITY_RECOGNITION = 6;
+  AIC_TASK_KIND_NATURAL_LANGUAGE_GENERATION = 7;
+  AIC_TASK_KIND_NATURAL_LANGUAGE_UNDERSTANDING = 8;
+  AIC_TASK_KIND_OPTICAL_CHARACTER_RECOGNITION = 9;
+  AIC_TASK_KIND_PART_OF_SPEECH_TAGGING = 10;
+  AIC_TASK_KIND_QUESTION_ANSWERING = 11;
+  AIC_TASK_KIND_RELATIONSHIP_EXTRACTION = 12;
+  AIC_TASK_KIND_SENTIMENT_ANALYSIS = 13;
+  AIC_TASK_KIND_SPEECH_RECOGNITION = 14;
+  AIC_TASK_KIND_SPEECH_SYNTHESIS = 15;
+  AIC_TASK_KIND_FACE_RECOGNITION = 16;
+  AIC_TASK_KIND_IMAGE_RECOGNITION = 17;
+}
+// A family of techniques a system is built with.
+enum AicTechnique {
+  AIC_TECHNIQUE_UNSPECIFIED = 0;
+  AIC_TECHNIQUE_MACHINE_LEARNING = 1;
+  AIC_TECHNIQUE_DEEP_LEARNING = 2;
+  AIC_TECHNIQUE_COGNITIVE_COMPUTING = 3;
+  AIC_TECHNIQUE_SEMANTIC_COMPUTING = 4;
+  AIC_TECHNIQUE_SOFT_COMPUTING = 5;
+  AIC_TECHNIQUE_GENETIC_ALGORITHM = 6;
+  AIC_TECHNIQUE_LOGIC_PROGRAMMING = 7;
+}
+// A property a trustworthiness claim is about.
+enum AicTrustworthinessProperty {
+  AIC_TRUSTWORTHINESS_PROPERTY_UNSPECIFIED = 0;
+  AIC_TRUSTWORTHINESS_PROPERTY_ROBUSTNESS = 1;
+  AIC_TRUSTWORTHINESS_PROPERTY_RELIABILITY = 2;
+  AIC_TRUSTWORTHINESS_PROPERTY_RESILIENCE = 3;
+  AIC_TRUSTWORTHINESS_PROPERTY_CONTROLLABILITY = 4;
+  AIC_TRUSTWORTHINESS_PROPERTY_EXPLAINABILITY = 5;
+  AIC_TRUSTWORTHINESS_PROPERTY_PREDICTABILITY = 6;
+  AIC_TRUSTWORTHINESS_PROPERTY_ORGANIZATIONAL_TRANSPARENCY = 7;
+  AIC_TRUSTWORTHINESS_PROPERTY_SYSTEM_TRANSPARENCY = 8;
+  AIC_TRUSTWORTHINESS_PROPERTY_BIAS_AND_FAIRNESS = 9;
+  AIC_TRUSTWORTHINESS_PROPERTY_ACCOUNTABILITY = 10;
+  AIC_TRUSTWORTHINESS_PROPERTY_AVAILABILITY = 11;
+}

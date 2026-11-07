@@ -1,0 +1,16 @@
+# Fails at: /aic_ml_algorithm
+---
+aic_id: ex:fraud-model
+title: Fraud model
+aic_model_type: AicMachineLearningModel
+aic_model_version: '7'
+aic_ml_paradigm: supervised
+aic_ml_algorithm: genetic_algorithm
+aic_ml_datasets:
+  - ex:payments-2025
+aic_ml_hyperparameters:
+  - max_depth=12
+aic_ml_parameter_count: 4096
+aic_ml_trained_on: '2026-02-01'
+aic_ml_retrained_from: ex:fraud-model-6
+aic_ml_continuous_learning: false

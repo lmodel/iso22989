@@ -1,9 +1,104 @@
-This project includes original code, schema structure, and documentation
-licensed under Apache License 2.0.
+ISO/IEC 22989 AI Concepts and Terminology LinkML Schema (iso22989)
+Copyright 2026 Noel McLoughlin
 
-ISO/IEC standards publications, including ISO/IEC 22989 and ISO/IEC 27002,
-are copyrighted by ISO. This repository does not relicense or sublicense
-ISO standards text.
+The code in this repository is licensed under the Apache License,
+Version 2.0 (see LICENSE). Some of the content it carries is third-party
+work under its own terms, listed below.
 
-If you need to reproduce or redistribute ISO standards text in software,
-documentation, or generated artifacts, obtain permission from ISO.
+ISO/IEC 22989
+-------------
+
+src/iso22989/schema/*.yaml, src/iso22989/datamodel/ and project/ model the
+concepts of ISO/IEC 22989:2022, Information technology - Artificial
+intelligence - Artificial intelligence concepts and terminology (first
+edition, 2022-07). They are this project's own work, written in its own
+words, and they cite the standard's clauses and terms by number only. They
+are not endorsed by ISO or IEC.
+
+The standard is copyright ISO and IEC, and this repository carries none of
+its text: no definition, note or heading, copied or paraphrased. ISO offers
+the standard free of charge from its Publicly Available Standards page, under
+its Customer Licence Agreement. That agreement grants no right to reproduce,
+adapt or distribute the text, and it restricts use of the text with AI tools,
+so this repository's licence cannot grant any of that either. Obtain the
+standard, and any licence to reuse its text, from ISO or your national
+standards body.
+
+What the repository carries is the structure of the concepts, and this
+project's own words about them. Copyright protects the way a work expresses
+an idea, not the idea. The project takes the stricter reading European law
+allows, under which even a short extract can be protected when it shows its
+author's own choices (Infopaq International, Case C-5/08, Court of Justice of
+the European Union). So each description was written from what the concept
+means, in one or two sentences, not by rewording a definition. A concept keeps
+its own name where that name is the term, such as AI agent, since a term of
+art is the word for the idea and not the standard's expression of it.
+
+scripts/check_overlap.py lets a person who holds a copy test this: it reports
+any run of four or more consecutive words the repository shares with that
+copy. The copy stays outside the repository.
+
+ISO Open Data
+-------------
+
+src/iso22989/schema/iso-open-data/iso_deliverables_metadata.jsonl holds ISO's
+records of ISO/IEC 22989:2022, ISO/IEC 22989:2022/FDAmd 1 and ISO/IEC
+22989:2022/CD Amd 2, taken on 2026-11-05 from
+https://isopublicstorageprod.blob.core.windows.net/opendata/_latest/iso_deliverables_metadata/json/iso_deliverables_metadata.jsonl.
+Each line is ISO's record as published, without its "scope" field.
+scripts/check_upstream_release.py pins each line by its hash and compares it
+with the live dataset.
+
+  This work is based on the iso_deliverables_metadata dataset from ISO
+  Open Data (https://www.iso.org/open-data.html), licensed under ODC
+  Attribution License (ODC-By) v1.0
+  (https://opendatacommons.org/licenses/by/1-0/)
+
+linkml-project-copier
+---------------------
+
+This project was generated from linkml-project-copier
+(https://github.com/linkml/linkml-project-copier), and its justfile,
+configuration and documentation scaffolding derive from that template:
+
+  The MIT License (MIT)
+  Copyright (c) 2025 David Linke
+
+  Permission is hereby granted, free of charge, to any person obtaining a
+  copy of this software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to permit
+  persons to whom the Software is furnished to do so, subject to the
+  following conditions:
+
+  The above copyright notice and this permission notice shall be included
+  in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+  NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+  OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+  USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Knowledge bundle
+----------------
+
+This product maintains its documentation as a Linked Open Knowledge Format
+(LOKF) bundle under .lokf/: https://lokf.nolan-nichols.com/specification/
+
+LOKF is a semantic profile of the Open Knowledge Format (OKF) specification
+by Google Cloud Platform:
+https://github.com/GoogleCloudPlatform/open-knowledge-format/blob/main/SPEC.md
+
+The scripts under .lokf/scripts/ and .lokf/m365/ and the
+knowledge-librarian, knowledge-registrar, knowledge-release and
+knowledge-sync workflows under .github/workflows/ are copies of the
+ktl-sidecar templates in knowledge-trust-ladder
+(https://github.com/noelmcloughlin/knowledge-trust-ladder). The site under
+website/ and the knowledge-website workflow derive from the ktl-website
+templates in the same repository, and website/NOTICE lists the part
+adapted from the LOKF toolkit's site. All of them are licensed under the
+Apache License, Version 2.0.

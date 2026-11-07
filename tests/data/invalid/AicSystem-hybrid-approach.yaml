@@ -1,0 +1,7 @@
+# Fails at: /aic_system_approaches/0
+---
+aic_id: ex:fraud-screen
+title: Payment fraud screen
+aic_system_type: AicSystem
+aic_system_approaches:
+  - hybrid

@@ -1,0 +1,7 @@
+---
+aic_id: ex:translate-claims
+title: Translate claims
+aic_task_kind: machine_translation
+aic_task_languages:
+  - en
+  - fr-CA

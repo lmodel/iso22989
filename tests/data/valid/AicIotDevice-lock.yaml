@@ -1,0 +1,5 @@
+---
+aic_id: ex:door-lock
+title: Door lock
+aic_device_actuates:
+  - The lock on a door.

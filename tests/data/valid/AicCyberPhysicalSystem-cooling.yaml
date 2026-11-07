@@ -1,0 +1,8 @@
+---
+aic_id: ex:cooling
+title: Data centre cooling
+aic_cps_physical_processes:
+  - The temperature of a server hall.
+aic_cps_iot_system: ex:building
+aic_cps_ai_systems:
+  - ex:fraud-screen

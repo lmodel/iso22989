@@ -1,0 +1,6 @@
+# Fails at: /
+---
+aic_id: ex:fraud-screen
+title: Payment fraud screen
+aic_system_type: AicSystem
+lifecycle_stage: deployment

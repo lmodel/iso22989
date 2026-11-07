@@ -1,0 +1,8 @@
+# Fails at: /
+---
+aic_id: ex:claim-robust
+title: Holds up under a surge
+aic_claim_system: ex:fraud-screen
+aic_claim_evidence:
+  - A load test at ten times the normal rate.
+aic_claim_measure: False positive rate during the test.

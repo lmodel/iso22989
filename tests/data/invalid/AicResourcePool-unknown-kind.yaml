@@ -1,0 +1,7 @@
+# Fails at: /aic_pool_kind
+---
+aic_id: ex:gpu-pool
+title: Training cluster
+aic_pool_kind: gpu
+aic_pool_hardware: Graphics accelerators
+aic_pool_capacity: 64 accelerators

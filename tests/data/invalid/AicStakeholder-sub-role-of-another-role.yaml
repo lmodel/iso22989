@@ -1,0 +1,7 @@
+# Fails at: /aic_stakeholder_sub_roles/0
+---
+aic_id: ex:platform
+title: The platform company
+aic_stakeholder_role: ai_provider
+aic_stakeholder_sub_roles:
+  - regulator

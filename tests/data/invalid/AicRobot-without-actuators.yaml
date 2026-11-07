@@ -1,0 +1,7 @@
+# Fails at: /
+---
+aic_id: ex:robot
+title: Warehouse picker
+aic_system_type: AicRobot
+aic_robot_sensors:
+  - A depth camera.

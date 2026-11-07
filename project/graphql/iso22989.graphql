@@ -1,102 +1,66 @@
-# metamodel_version: 1.11.0
-# version: 0.1.0
-enum AbbreviationCode
+# metamodel_version: 1.12.0
+# version: 2022
+enum AicAlgorithmFamily
   {
-    AI
-    API
-    ASIC
-    CNN
-    CPS
-    CPU
-    CRISP_DM
-    DNN
-    DSP
-    FFNN
-    FPGA
-    GA
-    GPU
-    HMM
-    IoT
-    IR
-    IT
-    KDD
-    LSTM
-    ML
-    MT
-    NER
-    NLG
-    NLP
-    NLU
-    NN
-    NPU
-    OCR
-    OECD
-    PII
-    POS
-    RL
-    RNN
-    SVM
+    neural_network
+    bayesian_network
+    decision_tree
+    support_vector_machine
   }
 
-enum ActivationFunctionType
-  {
-    sigmoid
-    tanh
-    relu
-    leaky_relu
-    softmax
-    linear
-    other
-  }
-
-enum AgentArchitectureType
-  {
-    reflex_agent
-    model_based_agent
-    goal_based_agent
-    utility_based_agent
-    learning_agent
-    multi_agent
-  }
-
-enum AIApplicationDomain
+enum AicApplicationDomain
   {
     fraud_detection
     automated_vehicles
     predictive_maintenance
-    recommendation
-    medical_diagnosis
-    content_generation
-    agriculture
-    automotive
-    banking_and_finance
-    defense_and_security
-    education
-    energy_and_utilities
-    healthcare
-    legal_services
-    manufacturing
-    media_and_entertainment
-    mixed_reality
-    public_sector
-    retail
-    space
-    telecommunications
   }
 
-enum AIField
+enum AicApproach
+  {
+    symbolic
+    subsymbolic
+  }
+
+enum AicAssessmentKind
+  {
+    verification
+    validation
+  }
+
+enum AicAutonomy
+  {
+    autonomous
+    heteronomous
+  }
+
+enum AicDataProcessKind
+  {
+    data_annotation
+    data_quality_checking
+    data_augmentation
+    data_sampling
+    exploratory_data_analysis
+    imputation
+  }
+
+enum AicDatasetRole
+  {
+    training
+    validation
+    test
+    production
+    input
+  }
+
+enum AicField
   {
     computer_vision
     natural_language_processing
     data_mining
     planning
-    robotics
-    knowledge_representation_and_reasoning
-    speech_processing
-    multi_agent_systems
   }
 
-enum AIFunctionalComponent
+enum AicFunctionalStep
   {
     data_and_information
     knowledge_and_learning
@@ -105,7 +69,22 @@ enum AIFunctionalComponent
     action
   }
 
-enum AILifecycleStage
+enum AicKnowledgeKind
+  {
+    declarative
+    procedural
+  }
+
+enum AicLearningParadigm
+  {
+    supervised
+    unsupervised
+    semi_supervised
+    reinforcement
+    transfer
+  }
+
+enum AicLifecycleStage
   {
     inception
     design_and_development
@@ -117,7 +96,33 @@ enum AILifecycleStage
     retirement
   }
 
-enum AIStakeholderRoleType
+enum AicNetworkArchitecture
+  {
+    feed_forward
+    recurrent
+    long_short_term_memory
+    convolutional
+  }
+
+enum AicOecdLifecycleStage
+  {
+    plan_and_design
+    collect_and_process_data
+    build_and_use_model
+    verify_and_validate
+    deploy
+    operate_and_monitor
+    retire_or_decommission
+  }
+
+enum AicResourceKind
+  {
+    cloud
+    edge
+    application_specific_integrated_circuit
+  }
+
+enum AicStakeholderRole
   {
     ai_provider
     ai_producer
@@ -127,356 +132,59 @@ enum AIStakeholderRoleType
     relevant_authority
   }
 
-enum AISystemCharacteristic
+enum AicStakeholderSubRole
   {
-    interactive
-    contextual
-    adaptive
-    oversight_enabled
-    data_dependent
+    ai_platform_provider
+    ai_product_or_service_provider
+    ai_developer
+    ai_user
+    ai_system_integrator
+    data_provider
+    data_subject
+    other_subject
+    policy_maker
+    regulator
   }
 
-enum AISystemType
+enum AicSystemScope
   {
     narrow_ai
     general_ai
-    weak_ai
-    strong_ai
   }
 
-enum AutonomyCriterion
+enum AicTaskKind
   {
-    external_supervision
-    situated_understanding
-    reactivity
-    persistence
-    adaptability
-    performance_evaluation
-    proactive_planning
-  }
-
-enum AutonomyLevel
-  {
-    automated
-    heteronomous
-    autonomous
-    level_0_no_automation
-    level_1_assistance
-    level_2_partial_automation
-    level_3_conditional_automation
-    level_4_high_automation
-    level_5_full_automation
-  }
-
-enum BiasType
-  {
-    data_bias
-    algorithmic_bias
-    societal_bias
-    cognitive_bias
-    automation_bias
-  }
-
-enum BigDataCharacteristic
-  {
-    volume
-    velocity
-    variety
-    veracity
-    value
-    variability
-  }
-
-enum ComputerVisionTask
-  {
-    image_classification
-    object_detection
-    semantic_segmentation
-    instance_segmentation
-    image_recognition
-    pose_estimation
-    optical_character_recognition
-    face_recognition
-    scene_recognition
-    motion_tracking
-    visual_anomaly_detection
-    three_d_reconstruction
-    action_recognition
-    activity_recognition
-  }
-
-enum ComputingResourceType
-  {
-    cloud
-    edge
-    on_premises
-    cpu
-    gpu
-    tpu
-    asic
-    fpga
-    npu
-    dsp
-  }
-
-enum DataCollectionMethod
-  {
-    point_of_sale
-    survey
-    research_study
-    sensor_capture
-    image_capture
-    audio_capture
-    document_extraction
-    web_scraping
-    interaction_log
-    transactional_log
-  }
-
-enum DataLabelType
-  {
-    categorical
-    binary
-    ordinal
-    numeric
-    structured
-    sequence
-    graph
-    none
-  }
-
-enum DataModality
-  {
-    structured
-    semi_structured
-    unstructured
-    text
-    image
-    video
-    audio
-    sensor
-    time_series
-    graph
-  }
-
-enum DataProcessType
-  {
-    data_acquisition
-    exploratory_data_analysis
-    data_annotation
-    data_labeling
-    data_preparation
-    data_cleaning
-    filtering
-    normalisation
-    de_identification
-    data_quality_checking
-    data_sampling
-    data_augmentation
-    feature_engineering
-    imputation
-    data_drift_detection
-    data_poisoning_detection
-    concept_drift_handling
-    catastrophic_forgetting_mitigation
-    retraining
-  }
-
-enum DatasetRole
-  {
-    training
-    validation
-    test
-    production
-    reference
-  }
-
-enum DataSourceType
-  {
-    first_party
-    second_party
-    third_party
-    open_data
-    synthetic
-    queried_union
-  }
-
-enum EngineeringApproach
-  {
-    expert_system
-    logic_programming
-    knowledge_graph
-    constraint_satisfaction
-  }
-
-enum ExecutionStatus
-  {
-    planned
-    in_progress
-    completed
-    failed
-    cancelled
-  }
-
-enum IoTDeviceRole
-  {
-    sensor
-    actuator
-    gateway
-    edge_compute
-    controller
-  }
-
-enum JurisdictionalIssueType
-  {
-    data_residency
-    cross_border_transfer
-    liability
-    regulatory_compliance
-    intellectual_property
-  }
-
-enum KnowledgeType
-  {
-    declarative
-    procedural
-    tacit
-    common_sense
-    domain_specific
-  }
-
-enum MachineLearningParadigm
-  {
-    supervised
-    unsupervised
-    semi_supervised
-    reinforcement
-    transfer
-    self_supervised
-  }
-
-enum MLAlgorithmFamily
-  {
-    neural_network
-    bayesian_network
-    decision_tree
-    support_vector_machine
-    genetic_algorithm
-  }
-
-enum NeuralNetworkArchitecture
-  {
-    feed_forward
-    recurrent
-    long_short_term_memory
-    gated_recurrent_unit
-    convolutional
-    transformer
-    autoencoder
-    generative_adversarial
-    deep
-  }
-
-enum NeuralNetworkPhenomenon
-  {
-    vanishing_gradient
-    exploding_gradient
-    catastrophic_forgetting
-    overfitting
-    underfitting
-  }
-
-enum NeuroSymbolicApproach
-  {
-    symbolic_in_neural
-    neural_in_symbolic
-    tightly_coupled
-    loosely_coupled
-  }
-
-enum NLPComponentType
-  {
-    tokenisation
-    lemmatisation
-    part_of_speech_tagging
-    syntactic_parsing
-    semantic_analysis
-    named_entity_recognition
-    sentiment_analysis
-    machine_translation
-    speech_recognition
-    speech_synthesis
-    natural_language_understanding
-    natural_language_generation
     automatic_summarization
     dialogue_management
+    emotion_recognition
     information_retrieval
+    machine_translation
+    named_entity_recognition
+    natural_language_generation
+    natural_language_understanding
+    optical_character_recognition
+    part_of_speech_tagging
     question_answering
     relationship_extraction
-    emotion_recognition
-    optical_character_recognition
-    coreference_resolution
+    sentiment_analysis
+    speech_recognition
+    speech_synthesis
+    face_recognition
+    image_recognition
   }
 
-enum OECDLifecycleStage
+enum AicTechnique
   {
-    plan_and_design
-    collect_and_process_data
-    build_and_use_model
-    verify_and_validate
-    deploy
-    operate_and_monitor
+    machine_learning
+    deep_learning
+    cognitive_computing
+    semantic_computing
+    soft_computing
+    genetic_algorithm
+    logic_programming
   }
 
-enum RecommendationOutcomeType
-  {
-    content_recommendation
-    action_recommendation
-    ranking_recommendation
-    next_best_action
-  }
-
-enum SocietalImpactCategory
-  {
-    employment
-    human_rights
-    environment
-    democratic_processes
-    digital_divide
-  }
-
-enum SoftComputingTechnique
-  {
-    fuzzy_logic
-    evolutionary_computing
-    swarm_intelligence
-    probabilistic_reasoning
-    neural_computing
-  }
-
-enum SymbolicApproach
-  {
-    symbolic
-    subsymbolic
-    hybrid
-  }
-
-enum TaskCategory
-  {
-    classification
-    regression
-    clustering
-    ranking
-    recommendation
-    anomaly_detection
-    dimensionality_reduction
-    generation
-    planning
-    control
-    decision_support
-  }
-
-enum TrustworthinessPropertyType
+enum AicTrustworthinessProperty
   {
     robustness
     reliability
@@ -484,1271 +192,378 @@ enum TrustworthinessPropertyType
     controllability
     explainability
     predictability
-    transparency
-    fairness
-    bias_mitigation
+    organizational_transparency
+    system_transparency
+    bias_and_fairness
     accountability
-    privacy
-    safety
     availability
-    integrity
-    authenticity
-    security
-    usability
-    quality
-    fault_tolerance
   }
 
-enum ValidationStrategy
+type AicAction implements AicRecordMixin
   {
-    holdout
-    two_way_split
-    cross_validation
-    stratified_cross_validation
-    bootstrap
-    time_series_split
-  }
-
-enum VerificationValidationLevel
-  {
-    completely_verifiable
-    partially_verifiable_validatable
-    unverifiable_validatable
-    unverifiable_partially_validatable
-    unverifiable_unvalidatable
-  }
-
-type AbbreviatedTerm
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    expansion: String!
-  }
-
-type AbbreviationEntry
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    abbreviationCode: AbbreviationCode!
-    expansion: String!
-  }
-
-type Action
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    actionTarget: String
-    executionStatus: ExecutionStatus
-    triggeredBy: Decision
-  }
-
-type AIAgent
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    autonomyLevel: AutonomyLevel
-    symbolicApproach: SymbolicApproach
-    agentArchitecture: AgentArchitectureType
-    goalSet: [String]
-  }
-
-type AIApplication
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    applicationDomain: [AIApplicationDomain]
-    intendedPurpose: String
-    jurisdictionalIssues: [JurisdictionalIssueType]
-    societalImpacts: [SocietalImpactCategory]
-    hostingSystem: AISystem
-  }
-
-type AIAuditor
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type AIComponent
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    componentFunction: AIFunctionalComponent
-    dependsOn: [AIComponent]
-  }
-
-interface AIConcept
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-  }
-
-type AIConceptsCollection
-  {
-    aiSystems: [AISystem]
-    aiModels: [AIModel]
-    aiDatasets: [Dataset]
-    aiLifecycleProcesses: [AILifecycleProcess]
-    aiStakeholderRoles: [AIStakeholderRole]
-    aiApplications: [AIApplication]
-    trustworthinessRecords: [TrustworthinessProperty]
-    tasks: [Task]
-    dataProcesses: [DataProcess]
-    iotSystems: [IoTSystem]
-    cyberPhysicalSystems: [CyberPhysicalSystem]
-    knowledgeGraphs: [KnowledgeGraph]
-    expertSystems: [ExpertSystem]
-    abbreviations: [AbbreviationEntry]
-  }
-
-type AICustomer
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type AIEcosystem
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    computingResources: [ComputingResourceType]
-    dataSources: [String]
-    ecosystemComponents: [String]
-    aiSystems: [AISystem]
-    aiStakeholderRoles: [AIStakeholderRole]
-    bigDataCharacteristics: [BigDataCharacteristic]
-  }
-
-type AIEvaluator
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type AILifecycleProcess
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    processStage: AILifecycleStage!
-    processInputs: [String]
-    processOutputs: [String]
-    responsibleRole: AIStakeholderRoleType
-    startDate: String
-    endDate: String
-    riskItems: [String]
-    approvalCriteria: [String]
-    processSubType: String
-  }
-
-type AIModel
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    modelParadigm: MachineLearningParadigm
-    algorithmFamily: MLAlgorithmFamily
-    engineeringApproach: EngineeringApproach
-    trainingDataset: Dataset
-    validationDataset: Dataset
-    testDataset: Dataset
-    hyperparameters: [String]
-    modelVersion: String
-    trainedOn: String
-    supportsContinuousLearning: Boolean
-    catastrophicForgettingRisk: ConfidenceScore
-    parameterCount: Int
-    trainingDuration: DurationType
-    inferenceLatencyMs: Float
-    modelCompressionApplied: Boolean
-    neuralNetworkArchitecture: NeuralNetworkArchitecture
-    activationFunction: ActivationFunctionType
-    trainingPhenomena: [NeuralNetworkPhenomenon]
-  }
-
-type AIPartner
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type AIPlatformProvider
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type AIProducer
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type AIProvider
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type AIServiceProductProvider
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type AIStakeholderRole
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-  }
-
-type AISubject
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type AISystem
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    aiSystemType: AISystemType
-    symbolicApproach: SymbolicApproach
-    autonomyLevel: AutonomyLevel
-    intendedPurpose: String
-    applicationDomain: [AIApplicationDomain]
-    aiField: [AIField]
-    functionalComponents: [AIFunctionalComponent]
-    lifecycleStage: AILifecycleStage
-    stakeholders: [AIStakeholderRole]
-    components: [AIComponent]
-    models: [AIModel]
-    datasets: [Dataset]
-    trustworthinessProperties: [TrustworthinessProperty]
-    jurisdictionalIssues: [JurisdictionalIssueType]
-    societalImpacts: [SocietalImpactCategory]
-    systemCharacteristics: [AISystemCharacteristic]
-    taskCategories: [TaskCategory]
-    agentArchitecture: AgentArchitectureType
-    dataProcesses: [DataProcess]
-    iotIntegration: IoTSystem
-  }
-
-type AISystemIntegrator
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type AITerm
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-  }
-
-type AIUser
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type AutonomyAssessment
-  {
-    id: String!
-    name: String!
-    description: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    autonomyLevel: AutonomyLevel
-    autonomyCriterionScores: [String]
-    clauseReference: String
-  }
-
-type CatastrophicForgetting
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    affectedModel: AIModel
-    mitigationStrategy: String
-  }
-
-type CognitiveComputingSystem
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    cognitiveCapabilities: [String]
-  }
-
-type ComputationVerifier
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type ComputerVisionFunction
-  {
-    id: String!
-    name: String!
+    aicActionDecision: AicDecision!
+    aicActionTarget: String
+    aicActionTime: String
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    cvTask: ComputerVisionTask!
   }
 
-type ComputerVisionTerm
+type AicAgent
   {
-    id: String!
-    name: String!
+    aicSystemType: String!
+    aicSystemPurpose: String
+    aicSystemScope: AicSystemScope
+    aicSystemApproaches: [AicApproach]
+    aicSystemTechniques: [AicTechnique]
+    aicSystemAutomated: Boolean
+    aicSystemAutonomy: AicAutonomy
+    aicSystemHumanTeaming: String
+    aicSystemStage: AicLifecycleStage
+    aicSystemFields: [AicField]
+    aicSystemSteps: [AicFunctionalStep]
+    aicSystemComponents: [AicComponent]
+    aicSystemModels: [AicModel]
+    aicSystemDatasets: [AicDataset]
+    aicSystemTasks: [AicTask]
+    aicSystemStakeholders: [AicStakeholder]
+    aicSystemResourcePools: [AicResourcePool]
+    aicSystemJurisdictionalIssues: [String]
+    aicSystemSocietalImpacts: [String]
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
+    aicAgentGoals: [String]!
+    aicAgentEnvironment: String
   }
 
-type ConvolutionOperation
+type AicApplication implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicApplicationSystem: AicSystem!
+    aicApplicationDomain: AicApplicationDomain
+    aicApplicationSector: String
+    aicApplicationPurpose: String
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    kernelSize: [Int]
-    stride: Int
-    padding: String
   }
 
-type CyberPhysicalSystem
+type AicAssessment implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicAssessmentKind: AicAssessmentKind!
+    aicAssessmentSystem: AicSystem!
+    aicAssessmentMethod: String
+    aicAssessmentResult: String
+    aicAssessmentDate: String
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    physicalProcesses: [String]
-    cyberComponents: [AIComponent]
-    iotSubsystem: IoTSystem
   }
 
-type DataDrift
+type AicComponent implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicComponentStep: AicFunctionalStep
+    aicComponentDependsOn: [AicComponent]
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    driftType: String
-    detectedAt: String
-    affectedDataset: Dataset
   }
 
-type DataLabel
+type AicCyberPhysicalSystem implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicCpsPhysicalProcesses: [String]!
+    aicCpsIotSystem: AicIotSystem
+    aicCpsAiSystems: [AicSystem]
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    labelValue: String!
-    labelType: DataLabelType
-    annotator: AIStakeholderRole
   }
 
-type DataProcess
+type AicDataProcess
   {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    processType: DataProcessType!
-    inputDataset: Dataset
-    outputDataset: Dataset
-    parameters: [String]
-    executedBy: AIStakeholderRole
-  }
-
-type DataProvider
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type DataSample
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    samplePayload: String
-    sampleLabel: String
-  }
-
-type Dataset
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    dataModality: [DataModality]
-    datasetRole: DatasetRole
-    dataProvenance: String
-    recordCount: Int
-    dataQualityNotes: String
-    containsPersonalData: Boolean
-    labelType: DataLabelType
-    groundTruthAvailable: Boolean
-    featureCount: Int
-    dataProcessesApplied: [DataProcess]
-  }
-
-type DataSubject
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type DataTerm
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-  }
-
-type Decision
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    decisionOutcome: String
-    decisionPolicy: String
-    basedOnPredictions: [Prediction]
-  }
-
-type EvaluationMetric
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    metricName: String!
-    metricValue: Float
-    metricUnit: String
-    referenceDataset: Dataset
-  }
-
-type ExpertSystem
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    ruleCount: Int
-    inferenceEngine: InferenceEngine
-  }
-
-type FaultToleranceMechanism
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    mechanismType: String
-    coverageScope: String
-  }
-
-type GroundTruthRecord
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    groundTruthValue: String!
-    provenanceStatement: String
-  }
-
-type HumanMachineTeam
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    humanRoles: [String]
-    aiSystemsInvolved: [AISystem]
-    taskAllocation: String
-  }
-
-type Inference
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    inferenceStrategy: String
-    performedBy: InferenceEngine
-    overModel: AIModel
-    producedOutput: String
-  }
-
-type InferenceEngine
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    inferenceStrategy: String
-    usesModel: AIModel
-  }
-
-type InputData
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    dataSourceType: DataSourceType
-    dataCollectionMethod: DataCollectionMethod
-    modality: DataModality
-    consumedBy: AISystem
-  }
-
-type IntelligenceAugmentation
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    augmentedCapability: [String]
-  }
-
-type InterestedParty
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-  }
-
-type IoTDevice
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    deviceRole: IoTDeviceRole!
-    sensingCapabilities: [String]
-    actuatingCapabilities: [String]
-  }
-
-type IoTSystem
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    devices: [IoTDevice]
-    aiComponents: [AIComponent]
-  }
-
-type KnowledgeGraph
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    symbolicApproach: SymbolicApproach
-    knowledgeType: KnowledgeType
-    representationForm: String
-    nodeCount: Int
-    edgeCount: Int
-    ontologyReference: [String]
-  }
-
-type KnowledgeRepresentation
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    symbolicApproach: SymbolicApproach
-    knowledgeType: KnowledgeType
-    representationForm: String
-  }
-
-type MachineLearningTerm
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-  }
-
-type ModelDesigner
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type ModelImplementer
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-type ModelVerifier
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
-  }
-
-interface NamedEntity
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-  }
-
-type NaturalLanguage
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    languageCode: String
-    script: String
-  }
-
-type NeuralNetworkModel
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    modelParadigm: MachineLearningParadigm
-    engineeringApproach: EngineeringApproach
-    trainingDataset: Dataset
-    validationDataset: Dataset
-    testDataset: Dataset
-    hyperparameters: [String]
-    modelVersion: String
-    trainedOn: String
-    supportsContinuousLearning: Boolean
-    catastrophicForgettingRisk: ConfidenceScore
-    parameterCount: Int
-    trainingDuration: DurationType
-    inferenceLatencyMs: Float
-    modelCompressionApplied: Boolean
-    neuralNetworkArchitecture: NeuralNetworkArchitecture
-    activationFunction: ActivationFunctionType
-    trainingPhenomena: [NeuralNetworkPhenomenon]
-    numberOfLayers: Int
-    numberOfParameters: Int
-    algorithmFamily: MLAlgorithmFamily
-  }
-
-type NeuralNetworkTerm
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-  }
-
-type Neuron
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    activationFunction: ActivationFunctionType
-    inputArity: Int
-  }
-
-type NLPComponent
-  {
-    id: String!
-    name: String!
-    description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    nlpComponentType: NLPComponentType!
+    aicDataProcessKind: AicDataProcessKind!
+    aicDataProcessMethod: String
+    aicDataProcessDate: String
   }
 
-type NLPTerm
+type AicDataset implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicDatasetRoles: [AicDatasetRole]
+    aicDatasetSource: String
+    aicDatasetSampleCount: Int
+    aicDatasetLabels: [String]
+    aicDatasetGroundTruth: String
+    aicDatasetHoldsPii: Boolean
+    aicDatasetProcesses: [AicDataProcess]
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
   }
 
-type OECDLifecycleMapping
+type AicDecision implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicDecisionOutcome: String!
+    aicDecisionPredictions: [AicPrediction]
+    aicDecisionCriteria: String
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    isoStage: AILifecycleStage!
-    oecdStage: OECDLifecycleStage!
-    mappingNotes: String
   }
 
-type Organization
+type AicEcosystem implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicEcosystemSystems: [AicSystem]
+    aicEcosystemComponents: [AicComponent]
+    aicEcosystemKnowledge: [AicKnowledge]
+    aicEcosystemTasks: [AicTask]
+    aicEcosystemModels: [AicModel]
+    aicEcosystemDatasets: [AicDataset]
+    aicEcosystemStakeholders: [AicStakeholder]
+    aicEcosystemLifecycleProcesses: [AicLifecycleProcess]
+    aicEcosystemClaims: [AicTrustworthinessClaim]
+    aicEcosystemAssessments: [AicAssessment]
+    aicEcosystemPredictions: [AicPrediction]
+    aicEcosystemDecisions: [AicDecision]
+    aicEcosystemActions: [AicAction]
+    aicEcosystemApplications: [AicApplication]
+    aicEcosystemResourcePools: [AicResourcePool]
+    aicEcosystemIotDevices: [AicIotDevice]
+    aicEcosystemIotSystems: [AicIotSystem]
+    aicEcosystemCyberPhysicalSystems: [AicCyberPhysicalSystem]
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
   }
 
-type PolicyMaker
+type AicExpertSystem
   {
-    id: String!
-    name: String!
+    aicSystemType: String!
+    aicSystemPurpose: String
+    aicSystemScope: AicSystemScope
+    aicSystemApproaches: [AicApproach]
+    aicSystemTechniques: [AicTechnique]
+    aicSystemAutomated: Boolean
+    aicSystemAutonomy: AicAutonomy
+    aicSystemHumanTeaming: String
+    aicSystemStage: AicLifecycleStage
+    aicSystemFields: [AicField]
+    aicSystemSteps: [AicFunctionalStep]
+    aicSystemComponents: [AicComponent]
+    aicSystemModels: [AicModel]
+    aicSystemDatasets: [AicDataset]
+    aicSystemTasks: [AicTask]
+    aicSystemStakeholders: [AicStakeholder]
+    aicSystemResourcePools: [AicResourcePool]
+    aicSystemJurisdictionalIssues: [String]
+    aicSystemSocietalImpacts: [String]
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
+    aicExpertKnowledge: [AicKnowledge]!
+    aicExpertInference: String
   }
 
-type Prediction
+type AicIotDevice implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicDeviceSenses: [String]
+    aicDeviceActuates: [String]
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    predictedValue: String
-    confidence: ConfidenceScore
-    producedBy: AIModel
   }
 
-type Recommendation
+type AicIotSystem implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicIotDevices: [AicIotDevice]!
+    aicIotAiSystems: [AicSystem]
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    recommendationOutcomeType: RecommendationOutcomeType
-    confidence: ConfidenceScore
-    recommendedItems: [String]
-    basedOnPredictions: [Prediction]
   }
 
-type Regulator
+type AicKnowledge implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicKnowledgeKind: AicKnowledgeKind
+    aicKnowledgeRepresentation: String
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
   }
 
-type RelevantAuthority
+type AicLifecycleProcess implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicLifecycleStage: AicLifecycleStage!
+    aicLifecycleSystem: AicSystem
+    aicLifecycleInputs: [String]
+    aicLifecycleOutputs: [String]
+    aicLifecycleResponsible: AicStakeholder
+    aicLifecycleStart: String
+    aicLifecycleEnd: String
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    organizationName: String
-    contact: String
-    responsibilities: [String]
-    stakeholderRoleType: AIStakeholderRoleType!
   }
 
-type ResourcePool
+type AicMachineLearningModel
   {
-    id: String!
-    name: String!
+    aicModelType: String!
+    aicModelVersion: String
+    aicModelRepresents: String
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    resourceType: ComputingResourceType!
-    capacityUnits: String
+    aicMlParadigm: AicLearningParadigm
+    aicMlAlgorithm: AicAlgorithmFamily
+    aicMlDatasets: [AicDataset]
+    aicMlHyperparameters: [String]
+    aicMlParameterCount: Int
+    aicMlTrainedOn: String
+    aicMlRetrainedFrom: AicMachineLearningModel
+    aicMlContinuousLearning: Boolean
   }
 
-type RiskItem
+type AicModel implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicModelType: String!
+    aicModelVersion: String
+    aicModelRepresents: String
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    riskSource: String
-    potentialEvent: String
-    consequence: String
-    likelihood: ConfidenceScore
-    severity: String
-    mitigationStrategy: [String]
-    affectedStakeholders: [AIStakeholderRole]
   }
 
-type Robot
+type AicNeuralNetworkModel
   {
-    id: String!
-    name: String!
+    aicModelType: String!
+    aicModelVersion: String
+    aicModelRepresents: String
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    embodiment: String
-    controlledBy: AISystem
+    aicMlParadigm: AicLearningParadigm
+    aicMlAlgorithm: AicAlgorithmFamily
+    aicMlDatasets: [AicDataset]
+    aicMlHyperparameters: [String]
+    aicMlParameterCount: Int
+    aicMlTrainedOn: String
+    aicMlRetrainedFrom: AicMachineLearningModel
+    aicMlContinuousLearning: Boolean
+    aicNetworkArchitecture: AicNetworkArchitecture
+    aicNetworkLayerCount: Int
+    aicNetworkActivationFunctions: [String]
   }
 
-type SemanticComputingSystem
+type AicPrediction implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicPredictionSystem: AicSystem!
+    aicPredictionValue: String!
+    aicPredictionConfidence: Float
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    semanticModel: String
   }
 
-type SoftComputingSystem
+interface AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    softComputingTechniques: [SoftComputingTechnique]!
   }
 
-type Task
+type AicResourcePool implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicPoolKind: AicResourceKind
+    aicPoolHardware: String
+    aicPoolCapacity: String
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    taskCategory: TaskCategory!
-    inputModalities: [DataModality]
-    outputLabelType: DataLabelType
-    performanceMetric: [String]
   }
 
-interface Term
+type AicRobot
   {
-    id: String!
-    name: String!
+    aicSystemType: String!
+    aicSystemPurpose: String
+    aicSystemScope: AicSystemScope
+    aicSystemApproaches: [AicApproach]
+    aicSystemTechniques: [AicTechnique]
+    aicSystemAutomated: Boolean
+    aicSystemAutonomy: AicAutonomy
+    aicSystemHumanTeaming: String
+    aicSystemStage: AicLifecycleStage
+    aicSystemFields: [AicField]
+    aicSystemSteps: [AicFunctionalStep]
+    aicSystemComponents: [AicComponent]
+    aicSystemModels: [AicModel]
+    aicSystemDatasets: [AicDataset]
+    aicSystemTasks: [AicTask]
+    aicSystemStakeholders: [AicStakeholder]
+    aicSystemResourcePools: [AicResourcePool]
+    aicSystemJurisdictionalIssues: [String]
+    aicSystemSocietalImpacts: [String]
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
+    aicRobotActuators: [String]!
+    aicRobotSensors: [String]
   }
 
-type Threshold
+type AicStakeholder implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicStakeholderRole: AicStakeholderRole!
+    aicStakeholderSubRoles: [AicStakeholderSubRole]
+    aicStakeholderOrganization: String
+    aicStakeholderContact: String
+    aicStakeholderResponsibilities: [String]
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    thresholdValue: Float!
-    appliesToMetric: String
-    thresholdPolicy: String
   }
 
-type TrustworthinessProperty
+type AicSystem implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicSystemType: String!
+    aicSystemPurpose: String
+    aicSystemScope: AicSystemScope
+    aicSystemApproaches: [AicApproach]
+    aicSystemTechniques: [AicTechnique]
+    aicSystemAutomated: Boolean
+    aicSystemAutonomy: AicAutonomy
+    aicSystemHumanTeaming: String
+    aicSystemStage: AicLifecycleStage
+    aicSystemFields: [AicField]
+    aicSystemSteps: [AicFunctionalStep]
+    aicSystemComponents: [AicComponent]
+    aicSystemModels: [AicModel]
+    aicSystemDatasets: [AicDataset]
+    aicSystemTasks: [AicTask]
+    aicSystemStakeholders: [AicStakeholder]
+    aicSystemResourcePools: [AicResourcePool]
+    aicSystemJurisdictionalIssues: [String]
+    aicSystemSocietalImpacts: [String]
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    trustworthinessPropertyType: TrustworthinessPropertyType!
-    propertyEvidence: [String]
-    measurementMethod: String
-    applicableBiases: [BiasType]
-    confidenceScore: ConfidenceScore
   }
 
-type TrustworthinessTerm
+type AicTask implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicTaskKind: AicTaskKind
+    aicTaskGoal: String
+    aicTaskLanguages: [String]
+    aicTaskPerformanceMeasures: [String]
+    aicId: String!
+    title: String!
     description: String
-    clauseReference: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
   }
 
-type VerificationValidationFramework
+type AicTrustworthinessClaim implements AicRecordMixin
   {
-    id: String!
-    name: String!
+    aicClaimSystem: AicSystem!
+    aicClaimProperty: AicTrustworthinessProperty!
+    aicClaimEvidence: [String]
+    aicClaimMeasure: String
+    aicId: String!
+    title: String!
     description: String
-    aliases: [String]
-    preferredLabel: String
-    seeAlsoUri: [String]
-    verificationValidationLevel: VerificationValidationLevel
-    clauseReference: String
-    verificationMethods: [String]
-    validationMethods: [String]
   }

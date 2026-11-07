@@ -1,0 +1,8 @@
+---
+aic_id: ex:building
+title: Building access
+aic_iot_devices:
+  - ex:door-sensor
+  - ex:door-lock
+aic_iot_ai_systems:
+  - ex:fraud-screen

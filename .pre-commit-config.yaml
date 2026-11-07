@@ -1,13 +1,30 @@
 ---
 # https://pre-commit.com/
+# No hook may rewrite a file this repository does not write by hand:
+# - what the LinkML generators and `lokf adapt` write, which the next run
+#   would rewrite back;
+# - ISO's records, which tests check against their hashes;
+# - the neighbours' released copies, which tests check against their
+#   checksums;
+# - npm's lockfile for the release tools;
+# - the KTL sidecar's scripts, which the weekly sync replaces.
+exclude: >-
+  (?x)^(
+    src/iso22989/datamodel/|
+    src/iso22989/schema/iso-open-data/|
+    project/|
+    docs/schema/|
+    \.lokf/(scripts|m365)/|
+    \.lokf/(lokf|iso22989)\.yaml$|
+    \.github/release/package-lock\.json$|
+    tests/neighbours/
+  )
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
       - id: check-toml
       - id: check-yaml
-        # mkdocs.yml uses !!python/name tags unsupported by the safe YAML loader
-        exclude: ^mkdocs\.yml$
       - id: end-of-file-fixer
         exclude: ^\.copier-answers\.yml$
       - id: trailing-whitespace

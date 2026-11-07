@@ -1,0 +1,5 @@
+---
+aic_id: ex:door-sensor
+title: Door sensor
+aic_device_senses:
+  - Whether a door is open.

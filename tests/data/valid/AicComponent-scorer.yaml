@@ -1,0 +1,6 @@
+---
+aic_id: ex:scorer
+title: Scorer
+aic_component_step: prediction
+aic_component_depends_on:
+  - ex:feature-store

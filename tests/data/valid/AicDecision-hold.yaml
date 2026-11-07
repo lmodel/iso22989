@@ -1,0 +1,7 @@
+---
+aic_id: ex:dec-1
+title: Hold payment 1
+aic_decision_outcome: Hold the payment for review.
+aic_decision_predictions:
+  - ex:pred-1
+aic_decision_criteria: Hold anything scored over 0.9.
