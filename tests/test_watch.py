@@ -412,3 +412,29 @@ def test_a_field_the_dataset_chooses_is_quoted(watch, tmp_path):
     assert code == 1
     assert "`ISO/IEC 22989:2022/Amd 9 @someone # [a link](https://x)`" in text
     assert "\n# [a link]" not in text
+
+
+@pytest.mark.parametrize(
+    "line",
+    [
+        '["ISO/IEC 22989:2022/Amd 1"]',
+        '{"id": "74296", "reference": "ISO/IEC 22989:2022/Amd 1"}',
+        '{"id": 99995, "reference": ["ISO/IEC 22989:2022/Amd 1"], "replaces": 74296}',
+        '{"id": 99994, "reference": "ISO/IEC DIS 22989", "replaces": [[74296]]}',
+    ],
+)
+def test_a_line_that_is_not_a_record_is_passed_over(watch, tmp_path, line):
+    """A matching line that is not a record with a whole-number id, or whose
+    fields have the wrong shape, neither stops the check nor counts as a
+    finding."""
+    _stub(watch, _records())
+    lines = watch._lines
+
+    def with_odd_line(url):
+        yield line + "\n"
+        yield from lines(url)
+
+    watch._lines = with_odd_line
+    code, text = _run(watch, tmp_path)
+    assert code == 0, text
+    assert "3 of 3 pinned records are unchanged." in text

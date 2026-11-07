@@ -190,6 +190,31 @@ def _code(text: object) -> str:
     return "`" + " ".join(str(text).replace("`", "'").split()) + "`"
 
 
+def _record(line: str) -> dict | None:
+    """A dataset line as a record, or None when it is not one: a JSON object
+    whose id is a whole number. The record is kept as served, so its hash
+    still matches the pinned line."""
+    record = json.loads(line)
+    if not isinstance(record, dict) or type(record.get("id")) is not int:
+        return None
+    return record
+
+
+def _reference(record: dict) -> str:
+    """A record's reference, or an empty string when it is not a string."""
+    reference = record.get("reference")
+    return reference if isinstance(reference, str) else ""
+
+
+def _replaces(record: dict) -> set[int]:
+    """The pinned ids a record replaces. A field that is not a list of whole
+    numbers names none."""
+    replaces = record.get("replaces")
+    if not isinstance(replaces, list):
+        return set()
+    return {i for i in replaces if type(i) is int} & PINNED_RECORDS.keys()
+
+
 def line_of(record: dict) -> str:
     """A record as the extract writes it: the dataset's compact JSON, without
     the fields the extract leaves out."""
@@ -261,13 +286,15 @@ def check_records() -> tuple[list[str], bool]:
     for line in _lines(DATASET):
         if not _relevant(line):
             continue
-        record = json.loads(line)
+        record = _record(line)
+        if record is None:
+            continue
         rid = record["id"]
         if rid in PINNED_RECORDS:
             live[rid] = record
-        if record.get("reference", "").startswith(SUPPLEMENT_PREFIX):
+        if _reference(record).startswith(SUPPLEMENT_PREFIX):
             supplements[rid] = record
-        if set(record.get("replaces") or []) & set(PINNED_RECORDS):
+        if _replaces(record):
             successors[rid] = record
 
     report, attention = [], False
@@ -327,7 +354,7 @@ def check_records() -> tuple[list[str], bool]:
             )
     for rid, record in sorted(successors.items()):
         attention = True
-        replaced = sorted(set(record.get("replaces") or []) & set(PINNED_RECORDS))
+        replaced = sorted(_replaces(record))
         report.append(
             f"- **{_code(record.get('reference'))} (record {_code(rid)}, stage "
             f"{_code(record.get('currentStage'))}) replaces record "
