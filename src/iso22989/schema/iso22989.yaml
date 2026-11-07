@@ -1245,6 +1245,7 @@ classes:
       aic_ml_hyperparameters:
         description: The settings fixed before training, each as name=value.
         multivalued: true
+        pattern: "^[^=\\s]+=\\S.*$"
         annotations:
           iso22989_term: "3.3.4"
       aic_ml_parameter_count:

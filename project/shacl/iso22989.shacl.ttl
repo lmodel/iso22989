@@ -7,158 +7,158 @@
 iso22989:AicAction a sh:NodeShape ;
 	rdfs:comment "What was done because of a decision." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n168 ;
-	sh:property _:c14n114 , _:c14n119 , _:c14n232 , _:c14n326 , _:c14n353 , _:c14n95 ;
+	sh:ignoredProperties _:c14n170 ;
+	sh:property _:c14n116 , _:c14n121 , _:c14n234 , _:c14n327 , _:c14n353 , _:c14n97 ;
 	sh:targetClass iso22989:AicAction .
 iso22989:AicAgent a sh:NodeShape ;
 	rdfs:comment "A system that perceives its surroundings and acts on them in pursuit of goals." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n229 ;
-	sh:property _:c14n128 , _:c14n161 , _:c14n189 , _:c14n193 , _:c14n20 , _:c14n203 , _:c14n210 , _:c14n218 , _:c14n234 , _:c14n258 , _:c14n266 , _:c14n292 , _:c14n300 , _:c14n304 , _:c14n308 , _:c14n316 , _:c14n322 , _:c14n338 , _:c14n361 , _:c14n65 , _:c14n77 , _:c14n78 , _:c14n85 , _:c14n89 ;
+	sh:ignoredProperties _:c14n231 ;
+	sh:property _:c14n130 , _:c14n163 , _:c14n191 , _:c14n195 , _:c14n205 , _:c14n21 , _:c14n212 , _:c14n220 , _:c14n236 , _:c14n259 , _:c14n267 , _:c14n293 , _:c14n301 , _:c14n305 , _:c14n309 , _:c14n317 , _:c14n323 , _:c14n338 , _:c14n361 , _:c14n67 , _:c14n79 , _:c14n80 , _:c14n87 , _:c14n91 ;
 	sh:targetClass iso22989:AicAgent .
 iso22989:AicApplication a sh:NodeShape ;
 	rdfs:comment "One use of a system in a line of work." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n27 ;
-	sh:property _:c14n17 , _:c14n194 , _:c14n282 , _:c14n295 , _:c14n298 , _:c14n363 , _:c14n6 ;
+	sh:ignoredProperties _:c14n28 ;
+	sh:property _:c14n18 , _:c14n196 , _:c14n283 , _:c14n296 , _:c14n299 , _:c14n363 , _:c14n6 ;
 	sh:targetClass iso22989:AicApplication .
 iso22989:AicAssessment a sh:NodeShape ;
 	rdfs:comment "One verification or validation of a system." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n226 ;
-	sh:property _:c14n102 , _:c14n166 , _:c14n198 , _:c14n228 , _:c14n270 , _:c14n28 , _:c14n341 , _:c14n349 ;
+	sh:ignoredProperties _:c14n228 ;
+	sh:property _:c14n104 , _:c14n168 , _:c14n200 , _:c14n230 , _:c14n271 , _:c14n29 , _:c14n341 , _:c14n349 ;
 	sh:targetClass iso22989:AicAssessment .
 iso22989:AicComponent a sh:NodeShape ;
 	rdfs:comment "A part of a system that does one job in it." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n303 ;
-	sh:property _:c14n120 , _:c14n164 , _:c14n307 , _:c14n311 , _:c14n52 ;
+	sh:ignoredProperties _:c14n304 ;
+	sh:property _:c14n122 , _:c14n166 , _:c14n308 , _:c14n312 , _:c14n54 ;
 	sh:targetClass iso22989:AicComponent .
 iso22989:AicCyberPhysicalSystem a sh:NodeShape ;
 	rdfs:comment "Computing and physical processes tied in a loop, each affecting the other." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n138 ;
-	sh:property _:c14n130 , _:c14n192 , _:c14n29 , _:c14n359 , _:c14n7 , _:c14n91 ;
+	sh:ignoredProperties _:c14n140 ;
+	sh:property _:c14n132 , _:c14n194 , _:c14n30 , _:c14n359 , _:c14n7 , _:c14n93 ;
 	sh:targetClass iso22989:AicCyberPhysicalSystem .
 iso22989:AicDataProcess a sh:NodeShape ;
 	rdfs:comment "One piece of work done on a dataset." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n18 ;
-	sh:property _:c14n360 , _:c14n37 , _:c14n86 ;
+	sh:ignoredProperties _:c14n19 ;
+	sh:property _:c14n360 , _:c14n38 , _:c14n88 ;
 	sh:targetClass iso22989:AicDataProcess .
 iso22989:AicDataset a sh:NodeShape ;
 	rdfs:comment "A set of data kept together in one format." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n163 ;
-	sh:property _:c14n0 , _:c14n153 , _:c14n180 , _:c14n237 , _:c14n247 , _:c14n309 , _:c14n337 , _:c14n59 , _:c14n64 , _:c14n74 ;
+	sh:ignoredProperties _:c14n165 ;
+	sh:property _:c14n0 , _:c14n155 , _:c14n182 , _:c14n239 , _:c14n249 , _:c14n310 , _:c14n337 , _:c14n61 , _:c14n66 , _:c14n76 ;
 	sh:targetClass iso22989:AicDataset .
 iso22989:AicDecision a sh:NodeShape ;
 	rdfs:comment "A choice made on the strength of some predictions." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n101 ;
-	sh:property _:c14n145 , _:c14n19 , _:c14n197 , _:c14n252 , _:c14n256 , _:c14n323 ;
+	sh:ignoredProperties _:c14n103 ;
+	sh:property _:c14n147 , _:c14n199 , _:c14n20 , _:c14n253 , _:c14n257 , _:c14n324 ;
 	sh:targetClass iso22989:AicDecision .
 iso22989:AicEcosystem a sh:NodeShape ;
 	rdfs:comment "The AI systems around one context of use, with the data, resources and parties that surround them, each kind of record in a list of its own." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n286 ;
-	sh:property _:c14n107 , _:c14n123 , _:c14n151 , _:c14n177 , _:c14n213 , _:c14n217 , _:c14n222 , _:c14n227 , _:c14n245 , _:c14n274 , _:c14n279 , _:c14n288 , _:c14n31 , _:c14n313 , _:c14n327 , _:c14n345 , _:c14n63 , _:c14n8 , _:c14n87 , _:c14n94 , _:c14n99 ;
+	sh:ignoredProperties _:c14n287 ;
+	sh:property _:c14n101 , _:c14n109 , _:c14n125 , _:c14n153 , _:c14n179 , _:c14n215 , _:c14n219 , _:c14n224 , _:c14n229 , _:c14n247 , _:c14n275 , _:c14n280 , _:c14n289 , _:c14n314 , _:c14n32 , _:c14n328 , _:c14n345 , _:c14n65 , _:c14n8 , _:c14n89 , _:c14n96 ;
 	sh:targetClass iso22989:AicEcosystem .
 iso22989:AicExpertSystem a sh:NodeShape ;
 	rdfs:comment "A system that puts what human specialists know into a form it can reason with." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n253 ;
-	sh:property _:c14n137 , _:c14n148 , _:c14n154 , _:c14n171 , _:c14n183 , _:c14n185 , _:c14n199 , _:c14n212 , _:c14n255 , _:c14n276 , _:c14n285 , _:c14n319 , _:c14n344 , _:c14n36 , _:c14n42 , _:c14n45 , _:c14n70 , _:c14n79 , _:c14n80 , _:c14n81 , _:c14n82 , _:c14n90 , _:c14n93 , _:c14n97 ;
+	sh:ignoredProperties _:c14n254 ;
+	sh:property _:c14n139 , _:c14n150 , _:c14n156 , _:c14n173 , _:c14n185 , _:c14n187 , _:c14n201 , _:c14n214 , _:c14n256 , _:c14n277 , _:c14n286 , _:c14n320 , _:c14n344 , _:c14n37 , _:c14n44 , _:c14n47 , _:c14n72 , _:c14n81 , _:c14n82 , _:c14n83 , _:c14n84 , _:c14n92 , _:c14n95 , _:c14n99 ;
 	sh:targetClass iso22989:AicExpertSystem .
 iso22989:AicIotDevice a sh:NodeShape ;
 	rdfs:comment "A connected device that reads from or acts on its physical surroundings." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n49 ;
-	sh:property _:c14n1 , _:c14n126 , _:c14n136 , _:c14n230 , _:c14n373 ;
+	sh:ignoredProperties _:c14n51 ;
+	sh:property _:c14n1 , _:c14n128 , _:c14n138 , _:c14n232 , _:c14n373 ;
 	sh:targetClass iso22989:AicIotDevice .
 iso22989:AicIotSystem a sh:NodeShape ;
 	rdfs:comment "A networked system that links devices and offers services built on them." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n159 ;
-	sh:property _:c14n116 , _:c14n133 , _:c14n202 , _:c14n68 , _:c14n88 ;
+	sh:ignoredProperties _:c14n161 ;
+	sh:property _:c14n118 , _:c14n135 , _:c14n204 , _:c14n70 , _:c14n90 ;
 	sh:targetClass iso22989:AicIotSystem .
 iso22989:AicKnowledge a sh:NodeShape ;
 	rdfs:comment "A body of what a system knows, in a form it can use." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n72 ;
-	sh:property _:c14n167 , _:c14n244 , _:c14n294 , _:c14n30 , _:c14n362 ;
+	sh:ignoredProperties _:c14n74 ;
+	sh:property _:c14n169 , _:c14n246 , _:c14n295 , _:c14n31 , _:c14n362 ;
 	sh:targetClass iso22989:AicKnowledge .
 iso22989:AicLifecycleProcess a sh:NodeShape ;
 	rdfs:comment "A piece of work done at one stage of a system's life." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n320 ;
-	sh:property _:c14n248 , _:c14n259 , _:c14n272 , _:c14n273 , _:c14n306 , _:c14n310 , _:c14n317 , _:c14n346 , _:c14n43 , _:c14n58 ;
+	sh:ignoredProperties _:c14n321 ;
+	sh:property _:c14n250 , _:c14n260 , _:c14n273 , _:c14n274 , _:c14n307 , _:c14n311 , _:c14n318 , _:c14n346 , _:c14n45 , _:c14n60 ;
 	sh:targetClass iso22989:AicLifecycleProcess .
 iso22989:AicMachineLearningModel a sh:NodeShape ;
 	rdfs:comment "A model whose numbers were fitted to data by a training run." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n181 ;
-	sh:property _:c14n122 , _:c14n125 , _:c14n129 , _:c14n143 , _:c14n174 , _:c14n201 , _:c14n206 , _:c14n215 , _:c14n225 , _:c14n260 , _:c14n329 , _:c14n339 , _:c14n358 , _:c14n367 ;
+	sh:ignoredProperties _:c14n183 ;
+	sh:property _:c14n124 , _:c14n127 , _:c14n131 , _:c14n14 , _:c14n145 , _:c14n176 , _:c14n203 , _:c14n208 , _:c14n217 , _:c14n227 , _:c14n261 , _:c14n339 , _:c14n358 , _:c14n367 ;
 	sh:targetClass iso22989:AicMachineLearningModel .
 iso22989:AicModel a sh:NodeShape ;
 	rdfs:comment "A representation of something, made so that a system can compute with it." ;
 	sh:closed true ;
 	sh:ignoredProperties _:c14n352 ;
-	sh:property _:c14n121 , _:c14n299 , _:c14n330 , _:c14n347 , _:c14n357 , _:c14n365 ;
+	sh:property _:c14n123 , _:c14n300 , _:c14n330 , _:c14n347 , _:c14n357 , _:c14n365 ;
 	sh:targetClass iso22989:AicModel .
 iso22989:AicNeuralNetworkModel a sh:NodeShape ;
 	rdfs:comment "A kind of machine learning model built from layers of simple connected units." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n117 ;
-	sh:property _:c14n147 , _:c14n149 , _:c14n157 , _:c14n178 , _:c14n24 , _:c14n251 , _:c14n254 , _:c14n281 , _:c14n301 , _:c14n33 , _:c14n331 , _:c14n333 , _:c14n335 , _:c14n348 , _:c14n350 , _:c14n48 , _:c14n69 ;
+	sh:ignoredProperties _:c14n119 ;
+	sh:property _:c14n149 , _:c14n151 , _:c14n159 , _:c14n180 , _:c14n25 , _:c14n255 , _:c14n282 , _:c14n302 , _:c14n331 , _:c14n333 , _:c14n335 , _:c14n34 , _:c14n348 , _:c14n350 , _:c14n40 , _:c14n50 , _:c14n71 ;
 	sh:targetClass iso22989:AicNeuralNetworkModel .
 iso22989:AicPrediction a sh:NodeShape ;
 	rdfs:comment "A result a system worked out for one case." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n160 ;
-	sh:property _:c14n111 , _:c14n12 , _:c14n141 , _:c14n169 , _:c14n233 , _:c14n371 ;
+	sh:ignoredProperties _:c14n162 ;
+	sh:property _:c14n113 , _:c14n12 , _:c14n143 , _:c14n171 , _:c14n235 , _:c14n371 ;
 	sh:targetClass iso22989:AicPrediction .
 iso22989:AicRecordMixin a sh:NodeShape ;
 	rdfs:comment "What every record has, so that other records can refer to it: an identifier, a title and a description." ;
 	sh:closed false ;
-	sh:ignoredProperties _:c14n60 ;
-	sh:property _:c14n142 , _:c14n146 , _:c14n364 ;
+	sh:ignoredProperties _:c14n62 ;
+	sh:property _:c14n144 , _:c14n148 , _:c14n364 ;
 	sh:targetClass iso22989:AicRecordMixin .
 iso22989:AicResourcePool a sh:NodeShape ;
 	rdfs:comment "A body of computing resource that AI work can draw on." ;
 	sh:closed true ;
 	sh:ignoredProperties _:c14n342 ;
-	sh:property _:c14n139 , _:c14n156 , _:c14n195 , _:c14n249 , _:c14n324 , _:c14n57 ;
+	sh:property _:c14n141 , _:c14n158 , _:c14n197 , _:c14n251 , _:c14n325 , _:c14n59 ;
 	sh:targetClass iso22989:AicResourcePool .
 iso22989:AicRobot a sh:NodeShape ;
 	rdfs:comment "A system that moves or acts on physical things through its own actuators." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n165 ;
-	sh:property _:c14n135 , _:c14n172 , _:c14n175 , _:c14n2 , _:c14n200 , _:c14n22 , _:c14n221 , _:c14n246 , _:c14n25 , _:c14n257 , _:c14n280 , _:c14n287 , _:c14n296 , _:c14n297 , _:c14n328 , _:c14n343 , _:c14n35 , _:c14n356 , _:c14n366 , _:c14n47 , _:c14n56 , _:c14n73 , _:c14n76 , _:c14n9 ;
+	sh:ignoredProperties _:c14n167 ;
+	sh:property _:c14n137 , _:c14n174 , _:c14n177 , _:c14n2 , _:c14n202 , _:c14n223 , _:c14n23 , _:c14n248 , _:c14n258 , _:c14n26 , _:c14n281 , _:c14n288 , _:c14n297 , _:c14n298 , _:c14n329 , _:c14n343 , _:c14n356 , _:c14n36 , _:c14n366 , _:c14n49 , _:c14n58 , _:c14n75 , _:c14n78 , _:c14n9 ;
 	sh:targetClass iso22989:AicRobot .
 iso22989:AicStakeholder a sh:NodeShape ;
 	rdfs:comment "A person, group or organization with a part in an AI system or an interest in it." ;
 	sh:closed true ;
 	sh:ignoredProperties _:c14n10 ;
-	sh:property _:c14n118 , _:c14n150 , _:c14n242 , _:c14n269 , _:c14n34 , _:c14n340 , _:c14n370 , _:c14n46 ;
+	sh:property _:c14n120 , _:c14n152 , _:c14n244 , _:c14n270 , _:c14n340 , _:c14n35 , _:c14n370 , _:c14n48 ;
 	sh:targetClass iso22989:AicStakeholder .
 iso22989:AicSystem a sh:NodeShape ;
 	rdfs:comment "A system built to produce results for goals set by people, using AI techniques, whatever else it is made of." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n224 ;
-	sh:property _:c14n106 , _:c14n108 , _:c14n131 , _:c14n144 , _:c14n155 , _:c14n16 , _:c14n186 , _:c14n190 , _:c14n236 , _:c14n26 , _:c14n262 , _:c14n283 , _:c14n305 , _:c14n314 , _:c14n325 , _:c14n332 , _:c14n4 , _:c14n41 , _:c14n44 , _:c14n51 , _:c14n55 , _:c14n84 ;
+	sh:ignoredProperties _:c14n226 ;
+	sh:property _:c14n108 , _:c14n110 , _:c14n133 , _:c14n146 , _:c14n157 , _:c14n17 , _:c14n188 , _:c14n192 , _:c14n238 , _:c14n263 , _:c14n27 , _:c14n284 , _:c14n306 , _:c14n315 , _:c14n326 , _:c14n332 , _:c14n4 , _:c14n43 , _:c14n46 , _:c14n53 , _:c14n57 , _:c14n86 ;
 	sh:targetClass iso22989:AicSystem .
 iso22989:AicTask a sh:NodeShape ;
 	rdfs:comment "Something a system is asked to get done." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n204 ;
-	sh:property _:c14n173 , _:c14n191 , _:c14n243 , _:c14n268 , _:c14n290 , _:c14n369 , _:c14n5 ;
+	sh:ignoredProperties _:c14n206 ;
+	sh:property _:c14n175 , _:c14n193 , _:c14n245 , _:c14n269 , _:c14n291 , _:c14n369 , _:c14n5 ;
 	sh:targetClass iso22989:AicTask .
 iso22989:AicTrustworthinessClaim a sh:NodeShape ;
 	rdfs:comment "A claim that a system has a property people can rely on, with what backs it." ;
 	sh:closed true ;
-	sh:ignoredProperties _:c14n110 ;
-	sh:property _:c14n103 , _:c14n140 , _:c14n264 , _:c14n271 , _:c14n312 , _:c14n315 , _:c14n334 ;
+	sh:ignoredProperties _:c14n112 ;
+	sh:property _:c14n105 , _:c14n142 , _:c14n265 , _:c14n272 , _:c14n313 , _:c14n316 , _:c14n334 ;
 	sh:targetClass iso22989:AicTrustworthinessClaim .
 _:c14n0 sh:datatype xsd:integer ;
 	sh:description "How many samples it holds." ;
@@ -174,81 +174,76 @@ _:c14n1 sh:datatype xsd:string ;
 	sh:path iso22989:aic_device_senses .
 _:c14n10 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n100 rdf:first "controllability" ;
-	rdf:rest _:c14n321 .
-_:c14n101 rdf:first rdf:type ;
+_:c14n100 rdf:first "relationship_extraction" ;
+	rdf:rest _:c14n136 .
+_:c14n101 sh:class iso22989:AicTrustworthinessClaim ;
+	sh:description "The trustworthiness claims made for those systems." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 8 ;
+	sh:path iso22989:aic_ecosystem_claims .
+_:c14n102 rdf:first "controllability" ;
+	rdf:rest _:c14n322 .
+_:c14n103 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n102 sh:datatype xsd:date ;
+_:c14n104 sh:datatype xsd:date ;
 	sh:description "When it was done." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 4 ;
 	sh:path iso22989:aic_assessment_date .
-_:c14n103 sh:datatype xsd:string ;
+_:c14n105 sh:datatype xsd:string ;
 	sh:description "How the property was measured, if it was." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 3 ;
 	sh:path iso22989:aic_claim_measure .
-_:c14n104 rdf:first "feed_forward" ;
+_:c14n106 rdf:first "feed_forward" ;
 	rdf:rest _:c14n13 .
-_:c14n105 rdf:first "edge" ;
-	rdf:rest _:c14n158 .
-_:c14n106 sh:description "The families of technique it is built with." ;
-	sh:in _:c14n387 ;
+_:c14n107 rdf:first "edge" ;
+	rdf:rest _:c14n160 .
+_:c14n108 sh:description "The families of technique it is built with." ;
+	sh:in _:c14n401 ;
 	sh:order 4 ;
 	sh:path iso22989:aic_system_techniques .
-_:c14n107 sh:class iso22989:AicComponent ;
+_:c14n109 sh:class iso22989:AicComponent ;
 	sh:description "The parts of those systems." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 1 ;
 	sh:path iso22989:aic_ecosystem_components .
-_:c14n108 sh:description "The steps from data to action that it performs." ;
-	sh:in _:c14n425 ;
+_:c14n11 rdf:first "data_provider" ;
+	rdf:rest _:c14n216 .
+_:c14n110 sh:description "The steps from data to action that it performs." ;
+	sh:in _:c14n420 ;
 	sh:order 10 ;
 	sh:path iso22989:aic_system_steps .
-_:c14n109 rdf:first "system_transparency" ;
-	rdf:rest _:c14n71 .
-_:c14n11 rdf:first "data_provider" ;
-	rdf:rest _:c14n214 .
-_:c14n110 rdf:first rdf:type ;
+_:c14n111 rdf:first "system_transparency" ;
+	rdf:rest _:c14n73 .
+_:c14n112 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n111 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n113 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 3 ;
 	sh:path iso22989:aic_id .
-_:c14n112 rdf:first "validation" ;
-	rdf:rest _:c14n14 .
-_:c14n113 rdf:first "accountability" ;
-	rdf:rest _:c14n50 .
-_:c14n114 sh:datatype xsd:string ;
+_:c14n114 rdf:first "validation" ;
+	rdf:rest _:c14n15 .
+_:c14n115 rdf:first "accountability" ;
+	rdf:rest _:c14n52 .
+_:c14n116 sh:datatype xsd:string ;
 	sh:description "What it acted on." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 1 ;
 	sh:path iso22989:aic_action_target .
-_:c14n115 rdf:first "data_quality_checking" ;
-	rdf:rest _:c14n21 .
-_:c14n116 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n117 rdf:first "data_quality_checking" ;
+	rdf:rest _:c14n22 .
+_:c14n118 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 2 ;
 	sh:path iso22989:aic_id .
-_:c14n117 rdf:first rdf:type ;
+_:c14n119 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n118 sh:description "The narrower parts it plays within that role." ;
-	sh:in _:c14n293 ;
-	sh:order 1 ;
-	sh:path iso22989:aic_stakeholder_sub_roles .
-_:c14n119 sh:datatype xsd:string ;
-	sh:description "The name the record's author gives it." ;
-	sh:maxCount 1 ;
-	sh:minCount 1 ;
-	sh:nodeKind sh:Literal ;
-	sh:order 4 ;
-	sh:path schema1:name ;
-	sh:pattern "^\\s*\\S" .
 _:c14n12 sh:class iso22989:AicSystem ;
 	sh:description "The system that produced it." ;
 	sh:maxCount 1 ;
@@ -256,79 +251,91 @@ _:c14n12 sh:class iso22989:AicSystem ;
 	sh:nodeKind sh:IRI ;
 	sh:order 0 ;
 	sh:path iso22989:aic_prediction_system .
-_:c14n120 sh:description "The step from data to action this part performs." ;
-	sh:in _:c14n410 ;
+_:c14n120 sh:description "The narrower parts it plays within that role." ;
+	sh:in _:c14n294 ;
+	sh:order 1 ;
+	sh:path iso22989:aic_stakeholder_sub_roles .
+_:c14n121 sh:datatype xsd:string ;
+	sh:description "The name the record's author gives it." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 4 ;
+	sh:path schema1:name ;
+	sh:pattern "^\\s*\\S" .
+_:c14n122 sh:description "The step from data to action this part performs." ;
+	sh:in _:c14n415 ;
 	sh:maxCount 1 ;
 	sh:order 0 ;
 	sh:path iso22989:aic_component_step .
-_:c14n121 sh:datatype xsd:string ;
+_:c14n123 sh:datatype xsd:string ;
 	sh:description "What the model stands for, such as a process or a body of data." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 2 ;
 	sh:path iso22989:aic_model_represents .
-_:c14n122 sh:class iso22989:AicDataset ;
+_:c14n124 sh:class iso22989:AicDataset ;
 	sh:description "The datasets used to fit, tune and test it." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 2 ;
 	sh:path iso22989:aic_ml_datasets .
-_:c14n123 sh:class iso22989:AicKnowledge ;
+_:c14n125 sh:class iso22989:AicKnowledge ;
 	sh:description "The bodies of knowledge those systems draw on." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 2 ;
 	sh:path iso22989:aic_ecosystem_knowledge .
-_:c14n124 rdf:first iso22989:aic_ml_retrained_from ;
-	rdf:rest _:c14n267 .
-_:c14n125 sh:datatype xsd:date ;
+_:c14n126 rdf:first iso22989:aic_ml_retrained_from ;
+	rdf:rest _:c14n268 .
+_:c14n127 sh:datatype xsd:date ;
 	sh:description "When the last training run ended." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 5 ;
 	sh:path iso22989:aic_ml_trained_on .
-_:c14n126 sh:datatype xsd:string ;
+_:c14n128 sh:datatype xsd:string ;
 	sh:description "What the device acts on." ;
 	sh:nodeKind sh:Literal ;
 	sh:order 1 ;
 	sh:path iso22989:aic_device_actuates .
-_:c14n127 rdf:first "convolutional" ;
+_:c14n129 rdf:first "convolutional" ;
 	rdf:rest rdf:nil .
-_:c14n128 sh:class iso22989:AicResourcePool ;
+_:c14n13 rdf:first "recurrent" ;
+	rdf:rest _:c14n33 .
+_:c14n130 sh:class iso22989:AicResourcePool ;
 	sh:description "The computing resources it runs on." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 18 ;
 	sh:path iso22989:aic_system_resource_pools .
-_:c14n129 sh:datatype xsd:string ;
+_:c14n131 sh:datatype xsd:string ;
 	sh:description "What the model stands for, such as a process or a body of data." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 10 ;
 	sh:path iso22989:aic_model_represents .
-_:c14n13 rdf:first "recurrent" ;
-	rdf:rest _:c14n32 .
-_:c14n130 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n132 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 3 ;
 	sh:path iso22989:aic_id .
-_:c14n131 sh:description "Whether it works symbolically, subsymbolically or both ways." ;
-	sh:in _:c14n522 ;
+_:c14n133 sh:description "Whether it works symbolically, subsymbolically or both ways." ;
+	sh:in _:c14n518 ;
 	sh:order 3 ;
 	sh:path iso22989:aic_system_approaches .
-_:c14n132 rdf:first "natural_language_generation" ;
-	rdf:rest _:c14n40 .
-_:c14n133 sh:datatype xsd:string ;
+_:c14n134 rdf:first "natural_language_generation" ;
+	rdf:rest _:c14n42 .
+_:c14n135 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 4 ;
 	sh:path schema1:description .
-_:c14n134 rdf:first "sentiment_analysis" ;
-	rdf:rest _:c14n275 .
-_:c14n135 sh:description "The fields of AI it belongs to." ;
+_:c14n136 rdf:first "sentiment_analysis" ;
+	rdf:rest _:c14n276 .
+_:c14n137 sh:description "The fields of AI it belongs to." ;
 	sh:in _:c14n495 ;
 	sh:order 11 ;
 	sh:path iso22989:aic_system_fields .
-_:c14n136 sh:datatype xsd:string ;
+_:c14n138 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -336,28 +343,32 @@ _:c14n136 sh:datatype xsd:string ;
 	sh:order 3 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n137 sh:class iso22989:AicKnowledge ;
+_:c14n139 sh:class iso22989:AicKnowledge ;
 	sh:description "The bodies of knowledge the system reasons with." ;
 	sh:minCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 0 ;
 	sh:path iso22989:aic_expert_knowledge .
-_:c14n138 rdf:first rdf:type ;
+_:c14n14 sh:datatype xsd:string ;
+	sh:description "The settings fixed before training, each as name=value." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path iso22989:aic_ml_hyperparameters ;
+	sh:pattern "^[^=\\s]+=\\S.*$" .
+_:c14n140 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n139 sh:datatype xsd:string ;
+_:c14n141 sh:datatype xsd:string ;
 	sh:description "How much it offers, in units its owner uses." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 2 ;
 	sh:path iso22989:aic_pool_capacity .
-_:c14n14 rdf:first "test" ;
-	rdf:rest _:c14n289 .
-_:c14n140 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n142 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 4 ;
 	sh:path iso22989:aic_id .
-_:c14n141 sh:datatype xsd:string ;
+_:c14n143 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -365,7 +376,7 @@ _:c14n141 sh:datatype xsd:string ;
 	sh:order 4 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n142 sh:datatype xsd:string ;
+_:c14n144 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -373,7 +384,7 @@ _:c14n142 sh:datatype xsd:string ;
 	sh:order 1 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n143 sh:datatype xsd:string ;
+_:c14n145 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -381,55 +392,55 @@ _:c14n143 sh:datatype xsd:string ;
 	sh:order 12 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n144 sh:class iso22989:AicTask ;
+_:c14n146 sh:class iso22989:AicTask ;
 	sh:description "The tasks it takes on." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 14 ;
 	sh:path iso22989:aic_system_tasks .
-_:c14n145 sh:datatype xsd:string ;
+_:c14n147 sh:datatype xsd:string ;
 	sh:description "What was chosen." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 0 ;
 	sh:path iso22989:aic_decision_outcome .
-_:c14n146 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n148 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 0 ;
 	sh:path iso22989:aic_id .
-_:c14n147 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n149 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 14 ;
 	sh:path iso22989:aic_id .
-_:c14n148 sh:datatype xsd:string ;
+_:c14n15 rdf:first "test" ;
+	rdf:rest _:c14n290 .
+_:c14n150 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 23 ;
 	sh:path schema1:description .
-_:c14n149 sh:description "How the model learned from its data." ;
+_:c14n151 sh:description "How the model learned from its data." ;
 	sh:in _:c14n429 ;
 	sh:maxCount 1 ;
 	sh:order 3 ;
 	sh:path iso22989:aic_ml_paradigm .
-_:c14n15 rdf:first "ai_system_integrator" ;
-	rdf:rest _:c14n11 .
-_:c14n150 sh:datatype xsd:string ;
+_:c14n152 sh:datatype xsd:string ;
 	sh:description "The organization the party is or belongs to." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 2 ;
 	sh:path iso22989:aic_stakeholder_organization .
-_:c14n151 sh:class iso22989:AicCyberPhysicalSystem ;
+_:c14n153 sh:class iso22989:AicCyberPhysicalSystem ;
 	sh:description "The cyber-physical systems in the ecosystem." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 17 ;
 	sh:path iso22989:aic_ecosystem_cyber_physical_systems .
-_:c14n152 rdf:first "automated_vehicles" ;
-	rdf:rest _:c14n176 .
-_:c14n153 sh:datatype xsd:string ;
+_:c14n154 rdf:first "automated_vehicles" ;
+	rdf:rest _:c14n178 .
+_:c14n155 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -437,22 +448,22 @@ _:c14n153 sh:datatype xsd:string ;
 	sh:order 8 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n154 sh:description "How wide a range of problems the system can take on." ;
+_:c14n156 sh:description "How wide a range of problems the system can take on." ;
 	sh:in _:c14n503 ;
 	sh:maxCount 1 ;
 	sh:order 4 ;
 	sh:path iso22989:aic_system_scope .
-_:c14n155 sh:description "The stage of its life the system is in now." ;
-	sh:in _:c14n477 ;
+_:c14n157 sh:description "The stage of its life the system is in now." ;
+	sh:in _:c14n461 ;
 	sh:maxCount 1 ;
 	sh:order 8 ;
 	sh:path iso22989:aic_system_stage .
-_:c14n156 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n158 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 3 ;
 	sh:path iso22989:aic_id .
-_:c14n157 sh:datatype xsd:string ;
+_:c14n159 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -460,49 +471,51 @@ _:c14n157 sh:datatype xsd:string ;
 	sh:order 15 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n158 rdf:first "application_specific_integrated_circuit" ;
+_:c14n16 rdf:first "ai_system_integrator" ;
+	rdf:rest _:c14n11 .
+_:c14n160 rdf:first "application_specific_integrated_circuit" ;
 	rdf:rest rdf:nil .
-_:c14n159 rdf:first rdf:type ;
+_:c14n161 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n16 sh:class iso22989:AicModel ;
-	sh:description "The models it uses." ;
-	sh:nodeKind sh:IRI ;
-	sh:order 12 ;
-	sh:path iso22989:aic_system_models .
-_:c14n160 rdf:first rdf:type ;
+_:c14n162 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n161 sh:datatype xsd:string ;
+_:c14n163 sh:datatype xsd:string ;
 	sh:description "What the system is meant to do." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 3 ;
 	sh:path iso22989:aic_system_purpose .
-_:c14n162 rdf:first "automatic_summarization" ;
-	rdf:rest _:c14n61 .
-_:c14n163 rdf:first rdf:type ;
+_:c14n164 rdf:first "automatic_summarization" ;
+	rdf:rest _:c14n63 .
+_:c14n165 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n164 sh:datatype xsd:string ;
+_:c14n166 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 4 ;
 	sh:path schema1:description .
-_:c14n165 rdf:first rdf:type ;
+_:c14n167 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n166 sh:description "Whether it checks the system against its specification or against its purpose." ;
-	sh:in _:c14n83 ;
+_:c14n168 sh:description "Whether it checks the system against its specification or against its purpose." ;
+	sh:in _:c14n85 ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
 	sh:order 0 ;
 	sh:path iso22989:aic_assessment_kind .
-_:c14n167 sh:description "Whether it states what is the case or what to do." ;
-	sh:in _:c14n207 ;
+_:c14n169 sh:description "Whether it states what is the case or what to do." ;
+	sh:in _:c14n209 ;
 	sh:maxCount 1 ;
 	sh:order 0 ;
 	sh:path iso22989:aic_knowledge_kind .
-_:c14n168 rdf:first rdf:type ;
+_:c14n17 sh:class iso22989:AicModel ;
+	sh:description "The models it uses." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 12 ;
+	sh:path iso22989:aic_system_models .
+_:c14n170 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n169 sh:datatype xsd:float ;
+_:c14n171 sh:datatype xsd:float ;
 	sh:description "How sure the system was, from 0 to 1." ;
 	sh:maxCount 1 ;
 	sh:maxInclusive 1 ;
@@ -510,15 +523,9 @@ _:c14n169 sh:datatype xsd:float ;
 	sh:nodeKind sh:Literal ;
 	sh:order 2 ;
 	sh:path iso22989:aic_prediction_confidence .
-_:c14n17 sh:datatype xsd:string ;
-	sh:description "What this use is for." ;
-	sh:maxCount 1 ;
-	sh:nodeKind sh:Literal ;
-	sh:order 3 ;
-	sh:path iso22989:aic_application_purpose .
-_:c14n170 rdf:first "policy_maker" ;
-	rdf:rest _:c14n75 .
-_:c14n171 sh:datatype xsd:string ;
+_:c14n172 rdf:first "policy_maker" ;
+	rdf:rest _:c14n77 .
+_:c14n173 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -526,91 +533,89 @@ _:c14n171 sh:datatype xsd:string ;
 	sh:order 22 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n172 sh:description "Whether it can change its own remit or stays under outside direction." ;
-	sh:in _:c14n514 ;
+_:c14n174 sh:description "Whether it can change its own remit or stays under outside direction." ;
+	sh:in _:c14n516 ;
 	sh:maxCount 1 ;
 	sh:order 8 ;
 	sh:path iso22989:aic_system_autonomy .
-_:c14n173 sh:description "The named kind of task it is, where it is one." ;
-	sh:in _:c14n162 ;
+_:c14n175 sh:description "The named kind of task it is, where it is one." ;
+	sh:in _:c14n164 ;
 	sh:maxCount 1 ;
 	sh:order 0 ;
 	sh:path iso22989:aic_task_kind .
-_:c14n174 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n176 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 11 ;
 	sh:path iso22989:aic_id .
-_:c14n175 sh:description "The steps from data to action that it performs." ;
+_:c14n177 sh:description "The steps from data to action that it performs." ;
 	sh:in _:c14n405 ;
 	sh:order 12 ;
 	sh:path iso22989:aic_system_steps .
-_:c14n176 rdf:first "predictive_maintenance" ;
+_:c14n178 rdf:first "predictive_maintenance" ;
 	rdf:rest rdf:nil .
-_:c14n177 sh:class iso22989:AicIotSystem ;
+_:c14n179 sh:class iso22989:AicIotSystem ;
 	sh:description "The connected systems in the ecosystem." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 16 ;
 	sh:path iso22989:aic_ecosystem_iot_systems .
-_:c14n178 sh:datatype xsd:string ;
+_:c14n18 sh:datatype xsd:string ;
+	sh:description "What this use is for." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path iso22989:aic_application_purpose .
+_:c14n180 sh:datatype xsd:string ;
 	sh:description "The functions its units use to turn their inputs into an output." ;
 	sh:nodeKind sh:Literal ;
 	sh:order 2 ;
 	sh:path iso22989:aic_network_activation_functions .
-_:c14n179 rdf:first "face_recognition" ;
+_:c14n181 rdf:first "face_recognition" ;
 	rdf:rest _:c14n351 .
-_:c14n18 rdf:first rdf:type ;
-	rdf:rest rdf:nil .
-_:c14n180 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n182 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 7 ;
 	sh:path iso22989:aic_id .
-_:c14n181 rdf:first rdf:type ;
-	rdf:rest _:c14n527 .
-_:c14n182 rdf:first iso22989:aic_agent_goals ;
-	rdf:rest _:c14n263 .
-_:c14n183 sh:class iso22989:AicTask ;
+_:c14n183 rdf:first rdf:type ;
+	rdf:rest _:c14n530 .
+_:c14n184 rdf:first iso22989:aic_agent_goals ;
+	rdf:rest _:c14n264 .
+_:c14n185 sh:class iso22989:AicTask ;
 	sh:description "The tasks it takes on." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 16 ;
 	sh:path iso22989:aic_system_tasks .
-_:c14n184 rdf:first "ai_subject" ;
-	rdf:rest _:c14n54 .
-_:c14n185 sh:datatype xsd:string ;
+_:c14n186 rdf:first "ai_subject" ;
+	rdf:rest _:c14n56 .
+_:c14n187 sh:datatype xsd:string ;
 	sh:description "The legal questions that follow from where it is built, offered or used." ;
 	sh:nodeKind sh:Literal ;
 	sh:order 19 ;
 	sh:path iso22989:aic_system_jurisdictional_issues .
-_:c14n186 sh:datatype xsd:string ;
+_:c14n188 sh:datatype xsd:string ;
 	sh:description "Which class this record is: AicSystem or a kind of it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 0 ;
 	sh:path iso22989:aic_system_type .
-_:c14n187 rdf:first "ai_customer" ;
-	rdf:rest _:c14n240 .
-_:c14n188 rdf:first iso22989:aic_agent_environment ;
-	rdf:rest _:c14n182 .
-_:c14n189 sh:description "The families of technique it is built with." ;
+_:c14n189 rdf:first "ai_customer" ;
+	rdf:rest _:c14n242 .
+_:c14n19 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n190 rdf:first iso22989:aic_agent_environment ;
+	rdf:rest _:c14n184 .
+_:c14n191 sh:description "The families of technique it is built with." ;
 	sh:in _:c14n380 ;
 	sh:order 6 ;
 	sh:path iso22989:aic_system_techniques .
-_:c14n19 sh:datatype xsd:string ;
-	sh:description "The name the record's author gives it." ;
-	sh:maxCount 1 ;
-	sh:minCount 1 ;
-	sh:nodeKind sh:Literal ;
-	sh:order 4 ;
-	sh:path schema1:name ;
-	sh:pattern "^\\s*\\S" .
-_:c14n190 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n192 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 19 ;
 	sh:path iso22989:aic_id .
-_:c14n191 sh:datatype xsd:string ;
+_:c14n193 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -618,139 +623,177 @@ _:c14n191 sh:datatype xsd:string ;
 	sh:order 5 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n192 sh:datatype xsd:string ;
+_:c14n194 sh:datatype xsd:string ;
 	sh:description "The physical processes it senses and controls." ;
 	sh:minCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 0 ;
 	sh:path iso22989:aic_cps_physical_processes .
-_:c14n193 sh:description "Whether it can change its own remit or stays under outside direction." ;
-	sh:in _:c14n516 ;
+_:c14n195 sh:description "Whether it can change its own remit or stays under outside direction." ;
+	sh:in _:c14n514 ;
 	sh:maxCount 1 ;
 	sh:order 8 ;
 	sh:path iso22989:aic_system_autonomy .
-_:c14n194 sh:class iso22989:AicSystem ;
+_:c14n196 sh:class iso22989:AicSystem ;
 	sh:description "The system applied." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 0 ;
 	sh:path iso22989:aic_application_system .
-_:c14n195 sh:datatype xsd:string ;
+_:c14n197 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 5 ;
 	sh:path schema1:description .
-_:c14n196 rdf:first "ai_producer" ;
-	rdf:rest _:c14n187 .
-_:c14n197 sh:datatype xsd:string ;
+_:c14n198 rdf:first "ai_producer" ;
+	rdf:rest _:c14n189 .
+_:c14n199 sh:datatype xsd:string ;
 	sh:description "How the choice was made, such as a threshold or a rule." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 2 ;
 	sh:path iso22989:aic_decision_criteria .
-_:c14n198 sh:datatype xsd:string ;
-	sh:description "What the record describes, in its author's words." ;
-	sh:maxCount 1 ;
-	sh:nodeKind sh:Literal ;
-	sh:order 7 ;
-	sh:path schema1:description .
-_:c14n199 sh:description "The families of technique it is built with." ;
-	sh:in _:c14n401 ;
-	sh:order 6 ;
-	sh:path iso22989:aic_system_techniques .
 _:c14n2 sh:description "The families of technique it is built with." ;
 	sh:in _:c14n394 ;
 	sh:order 6 ;
 	sh:path iso22989:aic_system_techniques .
 _:c14n20 sh:datatype xsd:string ;
-	sh:description "The legal questions that follow from where it is built, offered or used." ;
+	sh:description "The name the record's author gives it." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
 	sh:nodeKind sh:Literal ;
-	sh:order 19 ;
-	sh:path iso22989:aic_system_jurisdictional_issues .
+	sh:order 4 ;
+	sh:path schema1:name ;
+	sh:pattern "^\\s*\\S" .
 _:c14n200 sh:datatype xsd:string ;
+	sh:description "What the record describes, in its author's words." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 7 ;
+	sh:path schema1:description .
+_:c14n201 sh:description "The families of technique it is built with." ;
+	sh:in _:c14n387 ;
+	sh:order 6 ;
+	sh:path iso22989:aic_system_techniques .
+_:c14n202 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 23 ;
 	sh:path schema1:description .
-_:c14n201 sh:class iso22989:AicMachineLearningModel ;
+_:c14n203 sh:class iso22989:AicMachineLearningModel ;
 	sh:description "The earlier model that this one updates by training it again on other data." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 6 ;
 	sh:path iso22989:aic_ml_retrained_from .
-_:c14n202 sh:class iso22989:AicIotDevice ;
+_:c14n204 sh:class iso22989:AicIotDevice ;
 	sh:description "The devices in it." ;
 	sh:minCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 0 ;
 	sh:path iso22989:aic_iot_devices .
-_:c14n203 sh:datatype xsd:string ;
+_:c14n205 sh:datatype xsd:string ;
 	sh:description "How people and the system share the work, if they do." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 9 ;
 	sh:path iso22989:aic_system_human_teaming .
-_:c14n204 rdf:first rdf:type ;
+_:c14n206 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n205 rdf:first "robustness" ;
-	rdf:rest _:c14n291 .
-_:c14n206 sh:description "The family of algorithm that fitted it." ;
+_:c14n207 rdf:first "robustness" ;
+	rdf:rest _:c14n292 .
+_:c14n208 sh:description "The family of algorithm that fitted it." ;
 	sh:in _:c14n442 ;
 	sh:maxCount 1 ;
 	sh:order 1 ;
 	sh:path iso22989:aic_ml_algorithm .
-_:c14n207 rdf:first "declarative" ;
-	rdf:rest _:c14n261 .
-_:c14n208 rdf:first iso22989:aic_ml_parameter_count ;
-	rdf:rest _:c14n124 .
-_:c14n209 rdf:first "speech_synthesis" ;
-	rdf:rest _:c14n179 .
-_:c14n21 rdf:first "data_augmentation" ;
-	rdf:rest _:c14n67 .
-_:c14n210 sh:class iso22989:AicStakeholder ;
+_:c14n209 rdf:first "declarative" ;
+	rdf:rest _:c14n262 .
+_:c14n21 sh:datatype xsd:string ;
+	sh:description "The legal questions that follow from where it is built, offered or used." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 19 ;
+	sh:path iso22989:aic_system_jurisdictional_issues .
+_:c14n210 rdf:first iso22989:aic_ml_parameter_count ;
+	rdf:rest _:c14n126 .
+_:c14n211 rdf:first "speech_synthesis" ;
+	rdf:rest _:c14n181 .
+_:c14n212 sh:class iso22989:AicStakeholder ;
 	sh:description "The parties around it." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 17 ;
 	sh:path iso22989:aic_system_stakeholders .
-_:c14n211 rdf:first iso22989:aic_ml_continuous_learning ;
-	rdf:rest _:c14n302 .
-_:c14n212 sh:description "Whether it can change its own remit or stays under outside direction." ;
+_:c14n213 rdf:first iso22989:aic_ml_continuous_learning ;
+	rdf:rest _:c14n303 .
+_:c14n214 sh:description "Whether it can change its own remit or stays under outside direction." ;
 	sh:in _:c14n512 ;
 	sh:maxCount 1 ;
 	sh:order 8 ;
 	sh:path iso22989:aic_system_autonomy .
-_:c14n213 sh:class iso22989:AicTask ;
+_:c14n215 sh:class iso22989:AicTask ;
 	sh:description "The tasks those systems take on." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 3 ;
 	sh:path iso22989:aic_ecosystem_tasks .
-_:c14n214 rdf:first "data_subject" ;
-	rdf:rest _:c14n219 .
-_:c14n215 sh:datatype xsd:string ;
+_:c14n216 rdf:first "data_subject" ;
+	rdf:rest _:c14n221 .
+_:c14n217 sh:datatype xsd:string ;
 	sh:description "Which class this record is: AicModel or a kind of it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 8 ;
 	sh:path iso22989:aic_model_type .
-_:c14n216 rdf:first "emotion_recognition" ;
-	rdf:rest _:c14n265 .
-_:c14n217 sh:class iso22989:AicAction ;
+_:c14n218 rdf:first "emotion_recognition" ;
+	rdf:rest _:c14n266 .
+_:c14n219 sh:class iso22989:AicAction ;
 	sh:description "The actions taken on those decisions." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 12 ;
 	sh:path iso22989:aic_ecosystem_actions .
-_:c14n218 sh:description "How wide a range of problems the system can take on." ;
+_:c14n22 rdf:first "data_augmentation" ;
+	rdf:rest _:c14n69 .
+_:c14n220 sh:description "How wide a range of problems the system can take on." ;
 	sh:in _:c14n501 ;
 	sh:maxCount 1 ;
 	sh:order 4 ;
 	sh:path iso22989:aic_system_scope .
-_:c14n219 rdf:first "other_subject" ;
-	rdf:rest _:c14n170 .
-_:c14n22 sh:datatype xsd:string ;
+_:c14n221 rdf:first "other_subject" ;
+	rdf:rest _:c14n172 .
+_:c14n222 rdf:first iso22989:aic_robot_actuators ;
+	rdf:rest _:c14n98 .
+_:c14n223 sh:class iso22989:AicResourcePool ;
+	sh:description "The computing resources it runs on." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 18 ;
+	sh:path iso22989:aic_system_resource_pools .
+_:c14n224 sh:class iso22989:AicIotDevice ;
+	sh:description "The connected devices in the ecosystem." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 15 ;
+	sh:path iso22989:aic_ecosystem_iot_devices .
+_:c14n225 rdf:first "machine_translation" ;
+	rdf:rest _:c14n94 .
+_:c14n226 rdf:first rdf:type ;
+	rdf:rest _:c14n190 .
+_:c14n227 sh:datatype xsd:integer ;
+	sh:description "How many numbers training fitted." ;
+	sh:maxCount 1 ;
+	sh:minInclusive 0 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 4 ;
+	sh:path iso22989:aic_ml_parameter_count .
+_:c14n228 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n229 sh:class iso22989:AicApplication ;
+	sh:description "Where those systems are applied." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 13 ;
+	sh:path iso22989:aic_ecosystem_applications .
+_:c14n23 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -758,75 +801,43 @@ _:c14n22 sh:datatype xsd:string ;
 	sh:order 22 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n220 rdf:first iso22989:aic_robot_actuators ;
-	rdf:rest _:c14n96 .
-_:c14n221 sh:class iso22989:AicResourcePool ;
-	sh:description "The computing resources it runs on." ;
-	sh:nodeKind sh:IRI ;
-	sh:order 18 ;
-	sh:path iso22989:aic_system_resource_pools .
-_:c14n222 sh:class iso22989:AicIotDevice ;
-	sh:description "The connected devices in the ecosystem." ;
-	sh:nodeKind sh:IRI ;
-	sh:order 15 ;
-	sh:path iso22989:aic_ecosystem_iot_devices .
-_:c14n223 rdf:first "machine_translation" ;
-	rdf:rest _:c14n92 .
-_:c14n224 rdf:first rdf:type ;
-	rdf:rest _:c14n188 .
-_:c14n225 sh:datatype xsd:integer ;
-	sh:description "How many numbers training fitted." ;
-	sh:maxCount 1 ;
-	sh:minInclusive 0 ;
-	sh:nodeKind sh:Literal ;
-	sh:order 4 ;
-	sh:path iso22989:aic_ml_parameter_count .
-_:c14n226 rdf:first rdf:type ;
-	rdf:rest rdf:nil .
-_:c14n227 sh:class iso22989:AicApplication ;
-	sh:description "Where those systems are applied." ;
-	sh:nodeKind sh:IRI ;
-	sh:order 13 ;
-	sh:path iso22989:aic_ecosystem_applications .
-_:c14n228 sh:class iso22989:AicSystem ;
+_:c14n230 sh:class iso22989:AicSystem ;
 	sh:description "The system assessed." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 1 ;
 	sh:path iso22989:aic_assessment_system .
-_:c14n229 rdf:first rdf:type ;
+_:c14n231 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n23 rdf:first "ai_provider" ;
-	rdf:rest _:c14n196 .
-_:c14n230 sh:datatype xsd:string ;
+_:c14n232 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 4 ;
 	sh:path schema1:description .
-_:c14n231 rdf:first iso22989:aic_ml_paradigm ;
-	rdf:rest _:c14n208 .
-_:c14n232 sh:datatype xsd:string ;
+_:c14n233 rdf:first iso22989:aic_ml_paradigm ;
+	rdf:rest _:c14n210 .
+_:c14n234 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 5 ;
 	sh:path schema1:description .
-_:c14n233 sh:datatype xsd:string ;
+_:c14n235 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 5 ;
 	sh:path schema1:description .
-_:c14n234 sh:description "The stage of its life the system is in now." ;
-	sh:in _:c14n461 ;
+_:c14n236 sh:description "The stage of its life the system is in now." ;
+	sh:in _:c14n445 ;
 	sh:maxCount 1 ;
 	sh:order 10 ;
 	sh:path iso22989:aic_system_stage .
-_:c14n235 rdf:first "exploratory_data_analysis" ;
-	rdf:rest _:c14n238 .
-_:c14n236 sh:datatype xsd:string ;
+_:c14n237 rdf:first "exploratory_data_analysis" ;
+	rdf:rest _:c14n240 .
+_:c14n238 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -834,172 +845,167 @@ _:c14n236 sh:datatype xsd:string ;
 	sh:order 20 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n237 sh:class iso22989:AicDataProcess ;
+_:c14n239 sh:class iso22989:AicDataProcess ;
 	sh:description "The work done on the data." ;
 	sh:nodeKind sh:BlankNodeOrIRI ;
 	sh:order 6 ;
 	sh:path iso22989:aic_dataset_processes .
-_:c14n238 rdf:first "imputation" ;
+_:c14n24 rdf:first "ai_provider" ;
+	rdf:rest _:c14n198 .
+_:c14n240 rdf:first "imputation" ;
 	rdf:rest rdf:nil .
-_:c14n239 rdf:first "ai_user" ;
-	rdf:rest _:c14n15 .
-_:c14n24 sh:datatype xsd:string ;
+_:c14n241 rdf:first "ai_user" ;
+	rdf:rest _:c14n16 .
+_:c14n242 rdf:first "ai_partner" ;
+	rdf:rest _:c14n186 .
+_:c14n243 rdf:first "predictability" ;
+	rdf:rest _:c14n55 .
+_:c14n244 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 5 ;
+	sh:path iso22989:aic_id .
+_:c14n245 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 4 ;
+	sh:path iso22989:aic_id .
+_:c14n246 sh:datatype xsd:string ;
+	sh:description "The name the record's author gives it." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path schema1:name ;
+	sh:pattern "^\\s*\\S" .
+_:c14n247 sh:class iso22989:AicSystem ;
+	sh:description "The AI systems." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 0 ;
+	sh:path iso22989:aic_ecosystem_systems .
+_:c14n248 sh:class iso22989:AicTask ;
+	sh:description "The tasks it takes on." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 16 ;
+	sh:path iso22989:aic_system_tasks .
+_:c14n249 sh:description "What the dataset is used for." ;
+	sh:in _:c14n41 ;
+	sh:order 0 ;
+	sh:path iso22989:aic_dataset_roles .
+_:c14n25 sh:datatype xsd:string ;
 	sh:description "Which class this record is: AicModel or a kind of it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 11 ;
 	sh:path iso22989:aic_model_type .
-_:c14n240 rdf:first "ai_partner" ;
-	rdf:rest _:c14n184 .
-_:c14n241 rdf:first "predictability" ;
-	rdf:rest _:c14n53 .
-_:c14n242 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
-	sh:maxCount 1 ;
-	sh:nodeKind sh:IRI ;
-	sh:order 5 ;
-	sh:path iso22989:aic_id .
-_:c14n243 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
-	sh:maxCount 1 ;
-	sh:nodeKind sh:IRI ;
-	sh:order 4 ;
-	sh:path iso22989:aic_id .
-_:c14n244 sh:datatype xsd:string ;
-	sh:description "The name the record's author gives it." ;
-	sh:maxCount 1 ;
-	sh:minCount 1 ;
-	sh:nodeKind sh:Literal ;
-	sh:order 3 ;
-	sh:path schema1:name ;
-	sh:pattern "^\\s*\\S" .
-_:c14n245 sh:class iso22989:AicSystem ;
-	sh:description "The AI systems." ;
-	sh:nodeKind sh:IRI ;
-	sh:order 0 ;
-	sh:path iso22989:aic_ecosystem_systems .
-_:c14n246 sh:class iso22989:AicTask ;
-	sh:description "The tasks it takes on." ;
-	sh:nodeKind sh:IRI ;
-	sh:order 16 ;
-	sh:path iso22989:aic_system_tasks .
-_:c14n247 sh:description "What the dataset is used for." ;
-	sh:in _:c14n39 ;
-	sh:order 0 ;
-	sh:path iso22989:aic_dataset_roles .
-_:c14n248 sh:class iso22989:AicStakeholder ;
+_:c14n250 sh:class iso22989:AicStakeholder ;
 	sh:description "The party that answers for the work." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 4 ;
 	sh:path iso22989:aic_lifecycle_responsible .
-_:c14n249 sh:description "The kind of resource." ;
+_:c14n251 sh:description "The kind of resource." ;
 	sh:in _:c14n336 ;
 	sh:maxCount 1 ;
 	sh:order 0 ;
 	sh:path iso22989:aic_pool_kind .
-_:c14n25 sh:description "The stage of its life the system is in now." ;
-	sh:in _:c14n453 ;
-	sh:maxCount 1 ;
-	sh:order 10 ;
-	sh:path iso22989:aic_system_stage .
-_:c14n250 rdf:first "question_answering" ;
-	rdf:rest _:c14n98 .
-_:c14n251 sh:datatype xsd:string ;
-	sh:description "The settings fixed before training, each as name=value." ;
-	sh:nodeKind sh:Literal ;
-	sh:order 6 ;
-	sh:path iso22989:aic_ml_hyperparameters .
-_:c14n252 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n252 rdf:first "question_answering" ;
+	rdf:rest _:c14n100 .
+_:c14n253 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 3 ;
 	sh:path iso22989:aic_id .
-_:c14n253 rdf:first rdf:type ;
+_:c14n254 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n254 sh:datatype xsd:string ;
+_:c14n255 sh:datatype xsd:string ;
 	sh:description "What the model stands for, such as a process or a body of data." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 13 ;
 	sh:path iso22989:aic_model_represents .
-_:c14n255 sh:class iso22989:AicStakeholder ;
+_:c14n256 sh:class iso22989:AicStakeholder ;
 	sh:description "The parties around it." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 17 ;
 	sh:path iso22989:aic_system_stakeholders .
-_:c14n256 sh:class iso22989:AicPrediction ;
+_:c14n257 sh:class iso22989:AicPrediction ;
 	sh:description "The predictions it rests on." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 1 ;
 	sh:path iso22989:aic_decision_predictions .
-_:c14n257 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n258 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 21 ;
 	sh:path iso22989:aic_id .
-_:c14n258 sh:datatype xsd:string ;
+_:c14n259 sh:datatype xsd:string ;
 	sh:description "Which class this record is: AicSystem or a kind of it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 2 ;
 	sh:path iso22989:aic_system_type .
-_:c14n259 sh:class iso22989:AicSystem ;
+_:c14n26 sh:description "The stage of its life the system is in now." ;
+	sh:in _:c14n453 ;
+	sh:maxCount 1 ;
+	sh:order 10 ;
+	sh:path iso22989:aic_system_stage .
+_:c14n260 sh:class iso22989:AicSystem ;
 	sh:description "The system the work is for." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 1 ;
 	sh:path iso22989:aic_lifecycle_system .
-_:c14n26 sh:datatype xsd:boolean ;
+_:c14n261 sh:description "How the model learned from its data." ;
+	sh:in _:c14n434 ;
+	sh:maxCount 1 ;
+	sh:order 0 ;
+	sh:path iso22989:aic_ml_paradigm .
+_:c14n262 rdf:first "procedural" ;
+	rdf:rest rdf:nil .
+_:c14n263 sh:class iso22989:AicDataset ;
+	sh:description "The datasets it uses." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 13 ;
+	sh:path iso22989:aic_system_datasets .
+_:c14n264 rdf:first iso22989:aic_expert_inference ;
+	rdf:rest _:c14n285 .
+_:c14n265 sh:datatype xsd:string ;
+	sh:description "The name the record's author gives it." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 5 ;
+	sh:path schema1:name ;
+	sh:pattern "^\\s*\\S" .
+_:c14n266 rdf:first "information_retrieval" ;
+	rdf:rest _:c14n225 .
+_:c14n267 sh:class iso22989:AicTask ;
+	sh:description "The tasks it takes on." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 16 ;
+	sh:path iso22989:aic_system_tasks .
+_:c14n268 rdf:first iso22989:aic_ml_trained_on ;
+	rdf:rest _:c14n527 .
+_:c14n269 sh:datatype xsd:string ;
+	sh:description "What is measured to judge how well it is done, such as accuracy." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path iso22989:aic_task_performance_measures .
+_:c14n27 sh:datatype xsd:boolean ;
 	sh:description "Whether it runs without a person acting at each step, under the conditions given." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 5 ;
 	sh:path iso22989:aic_system_automated .
-_:c14n260 sh:description "How the model learned from its data." ;
-	sh:in _:c14n434 ;
-	sh:maxCount 1 ;
-	sh:order 0 ;
-	sh:path iso22989:aic_ml_paradigm .
-_:c14n261 rdf:first "procedural" ;
-	rdf:rest rdf:nil .
-_:c14n262 sh:class iso22989:AicDataset ;
-	sh:description "The datasets it uses." ;
-	sh:nodeKind sh:IRI ;
-	sh:order 13 ;
-	sh:path iso22989:aic_system_datasets .
-_:c14n263 rdf:first iso22989:aic_expert_inference ;
-	rdf:rest _:c14n284 .
-_:c14n264 sh:datatype xsd:string ;
-	sh:description "The name the record's author gives it." ;
-	sh:maxCount 1 ;
-	sh:minCount 1 ;
-	sh:nodeKind sh:Literal ;
-	sh:order 5 ;
-	sh:path schema1:name ;
-	sh:pattern "^\\s*\\S" .
-_:c14n265 rdf:first "information_retrieval" ;
-	rdf:rest _:c14n223 .
-_:c14n266 sh:class iso22989:AicTask ;
-	sh:description "The tasks it takes on." ;
-	sh:nodeKind sh:IRI ;
-	sh:order 16 ;
-	sh:path iso22989:aic_system_tasks .
-_:c14n267 rdf:first iso22989:aic_ml_trained_on ;
-	rdf:rest _:c14n530 .
-_:c14n268 sh:datatype xsd:string ;
-	sh:description "What is measured to judge how well it is done, such as accuracy." ;
-	sh:nodeKind sh:Literal ;
-	sh:order 3 ;
-	sh:path iso22989:aic_task_performance_measures .
-_:c14n269 sh:datatype xsd:string ;
+_:c14n270 sh:datatype xsd:string ;
 	sh:description "What the party answers for." ;
 	sh:nodeKind sh:Literal ;
 	sh:order 4 ;
 	sh:path iso22989:aic_stakeholder_responsibilities .
-_:c14n27 rdf:first rdf:type ;
-	rdf:rest rdf:nil .
-_:c14n270 sh:datatype xsd:string ;
+_:c14n271 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -1007,85 +1013,82 @@ _:c14n270 sh:datatype xsd:string ;
 	sh:order 6 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n271 sh:datatype xsd:string ;
+_:c14n272 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 6 ;
 	sh:path schema1:description .
-_:c14n272 sh:description "The stage the work belongs to." ;
+_:c14n273 sh:description "The stage the work belongs to." ;
 	sh:in _:c14n469 ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
 	sh:order 0 ;
 	sh:path iso22989:aic_lifecycle_stage .
-_:c14n273 sh:datatype xsd:date ;
+_:c14n274 sh:datatype xsd:date ;
 	sh:description "When the work ended." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 6 ;
 	sh:path iso22989:aic_lifecycle_end .
-_:c14n274 sh:class iso22989:AicModel ;
+_:c14n275 sh:class iso22989:AicModel ;
 	sh:description "The models those systems use." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 4 ;
 	sh:path iso22989:aic_ecosystem_models .
-_:c14n275 rdf:first "speech_recognition" ;
-	rdf:rest _:c14n209 .
-_:c14n276 sh:class iso22989:AicComponent ;
+_:c14n276 rdf:first "speech_recognition" ;
+	rdf:rest _:c14n211 .
+_:c14n277 sh:class iso22989:AicComponent ;
 	sh:description "The parts it is made of." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 13 ;
 	sh:path iso22989:aic_system_components .
-_:c14n277 rdf:first "input" ;
+_:c14n278 rdf:first "input" ;
 	rdf:rest rdf:nil .
-_:c14n278 rdf:first "part_of_speech_tagging" ;
-	rdf:rest _:c14n250 .
-_:c14n279 sh:class iso22989:AicStakeholder ;
+_:c14n279 rdf:first "part_of_speech_tagging" ;
+	rdf:rest _:c14n252 .
+_:c14n28 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
+_:c14n280 sh:class iso22989:AicStakeholder ;
 	sh:description "The parties around those systems." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 6 ;
 	sh:path iso22989:aic_ecosystem_stakeholders .
-_:c14n28 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
-	sh:maxCount 1 ;
-	sh:nodeKind sh:IRI ;
-	sh:order 5 ;
-	sh:path iso22989:aic_id .
-_:c14n280 sh:description "Whether it works symbolically, subsymbolically or both ways." ;
-	sh:in _:c14n520 ;
+_:c14n281 sh:description "Whether it works symbolically, subsymbolically or both ways." ;
+	sh:in _:c14n524 ;
 	sh:order 5 ;
 	sh:path iso22989:aic_system_approaches .
-_:c14n281 sh:class iso22989:AicDataset ;
+_:c14n282 sh:class iso22989:AicDataset ;
 	sh:description "The datasets used to fit, tune and test it." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 5 ;
 	sh:path iso22989:aic_ml_datasets .
-_:c14n282 sh:datatype xsd:string ;
+_:c14n283 sh:datatype xsd:string ;
 	sh:description "The sector, in the words of whoever keeps the record." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 2 ;
 	sh:path iso22989:aic_application_sector .
-_:c14n283 sh:class iso22989:AicResourcePool ;
+_:c14n284 sh:class iso22989:AicResourcePool ;
 	sh:description "The computing resources it runs on." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 16 ;
 	sh:path iso22989:aic_system_resource_pools .
-_:c14n284 rdf:first iso22989:aic_expert_knowledge ;
-	rdf:rest _:c14n220 .
-_:c14n285 sh:class iso22989:AicDataset ;
+_:c14n285 rdf:first iso22989:aic_expert_knowledge ;
+	rdf:rest _:c14n222 .
+_:c14n286 sh:class iso22989:AicDataset ;
 	sh:description "The datasets it uses." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 15 ;
 	sh:path iso22989:aic_system_datasets .
-_:c14n286 rdf:first rdf:type ;
+_:c14n287 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n287 sh:class iso22989:AicModel ;
+_:c14n288 sh:class iso22989:AicModel ;
 	sh:description "The models it uses." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 14 ;
 	sh:path iso22989:aic_system_models .
-_:c14n288 sh:datatype xsd:string ;
+_:c14n289 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -1093,35 +1096,34 @@ _:c14n288 sh:datatype xsd:string ;
 	sh:order 19 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n289 rdf:first "production" ;
-	rdf:rest _:c14n277 .
-_:c14n29 sh:class iso22989:AicIotSystem ;
-	sh:description "The connected system it runs on, if it does." ;
+_:c14n29 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
-	sh:order 1 ;
-	sh:path iso22989:aic_cps_iot_system .
-_:c14n290 sh:datatype xsd:string ;
+	sh:order 5 ;
+	sh:path iso22989:aic_id .
+_:c14n290 rdf:first "production" ;
+	rdf:rest _:c14n278 .
+_:c14n291 sh:datatype xsd:string ;
 	sh:description "What getting the task done achieves." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 1 ;
 	sh:path iso22989:aic_task_goal .
-_:c14n291 rdf:first "reliability" ;
+_:c14n292 rdf:first "reliability" ;
 	rdf:rest _:c14n368 .
-_:c14n292 sh:description "Whether it works symbolically, subsymbolically or both ways." ;
-	sh:in _:c14n524 ;
+_:c14n293 sh:description "Whether it works symbolically, subsymbolically or both ways." ;
+	sh:in _:c14n520 ;
 	sh:order 5 ;
 	sh:path iso22989:aic_system_approaches .
-_:c14n293 rdf:first "ai_platform_provider" ;
+_:c14n294 rdf:first "ai_platform_provider" ;
 	rdf:rest _:c14n355 .
-_:c14n294 sh:datatype xsd:string ;
+_:c14n295 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 4 ;
 	sh:path schema1:description .
-_:c14n295 sh:datatype xsd:string ;
+_:c14n296 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -1129,24 +1131,32 @@ _:c14n295 sh:datatype xsd:string ;
 	sh:order 5 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n296 sh:datatype xsd:string ;
+_:c14n297 sh:datatype xsd:string ;
 	sh:description "How people and the system share the work, if they do." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 9 ;
 	sh:path iso22989:aic_system_human_teaming .
-_:c14n297 sh:datatype xsd:string ;
+_:c14n298 sh:datatype xsd:string ;
 	sh:description "What the system is meant to do." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 3 ;
 	sh:path iso22989:aic_system_purpose .
-_:c14n298 sh:description "The domain, where it is one the standard works through." ;
-	sh:in _:c14n38 ;
+_:c14n299 sh:description "The domain, where it is one the standard works through." ;
+	sh:in _:c14n39 ;
 	sh:maxCount 1 ;
 	sh:order 1 ;
 	sh:path iso22989:aic_application_domain .
-_:c14n299 sh:datatype xsd:string ;
+_:c14n3 rdf:first iso22989:aic_ml_hyperparameters ;
+	rdf:rest _:c14n233 .
+_:c14n30 sh:class iso22989:AicIotSystem ;
+	sh:description "The connected system it runs on, if it does." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 1 ;
+	sh:path iso22989:aic_cps_iot_system .
+_:c14n300 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -1154,174 +1164,161 @@ _:c14n299 sh:datatype xsd:string ;
 	sh:order 4 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n3 rdf:first iso22989:aic_ml_hyperparameters ;
-	rdf:rest _:c14n231 .
-_:c14n30 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
-	sh:maxCount 1 ;
-	sh:nodeKind sh:IRI ;
-	sh:order 2 ;
-	sh:path iso22989:aic_id .
-_:c14n300 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n301 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 21 ;
 	sh:path iso22989:aic_id .
-_:c14n301 sh:description "How its layers are connected." ;
-	sh:in _:c14n104 ;
+_:c14n302 sh:description "How its layers are connected." ;
+	sh:in _:c14n106 ;
 	sh:maxCount 1 ;
 	sh:order 0 ;
 	sh:path iso22989:aic_network_architecture .
-_:c14n302 rdf:first iso22989:aic_ml_datasets ;
+_:c14n303 rdf:first iso22989:aic_ml_datasets ;
 	rdf:rest _:c14n3 .
-_:c14n303 rdf:first rdf:type ;
+_:c14n304 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n304 sh:class iso22989:AicComponent ;
+_:c14n305 sh:class iso22989:AicComponent ;
 	sh:description "The parts it is made of." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 13 ;
 	sh:path iso22989:aic_system_components .
-_:c14n305 sh:description "How wide a range of problems the system can take on." ;
-	sh:in _:c14n507 ;
+_:c14n306 sh:description "How wide a range of problems the system can take on." ;
+	sh:in _:c14n505 ;
 	sh:maxCount 1 ;
 	sh:order 2 ;
 	sh:path iso22989:aic_system_scope .
-_:c14n306 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n307 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 7 ;
 	sh:path iso22989:aic_id .
-_:c14n307 sh:class iso22989:AicComponent ;
+_:c14n308 sh:class iso22989:AicComponent ;
 	sh:description "The other parts this part needs." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 1 ;
 	sh:path iso22989:aic_component_depends_on .
-_:c14n308 sh:datatype xsd:string ;
+_:c14n309 sh:datatype xsd:string ;
 	sh:description "The surroundings the agent perceives and acts on." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 1 ;
 	sh:path iso22989:aic_agent_environment .
-_:c14n309 sh:datatype xsd:string ;
+_:c14n31 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:IRI ;
+	sh:order 2 ;
+	sh:path iso22989:aic_id .
+_:c14n310 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 9 ;
 	sh:path schema1:description .
-_:c14n31 sh:class iso22989:AicPrediction ;
-	sh:description "The predictions those systems produced." ;
-	sh:nodeKind sh:IRI ;
-	sh:order 10 ;
-	sh:path iso22989:aic_ecosystem_predictions .
-_:c14n310 sh:datatype xsd:string ;
+_:c14n311 sh:datatype xsd:string ;
 	sh:description "What the work produces." ;
 	sh:nodeKind sh:Literal ;
 	sh:order 3 ;
 	sh:path iso22989:aic_lifecycle_outputs .
-_:c14n311 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n312 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 2 ;
 	sh:path iso22989:aic_id .
-_:c14n312 sh:datatype xsd:string ;
+_:c14n313 sh:datatype xsd:string ;
 	sh:description "What backs the claim." ;
 	sh:nodeKind sh:Literal ;
 	sh:order 2 ;
 	sh:path iso22989:aic_claim_evidence .
-_:c14n313 sh:class iso22989:AicDecision ;
+_:c14n314 sh:class iso22989:AicDecision ;
 	sh:description "The decisions taken on those predictions." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 11 ;
 	sh:path iso22989:aic_ecosystem_decisions .
-_:c14n314 sh:datatype xsd:string ;
+_:c14n315 sh:datatype xsd:string ;
 	sh:description "The effects it may have on people and society beyond its users." ;
 	sh:nodeKind sh:Literal ;
 	sh:order 18 ;
 	sh:path iso22989:aic_system_societal_impacts .
-_:c14n315 sh:class iso22989:AicSystem ;
+_:c14n316 sh:class iso22989:AicSystem ;
 	sh:description "The system the claim is about." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 0 ;
 	sh:path iso22989:aic_claim_system .
-_:c14n316 sh:datatype xsd:string ;
+_:c14n317 sh:datatype xsd:string ;
 	sh:description "The goals the agent pursues." ;
 	sh:minCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 0 ;
 	sh:path iso22989:aic_agent_goals .
-_:c14n317 sh:datatype xsd:string ;
+_:c14n318 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 9 ;
 	sh:path schema1:description .
-_:c14n318 rdf:first "data_annotation" ;
-	rdf:rest _:c14n115 .
-_:c14n319 sh:datatype xsd:string ;
+_:c14n319 rdf:first "data_annotation" ;
+	rdf:rest _:c14n117 .
+_:c14n32 sh:class iso22989:AicPrediction ;
+	sh:description "The predictions those systems produced." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 10 ;
+	sh:path iso22989:aic_ecosystem_predictions .
+_:c14n320 sh:datatype xsd:string ;
 	sh:description "What the system is meant to do." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 3 ;
 	sh:path iso22989:aic_system_purpose .
-_:c14n32 rdf:first "long_short_term_memory" ;
-	rdf:rest _:c14n127 .
-_:c14n320 rdf:first rdf:type ;
+_:c14n321 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n321 rdf:first "explainability" ;
-	rdf:rest _:c14n241 .
-_:c14n322 sh:description "The steps from data to action that it performs." ;
-	sh:in _:c14n415 ;
+_:c14n322 rdf:first "explainability" ;
+	rdf:rest _:c14n243 .
+_:c14n323 sh:description "The steps from data to action that it performs." ;
+	sh:in _:c14n425 ;
 	sh:order 12 ;
 	sh:path iso22989:aic_system_steps .
-_:c14n323 sh:datatype xsd:string ;
+_:c14n324 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 5 ;
 	sh:path schema1:description .
-_:c14n324 sh:datatype xsd:string ;
+_:c14n325 sh:datatype xsd:string ;
 	sh:description "The hardware in it, such as a model of accelerator." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 1 ;
 	sh:path iso22989:aic_pool_hardware .
-_:c14n325 sh:datatype xsd:string ;
+_:c14n326 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 21 ;
 	sh:path schema1:description .
-_:c14n326 sh:datatype xsd:dateTime ;
+_:c14n327 sh:datatype xsd:dateTime ;
 	sh:description "When it was done." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 2 ;
 	sh:path iso22989:aic_action_time .
-_:c14n327 sh:datatype xsd:string ;
+_:c14n328 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 20 ;
 	sh:path schema1:description .
-_:c14n328 sh:datatype xsd:string ;
+_:c14n329 sh:datatype xsd:string ;
 	sh:description "Which class this record is: AicSystem or a kind of it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 2 ;
 	sh:path iso22989:aic_system_type .
-_:c14n329 sh:datatype xsd:string ;
-	sh:description "The settings fixed before training, each as name=value." ;
-	sh:nodeKind sh:Literal ;
-	sh:order 3 ;
-	sh:path iso22989:aic_ml_hyperparameters .
-_:c14n33 sh:datatype xsd:boolean ;
-	sh:description "Whether it goes on learning in small steps while in use." ;
-	sh:maxCount 1 ;
-	sh:nodeKind sh:Literal ;
-	sh:order 10 ;
-	sh:path iso22989:aic_ml_continuous_learning .
+_:c14n33 rdf:first "long_short_term_memory" ;
+	rdf:rest _:c14n129 .
 _:c14n330 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
@@ -1348,7 +1345,7 @@ _:c14n333 sh:datatype xsd:date ;
 	sh:order 8 ;
 	sh:path iso22989:aic_ml_trained_on .
 _:c14n334 sh:description "The property claimed." ;
-	sh:in _:c14n205 ;
+	sh:in _:c14n207 ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
 	sh:order 1 ;
@@ -1360,7 +1357,7 @@ _:c14n335 sh:class iso22989:AicMachineLearningModel ;
 	sh:order 9 ;
 	sh:path iso22989:aic_ml_retrained_from .
 _:c14n336 rdf:first "cloud" ;
-	rdf:rest _:c14n105 .
+	rdf:rest _:c14n107 .
 _:c14n337 sh:datatype xsd:string ;
 	sh:description "Where the data comes from." ;
 	sh:maxCount 1 ;
@@ -1378,16 +1375,14 @@ _:c14n339 sh:datatype xsd:boolean ;
 	sh:nodeKind sh:Literal ;
 	sh:order 7 ;
 	sh:path iso22989:aic_ml_continuous_learning .
-_:c14n34 sh:datatype xsd:string ;
-	sh:description "The name the record's author gives it." ;
+_:c14n34 sh:datatype xsd:boolean ;
+	sh:description "Whether it goes on learning in small steps while in use." ;
 	sh:maxCount 1 ;
-	sh:minCount 1 ;
 	sh:nodeKind sh:Literal ;
-	sh:order 6 ;
-	sh:path schema1:name ;
-	sh:pattern "^\\s*\\S" .
+	sh:order 10 ;
+	sh:path iso22989:aic_ml_continuous_learning .
 _:c14n340 sh:description "The part the party plays." ;
-	sh:in _:c14n23 ;
+	sh:in _:c14n24 ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
 	sh:order 0 ;
@@ -1401,12 +1396,12 @@ _:c14n341 sh:datatype xsd:string ;
 _:c14n342 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
 _:c14n343 sh:description "How wide a range of problems the system can take on." ;
-	sh:in _:c14n505 ;
+	sh:in _:c14n507 ;
 	sh:maxCount 1 ;
 	sh:order 4 ;
 	sh:path iso22989:aic_system_scope .
 _:c14n344 sh:description "Whether it works symbolically, subsymbolically or both ways." ;
-	sh:in _:c14n518 ;
+	sh:in _:c14n522 ;
 	sh:order 5 ;
 	sh:path iso22989:aic_system_approaches .
 _:c14n345 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
@@ -1439,10 +1434,13 @@ _:c14n349 sh:datatype xsd:string ;
 	sh:order 2 ;
 	sh:path iso22989:aic_assessment_method .
 _:c14n35 sh:datatype xsd:string ;
-	sh:description "The sensors through which it perceives." ;
+	sh:description "The name the record's author gives it." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
 	sh:nodeKind sh:Literal ;
-	sh:order 1 ;
-	sh:path iso22989:aic_robot_sensors .
+	sh:order 6 ;
+	sh:path schema1:name ;
+	sh:pattern "^\\s*\\S" .
 _:c14n350 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
@@ -1463,7 +1461,7 @@ _:c14n353 sh:class iso22989:AicDecision ;
 _:c14n354 rdf:first "validation" ;
 	rdf:rest rdf:nil .
 _:c14n355 rdf:first "ai_product_or_service_provider" ;
-	rdf:rest _:c14n66 .
+	rdf:rest _:c14n68 .
 _:c14n356 sh:datatype xsd:string ;
 	sh:description "The effects it may have on people and society beyond its users." ;
 	sh:nodeKind sh:Literal ;
@@ -1491,12 +1489,10 @@ _:c14n359 sh:datatype xsd:string ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
 _:c14n36 sh:datatype xsd:string ;
-	sh:description "Which class this record is: AicSystem or a kind of it." ;
-	sh:maxCount 1 ;
-	sh:minCount 1 ;
+	sh:description "The sensors through which it perceives." ;
 	sh:nodeKind sh:Literal ;
-	sh:order 2 ;
-	sh:path iso22989:aic_system_type .
+	sh:order 1 ;
+	sh:path iso22989:aic_robot_sensors .
 _:c14n360 sh:datatype xsd:string ;
 	sh:description "How it was done, such as the tool used." ;
 	sh:maxCount 1 ;
@@ -1542,19 +1538,20 @@ _:c14n367 sh:datatype xsd:string ;
 	sh:order 13 ;
 	sh:path schema1:description .
 _:c14n368 rdf:first "resilience" ;
-	rdf:rest _:c14n100 .
+	rdf:rest _:c14n102 .
 _:c14n369 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 6 ;
 	sh:path schema1:description .
-_:c14n37 sh:description "The kind of work." ;
-	sh:in _:c14n318 ;
+_:c14n37 sh:datatype xsd:string ;
+	sh:description "Which class this record is: AicSystem or a kind of it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
-	sh:order 0 ;
-	sh:path iso22989:aic_data_process_kind .
+	sh:nodeKind sh:Literal ;
+	sh:order 2 ;
+	sh:path iso22989:aic_system_type .
 _:c14n370 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
@@ -1569,7 +1566,7 @@ _:c14n371 sh:datatype xsd:string ;
 	sh:order 1 ;
 	sh:path iso22989:aic_prediction_value .
 _:c14n372 rdf:first iso22989:aic_ml_algorithm ;
-	rdf:rest _:c14n211 .
+	rdf:rest _:c14n213 .
 _:c14n373 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
@@ -1587,8 +1584,12 @@ _:c14n378 rdf:first "cognitive_computing" ;
 	rdf:rest _:c14n377 .
 _:c14n379 rdf:first "deep_learning" ;
 	rdf:rest _:c14n378 .
-_:c14n38 rdf:first "fraud_detection" ;
-	rdf:rest _:c14n152 .
+_:c14n38 sh:description "The kind of work." ;
+	sh:in _:c14n319 ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:order 0 ;
+	sh:path iso22989:aic_data_process_kind .
 _:c14n380 rdf:first "machine_learning" ;
 	rdf:rest _:c14n379 .
 _:c14n381 rdf:first "genetic_algorithm" ;
@@ -1609,8 +1610,8 @@ _:c14n388 rdf:first "genetic_algorithm" ;
 	rdf:rest _:c14n389 .
 _:c14n389 rdf:first "logic_programming" ;
 	rdf:rest rdf:nil .
-_:c14n39 rdf:first "training" ;
-	rdf:rest _:c14n112 .
+_:c14n39 rdf:first "fraud_detection" ;
+	rdf:rest _:c14n154 .
 _:c14n390 rdf:first "soft_computing" ;
 	rdf:rest _:c14n388 .
 _:c14n391 rdf:first "semantic_computing" ;
@@ -1636,8 +1637,12 @@ _:c14n4 sh:description "Whether it can change its own remit or stays under outsi
 	sh:maxCount 1 ;
 	sh:order 6 ;
 	sh:path iso22989:aic_system_autonomy .
-_:c14n40 rdf:first "natural_language_understanding" ;
-	rdf:rest _:c14n62 .
+_:c14n40 sh:datatype xsd:string ;
+	sh:description "The settings fixed before training, each as name=value." ;
+	sh:nodeKind sh:Literal ;
+	sh:order 6 ;
+	sh:path iso22989:aic_ml_hyperparameters ;
+	sh:pattern "^[^=\\s]+=\\S.*$" .
 _:c14n400 rdf:first "deep_learning" ;
 	rdf:rest _:c14n399 .
 _:c14n401 rdf:first "machine_learning" ;
@@ -1658,11 +1663,8 @@ _:c14n408 rdf:first "prediction" ;
 	rdf:rest _:c14n407 .
 _:c14n409 rdf:first "knowledge_and_learning" ;
 	rdf:rest _:c14n408 .
-_:c14n41 sh:datatype xsd:string ;
-	sh:description "The legal questions that follow from where it is built, offered or used." ;
-	sh:nodeKind sh:Literal ;
-	sh:order 17 ;
-	sh:path iso22989:aic_system_jurisdictional_issues .
+_:c14n41 rdf:first "training" ;
+	rdf:rest _:c14n114 .
 _:c14n410 rdf:first "data_and_information" ;
 	rdf:rest _:c14n409 .
 _:c14n411 rdf:first "action" ;
@@ -1683,12 +1685,8 @@ _:c14n418 rdf:first "prediction" ;
 	rdf:rest _:c14n417 .
 _:c14n419 rdf:first "knowledge_and_learning" ;
 	rdf:rest _:c14n418 .
-_:c14n42 sh:datatype xsd:string ;
-	sh:description "How the system draws conclusions from that knowledge." ;
-	sh:maxCount 1 ;
-	sh:nodeKind sh:Literal ;
-	sh:order 1 ;
-	sh:path iso22989:aic_expert_inference .
+_:c14n42 rdf:first "natural_language_understanding" ;
+	rdf:rest _:c14n64 .
 _:c14n420 rdf:first "data_and_information" ;
 	rdf:rest _:c14n419 .
 _:c14n421 rdf:first "action" ;
@@ -1710,10 +1708,10 @@ _:c14n428 rdf:first "unsupervised" ;
 _:c14n429 rdf:first "supervised" ;
 	rdf:rest _:c14n428 .
 _:c14n43 sh:datatype xsd:string ;
-	sh:description "What the work starts from." ;
+	sh:description "The legal questions that follow from where it is built, offered or used." ;
 	sh:nodeKind sh:Literal ;
-	sh:order 2 ;
-	sh:path iso22989:aic_lifecycle_inputs .
+	sh:order 17 ;
+	sh:path iso22989:aic_system_jurisdictional_issues .
 _:c14n430 rdf:first "reinforcement" ;
 	rdf:rest _:c14n431 .
 _:c14n431 rdf:first "transfer" ;
@@ -1734,10 +1732,12 @@ _:c14n438 rdf:first "neural_network" ;
 	rdf:rest _:c14n437 .
 _:c14n439 rdf:first "decision_tree" ;
 	rdf:rest _:c14n440 .
-_:c14n44 sh:description "The fields of AI it belongs to." ;
-	sh:in _:c14n491 ;
-	sh:order 9 ;
-	sh:path iso22989:aic_system_fields .
+_:c14n44 sh:datatype xsd:string ;
+	sh:description "How the system draws conclusions from that knowledge." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path iso22989:aic_expert_inference .
 _:c14n440 rdf:first "support_vector_machine" ;
 	rdf:rest rdf:nil .
 _:c14n441 rdf:first "bayesian_network" ;
@@ -1758,12 +1758,11 @@ _:c14n448 rdf:first "deployment" ;
 	rdf:rest _:c14n449 .
 _:c14n449 rdf:first "operation_and_monitoring" ;
 	rdf:rest _:c14n450 .
-_:c14n45 sh:datatype xsd:boolean ;
-	sh:description "Whether it runs without a person acting at each step, under the conditions given." ;
-	sh:maxCount 1 ;
+_:c14n45 sh:datatype xsd:string ;
+	sh:description "What the work starts from." ;
 	sh:nodeKind sh:Literal ;
-	sh:order 7 ;
-	sh:path iso22989:aic_system_automated .
+	sh:order 2 ;
+	sh:path iso22989:aic_lifecycle_inputs .
 _:c14n450 rdf:first "continuous_validation" ;
 	rdf:rest _:c14n451 .
 _:c14n451 rdf:first "re_evaluation" ;
@@ -1784,12 +1783,10 @@ _:c14n458 rdf:first "continuous_validation" ;
 	rdf:rest _:c14n459 .
 _:c14n459 rdf:first "re_evaluation" ;
 	rdf:rest _:c14n460 .
-_:c14n46 sh:datatype xsd:string ;
-	sh:description "How to reach the party." ;
-	sh:maxCount 1 ;
-	sh:nodeKind sh:Literal ;
-	sh:order 3 ;
-	sh:path iso22989:aic_stakeholder_contact .
+_:c14n46 sh:description "The fields of AI it belongs to." ;
+	sh:in _:c14n491 ;
+	sh:order 9 ;
+	sh:path iso22989:aic_system_fields .
 _:c14n460 rdf:first "retirement" ;
 	rdf:rest rdf:nil .
 _:c14n461 rdf:first "inception" ;
@@ -1810,12 +1807,12 @@ _:c14n468 rdf:first "retirement" ;
 	rdf:rest rdf:nil .
 _:c14n469 rdf:first "inception" ;
 	rdf:rest _:c14n470 .
-_:c14n47 sh:datatype xsd:string ;
-	sh:description "The actuators through which the robot acts." ;
-	sh:minCount 1 ;
+_:c14n47 sh:datatype xsd:boolean ;
+	sh:description "Whether it runs without a person acting at each step, under the conditions given." ;
+	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
-	sh:order 0 ;
-	sh:path iso22989:aic_robot_actuators .
+	sh:order 7 ;
+	sh:path iso22989:aic_system_automated .
 _:c14n470 rdf:first "design_and_development" ;
 	rdf:rest _:c14n471 .
 _:c14n471 rdf:first "verification_and_validation" ;
@@ -1836,11 +1833,12 @@ _:c14n478 rdf:first "design_and_development" ;
 	rdf:rest _:c14n479 .
 _:c14n479 rdf:first "verification_and_validation" ;
 	rdf:rest _:c14n480 .
-_:c14n48 sh:description "The family of algorithm that fitted it." ;
-	sh:in _:c14n438 ;
+_:c14n48 sh:datatype xsd:string ;
+	sh:description "How to reach the party." ;
 	sh:maxCount 1 ;
-	sh:order 4 ;
-	sh:path iso22989:aic_ml_algorithm .
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path iso22989:aic_stakeholder_contact .
 _:c14n480 rdf:first "deployment" ;
 	rdf:rest _:c14n481 .
 _:c14n481 rdf:first "operation_and_monitoring" ;
@@ -1861,8 +1859,12 @@ _:c14n488 rdf:first "planning" ;
 	rdf:rest rdf:nil .
 _:c14n489 rdf:first "data_mining" ;
 	rdf:rest _:c14n492 .
-_:c14n49 rdf:first rdf:type ;
-	rdf:rest rdf:nil .
+_:c14n49 sh:datatype xsd:string ;
+	sh:description "The actuators through which the robot acts." ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 0 ;
+	sh:path iso22989:aic_robot_actuators .
 _:c14n490 rdf:first "natural_language_processing" ;
 	rdf:rest _:c14n489 .
 _:c14n491 rdf:first "computer_vision" ;
@@ -1889,8 +1891,11 @@ _:c14n5 sh:datatype xsd:string ;
 	sh:order 2 ;
 	sh:path iso22989:aic_task_languages ;
 	sh:pattern "^[A-Za-z]{2,8}(-[A-Za-z0-9]{1,8})*$" .
-_:c14n50 rdf:first "availability" ;
-	rdf:rest rdf:nil .
+_:c14n50 sh:description "The family of algorithm that fitted it." ;
+	sh:in _:c14n438 ;
+	sh:maxCount 1 ;
+	sh:order 4 ;
+	sh:path iso22989:aic_ml_algorithm .
 _:c14n500 rdf:first "planning" ;
 	rdf:rest rdf:nil .
 _:c14n501 rdf:first "narrow_ai" ;
@@ -1911,11 +1916,8 @@ _:c14n508 rdf:first "general_ai" ;
 	rdf:rest rdf:nil .
 _:c14n509 rdf:first "heteronomous" ;
 	rdf:rest rdf:nil .
-_:c14n51 sh:class iso22989:AicComponent ;
-	sh:description "The parts it is made of." ;
-	sh:nodeKind sh:IRI ;
-	sh:order 11 ;
-	sh:path iso22989:aic_system_components .
+_:c14n51 rdf:first rdf:type ;
+	rdf:rest rdf:nil .
 _:c14n510 rdf:first "autonomous" ;
 	rdf:rest _:c14n509 .
 _:c14n511 rdf:first "heteronomous" ;
@@ -1936,14 +1938,8 @@ _:c14n518 rdf:first "symbolic" ;
 	rdf:rest _:c14n517 .
 _:c14n519 rdf:first "subsymbolic" ;
 	rdf:rest rdf:nil .
-_:c14n52 sh:datatype xsd:string ;
-	sh:description "The name the record's author gives it." ;
-	sh:maxCount 1 ;
-	sh:minCount 1 ;
-	sh:nodeKind sh:Literal ;
-	sh:order 3 ;
-	sh:path schema1:name ;
-	sh:pattern "^\\s*\\S" .
+_:c14n52 rdf:first "availability" ;
+	rdf:rest rdf:nil .
 _:c14n520 rdf:first "symbolic" ;
 	rdf:rest _:c14n519 .
 _:c14n521 rdf:first "subsymbolic" ;
@@ -1964,23 +1960,36 @@ _:c14n528 rdf:first iso22989:aic_network_architecture ;
 	rdf:rest _:c14n529 .
 _:c14n529 rdf:first iso22989:aic_network_layer_count ;
 	rdf:rest rdf:nil .
-_:c14n53 rdf:first "organizational_transparency" ;
-	rdf:rest _:c14n109 .
+_:c14n53 sh:class iso22989:AicComponent ;
+	sh:description "The parts it is made of." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 11 ;
+	sh:path iso22989:aic_system_components .
 _:c14n530 rdf:first iso22989:aic_network_activation_functions ;
 	rdf:rest _:c14n528 .
-_:c14n54 rdf:first "relevant_authority" ;
+_:c14n54 sh:datatype xsd:string ;
+	sh:description "The name the record's author gives it." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path schema1:name ;
+	sh:pattern "^\\s*\\S" .
+_:c14n55 rdf:first "organizational_transparency" ;
+	rdf:rest _:c14n111 .
+_:c14n56 rdf:first "relevant_authority" ;
 	rdf:rest rdf:nil .
-_:c14n55 sh:class iso22989:AicStakeholder ;
+_:c14n57 sh:class iso22989:AicStakeholder ;
 	sh:description "The parties around it." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 15 ;
 	sh:path iso22989:aic_system_stakeholders .
-_:c14n56 sh:datatype xsd:string ;
+_:c14n58 sh:datatype xsd:string ;
 	sh:description "The legal questions that follow from where it is built, offered or used." ;
 	sh:nodeKind sh:Literal ;
 	sh:order 19 ;
 	sh:path iso22989:aic_system_jurisdictional_issues .
-_:c14n57 sh:datatype xsd:string ;
+_:c14n59 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -1988,7 +1997,13 @@ _:c14n57 sh:datatype xsd:string ;
 	sh:order 4 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n58 sh:datatype xsd:string ;
+_:c14n6 sh:datatype xsd:string ;
+	sh:description "What the record describes, in its author's words." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 6 ;
+	sh:path schema1:description .
+_:c14n60 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -1996,58 +2011,37 @@ _:c14n58 sh:datatype xsd:string ;
 	sh:order 8 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n59 sh:datatype xsd:string ;
+_:c14n61 sh:datatype xsd:string ;
 	sh:description "The labels its samples can carry." ;
 	sh:nodeKind sh:Literal ;
 	sh:order 3 ;
 	sh:path iso22989:aic_dataset_labels .
-_:c14n6 sh:datatype xsd:string ;
-	sh:description "What the record describes, in its author's words." ;
-	sh:maxCount 1 ;
-	sh:nodeKind sh:Literal ;
-	sh:order 6 ;
-	sh:path schema1:description .
-_:c14n60 rdf:first rdf:type ;
+_:c14n62 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n61 rdf:first "dialogue_management" ;
-	rdf:rest _:c14n216 .
-_:c14n62 rdf:first "optical_character_recognition" ;
-	rdf:rest _:c14n278 .
-_:c14n63 sh:class iso22989:AicDataset ;
+_:c14n63 rdf:first "dialogue_management" ;
+	rdf:rest _:c14n218 .
+_:c14n64 rdf:first "optical_character_recognition" ;
+	rdf:rest _:c14n279 .
+_:c14n65 sh:class iso22989:AicDataset ;
 	sh:description "The datasets those systems and models use." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 5 ;
 	sh:path iso22989:aic_ecosystem_datasets .
-_:c14n64 sh:datatype xsd:string ;
+_:c14n66 sh:datatype xsd:string ;
 	sh:description "Where the correct answers for its samples come from." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 4 ;
 	sh:path iso22989:aic_dataset_ground_truth .
-_:c14n65 sh:class iso22989:AicDataset ;
+_:c14n67 sh:class iso22989:AicDataset ;
 	sh:description "The datasets it uses." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 15 ;
 	sh:path iso22989:aic_system_datasets .
-_:c14n66 rdf:first "ai_developer" ;
-	rdf:rest _:c14n239 .
-_:c14n67 rdf:first "data_sampling" ;
-	rdf:rest _:c14n235 .
-_:c14n68 sh:datatype xsd:string ;
-	sh:description "The name the record's author gives it." ;
-	sh:maxCount 1 ;
-	sh:minCount 1 ;
-	sh:nodeKind sh:Literal ;
-	sh:order 3 ;
-	sh:path schema1:name ;
-	sh:pattern "^\\s*\\S" .
-_:c14n69 sh:datatype xsd:integer ;
-	sh:description "How many layers it has." ;
-	sh:maxCount 1 ;
-	sh:minInclusive 1 ;
-	sh:nodeKind sh:Literal ;
-	sh:order 1 ;
-	sh:path iso22989:aic_network_layer_count .
+_:c14n68 rdf:first "ai_developer" ;
+	rdf:rest _:c14n241 .
+_:c14n69 rdf:first "data_sampling" ;
+	rdf:rest _:c14n237 .
 _:c14n7 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
@@ -2055,35 +2049,50 @@ _:c14n7 sh:datatype xsd:string ;
 	sh:order 5 ;
 	sh:path schema1:description .
 _:c14n70 sh:datatype xsd:string ;
+	sh:description "The name the record's author gives it." ;
+	sh:maxCount 1 ;
+	sh:minCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 3 ;
+	sh:path schema1:name ;
+	sh:pattern "^\\s*\\S" .
+_:c14n71 sh:datatype xsd:integer ;
+	sh:description "How many layers it has." ;
+	sh:maxCount 1 ;
+	sh:minInclusive 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 1 ;
+	sh:path iso22989:aic_network_layer_count .
+_:c14n72 sh:datatype xsd:string ;
 	sh:description "How people and the system share the work, if they do." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 9 ;
 	sh:path iso22989:aic_system_human_teaming .
-_:c14n71 rdf:first "bias_and_fairness" ;
-	rdf:rest _:c14n113 .
-_:c14n72 rdf:first rdf:type ;
+_:c14n73 rdf:first "bias_and_fairness" ;
+	rdf:rest _:c14n115 .
+_:c14n74 rdf:first rdf:type ;
 	rdf:rest rdf:nil .
-_:c14n73 sh:datatype xsd:boolean ;
+_:c14n75 sh:datatype xsd:boolean ;
 	sh:description "Whether it runs without a person acting at each step, under the conditions given." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 7 ;
 	sh:path iso22989:aic_system_automated .
-_:c14n74 sh:datatype xsd:boolean ;
+_:c14n76 sh:datatype xsd:boolean ;
 	sh:description "Whether it holds data that can identify a person." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 5 ;
 	sh:path iso22989:aic_dataset_holds_pii .
-_:c14n75 rdf:first "regulator" ;
+_:c14n77 rdf:first "regulator" ;
 	rdf:rest rdf:nil .
-_:c14n76 sh:class iso22989:AicComponent ;
+_:c14n78 sh:class iso22989:AicComponent ;
 	sh:description "The parts it is made of." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 13 ;
 	sh:path iso22989:aic_system_components .
-_:c14n77 sh:datatype xsd:string ;
+_:c14n79 sh:datatype xsd:string ;
 	sh:description "The name the record's author gives it." ;
 	sh:maxCount 1 ;
 	sh:minCount 1 ;
@@ -2091,112 +2100,105 @@ _:c14n77 sh:datatype xsd:string ;
 	sh:order 22 ;
 	sh:path schema1:name ;
 	sh:pattern "^\\s*\\S" .
-_:c14n78 sh:description "The fields of AI it belongs to." ;
-	sh:in _:c14n487 ;
-	sh:order 11 ;
-	sh:path iso22989:aic_system_fields .
-_:c14n79 sh:description "The stage of its life the system is in now." ;
-	sh:in _:c14n445 ;
-	sh:maxCount 1 ;
-	sh:order 10 ;
-	sh:path iso22989:aic_system_stage .
 _:c14n8 sh:class iso22989:AicLifecycleProcess ;
 	sh:description "The work done at each stage of those systems' lives." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 7 ;
 	sh:path iso22989:aic_ecosystem_lifecycle_processes .
-_:c14n80 sh:class iso22989:AicResourcePool ;
+_:c14n80 sh:description "The fields of AI it belongs to." ;
+	sh:in _:c14n499 ;
+	sh:order 11 ;
+	sh:path iso22989:aic_system_fields .
+_:c14n81 sh:description "The stage of its life the system is in now." ;
+	sh:in _:c14n477 ;
+	sh:maxCount 1 ;
+	sh:order 10 ;
+	sh:path iso22989:aic_system_stage .
+_:c14n82 sh:class iso22989:AicResourcePool ;
 	sh:description "The computing resources it runs on." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 18 ;
 	sh:path iso22989:aic_system_resource_pools .
-_:c14n81 sh:datatype xsd:string ;
+_:c14n83 sh:datatype xsd:string ;
 	sh:description "The effects it may have on people and society beyond its users." ;
 	sh:nodeKind sh:Literal ;
 	sh:order 20 ;
 	sh:path iso22989:aic_system_societal_impacts .
-_:c14n82 sh:description "The fields of AI it belongs to." ;
-	sh:in _:c14n499 ;
+_:c14n84 sh:description "The fields of AI it belongs to." ;
+	sh:in _:c14n487 ;
 	sh:order 11 ;
 	sh:path iso22989:aic_system_fields .
-_:c14n83 rdf:first "verification" ;
+_:c14n85 rdf:first "verification" ;
 	rdf:rest _:c14n354 .
-_:c14n84 sh:datatype xsd:string ;
+_:c14n86 sh:datatype xsd:string ;
 	sh:description "How people and the system share the work, if they do." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 7 ;
 	sh:path iso22989:aic_system_human_teaming .
-_:c14n85 sh:datatype xsd:string ;
+_:c14n87 sh:datatype xsd:string ;
 	sh:description "What the record describes, in its author's words." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 23 ;
 	sh:path schema1:description .
-_:c14n86 sh:datatype xsd:date ;
+_:c14n88 sh:datatype xsd:date ;
 	sh:description "When it was done." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:Literal ;
 	sh:order 2 ;
 	sh:path iso22989:aic_data_process_date .
-_:c14n87 sh:class iso22989:AicAssessment ;
+_:c14n89 sh:class iso22989:AicAssessment ;
 	sh:description "The verification and validation of those systems." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 9 ;
 	sh:path iso22989:aic_ecosystem_assessments .
-_:c14n88 sh:class iso22989:AicSystem ;
-	sh:description "The AI systems that work with it." ;
-	sh:nodeKind sh:IRI ;
-	sh:order 1 ;
-	sh:path iso22989:aic_iot_ai_systems .
-_:c14n89 sh:datatype xsd:boolean ;
-	sh:description "Whether it runs without a person acting at each step, under the conditions given." ;
-	sh:maxCount 1 ;
-	sh:nodeKind sh:Literal ;
-	sh:order 7 ;
-	sh:path iso22989:aic_system_automated .
 _:c14n9 sh:class iso22989:AicStakeholder ;
 	sh:description "The parties around it." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 17 ;
 	sh:path iso22989:aic_system_stakeholders .
-_:c14n90 sh:class iso22989:AicModel ;
+_:c14n90 sh:class iso22989:AicSystem ;
+	sh:description "The AI systems that work with it." ;
+	sh:nodeKind sh:IRI ;
+	sh:order 1 ;
+	sh:path iso22989:aic_iot_ai_systems .
+_:c14n91 sh:datatype xsd:boolean ;
+	sh:description "Whether it runs without a person acting at each step, under the conditions given." ;
+	sh:maxCount 1 ;
+	sh:nodeKind sh:Literal ;
+	sh:order 7 ;
+	sh:path iso22989:aic_system_automated .
+_:c14n92 sh:class iso22989:AicModel ;
 	sh:description "The models it uses." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 14 ;
 	sh:path iso22989:aic_system_models .
-_:c14n91 sh:class iso22989:AicSystem ;
+_:c14n93 sh:class iso22989:AicSystem ;
 	sh:description "The AI systems that work with it." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 2 ;
 	sh:path iso22989:aic_cps_ai_systems .
-_:c14n92 rdf:first "named_entity_recognition" ;
-	rdf:rest _:c14n132 .
-_:c14n93 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n94 rdf:first "named_entity_recognition" ;
+	rdf:rest _:c14n134 .
+_:c14n95 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 21 ;
 	sh:path iso22989:aic_id .
-_:c14n94 sh:class iso22989:AicResourcePool ;
+_:c14n96 sh:class iso22989:AicResourcePool ;
 	sh:description "The computing resources those systems run on." ;
 	sh:nodeKind sh:IRI ;
 	sh:order 14 ;
 	sh:path iso22989:aic_ecosystem_resource_pools .
-_:c14n95 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
+_:c14n97 sh:description "The record's identifier, unique among the records it sits with, such as a URI or a CURIE. Other records refer to the record by it." ;
 	sh:maxCount 1 ;
 	sh:nodeKind sh:IRI ;
 	sh:order 3 ;
 	sh:path iso22989:aic_id .
-_:c14n96 rdf:first iso22989:aic_robot_sensors ;
+_:c14n98 rdf:first iso22989:aic_robot_sensors ;
 	rdf:rest rdf:nil .
-_:c14n97 sh:description "The steps from data to action that it performs." ;
-	sh:in _:c14n420 ;
+_:c14n99 sh:description "The steps from data to action that it performs." ;
+	sh:in _:c14n410 ;
 	sh:order 12 ;
 	sh:path iso22989:aic_system_steps .
-_:c14n98 rdf:first "relationship_extraction" ;
-	rdf:rest _:c14n134 .
-_:c14n99 sh:class iso22989:AicTrustworthinessClaim ;
-	sh:description "The trustworthiness claims made for those systems." ;
-	sh:nodeKind sh:IRI ;
-	sh:order 8 ;
-	sh:path iso22989:aic_ecosystem_claims .

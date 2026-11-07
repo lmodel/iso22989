@@ -2300,7 +2300,8 @@ slots.aicMachineLearningModel__aic_ml_datasets = Slot(uri=ISO22989.aic_ml_datase
                    model_uri=ISO22989.aicMachineLearningModel__aic_ml_datasets, domain=None, range=Optional[Union[Union[str, AicDatasetAicId], list[Union[str, AicDatasetAicId]]]])
 
 slots.aicMachineLearningModel__aic_ml_hyperparameters = Slot(uri=ISO22989.aic_ml_hyperparameters, name="aicMachineLearningModel__aic_ml_hyperparameters", curie=ISO22989.curie('aic_ml_hyperparameters'),
-                   model_uri=ISO22989.aicMachineLearningModel__aic_ml_hyperparameters, domain=None, range=Optional[Union[str, list[str]]])
+                   model_uri=ISO22989.aicMachineLearningModel__aic_ml_hyperparameters, domain=None, range=Optional[Union[str, list[str]]],
+                   pattern=re.compile(r'^[^=\s]+=\S.*$'))
 
 slots.aicMachineLearningModel__aic_ml_parameter_count = Slot(uri=ISO22989.aic_ml_parameter_count, name="aicMachineLearningModel__aic_ml_parameter_count", curie=ISO22989.curie('aic_ml_parameter_count'),
                    model_uri=ISO22989.aicMachineLearningModel__aic_ml_parameter_count, domain=None, range=Optional[int])

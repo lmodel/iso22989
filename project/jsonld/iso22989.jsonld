@@ -3126,6 +3126,7 @@
       ],
       "range": "string",
       "multivalued": true,
+      "pattern": "^[^=\\s]+=\\S.*$",
       "@type": "SlotDefinition"
     },
     {
@@ -4988,6 +4989,7 @@
           ],
           "description": "The settings fixed before training, each as name=value.",
           "multivalued": true,
+          "pattern": "^[^=\\s]+=\\S.*$",
           "@type": "SlotDefinition"
         },
         {
@@ -6241,8 +6243,8 @@
   ],
   "metamodel_version": "1.12.0",
   "source_file": "iso22989.yaml",
-  "source_file_date": "2026-11-07T00:57:37",
-  "source_file_size": 60022,
+  "source_file_date": "2026-11-07T01:00:28",
+  "source_file_size": 60058,
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/iso22989.context.jsonld",

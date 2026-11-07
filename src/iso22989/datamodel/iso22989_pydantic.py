@@ -1332,6 +1332,19 @@ class AicMachineLearningModel(AicModel):
          'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:description'} })
 
+    @field_validator('aic_ml_hyperparameters')
+    def pattern_aic_ml_hyperparameters(cls, v):
+        pattern=re.compile(r"^[^=\s]+=\S.*$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid aic_ml_hyperparameters format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid aic_ml_hyperparameters format: {v}"
+            raise ValueError(err_msg)
+        return v
+
     @field_validator('title')
     def pattern_title(cls, v):
         pattern=re.compile(r"^\s*\S")
@@ -1389,6 +1402,19 @@ class AicNeuralNetworkModel(AicMachineLearningModel):
                       'bundle reads one description key.'],
          'domain_of': ['AicRecordMixin'],
          'slot_uri': 'schema:description'} })
+
+    @field_validator('aic_ml_hyperparameters')
+    def pattern_aic_ml_hyperparameters(cls, v):
+        pattern=re.compile(r"^[^=\s]+=\S.*$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.search(element):
+                    err_msg = f"Invalid aic_ml_hyperparameters format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.search(v):
+            err_msg = f"Invalid aic_ml_hyperparameters format: {v}"
+            raise ValueError(err_msg)
+        return v
 
     @field_validator('title')
     def pattern_title(cls, v):

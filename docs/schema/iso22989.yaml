@@ -2402,6 +2402,7 @@ slots:
     - AicMachineLearningModel
     range: string
     multivalued: true
+    pattern: ^[^=\s]+=\S.*$
   aicMachineLearningModel__aic_ml_parameter_count:
     name: aicMachineLearningModel__aic_ml_parameter_count
     annotations:
@@ -3814,6 +3815,7 @@ classes:
             value: 3.3.4
         description: The settings fixed before training, each as name=value.
         multivalued: true
+        pattern: ^[^=\s]+=\S.*$
       aic_ml_parameter_count:
         name: aic_ml_parameter_count
         annotations:
@@ -4612,6 +4614,6 @@ classes:
     class_uri: iso22989:AicCyberPhysicalSystem
 metamodel_version: 1.12.0
 source_file: iso22989.yaml
-source_file_date: '2026-11-07T00:57:37'
-source_file_size: 60022
+source_file_date: '2026-11-07T01:00:28'
+source_file_size: 60058
 
