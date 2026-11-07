@@ -23,7 +23,7 @@ status: draft
 
 The file lists each clause number and each term number, with no text of the standard.[^numbers]
 
-`tests/test_numbers.py` holds the schema's annotations to it in both directions, so a term cannot lose its element without saying why, and a citation cannot name a clause the list does not hold.[^test_numbers.py]
+`tests/test_numbers.py` checks the schema's annotations against it in both directions, so a term cannot lose its element without saying why, and a citation cannot name a clause the list does not hold.[^test_numbers.py]
 
 [^numbers]: tests/iso22989_numbers.yaml
 [^test_numbers.py]: tests/test_numbers.py, the docstring

@@ -26,8 +26,8 @@ status: draft
 
 1. Read the watch's report, which names the record and the fields that changed.[^watch]
 2. Replace the changed lines of the extract from one day's dataset, never by editing them.[^covenant]
-3. Move the pins in the watch, and the header's `version` and annotations if the edition moved. `tests/test_upstream.py` holds them equal.[^test_upstream.py]
-4. A person who holds the new text reads it and decides what the schema changes. No ISO text goes to an AI tool.[^covenant]
+3. Move the pins in the watch, and the header's `version` and annotations if the edition moved. `tests/test_upstream.py` checks that they agree.[^test_upstream.py]
+4. A person who holds the new text reads it and decides what the schema changes. No AI tool is given any ISO text.[^covenant]
 
 [^watch]: scripts/check_upstream_release.py, the report it writes
 [^test_upstream.py]: tests/test_upstream.py

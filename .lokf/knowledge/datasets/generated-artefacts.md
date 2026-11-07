@@ -29,7 +29,7 @@ status: draft
 
 `just gen-project` writes the projections in `project/` and the Python models in `src/iso22989/datamodel/`, and `just gen-doc` writes the merged schema to `docs/schema/`. They are committed and never edited by hand.[^contributing.md]
 
-`project/jsonschema/iso22989.schema.json` is what a consumer without LinkML validates with, and `tests/test_data.py` holds every valid example to it.[^test_data.py]
+`project/jsonschema/iso22989.schema.json` is what a consumer without LinkML validates with, and `tests/test_data.py` checks every valid example against it.[^test_data.py]
 
 [^contributing.md]: CONTRIBUTING.md, Before opening a pull request
 [^test_data.py]: tests/test_data.py

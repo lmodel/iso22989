@@ -25,7 +25,7 @@ status: draft
 
 `website/` holds an Astro Starlight site with a page per concept, a health page, a graph, the schema's pages and the docs.[^website-readme.md]
 
-`REDIRECTS` keeps the retired mkdocs site's addresses: each old element page goes to its successor where it has one, and otherwise to the schema's index.[^site.config.mjs]
+`REDIRECTS` keeps the retired mkdocs site's addresses: each old element page redirects to its successor where it has one, and otherwise to the schema's index.[^site.config.mjs]
 
 [^website-readme.md]: website/README.md
 [^site.config.mjs]: website/site.config.mjs, REPO, SITE, BASE and REDIRECTS

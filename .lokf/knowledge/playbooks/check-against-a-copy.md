@@ -22,7 +22,12 @@ status: draft
 
 # Check the wording against a copy of the standard
 
-The script's docstring gives the commands. It reads the copy's plain text, checks the schema and the prose the repository writes beside it, the bundle included, refuses a copy inside the repository, and also reports a term or clause number the schema cites that starts no line of the copy.[^overlap]
+The script's docstring gives the commands. The script:
+
+- reads the copy's plain text;
+- checks the schema and the prose the repository writes beside it, the bundle included;
+- refuses a copy inside the repository;
+- reports a term or clause number the schema cites that starts no line of the copy.[^overlap]
 
 A run may be allowed only with a reason, in `tests/overlap_allowed.yaml`.[^allowed] Run it by hand: CI has no copy, and `tests/test_overlap.py` tests the script on text of its own.[^test_overlap.py]
 

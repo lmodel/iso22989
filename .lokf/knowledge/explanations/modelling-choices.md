@@ -20,7 +20,7 @@ status: draft
 
 # Modelling choices
 
-The schema replaced 85 classes and 42 enums with 26 classes and 21 enums. Classes and values with no clause or term behind them went, and so did the classes that held a single enum.[^changelog.md]
+The schema replaced 85 classes and 42 enums with 26 classes and 21 enums. Classes and values with no clause or term behind them were removed, and so were the classes that held a single enum.[^changelog.md]
 
 Systems and models are hierarchies told apart by a designator, and a party has a record for each role it plays.[^about.md]
 

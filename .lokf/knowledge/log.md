@@ -2,6 +2,7 @@
 
 ## 2026-11-07
 
+* **Prose**: reworded 10 concept bodies in plain English. No fact, link, number or frontmatter changed.
 * **Corrected**: The example data says life-cycle work ends on or after the day it begins, as `tests/test_data.py` checks, not strictly after.
 * **Changed**: the neighbour copies number 35, since `tests/test_schema_rules.py` pins 13 more released schemas.
 * **Changed**: a sub-role's role is now a schema rule, which `tests/test_data.py` holds to the role annotations.

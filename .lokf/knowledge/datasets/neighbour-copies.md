@@ -18,6 +18,6 @@ status: draft
 
 # The neighbours' adapt copies
 
-Each copy is the schema asset of a release, pinned by its checksum. The tests hold this schema's copy apart from them, and each mapping to a class one of them holds.[^test_schema_rules.py]
+Each copy is the schema asset of a release, pinned by its checksum. The tests check that this schema's copy shares no name with them, and that each mapping names a class one of them holds.[^test_schema_rules.py]
 
 [^test_schema_rules.py]: tests/test_schema_rules.py
