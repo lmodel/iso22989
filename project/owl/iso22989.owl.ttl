@@ -708,7 +708,7 @@ iso22989:AicStakeholderSubRole a owl:Class ;
 	owl:unionOf _:c14n259 ;
 	skos:definition "A narrower part within one of the roles." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
-	skos:note "These are the narrower parts ISO/IEC 42001:2023 lists under each role in clause 4.1, which refers to clause 5.19 of this standard. The role annotation names the role each sits under." ;
+	skos:note "Each value's role annotation names the role it sits under. The list is open, so a party whose part is not named here states its role alone." , "lmodel/iso42001 names nine more parts under the AI producer role, from clause 4.1 of ISO/IEC 42001:2023. Only a copy of each standard can settle which parts each one names." ;
 	linkml:permissible_values iso22989:AicStakeholderSubRole\#ai_developer , iso22989:AicStakeholderSubRole\#ai_platform_provider , iso22989:AicStakeholderSubRole\#ai_product_or_service_provider , iso22989:AicStakeholderSubRole\#ai_system_integrator , iso22989:AicStakeholderSubRole\#ai_user , iso22989:AicStakeholderSubRole\#data_provider , iso22989:AicStakeholderSubRole\#data_subject , iso22989:AicStakeholderSubRole\#other_subject , iso22989:AicStakeholderSubRole\#policy_maker , iso22989:AicStakeholderSubRole\#regulator .
 iso22989:AicSystem a owl:Class ;
 	rdfs:label "AicSystem" ;

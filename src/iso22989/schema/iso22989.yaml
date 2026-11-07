@@ -506,9 +506,12 @@ enums:
       - aic_stakeholders
     comments:
       - >-
-        These are the narrower parts ISO/IEC 42001:2023 lists under each role in
-        clause 4.1, which refers to clause 5.19 of this standard. The role
-        annotation names the role each sits under.
+        Each value's role annotation names the role it sits under. The list is
+        open, so a party whose part is not named here states its role alone.
+      - >-
+        lmodel/iso42001 names nine more parts under the AI producer role, from
+        clause 4.1 of ISO/IEC 42001:2023. Only a copy of each standard can
+        settle which parts each one names.
     permissible_values:
       ai_platform_provider:
         description: Offers the platform that others run AI on.

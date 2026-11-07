@@ -17,7 +17,7 @@ Two kinds of record come in variants, told apart by a type designator:
 - A system is an `AicSystem`, or one of its kinds: `AicAgent`, `AicExpertSystem` or `AicRobot`. `aic_system_type` names which.
 - A model is an `AicModel`, or an `AicMachineLearningModel`, or an `AicNeuralNetworkModel`. `aic_model_type` names which.
 
-A party has an `AicStakeholder` record for each role it plays. The sub-roles are the ones ISO/IEC 42001:2023 lists under each role in its clause 4.1.
+A party has an `AicStakeholder` record for each role it plays. Each sub-role sits under one role, and the schema's rules refuse a sub-role of another role. The list of sub-roles is open: lmodel/iso42001 names nine more parts under the AI producer role, and only a copy of each standard can settle which parts each one names.
 
 A prediction, the decision it informs and the action that follows are records that point back along that chain.
 

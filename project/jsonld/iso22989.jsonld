@@ -1417,7 +1417,8 @@
       "definition_uri": "https://w3id.org/lmodel/iso22989/AicStakeholderSubRole",
       "description": "A narrower part within one of the roles.",
       "comments": [
-        "These are the narrower parts ISO/IEC 42001:2023 lists under each role in clause 4.1, which refers to clause 5.19 of this standard. The role annotation names the role each sits under."
+        "Each value's role annotation names the role it sits under. The list is open, so a party whose part is not named here states its role alone.",
+        "lmodel/iso42001 names nine more parts under the AI producer role, from clause 4.1 of ISO/IEC 42001:2023. Only a copy of each standard can settle which parts each one names."
       ],
       "in_subset": [
         "aic_stakeholders"
@@ -6189,8 +6190,8 @@
   ],
   "metamodel_version": "1.12.0",
   "source_file": "iso22989.yaml",
-  "source_file_date": "2026-11-07T00:52:14",
-  "source_file_size": 57793,
+  "source_file_date": "2026-11-07T00:55:39",
+  "source_file_size": 57950,
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/iso22989.context.jsonld",
