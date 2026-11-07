@@ -20,7 +20,7 @@ status: draft
 
 # Mappings and the SSSOM sets
 
-The README lists each mapping, and the schema is the only place that holds them.[^readme.md] `tests/test_schema_rules.py` checks that each names a class or an enum value of a released copy.[^test_schema_rules.py]
+The README lists each mapping, and the schema is the only place they are maintained.[^readme.md] `tests/test_schema_rules.py` checks that each names a class or an enum value of a released copy.[^test_schema_rules.py]
 
 The SSSOM sets were removed, since a matching tool wrote them, no source confirmed their rows, and most named terms that no longer exist.[^readme.md]
 
