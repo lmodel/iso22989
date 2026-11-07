@@ -9,6 +9,10 @@
 * **Changed**: a mapping may name a neighbour's enum value, as the lmodel/nist-ai-100-1 mappings do.
 * **Changed**: the overlap check now reads the bundle, NOTICE and the example data too.
 
+## 2026-11-06
+
+* **Changed**: `lokf.yaml` and `iso22989.yaml` moved into `.lokf/schema/`, where KTL v0.62.0 keeps a sidecar's schema files, and the concepts that name them follow.
+
 ## 2026-11-05
 
 * **Removal**: The overlay scaffold, with the scripts and the page it described.

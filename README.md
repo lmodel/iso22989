@@ -43,7 +43,7 @@ Run `just` to list the project's [just](https://github.com/casey/just/) recipes.
 
 ## Knowledge Trust Ladder (KTL)
 
-`.lokf/` holds this project's [KTL](https://w3id.org/ktl/) knowledge bundle. Its domain schema, `.lokf/iso22989.yaml`, is the copy `just lokf-adapt` writes from `src/iso22989/schema/iso22989.yaml`, and `just lokf-adapt-check` says when it is stale. Edit the source, never the copy. A release carries the copy as `schema-<tag>-iso22989.yaml`, on the terms [CONTRIBUTING.md](CONTRIBUTING.md#releasing-maintainers) gives.
+`.lokf/` holds this project's [KTL](https://w3id.org/ktl/) knowledge bundle. Its domain schema, `.lokf/schema/iso22989.yaml`, is the copy `just lokf-adapt` writes from `src/iso22989/schema/iso22989.yaml`, and `just lokf-adapt-check` says when it is stale. Edit the source, never the copy. A release carries the copy as `schema-<tag>-iso22989.yaml`, on the terms [CONTRIBUTING.md](CONTRIBUTING.md#releasing-maintainers) gives.
 
 The copy roots `AicSystem`, `AicComponent`, `AicKnowledge`, `AicTask`, `AicModel`, `AicDataset`, `AicStakeholder`, `AicLifecycleProcess`, `AicTrustworthinessClaim`, `AicAssessment`, `AicApplication`, `AicResourcePool`, `AicIotDevice`, `AicIotSystem` and `AicCyberPhysicalSystem` on `Concept`. In Obsidian, add these to the *Known LOKF types* setting of the KTL Registrar and KTL Curator plugins:
 

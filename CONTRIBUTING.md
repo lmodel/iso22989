@@ -39,7 +39,7 @@ npx skills add noelmcloughlin/knowledge-trust-ladder --skill ktl-curator --yes  
 
 ## Before opening a pull request
 
-- **Edit the schema, then regenerate.** Edit `src/iso22989/schema/iso22989.yaml`, run `just gen-project`, `just gen-doc` and `just lokf-adapt`, and commit the output. `project/`, `src/iso22989/datamodel/`, `docs/schema/` and `.lokf/iso22989.yaml` are generated.
+- **Edit the schema, then regenerate.** Edit `src/iso22989/schema/iso22989.yaml`, run `just gen-project`, `just gen-doc` and `just lokf-adapt`, and commit the output. `project/`, `src/iso22989/datamodel/`, `docs/schema/` and `.lokf/schema/iso22989.yaml` are generated.
 - **No ISO text, and none to an AI tool.** Write descriptions in your own words, and cite a clause in `iso22989_clause` or a term in `iso22989_term`, by number. [AI_COVENANT.md](AI_COVENANT.md) says why. If you hold a copy, run `scripts/check_overlap.py` over it yourself.
 - **Every term is accounted for.** `tests/iso22989_numbers.yaml` names each term's element, or why it has none, and `tests/test_numbers.py` holds it to the schema. It holds numbers only.
 - **A mapping is read at its source.** `tests/test_schema_rules.py` holds each one to a released neighbour copy. A term with no sure match stays unmapped.

@@ -1,6 +1,6 @@
 # Datasets
 
-* [The schema's adapt copy](adapt-copy.md) - `.lokf/iso22989.yaml`, the copy `just lokf-adapt` writes from the schema so that it sits beside LOKF's `lokf.yaml`: fifteen classes rooted on `Concept`, `ai_rmf_id` dropped for LOKF's `id`, `title` and `description` folded into LOKF's, and two designators demoted.
+* [The schema's adapt copy](adapt-copy.md) - `.lokf/schema/iso22989.yaml`, the copy `just lokf-adapt` writes from the schema so that it sits beside LOKF's `lokf.yaml`: fifteen classes rooted on `Concept`, `ai_rmf_id` dropped for LOKF's `id`, `title` and `description` folded into LOKF's, and two designators demoted.
 * [The iso22989 LinkML schema](iso22989-linkml-schema.md) - `src/iso22989/schema/iso22989.yaml`: the vocabulary for describing an AI system in ISO/IEC 22989's terms, with the `Aic` class prefix, the `aic_` slot prefix and `AicEcosystem` as its root.
 * [The term and clause numbers](term-numbers.md) - `tests/iso22989_numbers.yaml`: every clause number of the standard's table of contents, and each term of Clause 3 with the element that renders it or why none does. It holds numbers and element names only.
 * [ISO Open Data's records](iso-open-data-records.md) - `src/iso22989/schema/iso-open-data/`: ISO's records of the edition and its two pending amendments as of 2026-11-05, under ODC-By v1.0, each without its scope and pinned by hash.
