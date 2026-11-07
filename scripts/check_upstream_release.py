@@ -185,8 +185,8 @@ def _lines(url: str):
 
 def _code(text: object) -> str:
     """Text a site chose, such as an address it redirected to or a field of a
-    record, as a code span on one line, so it cannot mention a person, add a
-    link or start a new block in the issue."""
+    record, as a code span on one line. The span cannot mention a person, add
+    a link or start a new block in the issue."""
     return "`" + " ".join(str(text).replace("`", "'").split()) + "`"
 
 
@@ -411,10 +411,12 @@ def main(argv: list[str] | None = None) -> int:
     for label, check in CHECKS:
         try:
             found, needs = check()
-        # OSError covers a refused or failed fetch and a timeout,
-        # HTTPException a connection cut off mid-dataset, EOFError a gzipped
-        # page cut short, zlib.error a gzipped page that is corrupt, and
-        # ValueError an answer over a cap or a line that is not JSON or UTF-8.
+        # Each of these is a check that could not finish:
+        # - OSError, a refused or failed fetch, or a timeout;
+        # - HTTPException, a connection cut off mid-dataset;
+        # - EOFError, a gzipped page cut short;
+        # - zlib.error, a gzipped page that is corrupt;
+        # - ValueError, an answer over a cap, or a line that is not JSON or UTF-8.
         except (
             OSError,
             http.client.HTTPException,

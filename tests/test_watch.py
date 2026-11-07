@@ -5,8 +5,8 @@ reads ISO's open data page. These tests replace its two network calls,
 `_lines` and `_get`, with canned answers built from the extract, so they run
 offline. They show what the report says when ISO adds or publishes an
 amendment, changes a stage, publishes a successor, drops a record or changes
-the licence, when the network fails, and when an address or an answer is not
-one the watch accepts.
+the licence. They also show it when the network fails, and when an address or
+an answer is not one the watch accepts.
 """
 
 import gzip

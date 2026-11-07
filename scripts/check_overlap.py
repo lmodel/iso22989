@@ -2,13 +2,18 @@
 """Report any run of words this repository shares with a copy of the standard.
 
 ISO/IEC 22989 is copyright ISO and IEC, and this repository holds none of its
-text. A person who holds a copy can test that claim: this script takes the
+text. A person who holds a copy can test that claim. This script takes the
 copy's plain text and fails on any run of four or more consecutive words that
-also appears in the schema's descriptions, titles and comments, or in the
-prose the repository writes beside it: its Markdown pages, NOTICE, llms.txt,
-the knowledge bundle's concepts, the example data and the reasons in
-tests/iso22989_numbers.yaml. It also fails when the schema cites a term or
-clause whose number starts no line of the copy.
+also appears in:
+
+- the schema's descriptions, titles and comments;
+- the Markdown pages, NOTICE and llms.txt;
+- the knowledge bundle's concepts;
+- the example data;
+- the reasons in tests/iso22989_numbers.yaml.
+
+It also fails when the schema cites a term or clause whose number starts no
+line of the copy.
 
 Run it by hand. It stays out of CI, since CI has no copy of the standard, and
 the copy must stay outside the repository.

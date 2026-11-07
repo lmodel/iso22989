@@ -1,10 +1,13 @@
 ---
 # https://pre-commit.com/
-# No hook may rewrite a file this repository does not write by hand: what
-# the LinkML generators and `lokf adapt` write, which the next run would
-# rewrite back; ISO's records, which tests hold to their hashes; the neighbours'
-# released copies, which tests hold to their checksums; npm's lockfile for the release tools; and the KTL
-# sidecar's scripts, which the weekly sync replaces.
+# No hook may rewrite a file this repository does not write by hand:
+# - what the LinkML generators and `lokf adapt` write, which the next run
+#   would rewrite back;
+# - ISO's records, which tests check against their hashes;
+# - the neighbours' released copies, which tests check against their
+#   checksums;
+# - npm's lockfile for the release tools;
+# - the KTL sidecar's scripts, which the weekly sync replaces.
 exclude: >-
   (?x)^(
     src/iso22989/datamodel/|
