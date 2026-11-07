@@ -11,7 +11,7 @@
 
 ## 2026-11-05
 
-* **Removed**: The overlay scaffold, with the scripts and the page it described.
+* **Removal**: The overlay scaffold, with the scripts and the page it described.
 * **Changed**: Scope says the OECD phases are read from the OECD's text.
 * **Changed**: Regenerate and test drops the overlay step.
 * **Changed**: Security policy follows the hardened watch.
