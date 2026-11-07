@@ -2211,6 +2211,224 @@
         },
         "AicStakeholder": {
             "additionalProperties": false,
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "aic_stakeholder_role": {
+                                "const": "ai_provider"
+                            },
+                            "aic_stakeholder_sub_roles": {
+                                "items": {},
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "aic_stakeholder_role",
+                            "aic_stakeholder_sub_roles"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "aic_stakeholder_sub_roles": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "const": "ai_platform_provider"
+                                        },
+                                        {
+                                            "const": "ai_product_or_service_provider"
+                                        }
+                                    ]
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "aic_stakeholder_sub_roles"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "aic_stakeholder_role": {
+                                "const": "ai_producer"
+                            },
+                            "aic_stakeholder_sub_roles": {
+                                "items": {},
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "aic_stakeholder_role",
+                            "aic_stakeholder_sub_roles"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "aic_stakeholder_sub_roles": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "const": "ai_developer"
+                                        }
+                                    ]
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "aic_stakeholder_sub_roles"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "aic_stakeholder_role": {
+                                "const": "ai_customer"
+                            },
+                            "aic_stakeholder_sub_roles": {
+                                "items": {},
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "aic_stakeholder_role",
+                            "aic_stakeholder_sub_roles"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "aic_stakeholder_sub_roles": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "const": "ai_user"
+                                        }
+                                    ]
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "aic_stakeholder_sub_roles"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "aic_stakeholder_role": {
+                                "const": "ai_partner"
+                            },
+                            "aic_stakeholder_sub_roles": {
+                                "items": {},
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "aic_stakeholder_role",
+                            "aic_stakeholder_sub_roles"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "aic_stakeholder_sub_roles": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "const": "ai_system_integrator"
+                                        },
+                                        {
+                                            "const": "data_provider"
+                                        }
+                                    ]
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "aic_stakeholder_sub_roles"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "aic_stakeholder_role": {
+                                "const": "ai_subject"
+                            },
+                            "aic_stakeholder_sub_roles": {
+                                "items": {},
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "aic_stakeholder_role",
+                            "aic_stakeholder_sub_roles"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "aic_stakeholder_sub_roles": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "const": "data_subject"
+                                        },
+                                        {
+                                            "const": "other_subject"
+                                        }
+                                    ]
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "aic_stakeholder_sub_roles"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "aic_stakeholder_role": {
+                                "const": "relevant_authority"
+                            },
+                            "aic_stakeholder_sub_roles": {
+                                "items": {},
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "aic_stakeholder_role",
+                            "aic_stakeholder_sub_roles"
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "aic_stakeholder_sub_roles": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "const": "policy_maker"
+                                        },
+                                        {
+                                            "const": "regulator"
+                                        }
+                                    ]
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "aic_stakeholder_sub_roles"
+                        ]
+                    }
+                }
+            ],
             "description": "A person, group or organization with a part in an AI system or an interest in it.",
             "properties": {
                 "aic_id": {

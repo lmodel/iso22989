@@ -5461,7 +5461,8 @@
       ],
       "description": "A person, group or organization with a part in an AI system or an interest in it.",
       "comments": [
-        "UCO's Role is the function something has in context, which this record states for one party. A party with two roles has a record for each."
+        "UCO's Role is the function something has in context, which this record states for one party. A party with two roles has a record for each.",
+        "The rules hold each sub-role to the role its role annotation names, so a validator refuses a sub-role of another role. tests/test_data.py holds the rules and the annotations equal."
       ],
       "in_subset": [
         "aic_stakeholders"
@@ -5517,6 +5518,228 @@
         }
       ],
       "class_uri": "https://w3id.org/lmodel/iso22989/AicStakeholder",
+      "rules": [
+        {
+          "preconditions": {
+            "slot_conditions": [
+              {
+                "name": "aic_stakeholder_role",
+                "equals_string": "ai_provider",
+                "@type": "SlotDefinition"
+              },
+              {
+                "name": "aic_stakeholder_sub_roles",
+                "value_presence": "PRESENT",
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "postconditions": {
+            "slot_conditions": [
+              {
+                "name": "aic_stakeholder_sub_roles",
+                "any_of": [
+                  {
+                    "equals_string": "ai_platform_provider",
+                    "@type": "AnonymousSlotExpression"
+                  },
+                  {
+                    "equals_string": "ai_product_or_service_provider",
+                    "@type": "AnonymousSlotExpression"
+                  }
+                ],
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "description": "A party in the ai_provider role takes only that role's sub-roles.",
+          "@type": "ClassRule"
+        },
+        {
+          "preconditions": {
+            "slot_conditions": [
+              {
+                "name": "aic_stakeholder_role",
+                "equals_string": "ai_producer",
+                "@type": "SlotDefinition"
+              },
+              {
+                "name": "aic_stakeholder_sub_roles",
+                "value_presence": "PRESENT",
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "postconditions": {
+            "slot_conditions": [
+              {
+                "name": "aic_stakeholder_sub_roles",
+                "any_of": [
+                  {
+                    "equals_string": "ai_developer",
+                    "@type": "AnonymousSlotExpression"
+                  }
+                ],
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "description": "A party in the ai_producer role takes only that role's sub-roles.",
+          "@type": "ClassRule"
+        },
+        {
+          "preconditions": {
+            "slot_conditions": [
+              {
+                "name": "aic_stakeholder_role",
+                "equals_string": "ai_customer",
+                "@type": "SlotDefinition"
+              },
+              {
+                "name": "aic_stakeholder_sub_roles",
+                "value_presence": "PRESENT",
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "postconditions": {
+            "slot_conditions": [
+              {
+                "name": "aic_stakeholder_sub_roles",
+                "any_of": [
+                  {
+                    "equals_string": "ai_user",
+                    "@type": "AnonymousSlotExpression"
+                  }
+                ],
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "description": "A party in the ai_customer role takes only that role's sub-roles.",
+          "@type": "ClassRule"
+        },
+        {
+          "preconditions": {
+            "slot_conditions": [
+              {
+                "name": "aic_stakeholder_role",
+                "equals_string": "ai_partner",
+                "@type": "SlotDefinition"
+              },
+              {
+                "name": "aic_stakeholder_sub_roles",
+                "value_presence": "PRESENT",
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "postconditions": {
+            "slot_conditions": [
+              {
+                "name": "aic_stakeholder_sub_roles",
+                "any_of": [
+                  {
+                    "equals_string": "ai_system_integrator",
+                    "@type": "AnonymousSlotExpression"
+                  },
+                  {
+                    "equals_string": "data_provider",
+                    "@type": "AnonymousSlotExpression"
+                  }
+                ],
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "description": "A party in the ai_partner role takes only that role's sub-roles.",
+          "@type": "ClassRule"
+        },
+        {
+          "preconditions": {
+            "slot_conditions": [
+              {
+                "name": "aic_stakeholder_role",
+                "equals_string": "ai_subject",
+                "@type": "SlotDefinition"
+              },
+              {
+                "name": "aic_stakeholder_sub_roles",
+                "value_presence": "PRESENT",
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "postconditions": {
+            "slot_conditions": [
+              {
+                "name": "aic_stakeholder_sub_roles",
+                "any_of": [
+                  {
+                    "equals_string": "data_subject",
+                    "@type": "AnonymousSlotExpression"
+                  },
+                  {
+                    "equals_string": "other_subject",
+                    "@type": "AnonymousSlotExpression"
+                  }
+                ],
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "description": "A party in the ai_subject role takes only that role's sub-roles.",
+          "@type": "ClassRule"
+        },
+        {
+          "preconditions": {
+            "slot_conditions": [
+              {
+                "name": "aic_stakeholder_role",
+                "equals_string": "relevant_authority",
+                "@type": "SlotDefinition"
+              },
+              {
+                "name": "aic_stakeholder_sub_roles",
+                "value_presence": "PRESENT",
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "postconditions": {
+            "slot_conditions": [
+              {
+                "name": "aic_stakeholder_sub_roles",
+                "any_of": [
+                  {
+                    "equals_string": "policy_maker",
+                    "@type": "AnonymousSlotExpression"
+                  },
+                  {
+                    "equals_string": "regulator",
+                    "@type": "AnonymousSlotExpression"
+                  }
+                ],
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "description": "A party in the relevant_authority role takes only that role's sub-roles.",
+          "@type": "ClassRule"
+        }
+      ],
       "@type": "ClassDefinition"
     },
     {
@@ -5966,8 +6189,8 @@
   ],
   "metamodel_version": "1.12.0",
   "source_file": "iso22989.yaml",
-  "source_file_date": "2026-11-05T10:58:03",
-  "source_file_size": 54662,
+  "source_file_date": "2026-11-07T00:52:14",
+  "source_file_size": 57793,
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/iso22989.context.jsonld",

@@ -177,16 +177,6 @@ def unresolved_references(records):
     return problems
 
 
-def misplaced_sub_roles(stakeholder):
-    """Each sub-role that sits under a role other than the record's."""
-    role = stakeholder.get("aic_stakeholder_role")
-    return [
-        sub
-        for sub in stakeholder.get("aic_stakeholder_sub_roles", [])
-        if ROLE_OF[sub] != role
-    ]
-
-
 ECOSYSTEMS = [f for f in VALID_EXAMPLE_FILES if _class_of(f) == "AicEcosystem"]
 
 
@@ -213,22 +203,27 @@ def test_the_reference_check_finds_a_fault():
     )
 
 
-@pytest.mark.parametrize("filepath", VALID_EXAMPLE_FILES)
-def test_every_sub_role_sits_under_the_records_role(filepath):
-    """A sub-role belongs to the role the record states."""
-    for cls, data in _all_records(filepath):
-        if cls == "AicStakeholder":
-            assert not misplaced_sub_roles(data), data["aic_id"]
+def _sub_roles_the_rules_allow():
+    """Each role with the sub-roles the rules on AicStakeholder allow it."""
+    allowed = {}
+    for rule in VIEW.get_class("AicStakeholder").rules:
+        pre = rule.preconditions.slot_conditions
+        post = rule.postconditions.slot_conditions["aic_stakeholder_sub_roles"]
+        role = pre["aic_stakeholder_role"].equals_string
+        assert role not in allowed, role
+        allowed[role] = {condition.equals_string for condition in post.any_of}
+    return allowed
 
 
-def test_the_sub_role_check_finds_a_fault():
-    """A regulator cannot be a kind of AI provider."""
-    assert misplaced_sub_roles(
-        {
-            "aic_stakeholder_role": "ai_provider",
-            "aic_stakeholder_sub_roles": ["regulator"],
-        }
-    ) == ["regulator"]
+def test_the_sub_role_rules_follow_the_role_annotations():
+    """The rules give each role exactly the sub-roles whose role annotation
+    names it, so the annotations and the validator cannot drift apart. The
+    counter-example AicStakeholder-sub-role-of-another-role.yaml shows the
+    validator refusing one."""
+    expected = {}
+    for sub, role in ROLE_OF.items():
+        expected.setdefault(role, set()).add(sub)
+    assert _sub_roles_the_rules_allow() == expected
 
 
 def test_every_role_has_a_sub_role():

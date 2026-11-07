@@ -1595,11 +1595,66 @@ class AicStakeholder(AicRecordMixin):
                          'iso22989_term': {'tag': 'iso22989_term', 'value': '3.5.13'}},
          'comments': ["UCO's Role is the function something has in context, which this "
                       'record states for one party. A party with two roles has a '
-                      'record for each.'],
+                      'record for each.',
+                      'The rules hold each sub-role to the role its role annotation '
+                      'names, so a validator refuses a sub-role of another role. '
+                      'tests/test_data.py holds the rules and the annotations equal.'],
          'from_schema': 'https://w3id.org/lmodel/iso22989',
          'in_subset': ['aic_stakeholders'],
          'mixins': ['AicRecordMixin'],
-         'related_mappings': ['uco-role:Role']})
+         'related_mappings': ['uco-role:Role'],
+         'rules': [{'description': 'A party in the ai_provider role takes only that '
+                                   "role's sub-roles.",
+                    'postconditions': {'slot_conditions': {'aic_stakeholder_sub_roles': {'any_of': [{'equals_string': 'ai_platform_provider'},
+                                                                                                    {'equals_string': 'ai_product_or_service_provider'}],
+                                                                                         'name': 'aic_stakeholder_sub_roles'}}},
+                    'preconditions': {'slot_conditions': {'aic_stakeholder_role': {'equals_string': 'ai_provider',
+                                                                                   'name': 'aic_stakeholder_role'},
+                                                          'aic_stakeholder_sub_roles': {'name': 'aic_stakeholder_sub_roles',
+                                                                                        'value_presence': 'PRESENT'}}}},
+                   {'description': 'A party in the ai_producer role takes only that '
+                                   "role's sub-roles.",
+                    'postconditions': {'slot_conditions': {'aic_stakeholder_sub_roles': {'any_of': [{'equals_string': 'ai_developer'}],
+                                                                                         'name': 'aic_stakeholder_sub_roles'}}},
+                    'preconditions': {'slot_conditions': {'aic_stakeholder_role': {'equals_string': 'ai_producer',
+                                                                                   'name': 'aic_stakeholder_role'},
+                                                          'aic_stakeholder_sub_roles': {'name': 'aic_stakeholder_sub_roles',
+                                                                                        'value_presence': 'PRESENT'}}}},
+                   {'description': 'A party in the ai_customer role takes only that '
+                                   "role's sub-roles.",
+                    'postconditions': {'slot_conditions': {'aic_stakeholder_sub_roles': {'any_of': [{'equals_string': 'ai_user'}],
+                                                                                         'name': 'aic_stakeholder_sub_roles'}}},
+                    'preconditions': {'slot_conditions': {'aic_stakeholder_role': {'equals_string': 'ai_customer',
+                                                                                   'name': 'aic_stakeholder_role'},
+                                                          'aic_stakeholder_sub_roles': {'name': 'aic_stakeholder_sub_roles',
+                                                                                        'value_presence': 'PRESENT'}}}},
+                   {'description': 'A party in the ai_partner role takes only that '
+                                   "role's sub-roles.",
+                    'postconditions': {'slot_conditions': {'aic_stakeholder_sub_roles': {'any_of': [{'equals_string': 'ai_system_integrator'},
+                                                                                                    {'equals_string': 'data_provider'}],
+                                                                                         'name': 'aic_stakeholder_sub_roles'}}},
+                    'preconditions': {'slot_conditions': {'aic_stakeholder_role': {'equals_string': 'ai_partner',
+                                                                                   'name': 'aic_stakeholder_role'},
+                                                          'aic_stakeholder_sub_roles': {'name': 'aic_stakeholder_sub_roles',
+                                                                                        'value_presence': 'PRESENT'}}}},
+                   {'description': 'A party in the ai_subject role takes only that '
+                                   "role's sub-roles.",
+                    'postconditions': {'slot_conditions': {'aic_stakeholder_sub_roles': {'any_of': [{'equals_string': 'data_subject'},
+                                                                                                    {'equals_string': 'other_subject'}],
+                                                                                         'name': 'aic_stakeholder_sub_roles'}}},
+                    'preconditions': {'slot_conditions': {'aic_stakeholder_role': {'equals_string': 'ai_subject',
+                                                                                   'name': 'aic_stakeholder_role'},
+                                                          'aic_stakeholder_sub_roles': {'name': 'aic_stakeholder_sub_roles',
+                                                                                        'value_presence': 'PRESENT'}}}},
+                   {'description': 'A party in the relevant_authority role takes only '
+                                   "that role's sub-roles.",
+                    'postconditions': {'slot_conditions': {'aic_stakeholder_sub_roles': {'any_of': [{'equals_string': 'policy_maker'},
+                                                                                                    {'equals_string': 'regulator'}],
+                                                                                         'name': 'aic_stakeholder_sub_roles'}}},
+                    'preconditions': {'slot_conditions': {'aic_stakeholder_role': {'equals_string': 'relevant_authority',
+                                                                                   'name': 'aic_stakeholder_role'},
+                                                          'aic_stakeholder_sub_roles': {'name': 'aic_stakeholder_sub_roles',
+                                                                                        'value_presence': 'PRESENT'}}}}]})
 
     aic_stakeholder_role: AicStakeholderRole = Field(default=..., description="""The part the party plays.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicStakeholder']} })
     aic_stakeholder_sub_roles: Optional[list[AicStakeholderSubRole]] = Field(default=None, description="""The narrower parts it plays within that role.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AicStakeholder']} })

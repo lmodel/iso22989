@@ -4131,6 +4131,9 @@ classes:
     comments:
     - UCO's Role is the function something has in context, which this record states
       for one party. A party with two roles has a record for each.
+    - The rules hold each sub-role to the role its role annotation names, so a validator
+      refuses a sub-role of another role. tests/test_data.py holds the rules and the
+      annotations equal.
     in_subset:
     - aic_stakeholders
     from_schema: https://w3id.org/lmodel/iso22989
@@ -4169,6 +4172,101 @@ classes:
         description: What the party answers for.
         multivalued: true
     class_uri: iso22989:AicStakeholder
+    rules:
+    - preconditions:
+        slot_conditions:
+          aic_stakeholder_role:
+            name: aic_stakeholder_role
+            equals_string: ai_provider
+          aic_stakeholder_sub_roles:
+            name: aic_stakeholder_sub_roles
+            value_presence: PRESENT
+      postconditions:
+        slot_conditions:
+          aic_stakeholder_sub_roles:
+            name: aic_stakeholder_sub_roles
+            any_of:
+            - equals_string: ai_platform_provider
+            - equals_string: ai_product_or_service_provider
+      description: A party in the ai_provider role takes only that role's sub-roles.
+    - preconditions:
+        slot_conditions:
+          aic_stakeholder_role:
+            name: aic_stakeholder_role
+            equals_string: ai_producer
+          aic_stakeholder_sub_roles:
+            name: aic_stakeholder_sub_roles
+            value_presence: PRESENT
+      postconditions:
+        slot_conditions:
+          aic_stakeholder_sub_roles:
+            name: aic_stakeholder_sub_roles
+            any_of:
+            - equals_string: ai_developer
+      description: A party in the ai_producer role takes only that role's sub-roles.
+    - preconditions:
+        slot_conditions:
+          aic_stakeholder_role:
+            name: aic_stakeholder_role
+            equals_string: ai_customer
+          aic_stakeholder_sub_roles:
+            name: aic_stakeholder_sub_roles
+            value_presence: PRESENT
+      postconditions:
+        slot_conditions:
+          aic_stakeholder_sub_roles:
+            name: aic_stakeholder_sub_roles
+            any_of:
+            - equals_string: ai_user
+      description: A party in the ai_customer role takes only that role's sub-roles.
+    - preconditions:
+        slot_conditions:
+          aic_stakeholder_role:
+            name: aic_stakeholder_role
+            equals_string: ai_partner
+          aic_stakeholder_sub_roles:
+            name: aic_stakeholder_sub_roles
+            value_presence: PRESENT
+      postconditions:
+        slot_conditions:
+          aic_stakeholder_sub_roles:
+            name: aic_stakeholder_sub_roles
+            any_of:
+            - equals_string: ai_system_integrator
+            - equals_string: data_provider
+      description: A party in the ai_partner role takes only that role's sub-roles.
+    - preconditions:
+        slot_conditions:
+          aic_stakeholder_role:
+            name: aic_stakeholder_role
+            equals_string: ai_subject
+          aic_stakeholder_sub_roles:
+            name: aic_stakeholder_sub_roles
+            value_presence: PRESENT
+      postconditions:
+        slot_conditions:
+          aic_stakeholder_sub_roles:
+            name: aic_stakeholder_sub_roles
+            any_of:
+            - equals_string: data_subject
+            - equals_string: other_subject
+      description: A party in the ai_subject role takes only that role's sub-roles.
+    - preconditions:
+        slot_conditions:
+          aic_stakeholder_role:
+            name: aic_stakeholder_role
+            equals_string: relevant_authority
+          aic_stakeholder_sub_roles:
+            name: aic_stakeholder_sub_roles
+            value_presence: PRESENT
+      postconditions:
+        slot_conditions:
+          aic_stakeholder_sub_roles:
+            name: aic_stakeholder_sub_roles
+            any_of:
+            - equals_string: policy_maker
+            - equals_string: regulator
+      description: A party in the relevant_authority role takes only that role's sub-roles.
   AicPrediction:
     name: AicPrediction
     definition_uri: https://w3id.org/lmodel/iso22989/AicPrediction
@@ -4471,6 +4569,6 @@ classes:
     class_uri: iso22989:AicCyberPhysicalSystem
 metamodel_version: 1.12.0
 source_file: iso22989.yaml
-source_file_date: '2026-11-05T10:58:03'
-source_file_size: 54662
+source_file_date: '2026-11-07T00:52:14'
+source_file_size: 57793
 

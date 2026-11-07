@@ -11,11 +11,10 @@ This project is a LinkML vocabulary for describing an AI system in the terms of 
 
 `linkml-validate -s src/iso22989/schema/iso22989.yaml -C AicSystem system.yaml` checks a file against the JSON Schema generated from the schema, and `tests/test_data.py` holds every example to it. `project/jsonschema/iso22989.schema.json` is the same schema for anyone without LinkML. Write dates as quoted strings, as JSON carries them, because the validator reads a date as text.
 
-Validate a file before loading it into either model in `src/iso22989/datamodel/`. The dataclasses check required fields and enum values, but no pattern, no minimum and no `any_of` rule. The Pydantic models also check a pattern or a minimum that a field carries, and neither checks the `any_of` rule on `AicIotDevice`.
+Validate a file before loading it into either model in `src/iso22989/datamodel/`. The dataclasses check required fields and enum values, but no pattern, no minimum and no `any_of` rule. The Pydantic models also check a pattern or a minimum that a field carries. Neither checks the `any_of` rule on `AicIotDevice` or the rules that hold a stakeholder's sub-roles to its role.
 
 No validator checks these rules, and `tests/test_data.py` checks them over the examples:
 
 - that a reference names a record the ecosystem holds, of the class the reference ranges over;
 - that no two records share an `aic_id`;
-- that a stakeholder's sub-roles sit under the role it states;
 - that a piece of life-cycle work ends on or after the day it begins.

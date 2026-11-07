@@ -692,8 +692,8 @@ CREATE TABLE "AicAgent_aic_system_approaches" (
 	PRIMARY KEY ("AicAgent_aic_id", aic_system_approaches),
 	FOREIGN KEY("AicAgent_aic_id") REFERENCES "AicAgent" (aic_id)
 );
-CREATE INDEX "ix_AicAgent_aic_system_approaches_AicAgent_aic_id" ON "AicAgent_aic_system_approaches" ("AicAgent_aic_id");
 CREATE INDEX "ix_AicAgent_aic_system_approaches_aic_system_approaches" ON "AicAgent_aic_system_approaches" (aic_system_approaches);
+CREATE INDEX "ix_AicAgent_aic_system_approaches_AicAgent_aic_id" ON "AicAgent_aic_system_approaches" ("AicAgent_aic_id");
 
 CREATE TABLE "AicAgent_aic_system_techniques" (
 	"AicAgent_aic_id" TEXT,
@@ -701,8 +701,8 @@ CREATE TABLE "AicAgent_aic_system_techniques" (
 	PRIMARY KEY ("AicAgent_aic_id", aic_system_techniques),
 	FOREIGN KEY("AicAgent_aic_id") REFERENCES "AicAgent" (aic_id)
 );
-CREATE INDEX "ix_AicAgent_aic_system_techniques_AicAgent_aic_id" ON "AicAgent_aic_system_techniques" ("AicAgent_aic_id");
 CREATE INDEX "ix_AicAgent_aic_system_techniques_aic_system_techniques" ON "AicAgent_aic_system_techniques" (aic_system_techniques);
+CREATE INDEX "ix_AicAgent_aic_system_techniques_AicAgent_aic_id" ON "AicAgent_aic_system_techniques" ("AicAgent_aic_id");
 
 CREATE TABLE "AicAgent_aic_system_fields" (
 	"AicAgent_aic_id" TEXT,
@@ -710,8 +710,8 @@ CREATE TABLE "AicAgent_aic_system_fields" (
 	PRIMARY KEY ("AicAgent_aic_id", aic_system_fields),
 	FOREIGN KEY("AicAgent_aic_id") REFERENCES "AicAgent" (aic_id)
 );
-CREATE INDEX "ix_AicAgent_aic_system_fields_aic_system_fields" ON "AicAgent_aic_system_fields" (aic_system_fields);
 CREATE INDEX "ix_AicAgent_aic_system_fields_AicAgent_aic_id" ON "AicAgent_aic_system_fields" ("AicAgent_aic_id");
+CREATE INDEX "ix_AicAgent_aic_system_fields_aic_system_fields" ON "AicAgent_aic_system_fields" (aic_system_fields);
 
 CREATE TABLE "AicAgent_aic_system_steps" (
 	"AicAgent_aic_id" TEXT,
@@ -746,8 +746,8 @@ CREATE TABLE "AicExpertSystem_aic_system_approaches" (
 	PRIMARY KEY ("AicExpertSystem_aic_id", aic_system_approaches),
 	FOREIGN KEY("AicExpertSystem_aic_id") REFERENCES "AicExpertSystem" (aic_id)
 );
-CREATE INDEX "ix_AicExpertSystem_aic_system_approaches_AicExpertSystem_aic_id" ON "AicExpertSystem_aic_system_approaches" ("AicExpertSystem_aic_id");
 CREATE INDEX "ix_AicExpertSystem_aic_system_approaches_aic_system_approaches" ON "AicExpertSystem_aic_system_approaches" (aic_system_approaches);
+CREATE INDEX "ix_AicExpertSystem_aic_system_approaches_AicExpertSystem_aic_id" ON "AicExpertSystem_aic_system_approaches" ("AicExpertSystem_aic_id");
 
 CREATE TABLE "AicExpertSystem_aic_system_techniques" (
 	"AicExpertSystem_aic_id" TEXT,
@@ -773,8 +773,8 @@ CREATE TABLE "AicExpertSystem_aic_system_steps" (
 	PRIMARY KEY ("AicExpertSystem_aic_id", aic_system_steps),
 	FOREIGN KEY("AicExpertSystem_aic_id") REFERENCES "AicExpertSystem" (aic_id)
 );
-CREATE INDEX "ix_AicExpertSystem_aic_system_steps_AicExpertSystem_aic_id" ON "AicExpertSystem_aic_system_steps" ("AicExpertSystem_aic_id");
 CREATE INDEX "ix_AicExpertSystem_aic_system_steps_aic_system_steps" ON "AicExpertSystem_aic_system_steps" (aic_system_steps);
+CREATE INDEX "ix_AicExpertSystem_aic_system_steps_AicExpertSystem_aic_id" ON "AicExpertSystem_aic_system_steps" ("AicExpertSystem_aic_id");
 
 CREATE TABLE "AicExpertSystem_aic_system_jurisdictional_issues" (
 	"AicExpertSystem_aic_id" TEXT,
@@ -791,8 +791,8 @@ CREATE TABLE "AicExpertSystem_aic_system_societal_impacts" (
 	PRIMARY KEY ("AicExpertSystem_aic_id", aic_system_societal_impacts),
 	FOREIGN KEY("AicExpertSystem_aic_id") REFERENCES "AicExpertSystem" (aic_id)
 );
-CREATE INDEX "ix_AicExpertSystem_aic_system_societal_impacts_AicExpertSystem_aic_id" ON "AicExpertSystem_aic_system_societal_impacts" ("AicExpertSystem_aic_id");
 CREATE INDEX "ix_AicExpertSystem_aic_system_societal_impacts_aic_system_societal_impacts" ON "AicExpertSystem_aic_system_societal_impacts" (aic_system_societal_impacts);
+CREATE INDEX "ix_AicExpertSystem_aic_system_societal_impacts_AicExpertSystem_aic_id" ON "AicExpertSystem_aic_system_societal_impacts" ("AicExpertSystem_aic_id");
 
 CREATE TABLE "AicRobot_aic_robot_actuators" (
 	"AicRobot_aic_id" TEXT,
@@ -818,8 +818,8 @@ CREATE TABLE "AicRobot_aic_system_approaches" (
 	PRIMARY KEY ("AicRobot_aic_id", aic_system_approaches),
 	FOREIGN KEY("AicRobot_aic_id") REFERENCES "AicRobot" (aic_id)
 );
-CREATE INDEX "ix_AicRobot_aic_system_approaches_aic_system_approaches" ON "AicRobot_aic_system_approaches" (aic_system_approaches);
 CREATE INDEX "ix_AicRobot_aic_system_approaches_AicRobot_aic_id" ON "AicRobot_aic_system_approaches" ("AicRobot_aic_id");
+CREATE INDEX "ix_AicRobot_aic_system_approaches_aic_system_approaches" ON "AicRobot_aic_system_approaches" (aic_system_approaches);
 
 CREATE TABLE "AicRobot_aic_system_techniques" (
 	"AicRobot_aic_id" TEXT,
@@ -854,8 +854,8 @@ CREATE TABLE "AicRobot_aic_system_jurisdictional_issues" (
 	PRIMARY KEY ("AicRobot_aic_id", aic_system_jurisdictional_issues),
 	FOREIGN KEY("AicRobot_aic_id") REFERENCES "AicRobot" (aic_id)
 );
-CREATE INDEX "ix_AicRobot_aic_system_jurisdictional_issues_AicRobot_aic_id" ON "AicRobot_aic_system_jurisdictional_issues" ("AicRobot_aic_id");
 CREATE INDEX "ix_AicRobot_aic_system_jurisdictional_issues_aic_system_jurisdictional_issues" ON "AicRobot_aic_system_jurisdictional_issues" (aic_system_jurisdictional_issues);
+CREATE INDEX "ix_AicRobot_aic_system_jurisdictional_issues_AicRobot_aic_id" ON "AicRobot_aic_system_jurisdictional_issues" ("AicRobot_aic_id");
 
 CREATE TABLE "AicRobot_aic_system_societal_impacts" (
 	"AicRobot_aic_id" TEXT,
@@ -1031,8 +1031,8 @@ CREATE TABLE "AicSystem_aic_system_components" (
 	FOREIGN KEY("AicSystem_aic_id") REFERENCES "AicSystem" (aic_id),
 	FOREIGN KEY(aic_system_components_aic_id) REFERENCES "AicComponent" (aic_id)
 );
-CREATE INDEX "ix_AicSystem_aic_system_components_AicSystem_aic_id" ON "AicSystem_aic_system_components" ("AicSystem_aic_id");
 CREATE INDEX "ix_AicSystem_aic_system_components_aic_system_components_aic_id" ON "AicSystem_aic_system_components" (aic_system_components_aic_id);
+CREATE INDEX "ix_AicSystem_aic_system_components_AicSystem_aic_id" ON "AicSystem_aic_system_components" ("AicSystem_aic_id");
 
 CREATE TABLE "AicSystem_aic_system_models" (
 	"AicSystem_aic_id" TEXT,
@@ -1061,8 +1061,8 @@ CREATE TABLE "AicSystem_aic_system_tasks" (
 	FOREIGN KEY("AicSystem_aic_id") REFERENCES "AicSystem" (aic_id),
 	FOREIGN KEY(aic_system_tasks_aic_id) REFERENCES "AicTask" (aic_id)
 );
-CREATE INDEX "ix_AicSystem_aic_system_tasks_AicSystem_aic_id" ON "AicSystem_aic_system_tasks" ("AicSystem_aic_id");
 CREATE INDEX "ix_AicSystem_aic_system_tasks_aic_system_tasks_aic_id" ON "AicSystem_aic_system_tasks" (aic_system_tasks_aic_id);
+CREATE INDEX "ix_AicSystem_aic_system_tasks_AicSystem_aic_id" ON "AicSystem_aic_system_tasks" ("AicSystem_aic_id");
 
 CREATE TABLE "AicSystem_aic_system_stakeholders" (
 	"AicSystem_aic_id" TEXT,
@@ -1071,8 +1071,8 @@ CREATE TABLE "AicSystem_aic_system_stakeholders" (
 	FOREIGN KEY("AicSystem_aic_id") REFERENCES "AicSystem" (aic_id),
 	FOREIGN KEY(aic_system_stakeholders_aic_id) REFERENCES "AicStakeholder" (aic_id)
 );
-CREATE INDEX "ix_AicSystem_aic_system_stakeholders_aic_system_stakeholders_aic_id" ON "AicSystem_aic_system_stakeholders" (aic_system_stakeholders_aic_id);
 CREATE INDEX "ix_AicSystem_aic_system_stakeholders_AicSystem_aic_id" ON "AicSystem_aic_system_stakeholders" ("AicSystem_aic_id");
+CREATE INDEX "ix_AicSystem_aic_system_stakeholders_aic_system_stakeholders_aic_id" ON "AicSystem_aic_system_stakeholders" (aic_system_stakeholders_aic_id);
 
 CREATE TABLE "AicSystem_aic_system_resource_pools" (
 	"AicSystem_aic_id" TEXT,
@@ -1081,8 +1081,8 @@ CREATE TABLE "AicSystem_aic_system_resource_pools" (
 	FOREIGN KEY("AicSystem_aic_id") REFERENCES "AicSystem" (aic_id),
 	FOREIGN KEY(aic_system_resource_pools_aic_id) REFERENCES "AicResourcePool" (aic_id)
 );
-CREATE INDEX "ix_AicSystem_aic_system_resource_pools_aic_system_resource_pools_aic_id" ON "AicSystem_aic_system_resource_pools" (aic_system_resource_pools_aic_id);
 CREATE INDEX "ix_AicSystem_aic_system_resource_pools_AicSystem_aic_id" ON "AicSystem_aic_system_resource_pools" ("AicSystem_aic_id");
+CREATE INDEX "ix_AicSystem_aic_system_resource_pools_aic_system_resource_pools_aic_id" ON "AicSystem_aic_system_resource_pools" (aic_system_resource_pools_aic_id);
 
 CREATE TABLE "AicSystem_aic_system_jurisdictional_issues" (
 	"AicSystem_aic_id" TEXT,
@@ -1099,8 +1099,8 @@ CREATE TABLE "AicSystem_aic_system_societal_impacts" (
 	PRIMARY KEY ("AicSystem_aic_id", aic_system_societal_impacts),
 	FOREIGN KEY("AicSystem_aic_id") REFERENCES "AicSystem" (aic_id)
 );
-CREATE INDEX "ix_AicSystem_aic_system_societal_impacts_aic_system_societal_impacts" ON "AicSystem_aic_system_societal_impacts" (aic_system_societal_impacts);
 CREATE INDEX "ix_AicSystem_aic_system_societal_impacts_AicSystem_aic_id" ON "AicSystem_aic_system_societal_impacts" ("AicSystem_aic_id");
+CREATE INDEX "ix_AicSystem_aic_system_societal_impacts_aic_system_societal_impacts" ON "AicSystem_aic_system_societal_impacts" (aic_system_societal_impacts);
 
 CREATE TABLE "AicAgent_aic_system_components" (
 	"AicAgent_aic_id" TEXT,
@@ -1109,8 +1109,8 @@ CREATE TABLE "AicAgent_aic_system_components" (
 	FOREIGN KEY("AicAgent_aic_id") REFERENCES "AicAgent" (aic_id),
 	FOREIGN KEY(aic_system_components_aic_id) REFERENCES "AicComponent" (aic_id)
 );
-CREATE INDEX "ix_AicAgent_aic_system_components_aic_system_components_aic_id" ON "AicAgent_aic_system_components" (aic_system_components_aic_id);
 CREATE INDEX "ix_AicAgent_aic_system_components_AicAgent_aic_id" ON "AicAgent_aic_system_components" ("AicAgent_aic_id");
+CREATE INDEX "ix_AicAgent_aic_system_components_aic_system_components_aic_id" ON "AicAgent_aic_system_components" (aic_system_components_aic_id);
 
 CREATE TABLE "AicAgent_aic_system_models" (
 	"AicAgent_aic_id" TEXT,
@@ -1119,8 +1119,8 @@ CREATE TABLE "AicAgent_aic_system_models" (
 	FOREIGN KEY("AicAgent_aic_id") REFERENCES "AicAgent" (aic_id),
 	FOREIGN KEY(aic_system_models_aic_id) REFERENCES "AicModel" (aic_id)
 );
-CREATE INDEX "ix_AicAgent_aic_system_models_AicAgent_aic_id" ON "AicAgent_aic_system_models" ("AicAgent_aic_id");
 CREATE INDEX "ix_AicAgent_aic_system_models_aic_system_models_aic_id" ON "AicAgent_aic_system_models" (aic_system_models_aic_id);
+CREATE INDEX "ix_AicAgent_aic_system_models_AicAgent_aic_id" ON "AicAgent_aic_system_models" ("AicAgent_aic_id");
 
 CREATE TABLE "AicAgent_aic_system_datasets" (
 	"AicAgent_aic_id" TEXT,
@@ -1139,8 +1139,8 @@ CREATE TABLE "AicAgent_aic_system_tasks" (
 	FOREIGN KEY("AicAgent_aic_id") REFERENCES "AicAgent" (aic_id),
 	FOREIGN KEY(aic_system_tasks_aic_id) REFERENCES "AicTask" (aic_id)
 );
-CREATE INDEX "ix_AicAgent_aic_system_tasks_aic_system_tasks_aic_id" ON "AicAgent_aic_system_tasks" (aic_system_tasks_aic_id);
 CREATE INDEX "ix_AicAgent_aic_system_tasks_AicAgent_aic_id" ON "AicAgent_aic_system_tasks" ("AicAgent_aic_id");
+CREATE INDEX "ix_AicAgent_aic_system_tasks_aic_system_tasks_aic_id" ON "AicAgent_aic_system_tasks" (aic_system_tasks_aic_id);
 
 CREATE TABLE "AicAgent_aic_system_stakeholders" (
 	"AicAgent_aic_id" TEXT,
@@ -1149,8 +1149,8 @@ CREATE TABLE "AicAgent_aic_system_stakeholders" (
 	FOREIGN KEY("AicAgent_aic_id") REFERENCES "AicAgent" (aic_id),
 	FOREIGN KEY(aic_system_stakeholders_aic_id) REFERENCES "AicStakeholder" (aic_id)
 );
-CREATE INDEX "ix_AicAgent_aic_system_stakeholders_aic_system_stakeholders_aic_id" ON "AicAgent_aic_system_stakeholders" (aic_system_stakeholders_aic_id);
 CREATE INDEX "ix_AicAgent_aic_system_stakeholders_AicAgent_aic_id" ON "AicAgent_aic_system_stakeholders" ("AicAgent_aic_id");
+CREATE INDEX "ix_AicAgent_aic_system_stakeholders_aic_system_stakeholders_aic_id" ON "AicAgent_aic_system_stakeholders" (aic_system_stakeholders_aic_id);
 
 CREATE TABLE "AicAgent_aic_system_resource_pools" (
 	"AicAgent_aic_id" TEXT,
@@ -1179,8 +1179,8 @@ CREATE TABLE "AicExpertSystem_aic_system_components" (
 	FOREIGN KEY("AicExpertSystem_aic_id") REFERENCES "AicExpertSystem" (aic_id),
 	FOREIGN KEY(aic_system_components_aic_id) REFERENCES "AicComponent" (aic_id)
 );
-CREATE INDEX "ix_AicExpertSystem_aic_system_components_aic_system_components_aic_id" ON "AicExpertSystem_aic_system_components" (aic_system_components_aic_id);
 CREATE INDEX "ix_AicExpertSystem_aic_system_components_AicExpertSystem_aic_id" ON "AicExpertSystem_aic_system_components" ("AicExpertSystem_aic_id");
+CREATE INDEX "ix_AicExpertSystem_aic_system_components_aic_system_components_aic_id" ON "AicExpertSystem_aic_system_components" (aic_system_components_aic_id);
 
 CREATE TABLE "AicExpertSystem_aic_system_models" (
 	"AicExpertSystem_aic_id" TEXT,
@@ -1209,8 +1209,8 @@ CREATE TABLE "AicExpertSystem_aic_system_tasks" (
 	FOREIGN KEY("AicExpertSystem_aic_id") REFERENCES "AicExpertSystem" (aic_id),
 	FOREIGN KEY(aic_system_tasks_aic_id) REFERENCES "AicTask" (aic_id)
 );
-CREATE INDEX "ix_AicExpertSystem_aic_system_tasks_AicExpertSystem_aic_id" ON "AicExpertSystem_aic_system_tasks" ("AicExpertSystem_aic_id");
 CREATE INDEX "ix_AicExpertSystem_aic_system_tasks_aic_system_tasks_aic_id" ON "AicExpertSystem_aic_system_tasks" (aic_system_tasks_aic_id);
+CREATE INDEX "ix_AicExpertSystem_aic_system_tasks_AicExpertSystem_aic_id" ON "AicExpertSystem_aic_system_tasks" ("AicExpertSystem_aic_id");
 
 CREATE TABLE "AicExpertSystem_aic_system_stakeholders" (
 	"AicExpertSystem_aic_id" TEXT,
@@ -1219,8 +1219,8 @@ CREATE TABLE "AicExpertSystem_aic_system_stakeholders" (
 	FOREIGN KEY("AicExpertSystem_aic_id") REFERENCES "AicExpertSystem" (aic_id),
 	FOREIGN KEY(aic_system_stakeholders_aic_id) REFERENCES "AicStakeholder" (aic_id)
 );
-CREATE INDEX "ix_AicExpertSystem_aic_system_stakeholders_AicExpertSystem_aic_id" ON "AicExpertSystem_aic_system_stakeholders" ("AicExpertSystem_aic_id");
 CREATE INDEX "ix_AicExpertSystem_aic_system_stakeholders_aic_system_stakeholders_aic_id" ON "AicExpertSystem_aic_system_stakeholders" (aic_system_stakeholders_aic_id);
+CREATE INDEX "ix_AicExpertSystem_aic_system_stakeholders_AicExpertSystem_aic_id" ON "AicExpertSystem_aic_system_stakeholders" ("AicExpertSystem_aic_id");
 
 CREATE TABLE "AicExpertSystem_aic_system_resource_pools" (
 	"AicExpertSystem_aic_id" TEXT,
@@ -1229,8 +1229,8 @@ CREATE TABLE "AicExpertSystem_aic_system_resource_pools" (
 	FOREIGN KEY("AicExpertSystem_aic_id") REFERENCES "AicExpertSystem" (aic_id),
 	FOREIGN KEY(aic_system_resource_pools_aic_id) REFERENCES "AicResourcePool" (aic_id)
 );
-CREATE INDEX "ix_AicExpertSystem_aic_system_resource_pools_aic_system_resource_pools_aic_id" ON "AicExpertSystem_aic_system_resource_pools" (aic_system_resource_pools_aic_id);
 CREATE INDEX "ix_AicExpertSystem_aic_system_resource_pools_AicExpertSystem_aic_id" ON "AicExpertSystem_aic_system_resource_pools" ("AicExpertSystem_aic_id");
+CREATE INDEX "ix_AicExpertSystem_aic_system_resource_pools_aic_system_resource_pools_aic_id" ON "AicExpertSystem_aic_system_resource_pools" (aic_system_resource_pools_aic_id);
 
 CREATE TABLE "AicRobot_aic_system_components" (
 	"AicRobot_aic_id" TEXT,
@@ -1239,8 +1239,8 @@ CREATE TABLE "AicRobot_aic_system_components" (
 	FOREIGN KEY("AicRobot_aic_id") REFERENCES "AicRobot" (aic_id),
 	FOREIGN KEY(aic_system_components_aic_id) REFERENCES "AicComponent" (aic_id)
 );
-CREATE INDEX "ix_AicRobot_aic_system_components_AicRobot_aic_id" ON "AicRobot_aic_system_components" ("AicRobot_aic_id");
 CREATE INDEX "ix_AicRobot_aic_system_components_aic_system_components_aic_id" ON "AicRobot_aic_system_components" (aic_system_components_aic_id);
+CREATE INDEX "ix_AicRobot_aic_system_components_AicRobot_aic_id" ON "AicRobot_aic_system_components" ("AicRobot_aic_id");
 
 CREATE TABLE "AicRobot_aic_system_models" (
 	"AicRobot_aic_id" TEXT,
@@ -1249,8 +1249,8 @@ CREATE TABLE "AicRobot_aic_system_models" (
 	FOREIGN KEY("AicRobot_aic_id") REFERENCES "AicRobot" (aic_id),
 	FOREIGN KEY(aic_system_models_aic_id) REFERENCES "AicModel" (aic_id)
 );
-CREATE INDEX "ix_AicRobot_aic_system_models_AicRobot_aic_id" ON "AicRobot_aic_system_models" ("AicRobot_aic_id");
 CREATE INDEX "ix_AicRobot_aic_system_models_aic_system_models_aic_id" ON "AicRobot_aic_system_models" (aic_system_models_aic_id);
+CREATE INDEX "ix_AicRobot_aic_system_models_AicRobot_aic_id" ON "AicRobot_aic_system_models" ("AicRobot_aic_id");
 
 CREATE TABLE "AicRobot_aic_system_datasets" (
 	"AicRobot_aic_id" TEXT,
@@ -1269,8 +1269,8 @@ CREATE TABLE "AicRobot_aic_system_tasks" (
 	FOREIGN KEY("AicRobot_aic_id") REFERENCES "AicRobot" (aic_id),
 	FOREIGN KEY(aic_system_tasks_aic_id) REFERENCES "AicTask" (aic_id)
 );
-CREATE INDEX "ix_AicRobot_aic_system_tasks_AicRobot_aic_id" ON "AicRobot_aic_system_tasks" ("AicRobot_aic_id");
 CREATE INDEX "ix_AicRobot_aic_system_tasks_aic_system_tasks_aic_id" ON "AicRobot_aic_system_tasks" (aic_system_tasks_aic_id);
+CREATE INDEX "ix_AicRobot_aic_system_tasks_AicRobot_aic_id" ON "AicRobot_aic_system_tasks" ("AicRobot_aic_id");
 
 CREATE TABLE "AicRobot_aic_system_stakeholders" (
 	"AicRobot_aic_id" TEXT,
@@ -1299,8 +1299,8 @@ CREATE TABLE "AicComponent_aic_component_depends_on" (
 	FOREIGN KEY("AicComponent_aic_id") REFERENCES "AicComponent" (aic_id),
 	FOREIGN KEY(aic_component_depends_on_aic_id) REFERENCES "AicComponent" (aic_id)
 );
-CREATE INDEX "ix_AicComponent_aic_component_depends_on_aic_component_depends_on_aic_id" ON "AicComponent_aic_component_depends_on" (aic_component_depends_on_aic_id);
 CREATE INDEX "ix_AicComponent_aic_component_depends_on_AicComponent_aic_id" ON "AicComponent_aic_component_depends_on" ("AicComponent_aic_id");
+CREATE INDEX "ix_AicComponent_aic_component_depends_on_aic_component_depends_on_aic_id" ON "AicComponent_aic_component_depends_on" (aic_component_depends_on_aic_id);
 
 CREATE TABLE "AicTask_aic_task_languages" (
 	"AicTask_aic_id" TEXT,
@@ -1308,8 +1308,8 @@ CREATE TABLE "AicTask_aic_task_languages" (
 	PRIMARY KEY ("AicTask_aic_id", aic_task_languages),
 	FOREIGN KEY("AicTask_aic_id") REFERENCES "AicTask" (aic_id)
 );
-CREATE INDEX "ix_AicTask_aic_task_languages_aic_task_languages" ON "AicTask_aic_task_languages" (aic_task_languages);
 CREATE INDEX "ix_AicTask_aic_task_languages_AicTask_aic_id" ON "AicTask_aic_task_languages" ("AicTask_aic_id");
+CREATE INDEX "ix_AicTask_aic_task_languages_aic_task_languages" ON "AicTask_aic_task_languages" (aic_task_languages);
 
 CREATE TABLE "AicTask_aic_task_performance_measures" (
 	"AicTask_aic_id" TEXT,
@@ -1317,8 +1317,8 @@ CREATE TABLE "AicTask_aic_task_performance_measures" (
 	PRIMARY KEY ("AicTask_aic_id", aic_task_performance_measures),
 	FOREIGN KEY("AicTask_aic_id") REFERENCES "AicTask" (aic_id)
 );
-CREATE INDEX "ix_AicTask_aic_task_performance_measures_aic_task_performance_measures" ON "AicTask_aic_task_performance_measures" (aic_task_performance_measures);
 CREATE INDEX "ix_AicTask_aic_task_performance_measures_AicTask_aic_id" ON "AicTask_aic_task_performance_measures" ("AicTask_aic_id");
+CREATE INDEX "ix_AicTask_aic_task_performance_measures_aic_task_performance_measures" ON "AicTask_aic_task_performance_measures" (aic_task_performance_measures);
 
 CREATE TABLE "AicMachineLearningModel_aic_ml_datasets" (
 	"AicMachineLearningModel_aic_id" TEXT,
@@ -1327,8 +1327,8 @@ CREATE TABLE "AicMachineLearningModel_aic_ml_datasets" (
 	FOREIGN KEY("AicMachineLearningModel_aic_id") REFERENCES "AicMachineLearningModel" (aic_id),
 	FOREIGN KEY(aic_ml_datasets_aic_id) REFERENCES "AicDataset" (aic_id)
 );
-CREATE INDEX "ix_AicMachineLearningModel_aic_ml_datasets_AicMachineLearningModel_aic_id" ON "AicMachineLearningModel_aic_ml_datasets" ("AicMachineLearningModel_aic_id");
 CREATE INDEX "ix_AicMachineLearningModel_aic_ml_datasets_aic_ml_datasets_aic_id" ON "AicMachineLearningModel_aic_ml_datasets" (aic_ml_datasets_aic_id);
+CREATE INDEX "ix_AicMachineLearningModel_aic_ml_datasets_AicMachineLearningModel_aic_id" ON "AicMachineLearningModel_aic_ml_datasets" ("AicMachineLearningModel_aic_id");
 
 CREATE TABLE "AicNeuralNetworkModel_aic_network_activation_functions" (
 	"AicNeuralNetworkModel_aic_id" TEXT,
@@ -1336,8 +1336,8 @@ CREATE TABLE "AicNeuralNetworkModel_aic_network_activation_functions" (
 	PRIMARY KEY ("AicNeuralNetworkModel_aic_id", aic_network_activation_functions),
 	FOREIGN KEY("AicNeuralNetworkModel_aic_id") REFERENCES "AicNeuralNetworkModel" (aic_id)
 );
-CREATE INDEX "ix_AicNeuralNetworkModel_aic_network_activation_functions_aic_network_activation_functions" ON "AicNeuralNetworkModel_aic_network_activation_functions" (aic_network_activation_functions);
 CREATE INDEX "ix_AicNeuralNetworkModel_aic_network_activation_functions_AicNeuralNetworkModel_aic_id" ON "AicNeuralNetworkModel_aic_network_activation_functions" ("AicNeuralNetworkModel_aic_id");
+CREATE INDEX "ix_AicNeuralNetworkModel_aic_network_activation_functions_aic_network_activation_functions" ON "AicNeuralNetworkModel_aic_network_activation_functions" (aic_network_activation_functions);
 
 CREATE TABLE "AicNeuralNetworkModel_aic_ml_datasets" (
 	"AicNeuralNetworkModel_aic_id" TEXT,
@@ -1391,8 +1391,8 @@ CREATE TABLE "AicStakeholder_aic_stakeholder_responsibilities" (
 	PRIMARY KEY ("AicStakeholder_aic_id", aic_stakeholder_responsibilities),
 	FOREIGN KEY("AicStakeholder_aic_id") REFERENCES "AicStakeholder" (aic_id)
 );
-CREATE INDEX "ix_AicStakeholder_aic_stakeholder_responsibilities_AicStakeholder_aic_id" ON "AicStakeholder_aic_stakeholder_responsibilities" ("AicStakeholder_aic_id");
 CREATE INDEX "ix_AicStakeholder_aic_stakeholder_responsibilities_aic_stakeholder_responsibilities" ON "AicStakeholder_aic_stakeholder_responsibilities" (aic_stakeholder_responsibilities);
+CREATE INDEX "ix_AicStakeholder_aic_stakeholder_responsibilities_AicStakeholder_aic_id" ON "AicStakeholder_aic_stakeholder_responsibilities" ("AicStakeholder_aic_id");
 
 CREATE TABLE "AicIotDevice_aic_device_senses" (
 	"AicIotDevice_aic_id" TEXT,
@@ -1400,8 +1400,8 @@ CREATE TABLE "AicIotDevice_aic_device_senses" (
 	PRIMARY KEY ("AicIotDevice_aic_id", aic_device_senses),
 	FOREIGN KEY("AicIotDevice_aic_id") REFERENCES "AicIotDevice" (aic_id)
 );
-CREATE INDEX "ix_AicIotDevice_aic_device_senses_aic_device_senses" ON "AicIotDevice_aic_device_senses" (aic_device_senses);
 CREATE INDEX "ix_AicIotDevice_aic_device_senses_AicIotDevice_aic_id" ON "AicIotDevice_aic_device_senses" ("AicIotDevice_aic_id");
+CREATE INDEX "ix_AicIotDevice_aic_device_senses_aic_device_senses" ON "AicIotDevice_aic_device_senses" (aic_device_senses);
 
 CREATE TABLE "AicIotDevice_aic_device_actuates" (
 	"AicIotDevice_aic_id" TEXT,
@@ -1409,8 +1409,8 @@ CREATE TABLE "AicIotDevice_aic_device_actuates" (
 	PRIMARY KEY ("AicIotDevice_aic_id", aic_device_actuates),
 	FOREIGN KEY("AicIotDevice_aic_id") REFERENCES "AicIotDevice" (aic_id)
 );
-CREATE INDEX "ix_AicIotDevice_aic_device_actuates_aic_device_actuates" ON "AicIotDevice_aic_device_actuates" (aic_device_actuates);
 CREATE INDEX "ix_AicIotDevice_aic_device_actuates_AicIotDevice_aic_id" ON "AicIotDevice_aic_device_actuates" ("AicIotDevice_aic_id");
+CREATE INDEX "ix_AicIotDevice_aic_device_actuates_aic_device_actuates" ON "AicIotDevice_aic_device_actuates" (aic_device_actuates);
 
 CREATE TABLE "AicIotSystem_aic_iot_devices" (
 	"AicIotSystem_aic_id" TEXT,
@@ -1429,8 +1429,8 @@ CREATE TABLE "AicIotSystem_aic_iot_ai_systems" (
 	FOREIGN KEY("AicIotSystem_aic_id") REFERENCES "AicIotSystem" (aic_id),
 	FOREIGN KEY(aic_iot_ai_systems_aic_id) REFERENCES "AicSystem" (aic_id)
 );
-CREATE INDEX "ix_AicIotSystem_aic_iot_ai_systems_aic_iot_ai_systems_aic_id" ON "AicIotSystem_aic_iot_ai_systems" (aic_iot_ai_systems_aic_id);
 CREATE INDEX "ix_AicIotSystem_aic_iot_ai_systems_AicIotSystem_aic_id" ON "AicIotSystem_aic_iot_ai_systems" ("AicIotSystem_aic_id");
+CREATE INDEX "ix_AicIotSystem_aic_iot_ai_systems_aic_iot_ai_systems_aic_id" ON "AicIotSystem_aic_iot_ai_systems" (aic_iot_ai_systems_aic_id);
 
 CREATE TABLE "AicTrustworthinessClaim_aic_claim_evidence" (
 	"AicTrustworthinessClaim_aic_id" TEXT,
@@ -1438,8 +1438,8 @@ CREATE TABLE "AicTrustworthinessClaim_aic_claim_evidence" (
 	PRIMARY KEY ("AicTrustworthinessClaim_aic_id", aic_claim_evidence),
 	FOREIGN KEY("AicTrustworthinessClaim_aic_id") REFERENCES "AicTrustworthinessClaim" (aic_id)
 );
-CREATE INDEX "ix_AicTrustworthinessClaim_aic_claim_evidence_AicTrustworthinessClaim_aic_id" ON "AicTrustworthinessClaim_aic_claim_evidence" ("AicTrustworthinessClaim_aic_id");
 CREATE INDEX "ix_AicTrustworthinessClaim_aic_claim_evidence_aic_claim_evidence" ON "AicTrustworthinessClaim_aic_claim_evidence" (aic_claim_evidence);
+CREATE INDEX "ix_AicTrustworthinessClaim_aic_claim_evidence_AicTrustworthinessClaim_aic_id" ON "AicTrustworthinessClaim_aic_claim_evidence" ("AicTrustworthinessClaim_aic_id");
 
 CREATE TABLE "AicLifecycleProcess_aic_lifecycle_inputs" (
 	"AicLifecycleProcess_aic_id" TEXT,
@@ -1466,8 +1466,8 @@ CREATE TABLE "AicDecision_aic_decision_predictions" (
 	FOREIGN KEY("AicDecision_aic_id") REFERENCES "AicDecision" (aic_id),
 	FOREIGN KEY(aic_decision_predictions_aic_id) REFERENCES "AicPrediction" (aic_id)
 );
-CREATE INDEX "ix_AicDecision_aic_decision_predictions_aic_decision_predictions_aic_id" ON "AicDecision_aic_decision_predictions" (aic_decision_predictions_aic_id);
 CREATE INDEX "ix_AicDecision_aic_decision_predictions_AicDecision_aic_id" ON "AicDecision_aic_decision_predictions" ("AicDecision_aic_id");
+CREATE INDEX "ix_AicDecision_aic_decision_predictions_aic_decision_predictions_aic_id" ON "AicDecision_aic_decision_predictions" (aic_decision_predictions_aic_id);
 
 CREATE TABLE "AicCyberPhysicalSystem_aic_cps_physical_processes" (
 	"AicCyberPhysicalSystem_aic_id" TEXT,
@@ -1475,8 +1475,8 @@ CREATE TABLE "AicCyberPhysicalSystem_aic_cps_physical_processes" (
 	PRIMARY KEY ("AicCyberPhysicalSystem_aic_id", aic_cps_physical_processes),
 	FOREIGN KEY("AicCyberPhysicalSystem_aic_id") REFERENCES "AicCyberPhysicalSystem" (aic_id)
 );
-CREATE INDEX "ix_AicCyberPhysicalSystem_aic_cps_physical_processes_aic_cps_physical_processes" ON "AicCyberPhysicalSystem_aic_cps_physical_processes" (aic_cps_physical_processes);
 CREATE INDEX "ix_AicCyberPhysicalSystem_aic_cps_physical_processes_AicCyberPhysicalSystem_aic_id" ON "AicCyberPhysicalSystem_aic_cps_physical_processes" ("AicCyberPhysicalSystem_aic_id");
+CREATE INDEX "ix_AicCyberPhysicalSystem_aic_cps_physical_processes_aic_cps_physical_processes" ON "AicCyberPhysicalSystem_aic_cps_physical_processes" (aic_cps_physical_processes);
 
 CREATE TABLE "AicCyberPhysicalSystem_aic_cps_ai_systems" (
 	"AicCyberPhysicalSystem_aic_id" TEXT,
