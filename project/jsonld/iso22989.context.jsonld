@@ -4,6 +4,7 @@
       "gist_ontology": "https://w3id.org/semanticarts/ns/ontology/gist/",
       "iso22989": "https://w3id.org/lmodel/iso22989/",
       "linkml": "https://w3id.org/linkml/",
+      "nist_ai_100_1": "https://w3id.org/lmodel/nist-ai-100-1/",
       "schema": "http://schema.org/",
       "skos": "http://www.w3.org/2004/02/skos/core#",
       "spdx_ai": "https://spdx.org/rdf/3.0.1/terms/AI/",

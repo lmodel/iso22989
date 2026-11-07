@@ -65,6 +65,7 @@ version = "2022"
 GIST_ONTOLOGY = CurieNamespace('gist_ontology', 'https://w3id.org/semanticarts/ns/ontology/gist/')
 ISO22989 = CurieNamespace('iso22989', 'https://w3id.org/lmodel/iso22989/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
+NIST_AI_100_1 = CurieNamespace('nist_ai_100_1', 'https://w3id.org/lmodel/nist-ai-100-1/')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
 SPDX_AI = CurieNamespace('spdx_ai', 'https://spdx.org/rdf/3.0.1/terms/AI/')
 SPDX_DATASET = CurieNamespace('spdx_dataset', 'https://spdx.org/rdf/3.0.1/terms/Dataset/')

@@ -3,6 +3,7 @@
 @prefix gist_ontology: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix spdx_dataset: <https://spdx.org/rdf/3.0.1/terms/Dataset/> .
+@prefix nist_ai_100_1: <https://w3id.org/lmodel/nist-ai-100-1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spdx_ai: <https://spdx.org/rdf/3.0.1/terms/AI/> .
@@ -523,22 +524,27 @@ iso22989:AicNeuralNetworkModel a owl:Class ;
 iso22989:AicOecdLifecycleStage\#build_and_use_model a owl:Class ;
 	rdfs:label "build_and_use_model" ;
 	rdfs:subClassOf iso22989:AicOecdLifecycleStage ;
+	skos:closeMatch nist_ai_100_1:AiRmfLifecycleStageName\#build_and_use_model ;
 	skos:definition "Making the model, or adapting one that exists, and trying it on the task." .
 iso22989:AicOecdLifecycleStage\#collect_and_process_data a owl:Class ;
 	rdfs:label "collect_and_process_data" ;
 	rdfs:subClassOf iso22989:AicOecdLifecycleStage ;
+	skos:closeMatch nist_ai_100_1:AiRmfLifecycleStageName\#collect_and_process_data ;
 	skos:definition "Gathering and readying the data." .
 iso22989:AicOecdLifecycleStage\#deploy a owl:Class ;
 	rdfs:label "deploy" ;
 	rdfs:subClassOf iso22989:AicOecdLifecycleStage ;
+	skos:closeMatch nist_ai_100_1:AiRmfLifecycleStageName\#deploy_and_use ;
 	skos:definition "Making the system available for use." .
 iso22989:AicOecdLifecycleStage\#operate_and_monitor a owl:Class ;
 	rdfs:label "operate_and_monitor" ;
 	rdfs:subClassOf iso22989:AicOecdLifecycleStage ;
+	skos:closeMatch nist_ai_100_1:AiRmfLifecycleStageName\#operate_and_monitor ;
 	skos:definition "Running the system and watching how it behaves." .
 iso22989:AicOecdLifecycleStage\#plan_and_design a owl:Class ;
 	rdfs:label "plan_and_design" ;
 	rdfs:subClassOf iso22989:AicOecdLifecycleStage ;
+	skos:closeMatch nist_ai_100_1:AiRmfLifecycleStageName\#plan_and_design ;
 	skos:definition "Setting out what the system is for and how it will work." .
 iso22989:AicOecdLifecycleStage\#retire_or_decommission a owl:Class ;
 	rdfs:label "retire_or_decommission" ;
@@ -547,13 +553,14 @@ iso22989:AicOecdLifecycleStage\#retire_or_decommission a owl:Class ;
 iso22989:AicOecdLifecycleStage\#verify_and_validate a owl:Class ;
 	rdfs:label "verify_and_validate" ;
 	rdfs:subClassOf iso22989:AicOecdLifecycleStage ;
+	skos:closeMatch nist_ai_100_1:AiRmfLifecycleStageName\#verify_and_validate ;
 	skos:definition "Testing and evaluating the system, and checking it against what was specified and what it is for." .
 iso22989:AicOecdLifecycleStage a owl:Class ;
 	rdfs:label "AicOecdLifecycleStage" ;
 	owl:unionOf _:c14n221 ;
 	skos:definition "A phase of the OECD's account of an AI system's life, which Annex A sets beside the standard's." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
-	skos:note "The first six values are the phases the OECD Recommendation on Artificial Intelligence (OECD/LEGAL/0449) named when the standard was published, as the OECD Framework for the Classification of AI Systems (2022) draws them. The Recommendation as revised on 3 May 2024 names seven: it adds retiring or decommissioning, widens building to adapting a model that exists, and widens checking to testing and evaluation. The descriptions follow the revised text, read at legalinstruments.oecd.org on 2026-11-05, and retire_or_decommission is here for a record that follows it." ;
+	skos:note "NIST's AI Risk Management Framework names the first six phases too, with deploy as deploy and use, and lmodel/nist-ai-100-1 renders them, so each maps to NIST's stage by close_mappings." , "The first six values are the phases the OECD Recommendation on Artificial Intelligence (OECD/LEGAL/0449) named when the standard was published, as the OECD Framework for the Classification of AI Systems (2022) draws them. The Recommendation as revised on 3 May 2024 names seven: it adds retiring or decommissioning, widens building to adapting a model that exists, and widens checking to testing and evaluation. The descriptions follow the revised text, read at legalinstruments.oecd.org on 2026-11-05, and retire_or_decommission is here for a record that follows it." ;
 	linkml:permissible_values iso22989:AicOecdLifecycleStage\#build_and_use_model , iso22989:AicOecdLifecycleStage\#collect_and_process_data , iso22989:AicOecdLifecycleStage\#deploy , iso22989:AicOecdLifecycleStage\#operate_and_monitor , iso22989:AicOecdLifecycleStage\#plan_and_design , iso22989:AicOecdLifecycleStage\#retire_or_decommission , iso22989:AicOecdLifecycleStage\#verify_and_validate ;
 	iso22989:iso22989_clause "Annex A" ;
 	iso22989:oecd_source "OECD/LEGAL/0449" .
@@ -714,9 +721,10 @@ iso22989:AicSystem a owl:Class ;
 	rdfs:label "AicSystem" ;
 	rdfs:subClassOf iso22989:AicRecordMixin , _:c14n112 , _:c14n121 , _:c14n130 , _:c14n151 , _:c14n169 , _:c14n172 , _:c14n173 , _:c14n179 , _:c14n199 , _:c14n200 , _:c14n208 , _:c14n212 , _:c14n213 , _:c14n219 , _:c14n220 , _:c14n222 , _:c14n229 , _:c14n243 , _:c14n244 , _:c14n248 , _:c14n255 , _:c14n27 , _:c14n282 , _:c14n292 , _:c14n293 , _:c14n307 , _:c14n316 , _:c14n324 , _:c14n352 , _:c14n36 , _:c14n366 , _:c14n381 , _:c14n395 , _:c14n399 , _:c14n40 , _:c14n438 , _:c14n44 , _:c14n443 , _:c14n67 , _:c14n70 , _:c14n79 , _:c14n81 , _:c14n82 , _:c14n91 , _:c14n94 ;
 	skos:broadMatch gist_ontology:System ;
+	skos:closeMatch nist_ai_100_1:AiSystem ;
 	skos:definition "A system built to produce results for goals set by people, using AI techniques, whatever else it is made of." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
-	skos:note "gist's System is any composite whose parts work as a whole, so it is the wider term. SPDX's AIPackage describes a system as a distributed package." ;
+	skos:note "NIST's AI system, as lmodel/nist-ai-100-1 renders it, is a machine-based system that produces outputs for given objectives, a definition NIST adapts from the OECD's, so the two are close." , "gist's System is any composite whose parts work as a whole, so it is the wider term. SPDX's AIPackage describes a system as a distributed package." ;
 	skos:relatedMatch spdx_ai:AIPackage ;
 	iso22989:iso22989_clause "8.2" ;
 	iso22989:iso22989_term "3.1.4" .
@@ -909,6 +917,7 @@ iso22989:AicTrustworthinessClaim a owl:Class ;
 iso22989:AicTrustworthinessProperty\#accountability a owl:Class ;
 	rdfs:label "accountability" ;
 	rdfs:subClassOf iso22989:AicTrustworthinessProperty ;
+	skos:broadMatch nist_ai_100_1:AiRmfCharacteristicName\#accountable_and_transparent ;
 	skos:definition "Someone answers for what the system does and decides." ;
 	iso22989:iso22989_term "3.5.1, 3.5.2" .
 iso22989:AicTrustworthinessProperty\#availability a owl:Class ;
@@ -919,6 +928,7 @@ iso22989:AicTrustworthinessProperty\#availability a owl:Class ;
 iso22989:AicTrustworthinessProperty\#bias_and_fairness a owl:Class ;
 	rdfs:label "bias_and_fairness" ;
 	rdfs:subClassOf iso22989:AicTrustworthinessProperty ;
+	skos:closeMatch nist_ai_100_1:AiRmfCharacteristicName\#fair_with_harmful_bias_managed ;
 	skos:definition "Whether the system treats some people or things worse than others, as a pattern." ;
 	iso22989:iso22989_clause "5.15.9" ;
 	iso22989:iso22989_term "3.5.4" .
@@ -931,12 +941,14 @@ iso22989:AicTrustworthinessProperty\#controllability a owl:Class ;
 iso22989:AicTrustworthinessProperty\#explainability a owl:Class ;
 	rdfs:label "explainability" ;
 	rdfs:subClassOf iso22989:AicTrustworthinessProperty ;
+	skos:broadMatch nist_ai_100_1:AiRmfCharacteristicName\#explainable_and_interpretable ;
 	skos:definition "Can say, in terms people follow, what drove a result." ;
 	iso22989:iso22989_clause "5.15.6" ;
 	iso22989:iso22989_term "3.5.7" .
 iso22989:AicTrustworthinessProperty\#organizational_transparency a owl:Class ;
 	rdfs:label "organizational_transparency" ;
 	rdfs:subClassOf iso22989:AicTrustworthinessProperty ;
+	skos:broadMatch nist_ai_100_1:AiRmfCharacteristicName\#accountable_and_transparent ;
 	skos:definition "The organization tells those concerned what it does and decides." ;
 	iso22989:iso22989_clause "5.15.8" ;
 	iso22989:iso22989_term "3.5.14" .
@@ -949,12 +961,14 @@ iso22989:AicTrustworthinessProperty\#predictability a owl:Class ;
 iso22989:AicTrustworthinessProperty\#reliability a owl:Class ;
 	rdfs:label "reliability" ;
 	rdfs:subClassOf iso22989:AicTrustworthinessProperty ;
+	skos:broadMatch nist_ai_100_1:AiRmfCharacteristicName\#valid_and_reliable ;
 	skos:definition "Behaves and delivers as intended, time after time." ;
 	iso22989:iso22989_clause "5.15.3" ;
 	iso22989:iso22989_term "3.5.9" .
 iso22989:AicTrustworthinessProperty\#resilience a owl:Class ;
 	rdfs:label "resilience" ;
 	rdfs:subClassOf iso22989:AicTrustworthinessProperty ;
+	skos:broadMatch nist_ai_100_1:AiRmfCharacteristicName\#secure_and_resilient ;
 	skos:definition "Gets back to working order soon after something goes wrong." ;
 	iso22989:iso22989_clause "5.15.4" ;
 	iso22989:iso22989_term "3.5.10" .
@@ -967,6 +981,7 @@ iso22989:AicTrustworthinessProperty\#robustness a owl:Class ;
 iso22989:AicTrustworthinessProperty\#system_transparency a owl:Class ;
 	rdfs:label "system_transparency" ;
 	rdfs:subClassOf iso22989:AicTrustworthinessProperty ;
+	skos:broadMatch nist_ai_100_1:AiRmfCharacteristicName\#accountable_and_transparent ;
 	skos:definition "Those concerned can learn what they need to know about the system." ;
 	iso22989:iso22989_clause "5.15.8" ;
 	iso22989:iso22989_term "3.5.15" .
@@ -975,6 +990,7 @@ iso22989:AicTrustworthinessProperty a owl:Class ;
 	owl:unionOf _:c14n334 ;
 	skos:definition "A property a trustworthiness claim is about." ;
 	skos:inScheme <https://w3id.org/lmodel/iso22989> ;
+	skos:note "Where a characteristic of NIST's AI Risk Management Framework, as lmodel/nist-ai-100-1 renders it, holds a property, the value maps to it: broad where NIST joins the property with another, close for fairness." ;
 	linkml:permissible_values iso22989:AicTrustworthinessProperty\#accountability , iso22989:AicTrustworthinessProperty\#availability , iso22989:AicTrustworthinessProperty\#bias_and_fairness , iso22989:AicTrustworthinessProperty\#controllability , iso22989:AicTrustworthinessProperty\#explainability , iso22989:AicTrustworthinessProperty\#organizational_transparency , iso22989:AicTrustworthinessProperty\#predictability , iso22989:AicTrustworthinessProperty\#reliability , iso22989:AicTrustworthinessProperty\#resilience , iso22989:AicTrustworthinessProperty\#robustness , iso22989:AicTrustworthinessProperty\#system_transparency ;
 	iso22989:iso22989_clause "5.15" .
 iso22989:aic_action_decision a owl:ObjectProperty ;

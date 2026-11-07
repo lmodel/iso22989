@@ -54,6 +54,9 @@ prefixes:
   gist_ontology:
     prefix_prefix: gist_ontology
     prefix_reference: https://w3id.org/semanticarts/ns/ontology/gist/
+  nist_ai_100_1:
+    prefix_prefix: nist_ai_100_1
+    prefix_reference: https://w3id.org/lmodel/nist-ai-100-1/
   spdx_ai:
     prefix_prefix: spdx_ai
     prefix_reference: https://spdx.org/rdf/3.0.1/terms/AI/
@@ -898,6 +901,10 @@ enums:
         tag: iso22989_clause
         value: '5.15'
     description: A property a trustworthiness claim is about.
+    comments:
+    - 'Where a characteristic of NIST''s AI Risk Management Framework, as lmodel/nist-ai-100-1
+      renders it, holds a property, the value maps to it: broad where NIST joins the
+      property with another, close for fairness.'
     in_subset:
     - aic_trustworthiness
     from_schema: https://w3id.org/lmodel/iso22989
@@ -922,6 +929,8 @@ enums:
           iso22989_clause:
             tag: iso22989_clause
             value: 5.15.3
+        broad_mappings:
+        - nist_ai_100_1:AiRmfCharacteristicName#valid_and_reliable
       resilience:
         text: resilience
         description: Gets back to working order soon after something goes wrong.
@@ -932,6 +941,8 @@ enums:
           iso22989_clause:
             tag: iso22989_clause
             value: 5.15.4
+        broad_mappings:
+        - nist_ai_100_1:AiRmfCharacteristicName#secure_and_resilient
       controllability:
         text: controllability
         description: A person or another system can step in and steer it.
@@ -952,6 +963,8 @@ enums:
           iso22989_clause:
             tag: iso22989_clause
             value: 5.15.6
+        broad_mappings:
+        - nist_ai_100_1:AiRmfCharacteristicName#explainable_and_interpretable
       predictability:
         text: predictability
         description: Lets people form sound expectations of what it will produce.
@@ -972,6 +985,8 @@ enums:
           iso22989_clause:
             tag: iso22989_clause
             value: 5.15.8
+        broad_mappings:
+        - nist_ai_100_1:AiRmfCharacteristicName#accountable_and_transparent
       system_transparency:
         text: system_transparency
         description: Those concerned can learn what they need to know about the system.
@@ -982,6 +997,8 @@ enums:
           iso22989_clause:
             tag: iso22989_clause
             value: 5.15.8
+        broad_mappings:
+        - nist_ai_100_1:AiRmfCharacteristicName#accountable_and_transparent
       bias_and_fairness:
         text: bias_and_fairness
         description: Whether the system treats some people or things worse than others,
@@ -993,6 +1010,8 @@ enums:
           iso22989_clause:
             tag: iso22989_clause
             value: 5.15.9
+        close_mappings:
+        - nist_ai_100_1:AiRmfCharacteristicName#fair_with_harmful_bias_managed
       accountability:
         text: accountability
         description: Someone answers for what the system does and decides.
@@ -1000,6 +1019,8 @@ enums:
           iso22989_term:
             tag: iso22989_term
             value: 3.5.1, 3.5.2
+        broad_mappings:
+        - nist_ai_100_1:AiRmfCharacteristicName#accountable_and_transparent
       availability:
         text: availability
         description: Those entitled to use it can reach it and use it when they ask.
@@ -1291,6 +1312,9 @@ enums:
       evaluation. The descriptions follow the revised text, read at legalinstruments.oecd.org
       on 2026-11-05, and retire_or_decommission is here for a record that follows
       it.'
+    - NIST's AI Risk Management Framework names the first six phases too, with deploy
+      as deploy and use, and lmodel/nist-ai-100-1 renders them, so each maps to NIST's
+      stage by close_mappings.
     in_subset:
     - aic_lifecycle
     from_schema: https://w3id.org/lmodel/iso22989
@@ -1298,23 +1322,35 @@ enums:
       plan_and_design:
         text: plan_and_design
         description: Setting out what the system is for and how it will work.
+        close_mappings:
+        - nist_ai_100_1:AiRmfLifecycleStageName#plan_and_design
       collect_and_process_data:
         text: collect_and_process_data
         description: Gathering and readying the data.
+        close_mappings:
+        - nist_ai_100_1:AiRmfLifecycleStageName#collect_and_process_data
       build_and_use_model:
         text: build_and_use_model
         description: Making the model, or adapting one that exists, and trying it
           on the task.
+        close_mappings:
+        - nist_ai_100_1:AiRmfLifecycleStageName#build_and_use_model
       verify_and_validate:
         text: verify_and_validate
         description: Testing and evaluating the system, and checking it against what
           was specified and what it is for.
+        close_mappings:
+        - nist_ai_100_1:AiRmfLifecycleStageName#verify_and_validate
       deploy:
         text: deploy
         description: Making the system available for use.
+        close_mappings:
+        - nist_ai_100_1:AiRmfLifecycleStageName#deploy_and_use
       operate_and_monitor:
         text: operate_and_monitor
         description: Running the system and watching how it behaves.
+        close_mappings:
+        - nist_ai_100_1:AiRmfLifecycleStageName#operate_and_monitor
       retire_or_decommission:
         text: retire_or_decommission
         description: Taking the system out of service, a step that may come at any
@@ -3283,9 +3319,14 @@ classes:
     comments:
     - gist's System is any composite whose parts work as a whole, so it is the wider
       term. SPDX's AIPackage describes a system as a distributed package.
+    - NIST's AI system, as lmodel/nist-ai-100-1 renders it, is a machine-based system
+      that produces outputs for given objectives, a definition NIST adapts from the
+      OECD's, so the two are close.
     in_subset:
     - aic_systems
     from_schema: https://w3id.org/lmodel/iso22989
+    close_mappings:
+    - nist_ai_100_1:AiSystem
     related_mappings:
     - spdx_ai:AIPackage
     broad_mappings:
@@ -4571,6 +4612,6 @@ classes:
     class_uri: iso22989:AicCyberPhysicalSystem
 metamodel_version: 1.12.0
 source_file: iso22989.yaml
-source_file_date: '2026-11-07T00:55:39'
-source_file_size: 57950
+source_file_date: '2026-11-07T00:57:37'
+source_file_size: 60022
 

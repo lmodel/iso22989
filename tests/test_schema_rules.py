@@ -221,6 +221,7 @@ def test_mappings_use_a_bound_prefix():
 # Each prefix this schema maps through, and the released copy that holds it.
 MAPPED_NEIGHBOURS = {
     "gist_ontology": "gist.yaml",
+    "nist_ai_100_1": "nist-ai-100-1.yaml",
     "spdx_ai": "spdx.yaml",
     "spdx_dataset": "spdx.yaml",
     "uco-observable": "uco.yaml",
@@ -235,8 +236,10 @@ def _expand(curie, prefixes):
 
 @pytest.mark.parametrize("prefix", sorted(MAPPED_NEIGHBOURS))
 def test_mappings_name_a_class_of_the_neighbour(prefix):
-    """Every mapping to a released neighbour names a class of its copy, compared
-    as full IRIs, since this schema's prefix key may differ from the copy's."""
+    """Every mapping to a released neighbour names a class of its copy, or a
+    value of one of its enums as `Enum#value` in its default namespace. Both are
+    compared as full IRIs, since this schema's prefix key may differ from the
+    copy's."""
     doc = yaml.safe_load(COPY.read_text())
     neighbour = yaml.safe_load((NEIGHBOUR_DIR / MAPPED_NEIGHBOURS[prefix]).read_text())
     theirs = neighbour["prefixes"]
@@ -244,6 +247,12 @@ def test_mappings_name_a_class_of_the_neighbour(prefix):
         _expand(cls["class_uri"], theirs)
         for cls in neighbour["classes"].values()
         if (cls or {}).get("class_uri", "").partition(":")[0] in theirs
+    }
+    namespace = theirs[neighbour["default_prefix"]]
+    iris |= {
+        f"{namespace}{enum}#{value}"
+        for enum, definition in (neighbour.get("enums") or {}).items()
+        for value in (definition or {}).get("permissible_values") or {}
     }
     mappings = [m for m in _mappings(doc) if m.startswith(f"{prefix}:")]
     assert mappings

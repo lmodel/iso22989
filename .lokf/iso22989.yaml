@@ -36,6 +36,7 @@ prefixes:
   iso22989: https://w3id.org/lmodel/iso22989/
   schema: http://schema.org/
   gist_ontology: https://w3id.org/semanticarts/ns/ontology/gist/
+  nist_ai_100_1: https://w3id.org/lmodel/nist-ai-100-1/
   spdx_ai: https://spdx.org/rdf/3.0.1/terms/AI/
   spdx_dataset: https://spdx.org/rdf/3.0.1/terms/Dataset/
   uco-observable: https://ontology.unifiedcyberontology.org/uco/observable/
@@ -346,6 +347,10 @@ enums:
     - aic_trustworthiness
     annotations:
       iso22989_clause: '5.15'
+    comments:
+    - 'Where a characteristic of NIST''s AI Risk Management Framework, as lmodel/nist-ai-100-1 renders
+      it, holds a property, the value maps to it: broad where NIST joins the property with another, close
+      for fairness.'
     permissible_values:
       robustness:
         description: Keeps performing well when conditions turn hostile or unusual.
@@ -357,11 +362,15 @@ enums:
         annotations:
           iso22989_term: 3.5.9
           iso22989_clause: 5.15.3
+        broad_mappings:
+        - nist_ai_100_1:AiRmfCharacteristicName#valid_and_reliable
       resilience:
         description: Gets back to working order soon after something goes wrong.
         annotations:
           iso22989_term: 3.5.10
           iso22989_clause: 5.15.4
+        broad_mappings:
+        - nist_ai_100_1:AiRmfCharacteristicName#secure_and_resilient
       controllability:
         description: A person or another system can step in and steer it.
         annotations:
@@ -372,6 +381,8 @@ enums:
         annotations:
           iso22989_term: 3.5.7
           iso22989_clause: 5.15.6
+        broad_mappings:
+        - nist_ai_100_1:AiRmfCharacteristicName#explainable_and_interpretable
       predictability:
         description: Lets people form sound expectations of what it will produce.
         annotations:
@@ -382,20 +393,28 @@ enums:
         annotations:
           iso22989_term: 3.5.14
           iso22989_clause: 5.15.8
+        broad_mappings:
+        - nist_ai_100_1:AiRmfCharacteristicName#accountable_and_transparent
       system_transparency:
         description: Those concerned can learn what they need to know about the system.
         annotations:
           iso22989_term: 3.5.15
           iso22989_clause: 5.15.8
+        broad_mappings:
+        - nist_ai_100_1:AiRmfCharacteristicName#accountable_and_transparent
       bias_and_fairness:
         description: Whether the system treats some people or things worse than others, as a pattern.
         annotations:
           iso22989_term: 3.5.4
           iso22989_clause: 5.15.9
+        close_mappings:
+        - nist_ai_100_1:AiRmfCharacteristicName#fair_with_harmful_bias_managed
       accountability:
         description: Someone answers for what the system does and decides.
         annotations:
           iso22989_term: 3.5.1, 3.5.2
+        broad_mappings:
+        - nist_ai_100_1:AiRmfCharacteristicName#accountable_and_transparent
       availability:
         description: Those entitled to use it can reach it and use it when they ask.
         annotations:
@@ -571,20 +590,34 @@ enums:
       decommissioning, widens building to adapting a model that exists, and widens checking to testing
       and evaluation. The descriptions follow the revised text, read at legalinstruments.oecd.org on 2026-11-05,
       and retire_or_decommission is here for a record that follows it.'
+    - NIST's AI Risk Management Framework names the first six phases too, with deploy as deploy and use,
+      and lmodel/nist-ai-100-1 renders them, so each maps to NIST's stage by close_mappings.
     permissible_values:
       plan_and_design:
         description: Setting out what the system is for and how it will work.
+        close_mappings:
+        - nist_ai_100_1:AiRmfLifecycleStageName#plan_and_design
       collect_and_process_data:
         description: Gathering and readying the data.
+        close_mappings:
+        - nist_ai_100_1:AiRmfLifecycleStageName#collect_and_process_data
       build_and_use_model:
         description: Making the model, or adapting one that exists, and trying it on the task.
+        close_mappings:
+        - nist_ai_100_1:AiRmfLifecycleStageName#build_and_use_model
       verify_and_validate:
         description: Testing and evaluating the system, and checking it against what was specified and
           what it is for.
+        close_mappings:
+        - nist_ai_100_1:AiRmfLifecycleStageName#verify_and_validate
       deploy:
         description: Making the system available for use.
+        close_mappings:
+        - nist_ai_100_1:AiRmfLifecycleStageName#deploy_and_use
       operate_and_monitor:
         description: Running the system and watching how it behaves.
+        close_mappings:
+        - nist_ai_100_1:AiRmfLifecycleStageName#operate_and_monitor
       retire_or_decommission:
         description: Taking the system out of service, a step that may come at any point while it runs.
   AicResourceKind:
@@ -893,11 +926,15 @@ classes:
       iso22989_clause: '8.2'
     broad_mappings:
     - gist_ontology:System
+    close_mappings:
+    - nist_ai_100_1:AiSystem
     related_mappings:
     - spdx_ai:AIPackage
     comments:
     - gist's System is any composite whose parts work as a whole, so it is the wider term. SPDX's AIPackage
       describes a system as a distributed package.
+    - NIST's AI system, as lmodel/nist-ai-100-1 renders it, is a machine-based system that produces outputs
+      for given objectives, a definition NIST adapts from the OECD's, so the two are close.
     slots:
     - aic_system_type
     attributes:

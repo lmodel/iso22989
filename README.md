@@ -21,6 +21,7 @@ The schema is a vocabulary for describing an AI system in the terms of [ISO/IEC 
 ## Mappings
 
 * **[lmodel/gist](https://github.com/lmodel/gist)**: `broad_mappings` from a system and a robot, and `related_mappings` from a task. `tests/test_schema_rules.py` checks them against the released copy.
+* **[lmodel/nist-ai-100-1](https://github.com/lmodel/nist-ai-100-1)**: `close_mappings` from a system and from the OECD phases to NIST's lifecycle stages, and `broad_mappings` or `close_mappings` from the trustworthiness properties to NIST's characteristics. `tests/test_schema_rules.py` checks them.
 * **[lmodel/spdx](https://github.com/lmodel/spdx)**: `related_mappings` from a system to `AIPackage` and from a dataset to `DatasetPackage`. `tests/test_schema_rules.py` checks them.
 * **[lmodel/uco](https://github.com/lmodel/uco)**: `broad_mappings` and `narrow_mappings` from a connected device, and `related_mappings` from a stakeholder. `tests/test_schema_rules.py` checks them.
 

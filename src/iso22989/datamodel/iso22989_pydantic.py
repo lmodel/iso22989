@@ -108,6 +108,8 @@ linkml_meta = LinkMLMeta({'annotations': {'edition': {'tag': 'edition', 'value':
                                'prefix_reference': 'https://w3id.org/lmodel/iso22989/'},
                   'linkml': {'prefix_prefix': 'linkml',
                              'prefix_reference': 'https://w3id.org/linkml/'},
+                  'nist_ai_100_1': {'prefix_prefix': 'nist_ai_100_1',
+                                    'prefix_reference': 'https://w3id.org/lmodel/nist-ai-100-1/'},
                   'schema': {'prefix_prefix': 'schema',
                              'prefix_reference': 'http://schema.org/'},
                   'spdx_ai': {'prefix_prefix': 'spdx_ai',
@@ -861,9 +863,14 @@ class AicSystem(AicRecordMixin):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'annotations': {'iso22989_clause': {'tag': 'iso22989_clause', 'value': '8.2'},
                          'iso22989_term': {'tag': 'iso22989_term', 'value': '3.1.4'}},
          'broad_mappings': ['gist_ontology:System'],
+         'close_mappings': ['nist_ai_100_1:AiSystem'],
          'comments': ["gist's System is any composite whose parts work as a whole, so "
                       "it is the wider term. SPDX's AIPackage describes a system as a "
-                      'distributed package.'],
+                      'distributed package.',
+                      "NIST's AI system, as lmodel/nist-ai-100-1 renders it, is a "
+                      'machine-based system that produces outputs for given '
+                      "objectives, a definition NIST adapts from the OECD's, so the "
+                      'two are close.'],
          'from_schema': 'https://w3id.org/lmodel/iso22989',
          'in_subset': ['aic_systems'],
          'mixins': ['AicRecordMixin'],
