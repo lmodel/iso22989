@@ -6,6 +6,8 @@ The `v0.0.0` tag is a baseline, not a release: it marks where versioning starts 
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-11-07
+
 ### Added
 
 - **`iso22989_term` and `iso22989_clause` annotations**, with `tests/iso22989_numbers.yaml`, which accounts for every term of Clause 3 by number.
