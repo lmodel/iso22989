@@ -25,7 +25,7 @@ The schema is a vocabulary for describing an AI system in the terms of [ISO/IEC 
 * **[lmodel/spdx](https://github.com/lmodel/spdx)**: `related_mappings` from a system to `AIPackage` and from a dataset to `DatasetPackage`. `tests/test_schema_rules.py` checks them.
 * **[lmodel/uco](https://github.com/lmodel/uco)**: `broad_mappings` and `narrow_mappings` from a connected device, and `related_mappings` from a stakeholder. `tests/test_schema_rules.py` checks them.
 
-The schema is the only place that holds mappings. The SSSOM sets were removed, since a matching tool wrote them, no source confirmed their rows, and most named terms that no longer exist.
+The schema is the only place mappings are maintained. The SSSOM sets were removed, since a matching tool wrote them, no source confirmed their rows, and most named terms that no longer exist.
 
 ## Repository Structure
 
@@ -51,7 +51,7 @@ The copy roots `AicSystem`, `AicComponent`, `AicKnowledge`, `AicTask`, `AicModel
 AicSystem, AicAgent, AicExpertSystem, AicRobot, AicComponent, AicKnowledge, AicTask, AicModel, AicMachineLearningModel, AicNeuralNetworkModel, AicDataset, AicStakeholder, AicLifecycleProcess, AicTrustworthinessClaim, AicAssessment, AicApplication, AicResourcePool, AicIotDevice, AicIotSystem, AicCyberPhysicalSystem
 ```
 
-The copy drops `aic_id` for LOKF's `id`, folds `title` and `description` into LOKF's, and demotes the two designators, since a concept's `type` already names its class. Every other key starts with `aic_`, and `tests/test_schema_rules.py` checks that the copy shares no name with LOKF or the released neighbours.
+The copy drops `aic_id` for LOKF's `id`, folds `title` and `description` into LOKF's, and demotes the two designators, since a concept's `type` already names its class. Every other key starts with `aic_`, and `tests/test_schema_rules.py` checks the copy's names against LOKF's and the released neighbours'.
 
 ## License
 
