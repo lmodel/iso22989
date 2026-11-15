@@ -19,7 +19,7 @@ A LinkML schema of the concepts of ISO/IEC 22989:2022, which ISO and IEC publish
 
 ## Development setup
 
-You need Python 3.10+, [uv](https://docs.astral.sh/uv/) and [just](https://github.com/casey/just).
+You need Python 3.11+, [uv](https://docs.astral.sh/uv/) and [just](https://github.com/casey/just).
 
 ```bash
 git clone https://github.com/lmodel/iso22989.git

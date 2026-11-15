@@ -1,0 +1,1408 @@
+# This repository's own values for the knowledge website. hugo.toml beside
+# this file holds everything that is the same on every site. The ktl-website
+# skill wrote this file once and never replaces it.
+
+# The site's address: the owner's GitHub Pages domain and the repository's
+# name under it. A user site (the <owner>.github.io repository) or a custom
+# domain has no name after the domain: "https://docs.example.org/".
+baseURL = "https://lmodel.github.io/iso22989/"
+
+# The site's title, in the header and on every social card.
+title = "iso22989"
+
+[params]
+# One sentence, for search engines and link previews.
+description = "ISO/IEC 22989:2022 AI concepts and terminology (LinkML)"
+# The repository. Links to files that are not pages go here.
+repo = "https://github.com/lmodel/iso22989"
+
+# Everything below is optional. The site finds the README, the docs, the
+# figures, the changelog, a LinkML schema and a workspace by itself.
+
+# The default branch, when it is not main, and the tag a release carries,
+# when it is not v<version>.
+# branch = "master"
+# releaseTag = "{version}"
+
+# A logo of the repository's own, as files under .assets/. Left out, the
+# site shows the Knowledge Trust Ladder logo.
+# logo = ".assets/logo.svg"
+# logoDark = ".assets/logo-dark.svg"
+
+# The data: a folder of SQLite databases and their Datasette metadata, from
+# the repository's root, served under browse/ with a page that opens each in
+# Datasette Lite, and the command that writes the folder when it holds no
+# database. The databases go on the public site, so none is served until
+# this is set.
+# browse = "my-project/browse"
+# browseBuild = "just build-browse"
+
+# More folders under docs/ that are not pages.
+# docsExclude = ["templates-linkml", "elements", "drafts"]
+
+# The docs pages in groups of your choosing, each page by its path under
+# docs/ without .md. Left out, the pages at the top of docs/ are one group
+# and each folder is a group of its own. With groups, the build stops when
+# one names a missing page or a page is in no group.
+# [[params.docsGroups]]
+# label = "Start here"
+# pages = ["install", "usage"]
+
+# Old addresses, each sent on to the page built from a repository file. One
+# ending in /* stands for every page of the schema. Hugo lowercases a
+# table's keys, so an address with capitals takes the list form below.
+# [params.redirects]
+# "about" = "docs/about.md"
+# "elements/*" = "schema/*"
+#
+# [[params.redirects]]
+# from = "elements/OldName"
+# to = "website/generated/schema/classes/NewName.md"
+
+[[params.redirects]]
+from = "about"
+to = "docs/about.md"
+
+[[params.redirects]]
+from = "elements/AIAgent"
+to = "website/generated/schema/classes/AicAgent.md"
+
+[[params.redirects]]
+from = "elements/AIApplication"
+to = "website/generated/schema/classes/AicApplication.md"
+
+[[params.redirects]]
+from = "elements/AIApplicationDomain"
+to = "website/generated/schema/enums/AicApplicationDomain.md"
+
+[[params.redirects]]
+from = "elements/AIAuditor"
+to = "website/generated/schema/classes/AicStakeholder.md"
+
+[[params.redirects]]
+from = "elements/AIComponent"
+to = "website/generated/schema/classes/AicComponent.md"
+
+[[params.redirects]]
+from = "elements/AIConcept"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/AIConceptsCollection"
+to = "website/generated/schema/classes/AicEcosystem.md"
+
+[[params.redirects]]
+from = "elements/AICustomer"
+to = "website/generated/schema/classes/AicStakeholder.md"
+
+[[params.redirects]]
+from = "elements/AIEcosystem"
+to = "website/generated/schema/classes/AicEcosystem.md"
+
+[[params.redirects]]
+from = "elements/AIEvaluator"
+to = "website/generated/schema/classes/AicStakeholder.md"
+
+[[params.redirects]]
+from = "elements/AIField"
+to = "website/generated/schema/enums/AicField.md"
+
+[[params.redirects]]
+from = "elements/AIFunctionalComponent"
+to = "website/generated/schema/enums/AicFunctionalStep.md"
+
+[[params.redirects]]
+from = "elements/AILifecycleProcess"
+to = "website/generated/schema/classes/AicLifecycleProcess.md"
+
+[[params.redirects]]
+from = "elements/AILifecycleStage"
+to = "website/generated/schema/enums/AicLifecycleStage.md"
+
+[[params.redirects]]
+from = "elements/AIModel"
+to = "website/generated/schema/classes/AicModel.md"
+
+[[params.redirects]]
+from = "elements/AIPartner"
+to = "website/generated/schema/classes/AicStakeholder.md"
+
+[[params.redirects]]
+from = "elements/AIPlatformProvider"
+to = "website/generated/schema/enums/AicStakeholderSubRole.md"
+
+[[params.redirects]]
+from = "elements/AIProducer"
+to = "website/generated/schema/classes/AicStakeholder.md"
+
+[[params.redirects]]
+from = "elements/AIProvider"
+to = "website/generated/schema/classes/AicStakeholder.md"
+
+[[params.redirects]]
+from = "elements/AIServiceProductProvider"
+to = "website/generated/schema/enums/AicStakeholderSubRole.md"
+
+[[params.redirects]]
+from = "elements/AIStakeholderRole"
+to = "website/generated/schema/classes/AicStakeholder.md"
+
+[[params.redirects]]
+from = "elements/AIStakeholderRoleType"
+to = "website/generated/schema/enums/AicStakeholderRole.md"
+
+[[params.redirects]]
+from = "elements/AISubject"
+to = "website/generated/schema/classes/AicStakeholder.md"
+
+[[params.redirects]]
+from = "elements/AISystem"
+to = "website/generated/schema/classes/AicSystem.md"
+
+[[params.redirects]]
+from = "elements/AISystemCharacteristic"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/AISystemIntegrator"
+to = "website/generated/schema/enums/AicStakeholderSubRole.md"
+
+[[params.redirects]]
+from = "elements/AISystemType"
+to = "website/generated/schema/enums/AicSystemScope.md"
+
+[[params.redirects]]
+from = "elements/AITerm"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/AIUser"
+to = "website/generated/schema/enums/AicStakeholderSubRole.md"
+
+[[params.redirects]]
+from = "elements/AbbreviatedTerm"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/AbbreviationCode"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/AbbreviationEntry"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/Action"
+to = "website/generated/schema/classes/AicAction.md"
+
+[[params.redirects]]
+from = "elements/ActivationFunctionType"
+to = "website/generated/schema/slots/aic_network_activation_functions.md"
+
+[[params.redirects]]
+from = "elements/AgentArchitectureType"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/AutonomyAssessment"
+to = "website/generated/schema/enums/AicAutonomy.md"
+
+[[params.redirects]]
+from = "elements/AutonomyCriterion"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/AutonomyLevel"
+to = "website/generated/schema/enums/AicAutonomy.md"
+
+[[params.redirects]]
+from = "elements/BiasType"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/BigDataCharacteristic"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/CatastrophicForgetting"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/CognitiveComputingSystem"
+to = "website/generated/schema/enums/AicTechnique.md"
+
+[[params.redirects]]
+from = "elements/ComputationVerifier"
+to = "website/generated/schema/classes/AicStakeholder.md"
+
+[[params.redirects]]
+from = "elements/ComputerVisionFunction"
+to = "website/generated/schema/enums/AicTaskKind.md"
+
+[[params.redirects]]
+from = "elements/ComputerVisionTask"
+to = "website/generated/schema/enums/AicTaskKind.md"
+
+[[params.redirects]]
+from = "elements/ComputerVisionTerm"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ComputingResourceType"
+to = "website/generated/schema/enums/AicResourceKind.md"
+
+[[params.redirects]]
+from = "elements/ConfidenceScore"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ConvolutionOperation"
+to = "website/generated/schema/classes/AicNeuralNetworkModel.md"
+
+[[params.redirects]]
+from = "elements/CyberPhysicalSystem"
+to = "website/generated/schema/classes/AicCyberPhysicalSystem.md"
+
+[[params.redirects]]
+from = "elements/DataCollectionMethod"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/DataDrift"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/DataLabel"
+to = "website/generated/schema/slots/aic_dataset_labels.md"
+
+[[params.redirects]]
+from = "elements/DataLabelType"
+to = "website/generated/schema/slots/aic_dataset_labels.md"
+
+[[params.redirects]]
+from = "elements/DataModality"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/DataProcess"
+to = "website/generated/schema/classes/AicDataProcess.md"
+
+[[params.redirects]]
+from = "elements/DataProcessType"
+to = "website/generated/schema/enums/AicDataProcessKind.md"
+
+[[params.redirects]]
+from = "elements/DataProvider"
+to = "website/generated/schema/enums/AicStakeholderSubRole.md"
+
+[[params.redirects]]
+from = "elements/DataSample"
+to = "website/generated/schema/slots/aic_dataset_sample_count.md"
+
+[[params.redirects]]
+from = "elements/DataSourceType"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/DataSubject"
+to = "website/generated/schema/enums/AicStakeholderSubRole.md"
+
+[[params.redirects]]
+from = "elements/DataTerm"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/Dataset"
+to = "website/generated/schema/classes/AicDataset.md"
+
+[[params.redirects]]
+from = "elements/DatasetRole"
+to = "website/generated/schema/enums/AicDatasetRole.md"
+
+[[params.redirects]]
+from = "elements/Decision"
+to = "website/generated/schema/classes/AicDecision.md"
+
+[[params.redirects]]
+from = "elements/DurationType"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/EngineeringApproach"
+to = "website/generated/schema/enums/AicTechnique.md"
+
+[[params.redirects]]
+from = "elements/EvaluationMetric"
+to = "website/generated/schema/slots/aic_task_performance_measures.md"
+
+[[params.redirects]]
+from = "elements/ExecutionStatus"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ExpertSystem"
+to = "website/generated/schema/classes/AicExpertSystem.md"
+
+[[params.redirects]]
+from = "elements/FaultToleranceMechanism"
+to = "website/generated/schema/enums/AicTrustworthinessProperty.md"
+
+[[params.redirects]]
+from = "elements/GroundTruthRecord"
+to = "website/generated/schema/slots/aic_dataset_ground_truth.md"
+
+[[params.redirects]]
+from = "elements/HumanMachineTeam"
+to = "website/generated/schema/slots/aic_system_human_teaming.md"
+
+[[params.redirects]]
+from = "elements/Inference"
+to = "website/generated/schema/slots/aic_expert_inference.md"
+
+[[params.redirects]]
+from = "elements/InferenceEngine"
+to = "website/generated/schema/slots/aic_expert_inference.md"
+
+[[params.redirects]]
+from = "elements/InputData"
+to = "website/generated/schema/enums/AicDatasetRole.md"
+
+[[params.redirects]]
+from = "elements/IntelligenceAugmentation"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/InterestedParty"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/IoTDevice"
+to = "website/generated/schema/classes/AicIotDevice.md"
+
+[[params.redirects]]
+from = "elements/IoTDeviceRole"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/IoTSystem"
+to = "website/generated/schema/classes/AicIotSystem.md"
+
+[[params.redirects]]
+from = "elements/JurisdictionalIssueType"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/KnowledgeGraph"
+to = "website/generated/schema/classes/AicKnowledge.md"
+
+[[params.redirects]]
+from = "elements/KnowledgeRepresentation"
+to = "website/generated/schema/classes/AicKnowledge.md"
+
+[[params.redirects]]
+from = "elements/KnowledgeType"
+to = "website/generated/schema/enums/AicKnowledgeKind.md"
+
+[[params.redirects]]
+from = "elements/MLAlgorithmFamily"
+to = "website/generated/schema/enums/AicAlgorithmFamily.md"
+
+[[params.redirects]]
+from = "elements/MachineLearningParadigm"
+to = "website/generated/schema/enums/AicLearningParadigm.md"
+
+[[params.redirects]]
+from = "elements/MachineLearningTerm"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ModelDesigner"
+to = "website/generated/schema/classes/AicStakeholder.md"
+
+[[params.redirects]]
+from = "elements/ModelImplementer"
+to = "website/generated/schema/classes/AicStakeholder.md"
+
+[[params.redirects]]
+from = "elements/ModelVerifier"
+to = "website/generated/schema/classes/AicStakeholder.md"
+
+[[params.redirects]]
+from = "elements/NLPComponent"
+to = "website/generated/schema/enums/AicTaskKind.md"
+
+[[params.redirects]]
+from = "elements/NLPComponentType"
+to = "website/generated/schema/enums/AicTaskKind.md"
+
+[[params.redirects]]
+from = "elements/NLPTerm"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/NamedEntity"
+to = "website/generated/schema/classes/AicRecordMixin.md"
+
+[[params.redirects]]
+from = "elements/NaturalLanguage"
+to = "website/generated/schema/slots/aic_task_languages.md"
+
+[[params.redirects]]
+from = "elements/NeuralNetworkArchitecture"
+to = "website/generated/schema/enums/AicNetworkArchitecture.md"
+
+[[params.redirects]]
+from = "elements/NeuralNetworkModel"
+to = "website/generated/schema/classes/AicNeuralNetworkModel.md"
+
+[[params.redirects]]
+from = "elements/NeuralNetworkPhenomenon"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/NeuralNetworkTerm"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/NeuroSymbolicApproach"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/Neuron"
+to = "website/generated/schema/classes/AicNeuralNetworkModel.md"
+
+[[params.redirects]]
+from = "elements/OECDLifecycleMapping"
+to = "website/generated/schema/enums/AicOecdLifecycleStage.md"
+
+[[params.redirects]]
+from = "elements/OECDLifecycleStage"
+to = "website/generated/schema/enums/AicOecdLifecycleStage.md"
+
+[[params.redirects]]
+from = "elements/Organization"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/PolicyMaker"
+to = "website/generated/schema/enums/AicStakeholderSubRole.md"
+
+[[params.redirects]]
+from = "elements/Prediction"
+to = "website/generated/schema/classes/AicPrediction.md"
+
+[[params.redirects]]
+from = "elements/Recommendation"
+to = "website/generated/schema/classes/AicPrediction.md"
+
+[[params.redirects]]
+from = "elements/RecommendationOutcomeType"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/Regulator"
+to = "website/generated/schema/enums/AicStakeholderSubRole.md"
+
+[[params.redirects]]
+from = "elements/RelevantAuthority"
+to = "website/generated/schema/classes/AicStakeholder.md"
+
+[[params.redirects]]
+from = "elements/ResourcePool"
+to = "website/generated/schema/classes/AicResourcePool.md"
+
+[[params.redirects]]
+from = "elements/RiskItem"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/Robot"
+to = "website/generated/schema/classes/AicRobot.md"
+
+[[params.redirects]]
+from = "elements/SemanticComputingSystem"
+to = "website/generated/schema/enums/AicTechnique.md"
+
+[[params.redirects]]
+from = "elements/SocietalImpactCategory"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/SoftComputingSystem"
+to = "website/generated/schema/enums/AicTechnique.md"
+
+[[params.redirects]]
+from = "elements/SoftComputingTechnique"
+to = "website/generated/schema/enums/AicTechnique.md"
+
+[[params.redirects]]
+from = "elements/SymbolicApproach"
+to = "website/generated/schema/enums/AicApproach.md"
+
+[[params.redirects]]
+from = "elements/Task"
+to = "website/generated/schema/classes/AicTask.md"
+
+[[params.redirects]]
+from = "elements/TaskCategory"
+to = "website/generated/schema/enums/AicTaskKind.md"
+
+[[params.redirects]]
+from = "elements/Term"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/Threshold"
+to = "website/generated/schema/slots/aic_decision_criteria.md"
+
+[[params.redirects]]
+from = "elements/TrustworthinessProperty"
+to = "website/generated/schema/classes/AicTrustworthinessClaim.md"
+
+[[params.redirects]]
+from = "elements/TrustworthinessPropertyType"
+to = "website/generated/schema/enums/AicTrustworthinessProperty.md"
+
+[[params.redirects]]
+from = "elements/TrustworthinessTerm"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ValidationStrategy"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/VerificationValidationFramework"
+to = "website/generated/schema/classes/AicAssessment.md"
+
+[[params.redirects]]
+from = "elements/VerificationValidationLevel"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/abbreviation_code"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/abbreviations"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/action_target"
+to = "website/generated/schema/slots/aic_action_target.md"
+
+[[params.redirects]]
+from = "elements/activation_function"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/actuating_capabilities"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/affected_dataset"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/affected_model"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/affected_stakeholders"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/agent_architecture"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ai_applications"
+to = "website/generated/schema/slots/aic_ecosystem_applications.md"
+
+[[params.redirects]]
+from = "elements/ai_applications_domain"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ai_components"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ai_concepts"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ai_datasets"
+to = "website/generated/schema/slots/aic_ecosystem_datasets.md"
+
+[[params.redirects]]
+from = "elements/ai_ecosystem"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ai_field"
+to = "website/generated/schema/slots/aic_system_fields.md"
+
+[[params.redirects]]
+from = "elements/ai_fields"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ai_functional_view"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ai_lifecycle"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ai_lifecycle_processes"
+to = "website/generated/schema/slots/aic_ecosystem_lifecycle_processes.md"
+
+[[params.redirects]]
+from = "elements/ai_models"
+to = "website/generated/schema/slots/aic_ecosystem_models.md"
+
+[[params.redirects]]
+from = "elements/ai_stakeholder_roles"
+to = "website/generated/schema/slots/aic_ecosystem_stakeholders.md"
+
+[[params.redirects]]
+from = "elements/ai_stakeholders"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ai_system_type"
+to = "website/generated/schema/slots/aic_system_scope.md"
+
+[[params.redirects]]
+from = "elements/ai_systems"
+to = "website/generated/schema/slots/aic_ecosystem_systems.md"
+
+[[params.redirects]]
+from = "elements/ai_systems_involved"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/algorithm_family"
+to = "website/generated/schema/slots/aic_ml_algorithm.md"
+
+[[params.redirects]]
+from = "elements/aliases"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/annotator"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/applicable_biases"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/application_domain"
+to = "website/generated/schema/slots/aic_application_domain.md"
+
+[[params.redirects]]
+from = "elements/applies_to_metric"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/approval_criteria"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/augmented_capability"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/autonomy_criterion_scores"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/autonomy_level"
+to = "website/generated/schema/slots/aic_system_autonomy.md"
+
+[[params.redirects]]
+from = "elements/based_on_predictions"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/big_data_characteristics"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/capacity_units"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/catastrophic_forgetting_risk"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/clause_reference"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/cognitive_capabilities"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/collection_date_range"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/component_function"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/components"
+to = "website/generated/schema/slots/aic_system_components.md"
+
+[[params.redirects]]
+from = "elements/computing_resources"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/confidence"
+to = "website/generated/schema/slots/aic_prediction_confidence.md"
+
+[[params.redirects]]
+from = "elements/confidence_score"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/consequence"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/consumed_by"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/contact"
+to = "website/generated/schema/slots/aic_stakeholder_contact.md"
+
+[[params.redirects]]
+from = "elements/contains_personal_data"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/controlled_by"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/coverage_scope"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/cv_task"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/cyber_components"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/cyber_physical_systems"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/data_collection_method"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/data_modality"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/data_processes"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/data_processes_applied"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/data_provenance"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/data_quality_notes"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/data_source_type"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/data_sources"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/data_version"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/dataset_role"
+to = "website/generated/schema/slots/aic_dataset_roles.md"
+
+[[params.redirects]]
+from = "elements/datasets"
+to = "website/generated/schema/slots/aic_system_datasets.md"
+
+[[params.redirects]]
+from = "elements/decision_outcome"
+to = "website/generated/schema/slots/aic_decision_outcome.md"
+
+[[params.redirects]]
+from = "elements/decision_policy"
+to = "website/generated/schema/slots/aic_decision_criteria.md"
+
+[[params.redirects]]
+from = "elements/depends_on"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/detected_at"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/device_role"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/devices"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/drift_type"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ecosystem_components"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/edge_count"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/embodiment"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/end_date"
+to = "website/generated/schema/slots/aic_lifecycle_end.md"
+
+[[params.redirects]]
+from = "elements/engineering_approach"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/executed_by"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/execution_status"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/expansion"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/expert_systems"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/feature_count"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/functional_components"
+to = "website/generated/schema/slots/aic_system_steps.md"
+
+[[params.redirects]]
+from = "elements/goal_set"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ground_truth_available"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ground_truth_value"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/hosting_system"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/human_roles"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/hyperparameters"
+to = "website/generated/schema/slots/aic_ml_hyperparameters.md"
+
+[[params.redirects]]
+from = "elements/id"
+to = "website/generated/schema/slots/aic_id.md"
+
+[[params.redirects]]
+from = "elements/inference_engine"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/inference_latency_ms"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/inference_strategy"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/input_arity"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/input_dataset"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/input_modalities"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/intended_purpose"
+to = "website/generated/schema/slots/aic_system_purpose.md"
+
+[[params.redirects]]
+from = "elements/iot_integration"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/iot_subsystem"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/iot_systems"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/iso_stage"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/jurisdictional_issues"
+to = "website/generated/schema/slots/aic_system_jurisdictional_issues.md"
+
+[[params.redirects]]
+from = "elements/kernel_size"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/knowledge_graphs"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/knowledge_type"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/label_type"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/label_value"
+to = "website/generated/schema/slots/aic_dataset_labels.md"
+
+[[params.redirects]]
+from = "elements/language_code"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/lifecycle_stage"
+to = "website/generated/schema/slots/aic_system_stage.md"
+
+[[params.redirects]]
+from = "elements/likelihood"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/mapping_notes"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/measurement_method"
+to = "website/generated/schema/slots/aic_claim_measure.md"
+
+[[params.redirects]]
+from = "elements/mechanism_type"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/metric_name"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/metric_unit"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/metric_value"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/mitigation_strategy"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/modality"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/model_compression_applied"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/model_paradigm"
+to = "website/generated/schema/slots/aic_ml_paradigm.md"
+
+[[params.redirects]]
+from = "elements/model_version"
+to = "website/generated/schema/slots/aic_model_version.md"
+
+[[params.redirects]]
+from = "elements/models"
+to = "website/generated/schema/slots/aic_system_models.md"
+
+[[params.redirects]]
+from = "elements/name"
+to = "website/generated/schema/slots/title.md"
+
+[[params.redirects]]
+from = "elements/neural_network_architecture"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/nlp_component_type"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/node_count"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/number_of_layers"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/number_of_parameters"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/oecd_stage"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/ontology_reference"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/organization_name"
+to = "website/generated/schema/slots/aic_stakeholder_organization.md"
+
+[[params.redirects]]
+from = "elements/output_dataset"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/output_label_type"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/over_model"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/padding"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/parameter_count"
+to = "website/generated/schema/slots/aic_ml_parameter_count.md"
+
+[[params.redirects]]
+from = "elements/parameters"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/performance_metric"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/performed_by"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/physical_processes"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/potential_event"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/predicted_value"
+to = "website/generated/schema/slots/aic_prediction_value.md"
+
+[[params.redirects]]
+from = "elements/preferred_label"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/process_inputs"
+to = "website/generated/schema/slots/aic_lifecycle_inputs.md"
+
+[[params.redirects]]
+from = "elements/process_outputs"
+to = "website/generated/schema/slots/aic_lifecycle_outputs.md"
+
+[[params.redirects]]
+from = "elements/process_stage"
+to = "website/generated/schema/slots/aic_lifecycle_stage.md"
+
+[[params.redirects]]
+from = "elements/process_sub_type"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/process_type"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/produced_by"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/produced_output"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/property_evidence"
+to = "website/generated/schema/slots/aic_claim_evidence.md"
+
+[[params.redirects]]
+from = "elements/provenance_statement"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/recommendation_outcome_type"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/recommended_items"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/record_count"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/reference_dataset"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/representation_form"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/resource_type"
+to = "website/generated/schema/slots/aic_pool_kind.md"
+
+[[params.redirects]]
+from = "elements/responsibilities"
+to = "website/generated/schema/slots/aic_stakeholder_responsibilities.md"
+
+[[params.redirects]]
+from = "elements/responsible_role"
+to = "website/generated/schema/slots/aic_lifecycle_responsible.md"
+
+[[params.redirects]]
+from = "elements/risk_items"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/risk_source"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/rule_count"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/sample_label"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/sample_payload"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/script"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/see_also_uri"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/semantic_model"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/sensing_capabilities"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/severity"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/societal_impacts"
+to = "website/generated/schema/slots/aic_system_societal_impacts.md"
+
+[[params.redirects]]
+from = "elements/soft_computing_techniques"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/stakeholder_role_type"
+to = "website/generated/schema/slots/aic_stakeholder_role.md"
+
+[[params.redirects]]
+from = "elements/stakeholders"
+to = "website/generated/schema/slots/aic_system_stakeholders.md"
+
+[[params.redirects]]
+from = "elements/start_date"
+to = "website/generated/schema/slots/aic_lifecycle_start.md"
+
+[[params.redirects]]
+from = "elements/stride"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/supports_continuous_learning"
+to = "website/generated/schema/slots/aic_ml_continuous_learning.md"
+
+[[params.redirects]]
+from = "elements/symbolic_approach"
+to = "website/generated/schema/slots/aic_system_approaches.md"
+
+[[params.redirects]]
+from = "elements/system_characteristics"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/task_allocation"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/task_categories"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/task_category"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/tasks"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/terminology"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/test_dataset"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/threshold_policy"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/threshold_value"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/trained_on"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/training_dataset"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/training_duration"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/training_phenomena"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/triggered_by"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/trustworthiness"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/trustworthiness_properties"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/trustworthiness_property_type"
+to = "website/generated/schema/slots/aic_claim_property.md"
+
+[[params.redirects]]
+from = "elements/trustworthiness_records"
+to = "website/generated/schema/slots/aic_ecosystem_claims.md"
+
+[[params.redirects]]
+from = "elements/uses_model"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/validation_dataset"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/validation_methods"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/validation_strategy"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/verification_methods"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "elements/verification_validation_level"
+to = "website/generated/schema/_index.md"
+
+[[params.redirects]]
+from = "rights"
+to = "docs/rights.md"
+
+[[params.redirects]]
+from = "schema/*"
+to = "schema/*"
