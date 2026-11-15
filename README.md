@@ -2,6 +2,11 @@
 
 # iso22989
 
+[![Build and test](https://github.com/lmodel/iso22989/actions/workflows/main.yaml/badge.svg)](https://github.com/lmodel/iso22989/actions/workflows/main.yaml)
+[![Licence](https://img.shields.io/github/license/lmodel/iso22989?label=licence)](LICENSE)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/lmodel/iso22989/badge)](https://scorecard.dev/viewer/?uri=github.com/lmodel/iso22989)
+[![KTL scorecard](https://img.shields.io/endpoint?url=https://lmodel.github.io/iso22989/badge.json)](https://lmodel.github.io/iso22989/health/)
+
 ISO/IEC 22989:2022 AI concepts and terminology (LinkML)
 
 > **Only want to ask?** Install `ktl-docent` into any agent you use, by a route from [the install page](https://w3id.org/ktl/docs/install/), and ask it about this project. It answers from the bundle and says how far each answer has been checked.
